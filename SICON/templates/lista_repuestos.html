@@ -1,8 +1,14 @@
+<!--
+herencia de blank.html que es la plantilla de la pagina
+-->
 {%extends "blank.html"%}
 {% load staticfiles %}
 {% block css %}
 {%endblock%}
 
+<!--
+en esta seccion se va a poner el contenido de la pagina
+-->
 {%block content%}
 
 
@@ -127,7 +133,14 @@
                                 </table>
                             </div>
 {%endblock%}                            
+
+<!--
+en esta seccion iran enlaces a libresrias externas en este caso a datatables
+-->
 {%block js%}
+<!--
+para traer el bloque de codigo que esta en la pagina blank.html
+-->
 {{block.super}}
 
  <!-- DataTables JavaScript -->

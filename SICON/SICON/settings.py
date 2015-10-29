@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'administrador',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -79,8 +80,8 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sicon',
-        'USER': 'postgres',
-        'PASSWORD': 'nelsonalejo',
+        'USER': 'fernando',
+        'PASSWORD': 'fernando1128',
         'HOST': '127.0.0.1',
         'PORT': '5432',
 

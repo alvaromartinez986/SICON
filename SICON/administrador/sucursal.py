@@ -15,7 +15,7 @@ class Ciudad(models.Model):
 
 class Sucursal(models.Model):
 
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, unique=True)
     direccion = models.CharField(max_length=150)
     telefono = models.TextField(max_length=150)
     ciudad = models.ForeignKey(Ciudad)

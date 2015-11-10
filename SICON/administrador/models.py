@@ -1,4 +1,5 @@
 from django.db import models
+from vehiculos import *
 
 # Create your models here.
 class Repuesto (models.Model):

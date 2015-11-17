@@ -4,4 +4,5 @@ from .views import *
 
 urlpatterns = patterns('',
 	url(r'^listar',listar_sucursales),
+	url(r'^crear',crear_sucursal),
 )

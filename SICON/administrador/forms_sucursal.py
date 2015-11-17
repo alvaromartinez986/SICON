@@ -6,13 +6,14 @@ __author__ = 'alvaro'
 
 
 
+
 class SucursalForm(ModelForm):
     class Meta:
         model = Sucursal
         fields = [ 'nombre', 'direccion', 'telefono', 'ciudad']
         widgets = {
             'nombre': forms.TextInput(attrs={'class':'form-control required','placeholder':'Nombre...'}),
-            'direccion': forms.Textarea(attrs={'class':'form-control required','placeholder':'Dirección...'}),
-            'telefono' : forms.Textarea(attrs={'class':'form-control required', 'placeholder': 'Telefono..'}),
+            'direccion': forms.TextInput(attrs={'class':'form-control required','placeholder':'Direccion...'}),
+            'telefono' : forms.TextInput(attrs={'class':'form-control required', 'placeholder': 'Telefono..'}),
             'ciudad': forms.Select(attrs={'class':'form-control required'}),
         }

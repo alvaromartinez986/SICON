@@ -1,5 +1,5 @@
 from django.db import models
-from .sucursal import Sucursal, Ciudad
+from .sucursal import Sucursal, Ciudad, Departamento
 
 # Create your models here.
 class Repuesto (models.Model):

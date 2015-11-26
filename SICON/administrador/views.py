@@ -33,3 +33,14 @@ def editar_repuesto(request, id):
 		else:
 			return HttpResponseRedirect("/repuestos")
 	return render(request, 'lista_repuestos.html', {'repuestos': repuestos, 'edicion': True, 'form_edicion': form_edicion})
+
+def inventario (request,id):
+	print ("inventario")
+	repuestos= Repuesto.objects.all()
+	repuesto = Repuesto.objects.get(pk = id)
+	if request.method == 'POST':
+		cantidad = request.POST['cantidad_inv']
+		repuesto.cantidad+= int (cantidad)
+		repuesto.save()
+		return HttpResponseRedirect('/repuestos/')
+	return render(request, 'lista_repuestos.html', {'repuestos': repuestos, 'inventario': True, 'rep': repuesto})

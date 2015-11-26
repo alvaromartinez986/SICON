@@ -25,7 +25,7 @@ en esta seccion se va a poner el contenido de la pagina
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="dataTable_wrapper">
+                            <div class="dataTable_wrapper table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="repuestos">
                                     <thead>
                                         <tr>
@@ -60,7 +60,7 @@ en esta seccion se va a poner el contenido de la pagina
 											<td>{{rep.costo}}</td>
 											<td>{{rep.cantidad}}</td>
 											<td><a href="/repuestos-editar/{{rep.codigo}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
-											<td><a href="/repuestos-inventario/{{rep.codigo}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+											<td><a href="/repuestos-inventario/{{rep.codigo}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Añadir</button></a></td>
                                         </tr>
                                         {%endfor%}
 
@@ -248,7 +248,7 @@ para traer el bloque de codigo que esta en la pagina blank.html
     } );
 
     // DataTable
-    var table = $('#repuestos').DataTable();
+    var table = $('#repuestos').DataTable({responsive:true});
 
     // Apply the search
     table.columns().every( function () {

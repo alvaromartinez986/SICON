@@ -14,3 +14,7 @@ def crear_vehiculo_nuevo(request):
         vehiculo_n= VehiculoNuevoForm()
         return HttpResponseRedirect('/vehiculos_nuevos/')
     return render(request, 'crear_vehiculo_nuevo.html', {'form':vehiculo_n,'exito':exito} )
+
+def listar_vehiculos_nuevos(request):
+	vehiculos_n = VehiculoNuevo.objects.all()
+	return render(request,'lista_vehiculos_nuevos.html',{'vehiculos_nuevos':vehiculos_n })

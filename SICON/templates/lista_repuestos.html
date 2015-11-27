@@ -1,7 +1,7 @@
 <!--
 herencia de blank.html que es la plantilla de la pagina
 -->
-{%extends "blank.html" %}
+{%extends "indexAdmin.html" %}
 {% load staticfiles %}
 {% block css %}
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
@@ -12,10 +12,13 @@ herencia de blank.html que es la plantilla de la pagina
 <!--
 en esta seccion se va a poner el contenido de la pagina
 -->
+
 {%block content%}
 
+<h1 class="page-header">Repuestos</h1>
 
- <h1 class="page-header">Repuestos</h1>
+
+ 
 <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
@@ -183,14 +186,14 @@ en esta seccion se va a poner el contenido de la pagina
                         {% csrf_token %}
                         <!-- codigo -->
                         <div class="form-group">
-                            <label class="col-lg-4 control-label">Cantidad actual</label>
+                            <label class="col-lg-4 control-label">Cantidad Actual</label>
                             <input class="col-lg-6" id="disabledInput" class="form-control" type="text" disabled="" value={{rep.cantidad}} >
 
                             </input>
                             </div>
                         <!-- nombre -->
                         <div class="form-group">
-                            <label class="col-lg-4 control-label">Cantidad A Registrar</label>
+                            <label class="col-lg-4 control-label">Cantidad a Registrar</label>
                             <input name="cantidad_inv"class="col-lg-6" type="number" min="1" ng-model="name">
                             </input>
                         </div>

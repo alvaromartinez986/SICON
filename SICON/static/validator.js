@@ -52,8 +52,24 @@ $('#form_repuesto').bootstrapValidator({
                     }
 
                 }
+
             }
 
+            cantidad:
+            {
+                validators:
+                {
+                    notEmpty:
+                    {
+                        message: 'debe ingresar la cantidad'
+                    },
+                    digits:
+                    {
+                        message:'debe introducir numeros'
+                    }
+
+                }
+            }
         }
         });
 

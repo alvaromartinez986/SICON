@@ -1,0 +1,174 @@
+__author__ = 'nelson'
+
+{%extends "indexAdmin.html"%}
+{% load staticfiles %}
+{% block css %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
+    <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina
+
+{%block content %}
+ <!-- Page Heading -->
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="page-header">
+                                    Empleados <small>Registre los empleados a crear...</small>
+                                </h1>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-dashboard"></i> Aqui podra crear los empleados...
+                                </li>
+
+                            </ol>
+                            <div class="panel-body">
+                                {% if exito %}
+                                    <div class="alert alert-success alert-dismissable">
+                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+                                        <i class="fa fa-check"></i> Se creado un empleados con exito!
+                                    </div>
+                                {% endif %}
+                                <form action="" method="post">
+                                    {% csrf_token %}
+
+                                    <!-- no_documento -->
+                                    {{form.no_documento.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.no_documento.label}}</label>
+                                        <p class="help-block">Numero de Documento</p>
+                                        {{form.no_documento}}
+                                    </div>
+                                    <!--asd
+
+                                    <!-- Nombre -->
+                                    {{form.nombre.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.nombre.label}}</label>
+                                        <p class="help-block">Nombre del empleado</p>
+                                        {{form.nombre}}
+                                    </div>
+                                    <!--asd
+
+
+                                    <!-- apellido -->
+                                    {{form.apellido.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.apellido.label}}</label>
+                                        <p class="help-block">Apellido del empleado</p>
+                                        {{form.apellido}}
+                                    </div>
+                                    <!--asd
+
+                                    <!-- tipo_sangre -->
+                                    {{form.tipo_sangre.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.tipo_sangre.label}}</label>
+                                        <p class="help-block">tipo sangre del empleado</p>
+                                        {{form.tipo_sangre}}
+                                    </div>
+                                    <!--asd
+
+                                    <!-- experiencia -->
+                                    {{form.experiencia.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.experiencia.label}}</label>
+                                        <p class="help-block">experiencia del empleado</p>
+                                        {{form.experiencia}}
+                                    </div>
+                                    <!--asd
+
+
+                                    <!-- jornada -->
+                                    {{form.jornada.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.jornada.label}}</label>
+                                        <p class="help-block">jornada de la sucursal</p>
+                                        {{form.jornada}}
+                                    </div>
+
+                                    <!-- fecha_vinculacion -->
+                                    {{form.fecha_vinculacion.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.fecha_vinculacion.label}}</label>
+                                        <p class="help-block">fecha_vinculacion de la sucursal</p>
+                                        {{form.fecha_vinculacion}}
+                                    </div>
+
+                                    <!-- cargo-->
+                                    {{form.cargo.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.cargo.label}}</label>
+                                        <p class="help-block">cargo de la sucursal</p>
+                                        {{form.cargo}}
+                                    </div>
+
+                                    <!-- telefono -->
+                                    {{form.telefono.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.telefono.label}}</label>
+                                        <p class="help-block">telefono de la sucursal</p>
+                                        {{form.telefono}}
+                                    </div>
+
+                                    <!-- genero -->
+                                    {{form.genero.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.genero.label}}</label>
+                                        <p class="help-block">genero de la sucursal</p>
+                                        {{form.genero}}
+                                    </div>
+
+                                    <!-- fecha_nacimiento -->
+                                    {{form.fecha_nacimiento.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.fecha_nacimiento.label}}</label>
+                                        <p class="help-block">fecha_nacimiento de la sucursal</p>
+                                        {{form.fecha_nacimiento}}
+                                    </div>
+
+                                    <!-- area -->
+                                    {{form.area.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.area.label}}</label>
+                                        <p class="help-block">area de la sucursal</p>
+                                        {{form.area}}
+                                    </div>
+
+                                    <!-- estado_empleado -->
+                                    {{form.estado_empleado.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.estado_empleado.label}}</label>
+                                        <p class="help-block">estado_empleado de la sucursal</p>
+                                        {{form.estado_empleado}}
+                                    </div>
+
+                                    <!-- jefe -->
+                                    {{form.jefe.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.jefe.label}}</label>
+                                        <p class="help-block">jefe de la sucursal</p>
+                                        {{form.jefe}}
+                                    </div>
+
+
+                                    <!--BOTON-->
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Crear</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

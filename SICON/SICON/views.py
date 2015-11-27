@@ -11,4 +11,5 @@ def index(request):
     return render(request, 'indexAdmin.html',{})
 
 def listar(request):
-    return render(request,'lista_repuestos.html',{})
+    return render(request,'lista_empleados.html',{})
+

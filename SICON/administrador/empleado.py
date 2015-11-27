@@ -10,7 +10,7 @@ class Empleado(models.Model):
     tipo_sangre =       models.CharField(max_length=20)
     experiencia =       models.IntegerField()
     jornada=            models.CharField(max_length=15)
-    fecha_vinculacion = models.DateField()
+    fecha_vinculacion = models.DateField(blank=True)
     cargo =             models.CharField(max_length=150)
     telefono =          models.CharField(max_length=100)
     genero =            models.CharField(max_length=15)

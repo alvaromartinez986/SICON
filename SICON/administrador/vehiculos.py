@@ -4,7 +4,10 @@ class Vehiculo(models.Model):
     cilindraje = models.IntegerField()
     linea = models.CharField(max_length=50)
     modelo = models.IntegerField()
-    COMB_CHOICES = ('Gasolina', 'Gas')
+    #TIPOS DE COMBUSTIBLE
+    GASOLINA='Gasolina'
+    GAS= 'Gas'
+    COMB_CHOICES = ((GASOLINA, 'Gasolina'), (GAS, 'Gas'))
     tipo_combustible = models.CharField(choices=COMB_CHOICES, max_length=50)
     color = models.CharField(max_length=50)
     marca = models.CharField(max_length=50)
@@ -16,6 +19,9 @@ class VehiculoNuevo(Vehiculo):
     valor = models.IntegerField()
 
 class VehiculoUsado(Vehiculo):
-    SERVICIO_CHOICES = ('Publico', 'Privado')
+    #TIPOS DE SERVICIO
+    PUBLICO= 'Publico'
+    PRIVADO= 'Prviado'
+    SERVICIO_CHOICES = ((PUBLICO,'Publico'), (PRIVADO,'Privado'))
     servicio = models.CharField(choices= SERVICIO_CHOICES, max_length=50)
     placa = models.CharField(max_length=6)

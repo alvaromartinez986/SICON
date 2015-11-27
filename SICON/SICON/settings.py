@@ -79,9 +79,9 @@ DATABASES = {
     'default': {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sicon',
-        'USER': 'brayan',
-        'PASSWORD': 'brayan',
+        'NAME': 'sicondb',
+        'USER': 'siconuser',
+        'PASSWORD': 'hola123',
         'HOST': '127.0.0.1',
         'PORT': '5432',
 
@@ -107,10 +107,6 @@ STATICFILES_DIRS = (
 
 )
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
-
-)
 
 
 # Static files (CSS, JavaScript, Images)

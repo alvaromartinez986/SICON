@@ -19,7 +19,7 @@ class VehiculoNuevoForm(ModelForm):
 
 class VehiculoUsadoForm(ModelForm):
     class Meta:
-        model = VehiculoNuevo
+        model = VehiculoUsado
         fields = ['cilindraje', 'linea', 'modelo', 'tipo_combustible', 'color','marca', 'placa', 'servicio']
         widgets = {
 			'cilindraje': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Cilindraje...'}),

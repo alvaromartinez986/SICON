@@ -6,14 +6,15 @@ from .models import Vehiculo, VehiculoNuevo, VehiculoUsado
 class VehiculoNuevoForm(ModelForm):
     class Meta:
         model = VehiculoNuevo
-        fields = ['cilindraje', 'linea', 'modelo', 'tipo_combustible', 'color','marca', 'valor']
+        fields = ['codigo', 'cilindraje','marca', 'linea', 'modelo', 'tipo_combustible', 'color', 'valor']
         widgets = {
+            'codigo': forms.TextInput(attrs={'class':'form-control required','placeholder':'Código...'}),
 			'cilindraje': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Cilindraje...'}),
+            'marca': forms.TextInput(attrs={'class':'form-control required','placeholder':'Marca...'}),
             'linea': forms.TextInput(attrs={'class':'form-control required','placeholder':'Línea...'}),
-            'modelo': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Modelo...'}),
+            'modelo': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Modelo...', 'min':'1950'}),
             'tipo_combustible' : forms.Select(attrs={'class':'form-control required'}),
             'color': forms.TextInput(attrs={'class':'form-control required','placeholder':'Color...'}),
-            'marca': forms.TextInput(attrs={'class':'form-control required','placeholder':'Marca...'}),
 			'valor': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Valor...'}),
 	    }
 
@@ -22,12 +23,12 @@ class VehiculoUsadoForm(ModelForm):
         model = VehiculoUsado
         fields = ['cilindraje', 'linea', 'modelo', 'tipo_combustible', 'color','marca', 'placa', 'servicio']
         widgets = {
+            'placa': forms.TextInput(attrs={'class':'form-control required','placeholder':'Placa...'}),
 			'cilindraje': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Cilindraje...'}),
+            'marca': forms.TextInput(attrs={'class':'form-control required','placeholder':'Marca...'}),
             'linea': forms.TextInput(attrs={'class':'form-control required','placeholder':'Línea...'}),
-            'modelo': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Modelo...'}),
+            'modelo': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Modelo...', 'min':'1950'}),
             'tipo_combustible' : forms.Select(attrs={'class':'form-control required'}),
             'color': forms.TextInput(attrs={'class':'form-control required','placeholder':'Color...'}),
-            'marca': forms.TextInput(attrs={'class':'form-control required','placeholder':'Marca...'}),
-			'placa': forms.TextInput(attrs={'class':'form-control required','placeholder':'Placa...'}),
             'servicio' : forms.Select(attrs={'class':'form-control required'}),
 	    }

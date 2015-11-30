@@ -18,12 +18,12 @@ en esta seccion se va a poner el contenido de la pagina
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h1 class="page-header">
-                                    Vehiculos para vender <small>Registre el vehículo nuevo para poner a la venta...</small>
+                                    Vehiculos para reparar <small>Registre el vehículo que ingresó para reparar...</small>
                                 </h1>
                             </div>
                             <ol class="breadcrumb">
                                 <li class="active">
-                                    <i class="fa fa-dashboard"></i> Aqui podra registrar los vehículos nuevos que se pondrán a la venta.
+                                    <i class="fa fa-dashboard"></i> Aqui podra registrar los vehículos que han ingresado para reparar.
                                 </li>
 
                             </ol>
@@ -31,17 +31,17 @@ en esta seccion se va a poner el contenido de la pagina
                                 {% if exito %}
                                     <div class="alert alert-success alert-dismissable">
                                         <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-                                        <i class="fa fa-check"></i> Se registrado un vehículo para vender con exito.
+                                        <i class="fa fa-check"></i> Se ha registrado un vehículo para reparar con exito.
                                     </div>
                                 {% endif %}
                                 <form action="" method="post">
                                     {% csrf_token %}
-                                    <!-- codigo -->
-                                    {{form.codigo.errors}}
+                                    <!-- placa -->
+                                    {{form.placa.errors}}
                                     <div class="form-group">
-                                        <label>{{form.codigo.label}}</label>
-                                        <p class="help-block">Codigo del vehículo</p>
-                                        {{form.codigo}}
+                                        <label>{{form.placa.label}}</label>
+                                        <p class="help-block">Placa del vehículo</p>
+                                        {{form.placa}}
                                     </div>
 
                                     <!-- Cilindraje -->
@@ -92,12 +92,12 @@ en esta seccion se va a poner el contenido de la pagina
                                         {{form.color}}
                                     </div>
 
-                                    <!-- valor -->
-                                    {{form.valor.errors}}
+                                    <!-- servicio -->
+                                    {{form.servicio.errors}}
                                     <div class="form-group">
-                                        <label>{{form.valor.label}}</label>
-                                        <p class="help-block">Valor del vehículo</p>
-                                        {{form.valor}}
+                                        <label>{{form.servicio.label}}</label>
+                                        <p class="help-block">Tipo de servicio del vehículo</p>
+                                        {{form.servicio}}
                                     </div>
 
                                     <!--BOTON-->

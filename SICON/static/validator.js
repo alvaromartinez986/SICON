@@ -53,7 +53,7 @@ $('#form_repuesto').bootstrapValidator({
 
                 }
 
-            }
+            },
 
             cantidad:
             {

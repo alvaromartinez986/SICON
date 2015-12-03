@@ -66,7 +66,7 @@ en esta seccion se va a poner el contenido de la pagina
 											<td>{{rep.marca}}</td>
 											<td>{{rep.costo}}</td>
 											<td>{{rep.cantidad}}</td>
-											<td><a href="/repuestos-editar/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+											<td><a href="/repuestos/editar/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
 											<td><a href="/repuestos-inventario/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Añadir</button></a></td>
                                         </tr>
                                         {%endfor%}
@@ -235,8 +235,8 @@ para traer el bloque de codigo que esta en la pagina blank.html
 {{block.super}}
 
  <!-- DataTables JavaScript -->
-    <script src="../static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="../static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
     <!-- validacion del formulario editar-->
     <script type="text/javascript" src="../static/validator.js"></script>

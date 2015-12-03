@@ -15,7 +15,7 @@ class VehiculoNuevoForm(ModelForm):
             'modelo': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Modelo...', 'min':'1950'}),
             'tipo_combustible' : forms.Select(attrs={'class':'form-control required'}),
             'color': forms.TextInput(attrs={'class':'form-control required','placeholder':'Color...'}),
-			'valor': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Valor...'}),
+			'valor': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Valor...', 'min':'0'}),
 	    }
 
 class VehiculoUsadoForm(ModelForm):

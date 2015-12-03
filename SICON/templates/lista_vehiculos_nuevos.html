@@ -93,7 +93,6 @@ en esta seccion se va a poner el contenido de la pagina
                         <div class="form-group">
                             {{form_edicion.codigo.errors}}
                             <label class="col-lg-2 control-label">{{form_edicion.codigo.label}}</label>
-
                             <div class="col-lg-6">
                                 {{form_edicion.codigo}}
                             </div>
@@ -102,49 +101,42 @@ en esta seccion se va a poner el contenido de la pagina
                         <div class="form-group">
                             {{form_edicion.cilindraje.errors}}
                             <label class="col-lg-2 control-label">{{form_edicion.cilindraje.label}}</label>
-
                             <div class="col-lg-6 text-label">{{form_edicion.cilindraje}}</div>
                         </div>
                         <!-- marca -->
                         <div class="form-group">
                             {{form_edicion.marca.errors}}
                             <label class="col-lg-2 control-label">{{form_edicion.marca.label}}</label>
-
                             <div class="col-lg-6">{{form_edicion.marca}}</div>
                         </div>
                         <!-- linea -->
                         <div class="form-group">
                             {{form_edicion.linea.errors}}
                             <label class="col-lg-2 control-label">{{form_edicion.linea.label}}</label>
-
                             <div class="col-lg-6">{{form_edicion.linea}}</div>
                         </div>
                         <!-- modelo-->
                         <div class="form-group">
                             {{form_edicion.modelo.errors}}
                             <label class="col-lg-2 control-label">{{form_edicion.modelo.label}}</label>
-
                             <div class="col-lg-6">{{form_edicion.modelo}}</div>
                         </div>
                         <!-- tipo_combustible-->
                         <div class="form-group">
                             {{form_edicion.tipo_combustible.errors}}
                             <label class="col-lg-2 control-label">{{form_edicion.tipo_combustible.label}}</label>
-
                             <div class="col-lg-6">{{form_edicion.tipo_combustible}}</div>
                         </div>
                         <!--color-->
                         <div class="form-group">
                             {{form_edicion.color.errors}}
                             <label class="col-lg-2 control-label">{{form_edicion.color.label}}</label>
-
                             <div class="col-lg-6">{{form_edicion.color}}</div>
                         </div>
                         <!--valor-->
                         <div class="form-group">
                             {{form_edicion.valor.errors}}
                             <label class="col-lg-2 control-label">{{form_edicion.valor.label}}</label>
-
                             <div class="col-lg-6">{{form_edicion.valor}}</div>
                         </div>
                         <!--/div-->
@@ -181,11 +173,11 @@ para traer el bloque de codigo que esta en la pagina blank.html
 {{block.super}}
 
  <!-- DataTables JavaScript -->
-    <script src="../static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="../static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
     <!-- validacion del formulario editar-->
-    <script type="text/javascript" src="../static/validator.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
     
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 

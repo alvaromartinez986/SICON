@@ -44,15 +44,14 @@ en esta seccion se va a poner el contenido de la pagina
                                     </thead>
                                     <tfoot>
                                     <tr>
-                                            <th>codigo</th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-
-                                        </tr>
+                                        <th>codigo</th>
+                                        <th>nombre</th>
+                                        <th>marca</th>
+                                        <th>costo</th>
+                                        <th>cantidad</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
                                     </tfoot>
                                     <tbody>
                                         {%for rep in repuestos %}
@@ -62,8 +61,8 @@ en esta seccion se va a poner el contenido de la pagina
 											<td>{{rep.marca}}</td>
 											<td>{{rep.costo}}</td>
 											<td>{{rep.cantidad}}</td>
-											<td><a href="/repuestos-editar/{{rep.codigo}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
-											<td><a href="/repuestos-inventario/{{rep.codigo}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Añadir</button></a></td>
+											<td><a href="/repuestos-editar/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+											<td><a href="/repuestos-inventario/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Añadir</button></a></td>
                                         </tr>
                                         {%endfor%}
 
@@ -245,9 +244,9 @@ para traer el bloque de codigo que esta en la pagina blank.html
           var i=0;
     $('#repuestos tfoot th').each( function () {
         i++;
-        if (i <=1){
+        if (i <=5){
         var title = $(this).text();
-        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );}
+        $(this).html( '<input type="text" placeholder="'+title+'" style="width: 100%;" />' );}
     } );
 
     // DataTable

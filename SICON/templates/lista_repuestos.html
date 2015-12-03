@@ -26,7 +26,7 @@ en esta seccion se va a poner el contenido de la pagina
                         <div class="panel-heading">
                             <h3>Repuestos <small>Información básica de repuestos...</small></h3>
                             <div class="container-fluid" align="right">
-                                <a href="crear" class="btn btn-info" data-toggle="tooltip" title="Nuevo Repuesto">
+                                <a href="../repuestos/crear" class="btn btn-info" data-toggle="tooltip" title="Nuevo Repuesto">
                                     <span class="fa fa-plus-circle"></span></a>
                             </div>
 
@@ -66,7 +66,7 @@ en esta seccion se va a poner el contenido de la pagina
 											<td>{{rep.marca}}</td>
 											<td>{{rep.costo}}</td>
 											<td>{{rep.cantidad}}</td>
-											<td><a href="/repuestos/editar/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+											<td><a href="/repuestos-editar/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
 											<td><a href="/repuestos-inventario/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Añadir</button></a></td>
                                         </tr>
                                         {%endfor%}

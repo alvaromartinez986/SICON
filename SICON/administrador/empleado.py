@@ -18,5 +18,3 @@ class Empleado(models.Model):
     area    =           models.CharField(max_length=150)
     estado_empleado =   models.CharField(max_length=15) #Vinculado/Desvinculado
     jefe =              models.IntegerField()
-
-

@@ -6,6 +6,7 @@ __author__ = 'nelson'
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
     <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    
 {%endblock%}
 
 <!--
@@ -34,7 +35,7 @@ en esta seccion se va a poner el contenido de la pagina
                                 {% if exito %}
                                     <div class="alert alert-success alert-dismissable">
                                         <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-                                        <i class="fa fa-check"></i> Se creado un empleados con exito!
+                                        <i class="fa fa-check"></i> Se creado un empleado con exito!
                                     </div>
                                 {% endif %}
                                 <form action="" method="post">
@@ -72,7 +73,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {{form.tipo_sangre.errors}}
                                     <div class="form-group">
                                         <label>{{form.tipo_sangre.label}}</label>
-                                        <p class="help-block">tipo sangre del empleado</p>
+                                        <p class="help-block">Tipo de sangre del empleado</p>
                                         {{form.tipo_sangre}}
                                     </div>
                                     <!--asd
@@ -81,7 +82,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {{form.experiencia.errors}}
                                     <div class="form-group">
                                         <label>{{form.experiencia.label}}</label>
-                                        <p class="help-block">experiencia del empleado</p>
+                                        <p class="help-block">Experiencia del empleado (años)</p>
                                         {{form.experiencia}}
                                     </div>
                                     <!--asd
@@ -91,7 +92,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {{form.jornada.errors}}
                                     <div class="form-group">
                                         <label>{{form.jornada.label}}</label>
-                                        <p class="help-block">jornada de la sucursal</p>
+                                        <p class="help-block">Jornada</p>
                                         {{form.jornada}}
                                     </div>
 
@@ -99,7 +100,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {{form.fecha_vinculacion.errors}}
                                     <div class="form-group">
                                         <label>{{form.fecha_vinculacion.label}}</label>
-                                        <p class="help-block">fecha_vinculacion de la sucursal</p>
+                                        <p class="help-block">Fecha de vinculacion</p>
                                         {{form.fecha_vinculacion}}
                                     </div>
 
@@ -107,7 +108,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {{form.cargo.errors}}
                                     <div class="form-group">
                                         <label>{{form.cargo.label}}</label>
-                                        <p class="help-block">cargo de la sucursal</p>
+                                        <p class="help-block">Cargo</p>
                                         {{form.cargo}}
                                     </div>
 
@@ -115,7 +116,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {{form.telefono.errors}}
                                     <div class="form-group">
                                         <label>{{form.telefono.label}}</label>
-                                        <p class="help-block">telefono de la sucursal</p>
+                                        <p class="help-block">Telefono</p>
                                         {{form.telefono}}
                                     </div>
 
@@ -123,15 +124,15 @@ en esta seccion se va a poner el contenido de la pagina
                                     {{form.genero.errors}}
                                     <div class="form-group">
                                         <label>{{form.genero.label}}</label>
-                                        <p class="help-block">genero de la sucursal</p>
+                                        <p class="help-block">Genero</p>
                                         {{form.genero}}
                                     </div>
-
+                                    
                                     <!-- fecha_nacimiento -->
                                     {{form.fecha_nacimiento.errors}}
                                     <div class="form-group">
                                         <label>{{form.fecha_nacimiento.label}}</label>
-                                        <p class="help-block">fecha_nacimiento de la sucursal</p>
+                                        <p class="help-block">Fecha de nacimiento</p>
                                         {{form.fecha_nacimiento}}
                                     </div>
 
@@ -139,7 +140,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {{form.area.errors}}
                                     <div class="form-group">
                                         <label>{{form.area.label}}</label>
-                                        <p class="help-block">area de la sucursal</p>
+                                        <p class="help-block">Area de trabajo</p>
                                         {{form.area}}
                                     </div>
 
@@ -147,7 +148,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {{form.estado_empleado.errors}}
                                     <div class="form-group">
                                         <label>{{form.estado_empleado.label}}</label>
-                                        <p class="help-block">estado_empleado de la sucursal</p>
+                                        <p class="help-block">Estado del empleado (activo o inactivo)</p>
                                         {{form.estado_empleado}}
                                     </div>
 
@@ -155,7 +156,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {{form.jefe.errors}}
                                     <div class="form-group">
                                         <label>{{form.jefe.label}}</label>
-                                        <p class="help-block">jefe de la sucursal</p>
+                                        <p class="help-block">Jefe del empleado</p>
                                         {{form.jefe}}
                                     </div>
 

@@ -2,6 +2,7 @@
 from django.forms import ModelForm
 from django import forms
 from .models import Empleado
+from .models import Usuarios
 
 __author__ = 'nelson'
 

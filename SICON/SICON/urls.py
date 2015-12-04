@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     url(r'^repuestos-editar/(\d+)$',editar_repuesto),
     url(r'^repuestos/crear',crear_repuesto),
     url(r'^repuestos/',listar_repuestos),
+    url(r'^login$',iniciar_sesion),
+    url(r'^logout',cerrar_sesion),
     url(r'^empleado/crear', crear_empleado),
     url(r'^empleado/listar', listar_empleado),
     url(r'^empleado/editar/(\d+)$', editar_empleado)

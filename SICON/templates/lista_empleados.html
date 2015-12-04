@@ -1,0 +1,248 @@
+<!--
+herencia de blank.html que es la plantilla de la pagina
+-->
+{%extends "indexAdmin.html" %}
+{% load staticfiles %}
+{% block css %}
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina
+-->
+{%block content%}
+
+
+ <h1 class="page-header">Tables</h1>
+<!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            DataTables Advanced Tables
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Documento</th>
+                                            <th>Apellido</th>
+                                            <th>Nombre</th>
+                                            <th>Cargo</th>
+                                            <th>Experiencia</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {%for emp in empleados %}
+                                        <tr>
+											<td>{{emp.no_documento}}</td>
+											<td>{{rep.apellido}}</td>
+											<td>{{rep.nombre}}</td>
+											<td>{{rep.experiencia}}</td>
+											<td><a href="/repuestos-editar/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+                                        </tr>
+                                        {%endfor%}
+                                        
+                                  
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% if edicion %}
+
+    <button type="button" id="botonModalEdicion" data-toggle="modal" data-target="#editarEmpleado"
+            style="display:none;"></button>
+    <div class="modal inmodal" id="editarEmpleado" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <i class="fa fa-users modal-icon"></i>
+                    <h4 class="modal-title">Editar Empleado</h4>
+                    <small class="font-bold">Por favor modifique a continuación los campos
+                        deseados y dé clic en guardar cambios cuando haya terminado, de lo
+                        contrario de clic en cancelar.
+                    </small>
+                </div>
+                <div class="modal-body">
+                    <form action="form_empleado" method="post" class="form-horizontal">
+                        {% csrf_token %}
+                        <!-- no_documento -->
+							{{form_edicion.no_documento.errors}}
+							<div class="form-group">
+								<label>{{form.no_documento.label}}</label>
+								<p class="help-block">Numero de Documento</p>
+								{{form.no_documento}}
+							</div>
+							<!--asd
+
+							<!-- Nombre -->
+							{{form_edicion.nombre.errors}}
+							<div class="form-group">
+								<label>{{form.nombre.label}}</label>
+								<p class="help-block">Nombre del empleado</p>
+								{{form.nombre}}
+							</div>
+							<!--asd
+
+
+							<!-- apellido -->
+							{{form_edicion.apellido.errors}}
+							<div class="form-group">
+								<label>{{form.apellido.label}}</label>
+								<p class="help-block">Apellido del empleado</p>
+								{{form.apellido}}
+							</div>
+							<!--asd
+
+							<!-- tipo_sangre -->
+							{{form_edicion.tipo_sangre.errors}}
+							<div class="form-group">
+								<label>{{form.tipo_sangre.label}}</label>
+								<p class="help-block">Tipo de sangre del empleado</p>
+								{{form.tipo_sangre}}
+							</div>
+							<!--asd
+
+							<!-- experiencia -->
+							{{form_edicion.experiencia.errors}}
+							<div class="form-group">
+								<label>{{form.experiencia.label}}</label>
+								<p class="help-block">Experiencia del empleado (años)</p>
+								{{form.experiencia}}
+							</div>
+							<!--asd
+
+
+							<!-- jornada -->
+							{{form_edicion.jornada.errors}}
+							<div class="form-group">
+								<label>{{form.jornada.label}}</label>
+								<p class="help-block">Jornada</p>
+								{{form.jornada}}
+							</div>
+
+							<!-- fecha_vinculacion -->
+							{{form_edicion.fecha_vinculacion.errors}}
+							<div class="form-group">
+								<label>{{form.fecha_vinculacion.label}}</label>
+								<p class="help-block">Fecha de vinculacion</p>
+								{{form.fecha_vinculacion}}
+							</div>
+
+							<!-- cargo-->
+							{{form_edicion.cargo.errors}}
+							<div class="form-group">
+								<label>{{form.cargo.label}}</label>
+								<p class="help-block">Cargo</p>
+								{{form.cargo}}
+							</div>
+
+							<!-- telefono -->
+							{{form_edicion.telefono.errors}}
+							<div class="form-group">
+								<label>{{form.telefono.label}}</label>
+								<p class="help-block">Telefono</p>
+								{{form.telefono}}
+							</div>
+
+							<!-- genero -->
+							{{form_edicion.genero.errors}}
+							<div class="form-group">
+								<label>{{form.genero.label}}</label>
+								<p class="help-block">Genero</p>
+								{{form.genero}}
+							</div>
+
+							<!-- fecha_nacimiento -->
+							{{form_edicion.fecha_nacimiento.errors}}
+							<div class="form-group">
+								<label>{{form.fecha_nacimiento.label}}</label>
+								<p class="help-block">Fecha de nacimiento</p>
+								{{form.fecha_nacimiento}}
+							</div>
+
+							<!-- area -->
+							{{form_edicion.area.errors}}
+							<div class="form-group">
+								<label>{{form.area.label}}</label>
+								<p class="help-block">Area de trabajo</p>
+								{{form.area}}
+							</div>
+
+							<!-- estado_empleado -->
+							{{form_edicion.estado_empleado.errors}}
+							<div class="form-group">
+								<label>{{form.estado_empleado.label}}</label>
+								<p class="help-block">Estado del empleado (activo o inactivo)</p>
+								{{form.estado_empleado}}
+							</div>
+
+							<!-- jefe -->
+							{{form_edicion.jefe.errors}}
+							<div class="form-group">
+								<label>{{form.jefe.label}}</label>
+								<p class="help-block">Jefe del empleado</p>
+								{{form.jefe}}
+							</div>
+                        <!--/div-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white"
+                                    href="/empleados" data-dismiss="modal">Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-primary">Guardar cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endif%}
+
+
+                            
+<!--
+          acontinuacion se pone el codigo para la edicion                  
+-->
+
+{%endblock%}                            
+
+<!--
+en esta seccion iran enlaces a libresrias externas en este caso a datatables
+-->
+{%block js%}
+<!--
+para traer el bloque de codigo que esta en la pagina blank.html
+-->
+{{block.super}}
+
+ <!-- DataTables JavaScript -->
+    <script src="../static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="../static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+                responsive: true
+        });
+    });
+    </script>
+
+     {%if edicion %}
+        <script>
+        $(document).ready(function(){
+        $('#botonModalEdicion').click();
+        });
+        </script>
+    {%endif%}
+
+{%endblock%}

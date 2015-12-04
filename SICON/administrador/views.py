@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from .forms import RepuestoForm
 from django.http import HttpResponseRedirect
-from .models import Repuesto, Sucursal, Empleado
+from .models import Repuesto, Sucursal, Empleado, Usuarios
 from views_sucursales import *
 from views_empleado import *
+from views_usuarios import *
 # Create your views here.
 def crear_repuesto(request):
 	repuesto = RepuestoForm()

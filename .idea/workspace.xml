@@ -2,25 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f43c95fe-2f1d-45bd-955f-a401324dae7b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0002_auto_20151130_1819.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0004_vehiculo_activo.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/lista_vehiculos_usados.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/vehiculos.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/bootstrapValidator.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/forms_repuesto.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/validator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/views_repuesto.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/db.sqlite3" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/SICON/administrador/models.py" afterPath="$PROJECT_DIR$/SICON/administrador/repuesto.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_repuesto.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_repuesto.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/index.html" afterPath="$PROJECT_DIR$/SICON/templates/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" afterPath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/lista_repuestos.html" afterPath="$PROJECT_DIR$/SICON/templates/lista_repuestos.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/models.py" afterPath="$PROJECT_DIR$/SICON/administrador/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/SICON/settings.py" afterPath="$PROJECT_DIR$/SICON/SICON/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/SICON/urls.py" afterPath="$PROJECT_DIR$/SICON/SICON/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/urls.py" afterPath="$PROJECT_DIR$/SICON/administrador/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/SICON/views.py" afterPath="$PROJECT_DIR$/SICON/SICON/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views.py" afterPath="$PROJECT_DIR$/SICON/administrador/views.py" />
     </list>
     <ignored path="SICON.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,9 +42,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding>
-                <element signature="e#24#75#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -58,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/SICON/templates/indexAdmin.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="89" column="17" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
+              <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -77,7 +70,7 @@
       <file leaf-file-name="lista_vehiculos_nuevos.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22209567">
+            <state vertical-scroll-proportion="1.4009112">
               <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
@@ -224,8 +217,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -314,6 +305,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -476,7 +469,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1615" height="1026" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -823,7 +816,7 @@
     <entry file="file://$PROJECT_DIR$/SICON/templates/indexAdmin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="17" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
+          <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -874,9 +867,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#75#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -900,7 +891,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22209567">
+        <state vertical-scroll-proportion="1.4009112">
           <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />

@@ -47,8 +47,8 @@ class Empleado(models.Model):
     fecha_nacimiento =  models.DateField()
     area    =           models.CharField(max_length=150)
     
-    VINC='Vinculado'
-    DESV='Desvinculado'
-    VINC_CHOICES = ((VINC,'Vinculados'), (DESV,'Desvinculado'))
+    ACT='Activado'
+    DES='Desactivado'
+    VINC_CHOICES = ((ACT,'Activado'), (DES,'Desactivado'))
     estado_empleado =   models.CharField(choices=VINC_CHOICES, max_length=15) #Vinculado/Desvinculado
     jefe =              models.IntegerField()

@@ -34,7 +34,7 @@ en esta seccion se va a poner el contenido de la pagina
                                             <th>Nombre</th>
                                             <th>Cargo</th>
                                             <th>Estado</th>
-                                            <th>Editar</th>
+                                            <th>Ver más/Editar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -48,8 +48,6 @@ en esta seccion se va a poner el contenido de la pagina
 											<td><a href="/empleado/editar/{{emp.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
                                         </tr>
                                         {%endfor%}
-                                        
-                                  
                                     </tbody>
                                 </table>
                             </div>
@@ -77,51 +75,58 @@ en esta seccion se va a poner el contenido de la pagina
                     </small>
                 </div>
                 <div class="modal-body">
-                    <form action="form_empleado" method="post" class="form-horizontal">
+                    <form id="form_empleado" method="post" class="form-horizontal">
                         {% csrf_token %}
                         <!-- no_documento -->
-							{{form_edicion.no_documento.errors}}
+							
 							<div class="form-group">
-								<label>{{form.no_documento.label}}</label>
-								<p class="help-block">Numero de Documento</p>
-								{{form.no_documento}}
+								{{form_edicion.no_documento.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.no_documento.label}}</label>
+
+                            <div class="col-lg-6">
+								{{form_edicion.no_documento}}</div>
 							</div>
+							
 							<!--asd
 
 							<!-- Nombre -->
-							{{form_edicion.nombre.errors}}
+							
 							<div class="form-group">
-								<label>{{form.nombre.label}}</label>
-								<p class="help-block">Nombre del empleado</p>
-								{{form.nombre}}
+								{{form_edicion.nombre.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.nombre.label}}</label>
+
+								<div class="col-lg-6 text-label">{{form_edicion.nombre}}</div>
 							</div>
 							<!--asd
 
 
 							<!-- apellido -->
-							{{form_edicion.apellido.errors}}
+							
 							<div class="form-group">
-								<label>{{form.apellido.label}}</label>
-								<p class="help-block">Apellido del empleado</p>
-								{{form.apellido}}
+								{{form_edicion.apellido.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.apellido.label}}</label>
+
+								<div class="col-lg-6 text-label">{{form_edicion.apellido}}</div>
 							</div>
 							<!--asd
 
 							<!-- tipo_sangre -->
-							{{form_edicion.tipo_sangre.errors}}
+							
 							<div class="form-group">
-								<label>{{form.tipo_sangre.label}}</label>
-								<p class="help-block">Tipo de sangre del empleado</p>
-								{{form.tipo_sangre}}
+								{{form_edicion.tipo_sangre.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.tipo_sangre.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.tipo_sangre}}</div>
 							</div>
 							<!--asd
 
 							<!-- experiencia -->
-							{{form_edicion.experiencia.errors}}
+							
 							<div class="form-group">
-								<label>{{form.experiencia.label}}</label>
-								<p class="help-block">Experiencia del empleado (años)</p>
-								{{form.experiencia}}
+								{{form_edicion.experiencia.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.experiencia.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.experiencia}}</div>
 							</div>
 							<!--asd
 
@@ -129,78 +134,86 @@ en esta seccion se va a poner el contenido de la pagina
 							<!-- jornada -->
 							{{form_edicion.jornada.errors}}
 							<div class="form-group">
-								<label>{{form.jornada.label}}</label>
-								<p class="help-block">Jornada</p>
-								{{form.jornada}}
+								<label class="col-lg-2 control-label">{{form_edicion.jornada.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.jornada}}</div>
 							</div>
 
 							<!-- fecha_vinculacion -->
-							{{form_edicion.fecha_vinculacion.errors}}
+							
 							<div class="form-group">
-								<label>{{form.fecha_vinculacion.label}}</label>
-								<p class="help-block">Fecha de vinculacion</p>
-								{{form.fecha_vinculacion}}
+								{{form_edicion.fecha_vinculacion.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.fecha_vinculacion.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.fecha_vinculacion}}</div>
 							</div>
 
 							<!-- cargo-->
-							{{form_edicion.cargo.errors}}
+							
 							<div class="form-group">
-								<label>{{form.cargo.label}}</label>
-								<p class="help-block">Cargo</p>
-								{{form.cargo}}
+								{{form_edicion.cargo.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.cargo.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.cargo}}</div>
 							</div>
 
 							<!-- telefono -->
-							{{form_edicion.telefono.errors}}
+							
 							<div class="form-group">
-								<label>{{form.telefono.label}}</label>
-								<p class="help-block">Telefono</p>
-								{{form.telefono}}
+								{{form_edicion.telefono.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.telefono.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.telefono}}</div>
 							</div>
 
 							<!-- genero -->
-							{{form_edicion.genero.errors}}
+							
 							<div class="form-group">
-								<label>{{form.genero.label}}</label>
-								<p class="help-block">Genero</p>
-								{{form.genero}}
+								{{form_edicion.genero.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.genero.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.genero}}</div>
 							</div>
 
 							<!-- fecha_nacimiento -->
-							{{form_edicion.fecha_nacimiento.errors}}
+							
 							<div class="form-group">
-								<label>{{form.fecha_nacimiento.label}}</label>
-								<p class="help-block">Fecha de nacimiento</p>
-								{{form.fecha_nacimiento}}
+								{{form_edicion.fecha_nacimiento.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.fecha_nacimiento.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.fecha_nacimiento}}</div>
 							</div>
 
 							<!-- area -->
-							{{form_edicion.area.errors}}
+							
 							<div class="form-group">
-								<label>{{form.area.label}}</label>
-								<p class="help-block">Area de trabajo</p>
-								{{form.area}}
+								{{form_edicion.area.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.area.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.area}}</div>
 							</div>
 
 							<!-- estado_empleado -->
-							{{form_edicion.estado_empleado.errors}}
+							
 							<div class="form-group">
-								<label>{{form.estado_empleado.label}}</label>
-								<p class="help-block">Estado del empleado (activo o inactivo)</p>
-								{{form.estado_empleado}}
+								{{form_edicion.estado_empleado.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.estado_empleado.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.estado_empleado}}</div>
 							</div>
 
 							<!-- jefe -->
-							{{form_edicion.jefe.errors}}
+							
 							<div class="form-group">
-								<label>{{form.jefe.label}}</label>
-								<p class="help-block">Jefe del empleado</p>
-								{{form.jefe}}
+								{{form_edicion.jefe.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.jefe.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.jefe}}</div>
 							</div>
                         <!--/div-->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-white"
-                                    href="/empleados" data-dismiss="modal">Cancelar
+                                    href="/empleado/listar" data-dismiss="modal">Cancelar
                             </button>
                             <button type="submit" class="btn btn-primary">Guardar cambios
                             </button>
@@ -232,14 +245,34 @@ para traer el bloque de codigo que esta en la pagina blank.html
  <!-- DataTables JavaScript -->
     <script src="../static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="../static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="../static/validator.js">
     
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-                responsive: true
-        });
-    });
+      $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+          var i=0;
+    $('#empleados tfoot th').each( function () {
+        i++;
+        if (i <=2){
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="'+title+'" style="width: 100%;" />' );}
+    } );
+    // DataTable
+    var table = $('#empleados').DataTable({responsive:true});
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
     </script>
 
      {%if edicion %}

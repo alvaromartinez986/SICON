@@ -29,14 +29,10 @@ def editar_empleado(request, id):
 	empleados= Empleado.objects.all()
 	empleado = Empleado.objects.get(pk = id)
 	form_edicion = EmpleadoForm(instance=empleado, initial=empleado.__dict__)
-	print "holi1"
 	if request.method == 'POST':
-		print "holi2"
 		form_edicion = EmpleadoForm(request.POST, instance=empleado, initial=empleado.__dict__)
 		if form_edicion.has_changed():
-			print "holi3"
 			if form_edicion.is_valid():
-				print "holi3"
 				form_edicion.save()
 				return HttpResponseRedirect("/empleado/listar")
 		else:

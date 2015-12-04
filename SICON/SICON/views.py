@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 
 
 
+
 def index(request):
     return render(request, 'indexAdmin.html',{})
 

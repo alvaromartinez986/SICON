@@ -35,7 +35,7 @@ en esta seccion se va a poner el contenido de la pagina
                                         <i class="fa fa-check"></i> Se creado una sucursal con exito!
                                     </div>
                                 {% endif %}
-                                <form action="" method="post">
+                                <form action="" method="post" id="form_sucursal">
                                     {% csrf_token %}
                                     <!-- Nombre -->
                                     {{form.nombre.errors}}
@@ -88,4 +88,9 @@ en esta seccion se va a poner el contenido de la pagina
                         </div>
                     </div>
                 </div>
+<script src="{%  static 'js/jquery.js'%}"></script>
+
+<script src="{% static 'js/crearsucursal.js' %}"></script>
+
 {% endblock %}
+

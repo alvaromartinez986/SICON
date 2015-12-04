@@ -31,6 +31,7 @@ class Sucursal(models.Model):
     direccion = models.CharField(max_length=150)
     telefono = models.TextField(max_length=150)
     ciudad = models.ForeignKey(Ciudad)
+    activo = models.BooleanField(default=True)
 
 
 

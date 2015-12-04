@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.forms import ModelForm
 from django import forms
 from .models import Empleado
@@ -27,16 +28,16 @@ class EmpleadoForm(ModelForm):
             'no_documento': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Numero de documento'}),
             'nombre': forms.TextInput(attrs={'class':'form-control','placeholder':'Nombre'}),
             'apellido': forms.TextInput(attrs={'class':'form-control','placeholder':'Apellido'}),
-            'tipo_sangre': forms.TextInput(attrs={'class':'form-control ','placeholder':'Tipo de sangre'}),
+            'tipo_sangre': forms.Select(attrs={'class':'form-control required'}),
             'experiencia' : forms.NumberInput(attrs={'class':'form-control ','placeholder':'Experiencia'}),
-            'jornada': forms.TextInput(attrs={'class':'form-control ','placeholder':'Jornada'}),
+            'jornada': forms.Select(attrs={'class':'form-control required'}),
             'fecha_vinculacion' : forms.DateInput(attrs={'class':'form-control ','placeholder':'Fecha de vinculacion'}),
-            'cargo': forms.TextInput(attrs={'class':'form-control ','placeholder':'Cargo'}),
+            'cargo': forms.Select(attrs={'class':'form-control required'}),
             'telefono' : forms.TextInput(attrs={'class':'form-control ','placeholder':'Telefono'}),
-            'genero' : forms.TextInput(attrs={'class':'form-control ','placeholder':'Genero'}),
+            'genero' : forms.Select(attrs={'class':'form-control required'}),
             'fecha_nacimiento': forms.DateInput(attrs={'class':'form-control','placeholder':'Fecha de nacimiento'}),
             'area'  : forms.TextInput(attrs={'class':'form-control ','placeholder':'Area'}),
-            'estado_empleado': forms.TextInput(attrs={'class':'form-control ','placeholder':'Estado empleado'}),
+            'estado_empleado': forms.Select(attrs={'class':'form-control required'}),
             'jefe': forms.TextInput(attrs={'class':'form-control ','placeholder':'Jefe'}),
         }
 

@@ -12,13 +12,16 @@ en esta seccion se va a poner el contenido de la pagina
 {%block content%}
 
 
- <h1 class="page-header">Tables</h1>
+ <h1 class="page-header">Empleados</h1>
 <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            DataTables Advanced Tables
+                            <h3>Empleados <small>Información básica de empleados...</small></h3>
+                            <div class="container-fluid" align="right">
+                                <a href="{{STATIC_URL}}/empleado/crear" class="btn btn-info" data-toggle="tooltip" title="Nuevo Empleado">
+                                    <span class="fa fa-plus-circle"></span></a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -30,17 +33,19 @@ en esta seccion se va a poner el contenido de la pagina
                                             <th>Apellido</th>
                                             <th>Nombre</th>
                                             <th>Cargo</th>
-                                            <th>Experiencia</th>
+                                            <th>Estado</th>
+                                            <th>Editar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {%for emp in empleados %}
                                         <tr>
 											<td>{{emp.no_documento}}</td>
-											<td>{{rep.apellido}}</td>
-											<td>{{rep.nombre}}</td>
-											<td>{{rep.experiencia}}</td>
-											<td><a href="/repuestos-editar/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+											<td>{{emp.apellido}}</td>
+											<td>{{emp.nombre}}</td>
+											<td>{{emp.cargo}}</td>
+											<td>{{emp.estado_empleado}}</td>
+											<td><a href="/empleado/editar/{{emp.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
                                         </tr>
                                         {%endfor%}
                                         

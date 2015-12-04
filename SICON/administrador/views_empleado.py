@@ -21,7 +21,7 @@ def crear_empleado(request):
         empleado.save()
         exito = True
         empleado = EmpleadoForm()
-        return HttpResponseRedirect('/empleados/listar')
+        return HttpResponseRedirect('/empleado/listar')
     return render(request, 'crear_empleado.html', {'form': empleado, 'exito': exito})
 
 def editar_empleado(request, id):
@@ -30,11 +30,12 @@ def editar_empleado(request, id):
 	empleado = Empleado.objects.get(pk = id)
 	form_edicion = EmpleadoForm(instance=empleado, initial=empleado.__dict__)
 	if request.method == 'POST':
-		form_edicion = RepuestoForm(request.POST, instance=repuesto, initial=repuesto.__dict__)
+		form_edicion = EmpleadoForm(request.POST, instance=empleado, initial=empleado.__dict__)
 		if form_edicion.has_changed():
 			if form_edicion.is_valid():
 				form_edicion.save()
-				return HttpResponseRedirect("/empleados")
+				return HttpResponseRedirect("/empleado/listar")
 		else:
-			return HttpResponseRedirect("/empleados")
+			print "holi4"
+			return HttpResponseRedirect("/empleado/listar")
 	return render(request, 'lista_empleados.html', {'empleados': empleados, 'edicion': True, 'form_edicion': form_edicion})

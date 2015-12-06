@@ -8,7 +8,7 @@ __author__ = 'alvaro'
 
 
 class SucursalForm(ModelForm):
-    departamento = forms.ModelChoiceField(queryset=Departamento.objects.all(), required=False, widget=forms.Select(attrs={'class':'form-control disabled="disabled" '}))
+    departamento = forms.ModelChoiceField(queryset=Departamento.objects.all(), required=False, widget=forms.Select(attrs={'class':'form-control chosen-select disabled="disabled" '}))
     if  True:
         ciudad = forms.ModelChoiceField(queryset=Ciudad.objects.all(), required=True, widget=forms.Select(attrs={'class':'form-control'}))
     else:

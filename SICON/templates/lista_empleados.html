@@ -1,0 +1,286 @@
+<!--
+herencia de blank.html que es la plantilla de la pagina
+-->
+{%extends "indexAdmin.html" %}
+{% load staticfiles %}
+{% block css %}
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina
+-->
+{%block content%}
+
+
+ <h1 class="page-header">Empleados</h1>
+<!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Empleados <small>Información básica de empleados...</small></h3>
+                            <div class="container-fluid" align="right">
+                                <a href="{{STATIC_URL}}/empleado/crear" class="btn btn-info" data-toggle="tooltip" title="Nuevo Empleado">
+                                    <span class="fa fa-plus-circle"></span></a>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Documento</th>
+                                            <th>Apellido</th>
+                                            <th>Nombre</th>
+                                            <th>Cargo</th>
+                                            <th>Estado</th>
+                                            <th>Ver más/Editar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {%for emp in empleados %}
+                                        <tr>
+											<td>{{emp.no_documento}}</td>
+											<td>{{emp.apellido}}</td>
+											<td>{{emp.nombre}}</td>
+											<td>{{emp.cargo}}</td>
+											<td>{{emp.estado_empleado}}</td>
+											<td><a href="/empleado/editar/{{emp.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+                                        </tr>
+                                        {%endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% if edicion %}
+
+    <button type="button" id="botonModalEdicion" data-toggle="modal" data-target="#editarEmpleado"
+            style="display:none;"></button>
+    <div class="modal inmodal" id="editarEmpleado" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <i class="fa fa-users modal-icon"></i>
+                    <h4 class="modal-title">Editar Empleado</h4>
+                    <small class="font-bold">Por favor modifique a continuación los campos
+                        deseados y dé clic en guardar cambios cuando haya terminado, de lo
+                        contrario de clic en cancelar.
+                    </small>
+                </div>
+                <div class="modal-body">
+                    <form id="form_empleado" method="post" class="form-horizontal">
+                        {% csrf_token %}
+                        <!-- no_documento -->
+							
+							<div class="form-group">
+								{{form_edicion.no_documento.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.no_documento.label}}</label>
+
+                            <div class="col-lg-6">
+								{{form_edicion.no_documento}}</div>
+							</div>
+							
+							<!--asd
+
+							<!-- Nombre -->
+							
+							<div class="form-group">
+								{{form_edicion.nombre.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.nombre.label}}</label>
+
+								<div class="col-lg-6 text-label">{{form_edicion.nombre}}</div>
+							</div>
+							<!--asd
+
+
+							<!-- apellido -->
+							
+							<div class="form-group">
+								{{form_edicion.apellido.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.apellido.label}}</label>
+
+								<div class="col-lg-6 text-label">{{form_edicion.apellido}}</div>
+							</div>
+							<!--asd
+
+							<!-- tipo_sangre -->
+							
+							<div class="form-group">
+								{{form_edicion.tipo_sangre.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.tipo_sangre.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.tipo_sangre}}</div>
+							</div>
+							<!--asd
+
+							<!-- experiencia -->
+							
+							<div class="form-group">
+								{{form_edicion.experiencia.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.experiencia.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.experiencia}}</div>
+							</div>
+							<!--asd
+
+
+							<!-- jornada -->
+							{{form_edicion.jornada.errors}}
+							<div class="form-group">
+								<label class="col-lg-2 control-label">{{form_edicion.jornada.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.jornada}}</div>
+							</div>
+
+							<!-- fecha_vinculacion -->
+							
+							<div class="form-group">
+								{{form_edicion.fecha_vinculacion.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.fecha_vinculacion.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.fecha_vinculacion}}</div>
+							</div>
+
+							<!-- cargo-->
+							
+							<div class="form-group">
+								{{form_edicion.cargo.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.cargo.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.cargo}}</div>
+							</div>
+
+							<!-- telefono -->
+							
+							<div class="form-group">
+								{{form_edicion.telefono.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.telefono.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.telefono}}</div>
+							</div>
+
+							<!-- genero -->
+							
+							<div class="form-group">
+								{{form_edicion.genero.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.genero.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.genero}}</div>
+							</div>
+
+							<!-- fecha_nacimiento -->
+							
+							<div class="form-group">
+								{{form_edicion.fecha_nacimiento.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.fecha_nacimiento.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.fecha_nacimiento}}</div>
+							</div>
+
+							<!-- area -->
+							
+							<div class="form-group">
+								{{form_edicion.area.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.area.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.area}}</div>
+							</div>
+
+							<!-- estado_empleado -->
+							
+							<div class="form-group">
+								{{form_edicion.estado_empleado.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.estado_empleado.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.estado_empleado}}</div>
+							</div>
+
+							<!-- jefe -->
+							
+							<div class="form-group">
+								{{form_edicion.jefe.errors}}
+								<label class="col-lg-2 control-label">{{form_edicion.jefe.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.jefe}}</div>
+							</div>
+                        <!--/div-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white"
+                                    href="/empleado/listar" data-dismiss="modal">Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-primary">Guardar cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endif%}
+
+
+                            
+<!--
+          acontinuacion se pone el codigo para la edicion                  
+-->
+
+{%endblock%}                            
+
+<!--
+en esta seccion iran enlaces a libresrias externas en este caso a datatables
+-->
+{%block js%}
+<!--
+para traer el bloque de codigo que esta en la pagina blank.html
+-->
+{{block.super}}
+
+ <!-- DataTables JavaScript -->
+    <script src="../static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="../static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="../static/validator.js">
+    
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+      $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+          var i=0;
+    $('#empleados tfoot th').each( function () {
+        i++;
+        if (i <=2){
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="'+title+'" style="width: 100%;" />' );}
+    } );
+    // DataTable
+    var table = $('#empleados').DataTable({responsive:true});
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
+    </script>
+
+     {%if edicion %}
+        <script>
+        $(document).ready(function(){
+        $('#botonModalEdicion').click();
+        });
+        </script>
+    {%endif%}
+
+{%endblock%}

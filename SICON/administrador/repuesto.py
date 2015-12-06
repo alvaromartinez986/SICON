@@ -1,13 +1,6 @@
 from django.db import models
-from .sucursal import Sucursal, Ciudad, Departamento
-from vehiculos import *
-from .empleado import Empleado
-from .usuarios import Usuarios
-from .repuesto import Repuesto
 
-# Create your models here.
 class Repuesto (models.Model):
-
 	codigo = models.CharField(max_length = 40, unique=True)
 	nombre = models.CharField(max_length = 40, unique=True)
 	marca  = models.CharField(max_length = 40)
@@ -15,9 +8,3 @@ class Repuesto (models.Model):
 	marca_carro = models.CharField(max_length = 40)
 	modelo_carro = models.CharField(max_length = 40)
 	cantidad = models.IntegerField()
-	
-	
-	
-	
-	
-	

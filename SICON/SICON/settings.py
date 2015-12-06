@@ -75,6 +75,13 @@ WSGI_APPLICATION = 'SICON.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+# DATABASES = {
+# 'default': {
+# 'ENGINE': 'django.db.backends.sqlite3',
+# 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+# }
+# }
+
 DATABASES = {
     'default': {
 
@@ -87,8 +94,14 @@ DATABASES = {
 
     }
 }
-
-
+'''
+DATABASES = {
+'default': {
+'ENGINE': 'django.db.backends.sqlite3',
+'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+}
+}
+'''
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -107,10 +120,7 @@ STATICFILES_DIRS = (
 
 )
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
 
-)
 
 
 # Static files (CSS, JavaScript, Images)

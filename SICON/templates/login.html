@@ -1,0 +1,75 @@
+<!--
+herencia de blank.html que es la plantilla de la pagina
+-->
+{%extends "indexAdmin.html"%}
+{% load staticfiles %}
+{% block css %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
+    <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina
+-->
+{%block content%}
+<br>
+<br>
+<br>
+    <div class="loginColumns animated fadeInDown">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'Login_Icon.png' %}">
+            </div>
+            <div class="col-md-6">
+                <h2 class="font-bold">BIENVENIDO</h2>
+
+                <p>
+                    <small>Inicio de sesion.</small>
+                </p>
+
+            </div>
+            <div class="col-md-6">
+                <div class="ibox-content">
+                    <form class="m-t" role="form" action="" method="post">
+                        {% csrf_token %}
+                        <p style="color: red">{{error}}</p>
+                        <div class="form-group">
+                            <input type="text" name="username" class="form-control" placeholder="Nombre de Usuario" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary block full-width m-b">Iniciar Sesion</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+
+
+        </div>
+    </div>
+
+
+{% endblock %}
+{%block js%}
+    {{block.super}}
+    <!-- Data Tables -->
+    <script src="{% static 'js/plugins/dataTables/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/dataTables.bootstrap.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/dataTables.responsive.js' %}"></script>
+    <!-- Switchery -->
+   <script src="{% static 'js/plugins/switchery/switchery.js' %}"></script>
+
+    {%if edicion %}
+        <script>
+            $(document).ready(function(){
+                $('#botonModalEdicion').click();
+            });
+        </script>
+    {%endif%}
+{% endblock %}

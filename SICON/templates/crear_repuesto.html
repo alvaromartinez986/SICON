@@ -1,12 +1,11 @@
-<!--
-herencia de blank.html que es la plantilla de la pagina
--->
-{%extends "blank.html"%}
+{%extends "indexAdmin.html"%}
 {% load staticfiles %}
 {% block css %}
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
-    <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
-    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
+        <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
+
+
+
 {%endblock%}
 
 <!--
@@ -119,6 +118,8 @@ para traer el bloque de codigo que esta en la pagina blank.html
  <!-- DataTables JavaScript -->
     <script src="../static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="../static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
     
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
@@ -128,41 +129,7 @@ para traer el bloque de codigo que esta en la pagina blank.html
         });
     });
     </script>
+    <script type="text/javascript" src="../static/validator.js"></script>
 
-    <!-- validacion de los datos por medio de bootstrap validator   -->
-    <script>
-        $('#form_repuesto').bootstrapValidator({
-        message: 'Este valor no es valido',
-        feedbackIcons:
-        {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields:
-        {
-            codigo:
-            {
-                validators:
-                {
-                    notEmpty:
-                    {
-                        message: 'El nombre de usuario es requerido'
-                    }
-                }
-            },
-            nombre:
-            {
-                validators:
-                {
-                    notEmpty:
-                    {
-                        message: 'La contraseña es requerida'
-                    }
-                }
-            }
-        }
-        });
-    </script>
 
 {%endblock%}

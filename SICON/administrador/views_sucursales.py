@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms_sucursal import SucursalForm
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
+from django.http import JsonResponse
 from .models import Sucursal, Ciudad, Departamento
 
 
@@ -50,16 +51,17 @@ def eliminar_sucursal(request, id):
 
 def cargar_ciudades(request):
 
-	sucursal = SucursalForm()
-	ciudad = forms.ModelChoiceField(queryset=Ciudad.objects.all(), required=True, widget=forms.Select(attrs={'class':'form-control'}))
 
+	if request.method == 'POST':
 
-	# if request.method == 'POST':
-
-	# 	departamento_id = request.POST['departamento']
-	# 	departamento_obj = Departamento.objects.get(id = departamento_id)
-	# 	ciudades = Ciudad.objects.filter(departamento = departamento_obj)
-	# 	string_respuesta = ""
-	# 	for ciudad in ciudades:
-	# 		string_respuesta += str(ciudad.id)+":"+ciudad.nombre+","
- #        return HttpResponse(string_respuesta)
+		departamento_id = request.POST['departamento']
+		departamento_obj = Departamento.objects.get(id = departamento_id)
+		ciudades = Ciudad.objects.filter(departamento = departamento_obj)
+		lista_ciudades = []
+        dir_ciudad = dict()
+        for ciudad in ciudades:
+            dir_ciudad["id"] = str(ciudad.id)
+            dir_ciudad["nombre"] = ciudad.nombre
+            lista_ciudades.append(dir_ciudad)
+            dir_ciudad = {}
+        return JsonResponse(lista_ciudades, None, False)

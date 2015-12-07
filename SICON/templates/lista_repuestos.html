@@ -3,7 +3,7 @@ herencia de blank.html que es la plantilla de la pagina
 -->
 {%extends "indexAdmin.html" %}
 {% load staticfiles %}
-{% block css %}
+{% block style %}
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
         <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
 
@@ -141,9 +141,22 @@ en esta seccion se va a poner el contenido de la pagina
                         <!-- modelo carro-->
                         <div class="form-group">
                             {{form_edicion.modelo_carro.errors}}
-                            <label class="col-lg-2 control-label">Marca carro</label>
+                            <label class="col-lg-2 control-label">Modelo carro</label>
 
-                            <div class="col-lg-6">{{form_edicion.modelo_carro}}</div>
+                            <div class="col-lg-6">
+                                <select id="id_modelo_carro" class="form-control" placeholder="Modelo del carro" name="modelo_carro">
+                                {% for modelo in modelos %}
+                                    {% if modelo.id == repuesto.modelo_carro.id %}
+                                        <option selected="selected" value = {{modelo.id}}> {{modelo.nombre}}</option>
+                                    {% else %}
+                                        <option value = {{modelo.id}}> {{modelo.nombre}}</option>
+                                    {%endif%}
+                                {%endfor%}
+
+
+                                </select>
+
+                            </div>
                         </div>
                         <!--cantidad-->
                         <div class="form-group">
@@ -288,6 +301,8 @@ para traer el bloque de codigo que esta en la pagina blank.html
         });
         </script>
     {%endif%}
+
+<script type="text/javascript" src="{{STATIC_URL}}/static/js/modelos.js"></script>
 
 
 {%endblock%}

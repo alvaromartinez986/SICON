@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .forms import RepuestoForm
-from django.http import HttpResponseRedirect
-from .models import Repuesto
+from django.http import HttpResponseRedirect,HttpResponse
+from .models import Repuesto,Marca,Modelo
+import json
 # Create your views here.
 def crear_repuesto(request):
 	repuesto = RepuestoForm()
@@ -20,9 +21,11 @@ def listar_repuestos(request):
 	return render(request,'lista_repuestos.html',{'repuestos':repuestos})
 
 def editar_repuesto(request, id):
-	print (id)
 	repuestos= Repuesto.objects.all()
 	repuesto = Repuesto.objects.get(pk = id)
+	print "marca"
+	print repuesto.marca_carro
+	modelos = Modelo.objects.filter (marca = repuesto.marca_carro)
 	form_edicion = RepuestoForm(instance=repuesto, initial=repuesto.__dict__)
 	if request.method == 'POST':
 		form_edicion = RepuestoForm(request.POST, instance=repuesto, initial=repuesto.__dict__)
@@ -32,7 +35,7 @@ def editar_repuesto(request, id):
 				return HttpResponseRedirect("/repuestos")
 		else:
 			return HttpResponseRedirect("/repuestos")
-	return render(request, 'lista_repuestos.html', {'repuestos': repuestos, 'edicion': True, 'form_edicion': form_edicion})
+	return render(request, 'lista_repuestos.html', {'modelos': modelos,'repuestos': repuestos,'repuesto':repuesto, 'edicion': True, 'form_edicion': form_edicion})
 
 def inventario (request,id):
 	print ("inventario")
@@ -44,3 +47,14 @@ def inventario (request,id):
 		repuesto.save()
 		return HttpResponseRedirect('/repuestos/')
 	return render(request, 'lista_repuestos.html', {'repuestos': repuestos, 'inventario': True, 'rep': repuesto})
+
+
+def cargar_modelos (request):
+		opcion =request.GET['option']
+		modelos = Modelo.objects.filter(marca = opcion)
+		string_respuesta = ""
+		for modelo in modelos:
+			string_respuesta += str(modelo.id)+":"+modelo.nombre+","
+		string_respuesta = string_respuesta[0:-1]
+
+		return HttpResponse(string_respuesta)

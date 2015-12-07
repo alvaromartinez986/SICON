@@ -9,6 +9,8 @@ from administrador.views import *
 
 urlpatterns = patterns('',
     url(r'^$',index),
+    url(r'^dropdown_modelo',cargar_modelos),
+    url(r'^repuestos-editar/(\d+)$',editar_repuesto),
     url(r'^repuestos-editar/(\d+)$',editar_repuesto),
     url(r'^repuestos/crear',crear_repuesto),
     url(r'^repuestos/',listar_repuestos),

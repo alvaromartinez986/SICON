@@ -58,3 +58,13 @@ def cargar_modelos (request):
 		string_respuesta = string_respuesta[0:-1]
 
 		return HttpResponse(string_respuesta)
+
+
+def eliminar_repuesto(request, id):
+	repuesto= Repuesto.objects.get(id=id)
+	if repuesto.activo:
+		repuesto.activo = False
+	else:
+		repuesto.activo = True
+	repuesto.save()
+	return HttpResponseRedirect("/repuestos")

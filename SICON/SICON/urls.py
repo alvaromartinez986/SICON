@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^repuestos/crear',crear_repuesto),
     url(r'^repuestos/',listar_repuestos),
     url(r'^repuestos-inventario/(\d+)$',inventario),
+    url(r'^repuestos-eliminar/(\d+)$',eliminar_repuesto),
 
 )
 

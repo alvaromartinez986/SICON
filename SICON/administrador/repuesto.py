@@ -22,3 +22,4 @@ class Repuesto (models.Model):
 	marca_carro = models.ForeignKey(Marca,blank=True,null=True)
 	modelo_carro = models.ForeignKey(Modelo,blank=True,null=True)
 	cantidad = models.IntegerField()
+	activo = models.BooleanField(default=True)

@@ -17,5 +17,5 @@ urlpatterns = patterns('',
 	url(r'^crear',crear_sucursal),
 	url(r'^cargar_ciudades', cargar_ciudades),
 	url(r'^eliminar/(\d+)$',eliminar_sucursal),
-	url(r'^editar/(\d+)$',editar_sucursal),
+	url(r'^editar/(\d+)$',editar_sucursal, name='sucursales_editar'),
 )

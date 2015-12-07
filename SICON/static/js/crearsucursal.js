@@ -1,7 +1,7 @@
 
-$(document).on('click','#id_departamento',function example(){
+$(document).on('change','#id_departamento',function example(){
     $.ajax({
-        url : "cargar_ciudades",
+        url : "/sucursales/cargar_ciudades",
         type: "POST",
         data: $("#form_sucursal").serialize(),
         dataType: "json",

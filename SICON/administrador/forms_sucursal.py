@@ -17,7 +17,7 @@ class SucursalForm(ModelForm):
         widgets = {
             'nombre': forms.TextInput(attrs={'class':'form-control required','placeholder':'Nombre...'}),
             'direccion': forms.TextInput(attrs={'class':'form-control required','placeholder':'Direccion...'}),
-            'telefono' : forms.NumberInput(attrs={'class':'form-control required', 'placeholder': 'Telefono..'}),
+            'telefono' : forms.NumberInput(attrs={'class':'form-control required', 'placeholder': 'Telefono..', 'min':'1'}),
             'ciudad' : forms.Select(attrs={'class':'chosen-select required', 'placeholder': 'Ciudad..'}),
         }
 

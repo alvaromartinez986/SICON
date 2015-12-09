@@ -9,10 +9,6 @@ __author__ = 'alvaro'
 
 class SucursalForm(ModelForm):
     departamento = forms.ModelChoiceField(queryset=Departamento.objects.all(), required=False, widget=forms.Select(attrs={'class':'form-control disabled="disabled" '}))
-    if  True:
-        ciudad = forms.ModelChoiceField(queryset=Ciudad.objects.all(), required=True, widget=forms.Select(attrs={'class':'form-control'}))
-    else:
-        ciudad = forms.ModelChoiceField(queryset=Ciudad.objects.none(), required=True, widget=forms.Select(attrs={'class':'form-control'}))
 
     class Meta:
         model = Sucursal
@@ -21,6 +17,7 @@ class SucursalForm(ModelForm):
         widgets = {
             'nombre': forms.TextInput(attrs={'class':'form-control required','placeholder':'Nombre...'}),
             'direccion': forms.TextInput(attrs={'class':'form-control required','placeholder':'Direccion...'}),
-            'telefono' : forms.NumberInput(attrs={'class':'form-control required', 'placeholder': 'Telefono..'})
+            'telefono' : forms.NumberInput(attrs={'class':'form-control required', 'placeholder': 'Telefono..', 'min':'1'}),
+            'ciudad' : forms.Select(attrs={'class':'chosen-select required', 'placeholder': 'Ciudad..'}),
         }
 

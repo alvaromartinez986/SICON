@@ -1,18 +1,17 @@
 
-$(document).on('click','#id_departamento',function example(){
+$(document).on('change','#id_departamento',function example(){
     $.ajax({
-        url : "cargar_ciudades",
+        url : "/sucursales/cargar_ciudades",
         type: "POST",
         data: $("#form_sucursal").serialize(),
+        dataType: "json",
 
         success : function(data) {
             $('#id_ciudad').empty();
-            var ciudades = data.split(",");
-            var html_ciudades;
-            for(var i = 0; i < ciudades.length; i++) {
-                var ciudad = (ciudades[i]).split(":")
-                html_ciudades = "<option value='" + ciudad[0] + "'>" + ciudad[1] + "</option>";
-                $('#id_ciudad').append(html_ciudades);
+            var html_ciudades = "" ;
+            for(var i = 0; i < data.length; i++) {
+            html_ciudades = "<option value='" + data[i]["id"] +"'>" + data[i]["nombre"] + "</option>";
+              $('#id_ciudad').append(html_ciudades);
             }
             
         },
@@ -25,3 +24,4 @@ $(document).on('click','#id_departamento',function example(){
         }
     });
 });
+

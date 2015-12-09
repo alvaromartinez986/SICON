@@ -2,54 +2,375 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f43c95fe-2f1d-45bd-955f-a401324dae7b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/forms_repuesto.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0002_auto_20151130_1819.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/repuesto.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/vehiculos.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/views_repuesto.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/crearsucursal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/validator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/bootstrapValidator.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/lista_vehiculos_usados.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0003_ciudad_sucursal.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0004_auto_20151107_2052.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0005_auto_20151119_1906.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0006_auto_20151119_1912.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0007_empleado.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0008_auto_20151127_2137.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0009_auto_20151204_0437.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0009_usuarios.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/db.sqlite3" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0002_auto_20151029_0041.py" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0004_vehiculo_activo.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/images/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/fonts/FontAwesome.otf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/fonts/fontawesome-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/fonts/fontawesome-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/fonts/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ak.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/al.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/az.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ca.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/co.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ct.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/de.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/fl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ga.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/hi.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ia.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/id.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/il.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/in.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ks.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ky.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/la.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ma.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/md.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/me.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/mi.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/mn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/mo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ms.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/mt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/nc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/nd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ne.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/nh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/nj.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/nm.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/nv.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ny.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/oh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ok.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/or.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/pa.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ri.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/sc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/sd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/tn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/tx.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/ut.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/va.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/vt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/wa.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/wi.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/wv.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/images/flags/wy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/.editorconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/.jshintignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/CONTRIBUTING.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/Gruntfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/css/select2.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/css/select2.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/az.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/eu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/hi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/ms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/nb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/sr-Cyrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/sr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/uk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/i18n/zh-TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/select2.full.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/select2.full.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/select2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/dist/js/select2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/basics.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/data.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/disabled-mode.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/disabled-results.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/hide-search.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/localization-rtl-diacritics.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/matcher.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/multiple-max.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/placeholders.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/programmatic-control.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/tags.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/themes-templating-responsive-design.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/examples/tokenizer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/footer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/ga.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/head.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/js-source-states.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/nav/announcements-4.0.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/nav/examples.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/nav/options-old.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/nav/options.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/navigation.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/notice-previous.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options-old/adapters.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options-old/backwards-compatibility.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options-old/core-options.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options-old/dropdown.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options-old/events.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options-old/setting-default-options.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/compatibility.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/compatibility/initial-selection.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/compatibility/introduction.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/compatibility/matcher.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/compatibility/query-function.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/compatibility/text-input.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/core.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/core/amd-support.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/core/data-attributes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/core/options.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/data.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/data/ajax.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/data/array.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/data/select.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/dropdown.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/dropdown/filtering.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/dropdown/placement.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/dropdown/selections.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/events.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/events/internal.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/events/jquery.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/introduction.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/not-written.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/selections.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/selections/clearing-selections.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/selections/multiple.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/selections/placeholder.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/options/selections/templating.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_includes/social-buttons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_layouts/default.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_layouts/home.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_alert.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_anchorjs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_buttons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_code.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_examples.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_featurette.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_footer.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_hamburger.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_home.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_jumbotron.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_layout.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_nav.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_prettify.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_result-repository.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_sidenav.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_social.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/_sass/_typography.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/announcements-4.0.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/community.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/css/s2-docs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/examples.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/options-old.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/options.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/css/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/fonts/fontawesome-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/js/anchor.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/js/jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/js/placeholders.jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/docs/vendor/js/prettify.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/select2.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/banner.end.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/banner.start.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/jquery.mousewheel.shim.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/jquery.select2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/jquery.shim.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/compat/containerCss.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/compat/dropdownCss.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/compat/initSelection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/compat/inputData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/compat/matcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/compat/query.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/compat/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/core.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/data/ajax.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/data/array.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/data/base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/data/maximumInputLength.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/data/maximumSelectionLength.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/data/minimumInputLength.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/data/select.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/data/tags.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/data/tokenizer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/defaults.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/diacritics.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/dropdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/dropdown/attachBody.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/dropdown/attachContainer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/dropdown/closeOnSelect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/dropdown/hidePlaceholder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/dropdown/infiniteScroll.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/dropdown/minimumResultsForSearch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/dropdown/search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/dropdown/selectOnClose.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/dropdown/stopPropagation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/az.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/eu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/hi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/ms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/nb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/sr-Cyrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/sr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/uk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/i18n/zh-TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/keys.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/options.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/results.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/selection/allowClear.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/selection/base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/selection/clickMask.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/selection/eventRelay.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/selection/multiple.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/selection/placeholder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/selection/search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/selection/single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/selection/stopPropagation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/translation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/select2/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/wrapper.end.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/js/wrapper.start.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/_dropdown.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/_multiple.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/_single.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/core.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/mixins/_gradients.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/theme/classic/_defaults.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/theme/classic/_multiple.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/theme/classic/_single.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/theme/classic/layout.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/theme/default/_multiple.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/theme/default/_single.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/src/scss/theme/default/layout.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/a11y/search-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/a11y/selection-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/data/array-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/data/base-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/data/inputData-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/data/maximumInputLength-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/data/maximumSelectionLength-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/data/minimumInputLength-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/data/select-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/data/tags-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/data/tokenizer-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/dropdown/dropdownCss-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/dropdown/selectOnClose-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/dropdown/stopPropagation-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/helpers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/integration.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/integration/select2-methods.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/options/data-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/options/deprecated-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/options/translation-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/options/width-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/selection/allowClear-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/selection/containerCss-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/selection/multiple-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/selection/placeholder-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/selection/search-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/selection/single-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/selection/stopPropagation-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/unit.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/utils/decorator-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/utils/escapeMarkup-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/vendor/jquery-1.7.2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/vendor/qunit-1.14.0.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/tests/vendor/qunit-1.14.0.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/select2-4.0.1/vendor/jquery-2.1.0.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0002_auto_20151130_1819.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0004_vehiculo_activo.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/static/js/flot-data.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/SICON/urls.py" afterPath="$PROJECT_DIR$/SICON/SICON/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms_empleado.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms_empleado.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms_sucursal.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms_sucursal.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms_usuarios.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms_usuarios.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/models.py" afterPath="$PROJECT_DIR$/SICON/administrador/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/sucursal.py" afterPath="$PROJECT_DIR$/SICON/administrador/sucursal.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/urls.py" afterPath="$PROJECT_DIR$/SICON/administrador/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/usuarios.py" afterPath="$PROJECT_DIR$/SICON/administrador/usuarios.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views.py" afterPath="$PROJECT_DIR$/SICON/administrador/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_empleado.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_empleado.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_sucursales.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_sucursales.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/static/js/crearsucursal.js" afterPath="$PROJECT_DIR$/SICON/static/js/crearsucursal.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/static/scriptCiudades.sql" afterPath="$PROJECT_DIR$/SICON/static/scriptCiudades.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_empleado.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_empleado.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_repuesto.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_repuesto.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_sucursal.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_sucursal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/index.html" afterPath="$PROJECT_DIR$/SICON/templates/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" afterPath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/lista_repuestos.html" afterPath="$PROJECT_DIR$/SICON/templates/lista_repuestos.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/lista_sucursales.html" afterPath="$PROJECT_DIR$/SICON/templates/lista_sucursales.html" />
     </list>
     <ignored path="SICON.iws" />
@@ -72,98 +393,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/administrador/urls.py">
+      <file leaf-file-name="crear_sucursal.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SICON/templates/crear_sucursal.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="indexAdmin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/templates/indexAdmin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="crear_vehiculo_nuevo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="112" selection-start-line="20" selection-start-column="112" selection-end-line="20" selection-end-column="112" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lista_vehiculos_nuevos.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.025423728">
-              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views_vehiculos.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/administrador/views_vehiculos.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lista_vehiculos_usados.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_usados.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="crear_vehiculo_usado.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vehiculos.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/administrador/vehiculos.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms_vehiculos.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="112" selection-start-line="17" selection-start-column="112" selection-end-line="17" selection-end-column="112" />
-              <folding>
-                <element signature="e#24#58#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -172,21 +407,27 @@
         <entry file="file://$PROJECT_DIR$/SICON/administrador/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms_sucursal.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_sucursal.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.30769232">
+              <caret line="10" column="157" selection-start-line="10" selection-start-column="157" selection-end-line="10" selection-end-column="157" />
+              <folding>
+                <element signature="e#0#34#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-        <option value="HTML File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -196,22 +437,12 @@
       <list>
         <option value="$PROJECT_DIR$/SICON/templates/index.html" />
         <option value="$PROJECT_DIR$/SICON/SICON/settings.py" />
-        <option value="$PROJECT_DIR$/SICON/administracion/migrations/vehiculos.py" />
-        <option value="$PROJECT_DIR$/SICON/administracion/vehiculos.py" />
-        <option value="$PROJECT_DIR$/SICON/administrador/views-vehiculos.py" />
-        <option value="$PROJECT_DIR$/SICON/administrador/forms.py" />
-        <option value="$PROJECT_DIR$/SICON/templates/listar_vehiculos_nuevos.html" />
-        <option value="$PROJECT_DIR$/SICON/SICON/views.py" />
-        <option value="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" />
         <option value="$PROJECT_DIR$/SICON/SICON/urls.py" />
         <option value="$PROJECT_DIR$/SICON/templates/indexAdmin.html" />
-        <option value="$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py" />
-        <option value="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" />
-        <option value="$PROJECT_DIR$/SICON/administrador/vehiculos.py" />
-        <option value="$PROJECT_DIR$/SICON/administrador/urls.py" />
-        <option value="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" />
-        <option value="$PROJECT_DIR$/SICON/templates/lista_vehiculos_usados.html" />
-        <option value="$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html" />
+        <option value="$PROJECT_DIR$/SICON/templates/crear_sucursal.html" />
+        <option value="$PROJECT_DIR$/SICON/administrador/views_sucursales.py" />
+        <option value="$PROJECT_DIR$/SICON/administrador/models.py" />
+        <option value="$PROJECT_DIR$/SICON/administrador/forms_sucursal.py" />
       </list>
     </option>
   </component>
@@ -251,7 +482,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -340,23 +570,21 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Descargas/CIER-SOIN-master" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/SICON/administracion" />
-    </key>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings />
+    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -489,9 +717,6 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f43c95fe-2f1d-45bd-955f-a401324dae7b" name="Default" comment="" />
@@ -505,23 +730,23 @@
     <frame x="-1" y="24" width="1602" height="877" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.176875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.244375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1953125" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -543,314 +768,67 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/models.py">
+    <entry file="file://$PROJECT_DIR$/SICON/templates/crear_sucursal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding>
-            <element signature="e#24#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_vehiculos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding>
-            <element signature="e#24#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/vehiculos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_vehiculos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SICON/administrador/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
-            <element signature="e#24#58#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/vehiculos.py">
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_sucursal.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/views.py">
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_repuesto.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/settings.py">
+    <entry file="file://$PROJECT_DIR$/SICON/templates/crear_repuesto.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        <state vertical-scroll-proportion="-4.814815">
+          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="115" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SICON/templates/indexAdmin.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.6666667">
+          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_sucursales.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="64" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/templates/crear_sucursal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -858,77 +836,19 @@
     <entry file="file://$PROJECT_DIR$/SICON/administrador/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="112" selection-start-line="17" selection-start-column="112" selection-end-line="17" selection-end-column="112" />
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
-            <element signature="e#24#58#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html">
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_sucursal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="112" selection-start-line="20" selection-start-column="112" selection-end-line="20" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/vehiculos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_vehiculos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.30769232">
+          <caret line="10" column="157" selection-start-line="10" selection-start-column="157" selection-end-line="10" selection-end-column="157" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_usados.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025423728">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>

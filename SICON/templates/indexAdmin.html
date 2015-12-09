@@ -35,6 +35,8 @@
 
     <!-- DataTables Responsive CSS -->
     <link href="{{STATIC_URL}}/static/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}/static/js/select2-4.0.1/dist/css/select2.min.css" rel="stylesheet" />
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -68,7 +70,7 @@
                     <a class="dropdown-toggle text-danger" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-user">
+                    <ul class="dropdown-menu dropdown-messages">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -93,7 +95,7 @@
                         </li>
                             <!-- /input-group -->
                         <li>
-                            <a href="index.html" class="text-danger"> <i class="fa fa-briefcase fa-fw"></i> Sucursales</a>
+                            <a href="/sucursales/listar" class="text-danger"> <i class="fa fa-briefcase fa-fw"></i> Sucursales</a>
                         </li>
                      
                         <li>
@@ -151,6 +153,9 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{STATIC_URL}}/static/dist/js/sb-admin-2.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+
     {%endblock%}
 
 </body>

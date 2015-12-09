@@ -1,12 +1,10 @@
-__author__ = 'alvaromartinez'
+__author__ = 'nelson    '
 
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-
 from .singletonsesion import Sesion
-
 
 
 
@@ -50,8 +48,3 @@ def index(request):
 @login_required(login_url='/login')
 def admin_index(request):
     return render(request,'index_admin.html',{})
-
-
-def listar(request):
-    return render(request,'lista_empleados.html',{})
-

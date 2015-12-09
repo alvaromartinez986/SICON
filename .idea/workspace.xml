@@ -2,20 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f43c95fe-2f1d-45bd-955f-a401324dae7b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/__init__.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/forms_repuesto.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/bootstrapValidator.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0002_auto_20151130_1819.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/repuesto.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/vehiculos.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/views_repuesto.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/crearsucursal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/jquery.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/validator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/bootstrapValidator.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/lista_vehiculos_usados.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0003_ciudad_sucursal.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0004_auto_20151107_2052.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0005_auto_20151119_1906.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0006_auto_20151119_1912.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0007_empleado.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0008_auto_20151127_2137.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0009_auto_20151204_0437.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0009_usuarios.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/db.sqlite3" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" afterPath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0002_auto_20151029_0041.py" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0004_vehiculo_activo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/SICON/urls.py" afterPath="$PROJECT_DIR$/SICON/SICON/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/SICON/settings.py" afterPath="$PROJECT_DIR$/SICON/SICON/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/lista_repuestos.html" afterPath="$PROJECT_DIR$/SICON/templates/lista_repuestos.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SICON/administrador/models.py" afterPath="$PROJECT_DIR$/SICON/administrador/repuesto.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_repuesto.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_repuesto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/index.html" afterPath="$PROJECT_DIR$/SICON/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views.py" afterPath="$PROJECT_DIR$/SICON/administrador/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms_empleado.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms_empleado.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms_sucursal.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms_sucursal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms_usuarios.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms_usuarios.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/models.py" afterPath="$PROJECT_DIR$/SICON/administrador/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/sucursal.py" afterPath="$PROJECT_DIR$/SICON/administrador/sucursal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/urls.py" afterPath="$PROJECT_DIR$/SICON/administrador/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/usuarios.py" afterPath="$PROJECT_DIR$/SICON/administrador/usuarios.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views.py" afterPath="$PROJECT_DIR$/SICON/administrador/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_empleado.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_empleado.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_sucursales.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_sucursales.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/static/scriptCiudades.sql" afterPath="$PROJECT_DIR$/SICON/static/scriptCiudades.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_empleado.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_empleado.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_repuesto.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_repuesto.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_sucursal.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_sucursal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/index.html" afterPath="$PROJECT_DIR$/SICON/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" afterPath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/lista_repuestos.html" afterPath="$PROJECT_DIR$/SICON/templates/lista_repuestos.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/lista_sucursales.html" afterPath="$PROJECT_DIR$/SICON/templates/lista_sucursales.html" />
     </list>
     <ignored path="SICON.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,7 +71,7 @@
     <favorites_list name="SICON" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SICON/administrador/urls.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,7 +105,7 @@
       <file leaf-file-name="lista_vehiculos_nuevos.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.025423728">
               <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
@@ -185,14 +220,11 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
-  <component name="NamedScopeManager">
-    <order />
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
+    <option name="x" value="-1" />
     <option name="y" value="24" />
-    <option name="width" value="1615" />
-    <option name="height" value="1026" />
+    <option name="width" value="1602" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -215,8 +247,11 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -305,7 +340,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -468,29 +502,29 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1615" height="1026" extended-state="6" />
+    <frame x="-1" y="24" width="1602" height="877" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17708978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0010660981" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.176875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -891,7 +925,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.025423728">
           <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />

@@ -5,6 +5,11 @@ from .empleado import Empleado
 from .usuarios import Usuarios
 from .repuesto import Repuesto
 
+# Create your models here.
 
+from .repuesto import Repuesto,Marca,Modelo
+	
+	
+	
 	
 	

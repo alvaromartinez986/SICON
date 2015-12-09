@@ -18,4 +18,11 @@ urlpatterns = patterns('',
 	url(r'^cargar_ciudades', cargar_ciudades),
 	url(r'^eliminar/(\d+)$',eliminar_sucursal),
 	url(r'^editar/(\d+)$',editar_sucursal, name='sucursales_editar'),
+
+    url(r'^repuestos-editar/(\d+)$',editar_repuesto),
+    url(r'^repuestos/crear',crear_repuesto),
+    url(r'^repuestos/',listar_repuestos),
+    url(r'^repuestos-inventario/(\d+)$',inventario),
+    url(r'^repuestos-eliminar/(\d+)$',eliminar_repuesto),
+
 )

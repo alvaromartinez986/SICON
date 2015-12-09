@@ -1,11 +1,7 @@
 from django.shortcuts import render
 from .forms import RepuestoForm
 from django.http import HttpResponseRedirect
-from .models import Repuesto, Sucursal
-from views_sucursales import *
-from .views_repuesto import *
-from views_empleado import *
-from views_usuarios import *
+from .models import Repuesto
 # Create your views here.
 def crear_repuesto(request):
 	repuesto = RepuestoForm()
@@ -23,7 +19,6 @@ def listar_repuestos(request):
 	repuestos = Repuesto.objects.all()
 	return render(request,'lista_repuestos.html',{'repuestos':repuestos})
 
-
 def editar_repuesto(request, id):
 	print (id)
 	repuestos= Repuesto.objects.all()
@@ -38,3 +33,14 @@ def editar_repuesto(request, id):
 		else:
 			return HttpResponseRedirect("/repuestos")
 	return render(request, 'lista_repuestos.html', {'repuestos': repuestos, 'edicion': True, 'form_edicion': form_edicion})
+
+def inventario (request,id):
+	print ("inventario")
+	repuestos= Repuesto.objects.all()
+	repuesto = Repuesto.objects.get(pk = id)
+	if request.method == 'POST':
+		cantidad = request.POST['cantidad_inv']
+		repuesto.cantidad+= int (cantidad)
+		repuesto.save()
+		return HttpResponseRedirect('/repuestos/')
+	return render(request, 'lista_repuestos.html', {'repuestos': repuestos, 'inventario': True, 'rep': repuesto})

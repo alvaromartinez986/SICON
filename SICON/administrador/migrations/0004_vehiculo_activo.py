@@ -7,13 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('administrador', '0005_auto_20151119_1906'),
+        ('administrador', '0003_auto_20151130_1820'),
     ]
 
     operations = [
-        migrations.RenameField(
-            model_name='ciudad',
-            old_name='departamento_id',
-            new_name='departamento',
+        migrations.AddField(
+            model_name='vehiculo',
+            name='activo',
+            field=models.BooleanField(default=True),
         ),
     ]

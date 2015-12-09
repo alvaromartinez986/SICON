@@ -1,0 +1,114 @@
+{%extends "indexAdmin.html"%}
+{% load staticfiles %}
+{% block css %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
+    <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina
+{%block content %}
+ <!-- Page Heading -->
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="page-header">
+                                    Vehiculos para reparación <small>Registre el vehículo que ingresó para reparar...</small>
+                                </h1>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-dashboard"></i> Aqui podra registrar los vehículos que han ingresado para reparar.
+                                </li>
+
+                            </ol>
+                            <div class="panel-body">
+                                {% if exito %}
+                                    <div class="alert alert-success alert-dismissable">
+                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+                                        <i class="fa fa-check"></i> Se ha registrado un vehículo para reparar con exito.
+                                    </div>
+                                {% endif %}
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <!-- placa -->
+                                    {{form.placa.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.placa.label}}</label>
+                                        <p class="help-block">Placa del vehículo</p>
+                                        {{form.placa}}
+                                    </div>
+
+                                    <!-- Cilindraje -->
+                                    {{form.cilindraje.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.cilindraje.label}}</label>
+                                        <p class="help-block">Cilindraje del vehículo</p>
+                                        {{form.cilindraje}}
+                                    </div>
+
+                                    <!-- marca -->
+                                    {{form.marca.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.marca.label}}</label>
+                                        <p class="help-block">Marca del vehículo</p>
+                                        {{form.marca}}
+                                    </div>
+
+                                    <!-- Linea -->
+                                    {{form.linea.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.linea.label}}</label>
+                                        <p class="help-block">Linea del vehículo</p>
+                                        {{form.linea}}
+                                    </div>
+
+                                    <!-- modelo -->
+                                    {{form.telefono.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.modelo.label}}</label>
+                                        <p class="help-block">Modelo del vehículo</p>
+                                        {{form.modelo}}
+                                    </div>
+
+                                    <!-- tipo_combustible-->
+                                    {{form.tipo_combustible.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.tipo_combustible.label}}</label>
+                                        <p class="help-block">Tipo de combustible</p>
+                                        {{form.tipo_combustible}}
+                                    </div>
+
+                                    <!-- color -->
+                                    {{form.color.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.color.label}}</label>
+                                        <p class="help-block">Color del vehículo</p>
+                                        {{form.color}}
+                                    </div>
+
+                                    <!-- servicio -->
+                                    {{form.servicio.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.servicio.label}}</label>
+                                        <p class="help-block">Tipo de servicio del vehículo</p>
+                                        {{form.servicio}}
+                                    </div>
+
+                                    <!--BOTON-->
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Registrar</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

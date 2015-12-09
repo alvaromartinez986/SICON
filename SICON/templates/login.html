@@ -52,6 +52,8 @@
                         </div>
                         <div class="col-md-4">
                         <form role="form">
+                            {% csrf_token %}
+                            <p style="color: red">{{error}}</p>
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Nombre de usuario" name="username" type="text" autofocus>
@@ -72,7 +74,17 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                Copyright SICON
+            </div>
+            <div class="col-md-6 text-right">
+               <small>© 2015-2016</small>
+            </div>
+        </div>
     </div>
+
+
 
     <!-- jQuery -->
     <script src="{{STATIC_URL}}/static/bower_components/jquery/dist/jquery.min.js"></script>

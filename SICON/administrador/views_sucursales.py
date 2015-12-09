@@ -28,6 +28,8 @@ def crear_sucursal(request):
 def editar_sucursal(request, id_sucursal):
     sucursales = Sucursal.objects.all()
     sucursal = Sucursal.objects.get(pk=id_sucursal)
+    ciudad = sucursal.ciudad
+    departamento = ciudad.departamento
     form_edicion = SucursalForm(instance=sucursal, initial=sucursal.__dict__)
     if request.method == 'POST':
         form_edicion = SucursalForm(
@@ -39,7 +41,7 @@ def editar_sucursal(request, id_sucursal):
         else:
             return HttpResponseRedirect("/sucursales/listar")
     return render(request, 'lista_sucursales.html',
-                  {'sucursales': sucursales, 'edicion': True, 'form_edicion': form_edicion})
+                  {'sucursales': sucursales, 'edicion': True, 'form_edicion': form_edicion, 'departamento': departamento.id})
 
 
 def eliminar_sucursal(request, id):

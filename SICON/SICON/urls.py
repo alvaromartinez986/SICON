@@ -15,14 +15,9 @@ urlpatterns = patterns('',
     url(r'^login$',iniciar_sesion),
     url(r'^logout',cerrar_sesion),
 
-    url(r'^vehiculos_nuevos/',include('administrador.urls')),
-    url(r'^vehiculos_usados/',include('administrador.urls')),
-    url(r'^sucursales/',include('administrador.urls')),
     url(r'^',include('administrador.urls')),
 
-    url(r'^empleado/crear', crear_empleado),
-    url(r'^empleado/listar', listar_empleado),
-    url(r'^empleado/editar/(\d+)$', editar_empleado)
+
 )
 
 

@@ -51,7 +51,7 @@
                             <!-- /input-group -->
                         </div>
                         <div class="col-md-4">
-                        <form role="form">
+                        <form role="form" method="post">
                             {% csrf_token %}
                             <p style="color: red">{{error}}</p>
                             <fieldset>
@@ -67,7 +67,7 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-danger btn-block">Login</a>
+                                <button class="btn btn-lg btn-danger btn-block" type="submit">Login</button>
                             </fieldset>
                         </form>
                     </div>

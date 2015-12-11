@@ -27,7 +27,7 @@ class Empleado(models.Model):
     TARDE= 'Tarde'
     NOCHE= 'Noche'
     JORNADA_CHOICES = ((MANANA, 'Mañana'), (TARDE, 'Tarde'), (NOCHE, 'Noche'))
-    jornada=            models.CharField(choices=JORNADA_CHOICES, max_length=15)
+    jornada = models.CharField(choices=JORNADA_CHOICES, max_length=15)
     
     fecha_vinculacion = models.DateField(blank=True)
     
@@ -36,8 +36,8 @@ class Empleado(models.Model):
     GER='Gerente'
     MEC='Mecánico' 
     CARGO_CHOICES = ((VEND, 'Vendedor'), (JT, 'Jefe de taller'), (GER, 'Gerente'), (MEC,'Mecánico')) 
-    cargo =             models.CharField(choices= CARGO_CHOICES, max_length=150)
-    telefono =          models.CharField(max_length=150)
+    cargo = models.CharField(choices= CARGO_CHOICES, max_length=150)
+    telefono = models.CharField(max_length=150)
     
     MASC= 'Masculino'
     FEM= 'Femenino'

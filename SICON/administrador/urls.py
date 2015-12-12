@@ -14,9 +14,9 @@ urlpatterns = patterns('',
     url(r'^vehiculos_usados/eliminarvu/(\d+)$',eliminar_vehiculo_usado),
 
 	url(r'^sucursales/listar',listar_sucursales, name= 'listar_sucursales'),
-	url(r'^sucursales/crear',crear_sucursal),
+	url(r'^sucursales/crear',crear_sucursal, name='sucursales_crear'),
 	url(r'^sucursales/cargar_ciudades', cargar_ciudades),
-	url(r'^sucursales/eliminar/(\d+)$',eliminar_sucursal),
+	url(r'^sucursales/eliminar/(\d+)$',eliminar_sucursal, name='sucursales_eliminar'),
 	url(r'^sucursales/editar/(\d+)$',editar_sucursal, name='sucursales_editar'),
 
     url(r'^repuestos-editar/(\d+)$',editar_repuesto),

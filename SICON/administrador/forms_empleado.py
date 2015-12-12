@@ -23,14 +23,13 @@ class EmpleadoForm(ModelForm):
             'genero' ,
             'fecha_nacimiento',
             'area'  ,
-            'estado_empleado',
             'jefe' ]
         widgets={
-            'no_documento': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Numero de documento'}),
+            'no_documento': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Numero de documento', 'min':'1'}),
             'nombre': forms.TextInput(attrs={'class':'form-control','placeholder':'Nombre'}),
             'apellido': forms.TextInput(attrs={'class':'form-control','placeholder':'Apellido'}),
             'tipo_sangre': forms.Select(attrs={'class':'form-control required'}),
-            'experiencia' : forms.NumberInput(attrs={'class':'form-control ','placeholder':'Experiencia'}),
+            'experiencia' : forms.NumberInput(attrs={'class':'form-control ','placeholder':'Experiencia', 'min':'0'}),
             'jornada': forms.Select(attrs={'class':'form-control required'}),
             'fecha_vinculacion' : forms.DateInput(attrs={'class':'form-control ','placeholder':'Fecha de vinculacion'}),
             'cargo': forms.Select(attrs={'class':'form-control required'}),
@@ -38,7 +37,6 @@ class EmpleadoForm(ModelForm):
             'genero' : forms.Select(attrs={'class':'form-control required'}),
             'fecha_nacimiento': forms.DateInput(attrs={'class':'form-control','placeholder':'Fecha de nacimiento'}),
             'area'  : forms.TextInput(attrs={'class':'form-control ','placeholder':'Area'}),
-            'estado_empleado': forms.Select(attrs={'class':'form-control required'}),
             'jefe': forms.TextInput(attrs={'class':'form-control ','placeholder':'Jefe'}),
         }
 

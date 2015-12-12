@@ -46,7 +46,7 @@ class Migration(migrations.Migration):
                 ('genero', models.CharField(max_length=15, choices=[(b'Masculino', b'Masculino'), (b'Femenino', b'Femenino')])),
                 ('fecha_nacimiento', models.DateField()),
                 ('area', models.CharField(max_length=150)),
-                ('estado_empleado', models.CharField(max_length=15, choices=[(b'Activado', b'Activado'), (b'Desactivado', b'Desactivado')])),
+                ('estado_empleado', models.BooleanField(default=True)),
                 ('jefe', models.IntegerField()),
             ],
         ),

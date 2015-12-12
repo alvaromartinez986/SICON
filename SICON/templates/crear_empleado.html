@@ -1,5 +1,3 @@
-__author__ = 'nelson'
-
 {%extends "indexAdmin.html"%}
 {% load staticfiles %}
 {% block css %}
@@ -35,7 +33,7 @@ en esta seccion se va a poner el contenido de la pagina
                                 {% if exito %}
                                     <div class="alert alert-success alert-dismissable">
                                         <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-                                        <i class="fa fa-check"></i> Se creado un empleado con exito!
+                                        <i class="fa fa-check"></i> ¡Se ha creado un empleado con éxito!
                                     </div>
                                 {% endif %}
                                 <form action="" method="post">
@@ -144,14 +142,6 @@ en esta seccion se va a poner el contenido de la pagina
                                         {{form.area}}
                                     </div>
 
-                                    <!-- estado_empleado -->
-                                    {{form.estado_empleado.errors}}
-                                    <div class="form-group">
-                                        <label>{{form.estado_empleado.label}}</label>
-                                        <p class="help-block">Estado del empleado (activo o inactivo)</p>
-                                        {{form.estado_empleado}}
-                                    </div>
-
                                     <!-- jefe -->
                                     {{form.jefe.errors}}
                                     <div class="form-group">
@@ -172,7 +162,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     </div>
                                     <div class="form-group">
                                         <label>Contraseña</label>
-                                        <p class="help-block">contraseña del usario</p>
+                                        <p class="help-block">Contraseña del usuario</p>
                                         <input id="id_password" name="password" class ="form-control">
                                     </div>
                                   </div>

@@ -5,9 +5,9 @@ from django.utils.encoding import smart_unicode
 __author__ = 'nelson'
 
 class Empleado(models.Model):
-    no_documento =      models.IntegerField(unique=True)
-    nombre =            models.CharField(max_length=100)
-    apellido =          models.CharField(max_length=100)
+    no_documento = models.CharField(unique=True, max_length=40)
+    nombre = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100)
     
     OMAS= 'O+'
     OMENOS= 'O-'
@@ -19,11 +19,11 @@ class Empleado(models.Model):
     ABMENOS= 'AB-'
     TIPO_CHOICES = ((OMAS, 'O+'), (OMENOS, 'O-'), (AMAS, 'A+'), (AMENOS, 'A-'), 
     (BMAS, 'B+'), (BMENOS, 'B-'), (ABMAS, 'AB+'), (ABMENOS, 'AB-'))
-    tipo_sangre =       models.CharField(choices=TIPO_CHOICES, max_length=20)
+    tipo_sangre = models.CharField(choices=TIPO_CHOICES, max_length=20)
     
-    experiencia =       models.IntegerField()
+    experiencia = models.IntegerField()
     
-    MANANA= 'Mañana'
+    MANANA= 'Manana'
     TARDE= 'Tarde'
     NOCHE= 'Noche'
     JORNADA_CHOICES = ((MANANA, 'Mañana'), (TARDE, 'Tarde'), (NOCHE, 'Noche'))
@@ -42,13 +42,11 @@ class Empleado(models.Model):
     MASC= 'Masculino'
     FEM= 'Femenino'
     GEN_CHOICES = ((MASC, 'Masculino'), (FEM, 'Femenino'))
-    genero =            models.CharField(choices=GEN_CHOICES, max_length=15)
+    genero = models.CharField(choices=GEN_CHOICES, max_length=15)
     
-    fecha_nacimiento =  models.DateField()
-    area    =           models.CharField(max_length=150)
+    fecha_nacimiento = models.DateField()
+    area = models.CharField(max_length=150)
     
-    ACT='Activado'
-    DES='Desactivado'
-    VINC_CHOICES = ((ACT,'Activado'), (DES,'Desactivado'))
-    estado_empleado =   models.CharField(choices=VINC_CHOICES, max_length=15) #Vinculado/Desvinculado
-    jefe =              models.IntegerField()
+
+    estado_empleado = models.BooleanField(default=True)
+    jefe = models.IntegerField()

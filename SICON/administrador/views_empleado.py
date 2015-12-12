@@ -54,8 +54,16 @@ def editar_empleado(request, id):
 		if form_edicion.has_changed():
 			if form_edicion.is_valid():
 				form_edicion.save()
-				return HttpResponseRedirect("/empleado/listar")
+				return HttpResponseRedirect("/empleado/listar_empleados")
 		else:
-			print "holi4"
-			return HttpResponseRedirect("/empleado/listar")
+			return HttpResponseRedirect("/empleado/listar_empleados")
 	return render(request, 'lista_empleados.html', {'empleados': empleados, 'edicion': True, 'form_edicion': form_edicion})
+
+def eliminar_empleado(request, id):
+    empleado = Empleado.objects.get(id=id)
+    if empleado.estado_empleado:
+        empleado.estado_empleado = False
+    else:
+        empleado.estado_empleado = True
+    empleado.save()
+    return HttpResponseRedirect("/empleado/listar_empleados")

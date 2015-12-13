@@ -3,9 +3,9 @@ from django.forms import ModelForm
 from django import forms
 from .models import Empleado
 from .models import Usuarios
+from django.forms.fields import DateField
 
 __author__ = 'nelson'
-
 
 class EmpleadoForm(ModelForm):
     class Meta:
@@ -31,11 +31,11 @@ class EmpleadoForm(ModelForm):
             'tipo_sangre': forms.Select(attrs={'class':'form-control required'}),
             'experiencia' : forms.NumberInput(attrs={'class':'form-control ','placeholder':'Experiencia', 'min':'0'}),
             'jornada': forms.Select(attrs={'class':'form-control required'}),
-            'fecha_vinculacion' : forms.DateInput(attrs={'class':'form-control ','placeholder':'Fecha de vinculacion'}),
+            'fecha_vinculacion' : forms.DateInput(attrs={'class':'form-control required','placeholder':'Fecha de vinculacion'}),
             'cargo': forms.Select(attrs={'class':'form-control required'}),
             'telefono' : forms.TextInput(attrs={'class':'form-control ','placeholder':'Telefono'}),
             'genero' : forms.Select(attrs={'class':'form-control required'}),
-            'fecha_nacimiento': forms.DateInput(attrs={'class':'form-control','placeholder':'Fecha de nacimiento'}),
+            'fecha_nacimiento': forms.DateInput(attrs={'class':'form-control required','placeholder':'Fecha de nacimiento'}),
             'area'  : forms.TextInput(attrs={'class':'form-control ','placeholder':'Area'}),
             'jefe': forms.TextInput(attrs={'class':'form-control ','placeholder':'Jefe'}),
         }

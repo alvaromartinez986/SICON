@@ -3,10 +3,11 @@ herencia de blank.html que es la plantilla de la pagina
 -->
 {%extends "indexAdmin.html" %}
 {% load staticfiles %}
-{% block css %}
+{% block style %}
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
     <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
 {%endblock%}
 
 <!--
@@ -30,6 +31,13 @@ en esta seccion se va a poner el contenido de la pagina
                         <div class="panel-body">
                             <div class="dataTable_wrapper table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="empleados">
+                                    <col width="15%">
+                                    <col width="15%">
+                                    <col width="15%">
+                                    <col width="15%">
+                                    <col width="10%">
+                                    <col width="20%">
+                                    <col width="10%">
                                     <thead>
                                         <tr>
                                             <th>Documento</th>
@@ -164,11 +172,13 @@ en esta seccion se va a poner el contenido de la pagina
 
 							<!-- fecha_vinculacion -->
 
-							<div class="form-group">
+							<div class="form-group" id="data_1">
 								{{form_edicion.fecha_vinculacion.errors}}
 								<label class="col-lg-4 control-label">{{form_edicion.fecha_vinculacion.label}}</label>
-
-								<div class="col-lg-6">{{form_edicion.fecha_vinculacion}}</div>
+                                <div class="col-lg-6 input-group date ">
+                                    <span class="input-group-addon "><i class="fa fa-calendar"></i>
+                                    </span>
+                                    {{form_edicion.fecha_vinculacion}}</div>
 							</div>
 
 							<!-- cargo-->
@@ -200,11 +210,13 @@ en esta seccion se va a poner el contenido de la pagina
 
 							<!-- fecha_nacimiento -->
 
-							<div class="form-group">
+							<div class="form-group" id="data_1">
 								{{form_edicion.fecha_nacimiento.errors}}
 								<label class="col-lg-4 control-label">{{form_edicion.fecha_nacimiento.label}}</label>
-
-								<div class="col-lg-6">{{form_edicion.fecha_nacimiento}}</div>
+                                <div class="col-lg-6 input-group date ">
+                                    <span class="input-group-addon "><i class="fa fa-calendar"></i>
+                                    </span>
+								    {{form_edicion.fecha_nacimiento}}</div>
 							</div>
 
 							<!-- area -->
@@ -259,7 +271,11 @@ para traer el bloque de codigo que esta en la pagina blank.html
  <!-- DataTables JavaScript -->
     <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
-    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>sss
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+
+    <!-- Date picker -->
+    <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
 
     <!-- validacion del formulario editar-->
     <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
@@ -298,5 +314,18 @@ para traer el bloque de codigo que esta en la pagina blank.html
         });
         </script>
     {%endif%}
+
+    <script type="text/javascript">
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: false,
+                autoclose: true,
+                language: 'es',
+                format: 'dd/mm/yyyy',
+                endDate: '-5h'
+            });
+   </script>
 
 {%endblock%}

@@ -219,7 +219,6 @@ para traer el bloque de codigo que esta en la pagina blank.html
     <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
     
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-
      <script>
          $(document).ready(function() {
     // Setup - add a text input to each footer cell
@@ -231,19 +230,19 @@ para traer el bloque de codigo que esta en la pagina blank.html
               $(this).html( '<input type="text" placeholder='+title+' style="width: 100%;" />' );}
           } );
 
-    // DataTable
-    var table = $('#vehiculos_usados').DataTable({responsive:true});
+        // DataTable
+            var table = $('#vehiculos_usados').DataTable({responsive:true});
 
-    // Apply the search
-    table.columns().every( function () {
-        var that = this;
+            // Apply the search
+            table.columns().every( function () {
+                var that = this;
 
-        $( 'input', this.footer() ).on( 'keyup change', function () {
-            if ( that.search() !== this.value ) {
-                that
-                    .search( this.value )
-                    .draw();
-            }
+            $( 'input', this.footer() ).on( 'keyup change', function () {
+                if ( that.search() !== this.value ) {
+                    that
+                        .search( this.value )
+                        .draw();
+                }
         } );
     } );
 } );

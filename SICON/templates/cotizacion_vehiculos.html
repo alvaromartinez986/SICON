@@ -66,12 +66,10 @@ en esta seccion se va a poner el contenido de la pagina
                                     </tr>
                                     </tfoot>
                                     <tbody>
-                                        {%for veh in vehiculos_nuevos %}
-                                        <!--{{veh.estado|linebreaks }}-->
-                                        <!--{%if veh.estado%}-->
+                                    {%for veh in vehiculos_nuevos %}
+                                    {%if veh.activo%}
                                         <tr>
-                                            <!--<td><div class="checkbox"></div></td>-->
-                                            <td>{{veh.estado}}</td>
+                                            <td><input type="checkbox" value="selected"><br></td>
                                             <td>{{veh.codigo}}</td>
 											<td>{{veh.cilindraje}}</td>
                                             <td>{{veh.marca}}</td>
@@ -81,8 +79,8 @@ en esta seccion se va a poner el contenido de la pagina
 											<td>{{veh.color}}</td>
                                             <td>{{veh.valor}}</td>
                                         </tr>
-                                        <!--{%endif%}-->
-                                        {%endfor%}
+                                    {%endif%}
+                                    {%endfor%}
                                     </tbody>
                                 </table>
                             </div>
@@ -123,7 +121,7 @@ para traer el bloque de codigo que esta en la pagina blank.html
           var i=0;
           $('#vehiculos_nuevos tfoot th').each( function () {
               i++;
-              if (i <=9){
+              if (i!==1 &&  i <=9){
               var title = $(this).text();
               $(this).html( '<input type="text" placeholder='+title+' style="width: 100%;" />' );}
           } );

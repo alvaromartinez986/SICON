@@ -26,7 +26,7 @@ en esta seccion se va a poner el contenido de la pagina
                         <div class="panel-heading">
                             <h3>Sucursales <small>Información básica de las sucursales...</small></h3>
                             <div class="container-fluid" align="right">
-                                <a href="/sucursales/crear" class="btn btn-info" data-toggle="tooltip" title="Nueva Sucursal">
+                                <a href="{% url 'sucursales_crear' %}" class="btn btn-info" data-toggle="tooltip" title="Nueva Sucursal">
                                     <span class="fa fa-plus-circle"></span></a>
                             </div>
 
@@ -67,10 +67,10 @@ en esta seccion se va a poner el contenido de la pagina
 											<td>{{sucursal.telefono}}</td>
                                         {%if sucursal.activo %}
                                             <td><p><span class="badge badge-primary">Activo</span></p></td>
-                                            <td><a href="/sucursales/eliminar/{{sucursal.id}}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
+                                            <td><a href="{% url 'sucursales_eliminar' sucursal.id %}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
                                         {%else%}
                                             <td><p><span class="badge badge-danger">Inactivo</span></p></td>
-                                            <td><a href="/sucursales/eliminar/{{sucursal.id}}"><button class="btn btn-xs btn-success dim"><i class="fa fa-check-square"></i> Reactivar</button></a></td>
+                                            <td><a href="{% url 'sucursales_eliminar' sucursal.id %}"><button class="btn btn-xs btn-success dim"><i class="fa fa-check-square"></i> Reactivar</button></a></td>
                                         {%endif%}
                                             <td><a href="{% url 'sucursales_editar' sucursal.id %}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
 

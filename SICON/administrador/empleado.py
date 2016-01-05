@@ -49,4 +49,5 @@ class Empleado(models.Model):
     
 
     estado_empleado = models.BooleanField(default=True)
+    #models.ForeignKey(Departamento)
     jefe = models.IntegerField()

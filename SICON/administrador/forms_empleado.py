@@ -36,7 +36,7 @@ class EmpleadoForm(ModelForm):
             'jornada': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_vinculacion': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de vinculacion'}),
-            'cargo': forms.Select(attrs={'class': 'form-control required'}),
+            'cargo': forms.Select(attrs={'class':'form-control required','onclick':'myFunction()'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Telefono'}),
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(

@@ -108,9 +108,9 @@ en esta seccion se va a poner el contenido de la pagina-->
 
                                     <!-- cargo-->
                                     {{form.cargo.errors}}
-                                    <div class="form-group">
-                                        <label>{{form.cargo.label}}</label>
-                                        <p class="help-block">Cargo</p>
+                                    <div id="cargo" class="form-group">
+                                        <label id="cargo">{{form.cargo.label}}</label>
+                                        <p id="cargo" onclick="myFunction()" class="help-block">Cargo</p>
                                         {{form.cargo}}
                                     </div>
 
@@ -150,8 +150,9 @@ en esta seccion se va a poner el contenido de la pagina-->
                                     </div>
 
                                     <!-- jefe -->
-                                    {{form.jefe.errors}}
-                                    <div class="form-group">
+
+                                    <div class="collapse">
+
                                         <label>{{form.jefe.label}}</label>
                                         <p class="help-block">Jefe del empleado</p>
                                         {{form.jefe}}
@@ -159,7 +160,7 @@ en esta seccion se va a poner el contenido de la pagina-->
 
 
 
-                                  <input type="checkbox" name="check" class="btn btn-info" data-toggle="collapse" data-target="#demo"> Crear Usuario
+                                  <input type="checkbox" name="check" class="btn btn-info" data-toggle="collapse" data-target="#demo"> CREAR USUARIO
                                     <br> <br>
                                   <div id="demo" class="collapse">
                                     <div class="form-group">
@@ -170,7 +171,11 @@ en esta seccion se va a poner el contenido de la pagina-->
                                     <div class="form-group">
                                         <label>Contraseña</label>
                                         <p class="help-block">Contraseña del usuario</p>
-                                        <input id="id_password" name="password" class ="form-control">
+                                        <input id="id_password" type="password" name="password" class ="form-control">
+                                        <br>
+                                        <label>Confirmar Contraseña</label>
+                                        <p class="help-block">Confirmar contraseña de usuario</p>
+                                        <input id="id_password" type="password" name="password" class ="form-control">
                                     </div>
                                   </div>
 
@@ -210,5 +215,20 @@ en esta seccion se va a poner el contenido de la pagina-->
    </script>
 
 
+    <script>
+        function myFunction() {
+            var empcargo = document.getElementById('id_cargo').value;
+            if (empcargo == "Mecánico") {
+                //alert("Selecciono Mecanico")
+                $(".collapse").collapse('show');
+                document.getElementById('demo').style.display='none';
+            }
+            else {
+                //alert("Selecciono otro");
+                $(".collapse").collapse('hide');
+                document.getElementById('demo').style.display='inline';
+            }
+        }
+    </script>
 
 {% endblock %}

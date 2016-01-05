@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import migrations, models
+from django.db import models, migrations
 
 
 class Migration(migrations.Migration):
@@ -34,19 +34,19 @@ class Migration(migrations.Migration):
             name='Empleado',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('no_documento', models.IntegerField(unique=True)),
+                ('no_documento', models.CharField(unique=True, max_length=40)),
                 ('nombre', models.CharField(max_length=100)),
                 ('apellido', models.CharField(max_length=100)),
                 ('tipo_sangre', models.CharField(max_length=20, choices=[(b'O+', b'O+'), (b'O-', b'O-'), (b'A+', b'A+'), (b'A-', b'A-'), (b'B+', b'B+'), (b'B-', b'B-'), (b'AB+', b'AB+'), (b'AB-', b'AB-')])),
                 ('experiencia', models.IntegerField()),
-                ('jornada', models.CharField(max_length=15, choices=[(b'Ma\xc3\xb1ana', b'Ma\xc3\xb1ana'), (b'Tarde', b'Tarde'), (b'Noche', b'Noche')])),
+                ('jornada', models.CharField(max_length=15, choices=[(b'Manana', b'Ma\xc3\xb1ana'), (b'Tarde', b'Tarde'), (b'Noche', b'Noche')])),
                 ('fecha_vinculacion', models.DateField(blank=True)),
                 ('cargo', models.CharField(max_length=150, choices=[(b'Vendedor', b'Vendedor'), (b'Jefe de taller', b'Jefe de taller'), (b'Gerente', b'Gerente'), (b'Mec\xc3\xa1nico', b'Mec\xc3\xa1nico')])),
                 ('telefono', models.CharField(max_length=150)),
                 ('genero', models.CharField(max_length=15, choices=[(b'Masculino', b'Masculino'), (b'Femenino', b'Femenino')])),
                 ('fecha_nacimiento', models.DateField()),
                 ('area', models.CharField(max_length=150)),
-                ('estado_empleado', models.CharField(max_length=15, choices=[(b'Activado', b'Activado'), (b'Desactivado', b'Desactivado')])),
+                ('estado_empleado', models.BooleanField(default=True)),
                 ('jefe', models.IntegerField()),
             ],
         ),

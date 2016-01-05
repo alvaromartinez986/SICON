@@ -1,11 +1,13 @@
-__author__ = 'nelson'
-
 {%extends "indexAdmin.html"%}
 {% load staticfiles %}
-{% block css %}
+{% block style %}
+{{block.super}}
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
     <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+
+    <link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
     
 {%endblock%}
 
@@ -35,7 +37,7 @@ en esta seccion se va a poner el contenido de la pagina
                                 {% if exito %}
                                     <div class="alert alert-success alert-dismissable">
                                         <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-                                        <i class="fa fa-check"></i> Se creado un empleado con exito!
+                                        <i class="fa fa-check"></i> ¡Se ha creado un empleado con éxito!
                                     </div>
                                 {% endif %}
                                 <form action="" method="post">
@@ -98,17 +100,20 @@ en esta seccion se va a poner el contenido de la pagina
 
                                     <!-- fecha_vinculacion -->
                                     {{form.fecha_vinculacion.errors}}
-                                    <div class="form-group">
+                                    <div class="form-group" id="data_1">
                                         <label>{{form.fecha_vinculacion.label}}</label>
                                         <p class="help-block">Fecha de vinculacion</p>
-                                        {{form.fecha_vinculacion}}
+                                        <div class=" input-group date ">
+                                                <span class="input-group-addon "><i class="fa fa-calendar"></i></span>
+                                                {{form.fecha_vinculacion}}
+                                        </div>
                                     </div>
 
                                     <!-- cargo-->
                                     {{form.cargo.errors}}
-                                    <div class="form-group">
-                                        <label>{{form.cargo.label}}</label>
-                                        <p class="help-block">Cargo</p>
+                                    <div id="cargo" class="form-group">
+                                        <label id="cargo">{{form.cargo.label}}</label>
+                                        <p id="cargo" onclick="myFunction()" class="help-block">Cargo</p>
                                         {{form.cargo}}
                                     </div>
 
@@ -130,10 +135,13 @@ en esta seccion se va a poner el contenido de la pagina
                                     
                                     <!-- fecha_nacimiento -->
                                     {{form.fecha_nacimiento.errors}}
-                                    <div class="form-group">
+                                    <div class="form-group" id="data_1">
                                         <label>{{form.fecha_nacimiento.label}}</label>
                                         <p class="help-block">Fecha de nacimiento</p>
-                                        {{form.fecha_nacimiento}}
+                                        <div class=" input-group date ">
+                                                <span class="input-group-addon "><i class="fa fa-calendar"></i></span>
+                                                {{form.fecha_nacimiento}}
+                                        </div>
                                     </div>
 
                                     <!-- area -->
@@ -144,17 +152,10 @@ en esta seccion se va a poner el contenido de la pagina
                                         {{form.area}}
                                     </div>
 
-                                    <!-- estado_empleado -->
-                                    {{form.estado_empleado.errors}}
-                                    <div class="form-group">
-                                        <label>{{form.estado_empleado.label}}</label>
-                                        <p class="help-block">Estado del empleado (activo o inactivo)</p>
-                                        {{form.estado_empleado}}
-                                    </div>
-
                                     <!-- jefe -->
-                                    {{form.jefe.errors}}
-                                    <div class="form-group">
+
+                                    <div class="collapse">
+
                                         <label>{{form.jefe.label}}</label>
                                         <p class="help-block">Jefe del empleado</p>
                                         {{form.jefe}}
@@ -172,16 +173,18 @@ en esta seccion se va a poner el contenido de la pagina
                                     </div>
                                     <div class="form-group">
                                         <label>Contraseña</label>
-                                        <p class="help-block">contraseña del usario</p>
-                                        <input id="id_password" name="password" class ="form-control">
+                                        <p class="help-block">Contraseña del usuario</p>
+                                        <input id="id_password" type="password" name="password" class ="form-control">
+                                        <br>
+                                        <label>Confirmar Contraseña</label>
+                                        <p class="help-block">Confirmar contraseña de usuario</p>
+                                        <input id="id_password" type="password" name="password" class ="form-control">
                                     </div>
                                   </div>
 
                                     <br>
 
                                     <!--BOTON-->
-
-
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Crear</button>
                                     </div>
@@ -191,4 +194,45 @@ en esta seccion se va a poner el contenido de la pagina
                         </div>
                     </div>
                 </div>
+{% endblock %}
+
+{% block js %}
+    {{block.super}}
+
+
+   <!-- Date picker -->
+   <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
+   <script type="text/javascript">
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: false,
+                autoclose: true,
+                language: 'es',
+                format: 'mm/dd/yyyy',
+                endDate: '-5h'
+            });
+   </script>
+
+    <script>
+        function myFunction() {
+            var empcargo = document.getElementById('id_cargo').value;
+            if (empcargo == "Mecánico") {
+                //alert("Selecciono Mecanico")
+                $(".collapse").collapse('show');
+                document.getElementById('demo').style.display='none';
+            }
+            else {
+                //alert("Selecciono otro");
+                $(".collapse").collapse('hide');
+                document.getElementById('demo').style.display='inline';
+            }
+        }
+    </script>
+
+
+
+
+
 {% endblock %}

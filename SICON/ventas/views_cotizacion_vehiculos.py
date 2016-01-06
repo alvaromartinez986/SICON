@@ -11,7 +11,6 @@ def cotizar_vehiculos(request):
 def gestionar_cliente(request, identificacion):
     vehiculos_n= VehiculoNuevo.objects.all()
     cliente = Cliente.objects.filter(identificacion=identificacion).first()
-    print(cliente)
     if cliente!=None:
         form=ClienteForm(instance=cliente, initial=cliente.__dict__)
         if request.method == 'POST':
@@ -21,7 +20,7 @@ def gestionar_cliente(request, identificacion):
                     form.save()
                     return HttpResponseRedirect("../cotizacion/vehiculos")
     else:
-        form=ClienteForm()
+        form=ClienteForm(initial={'identificacion': identificacion})
         if request.method == 'POST':
             form=ClienteForm(request.POST)
             if form.is_valid():

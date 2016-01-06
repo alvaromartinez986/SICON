@@ -91,7 +91,7 @@ en esta seccion se va a poner el contenido de la pagina
 
 
 
-{%if sig%}
+<!--{%if sig%}-->
 
     <button type="button" id="botonModalCliente" data-toggle="modal" data-target="#infoCliente"
                 style="display:none;"></button>
@@ -140,7 +140,7 @@ en esta seccion se va a poner el contenido de la pagina
                                 <button type="button" class="btn btn-white"
                                         href="{% url 'cotizacion_vehiculos'%}" data-dismiss="modal">Cancelar
                                 </button>
-                                <button type="submit" class="btn btn-primary">Guardar cambios
+                                <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar cambios
                                 </button>
                             </div>
                     </form>
@@ -148,7 +148,7 @@ en esta seccion se va a poner el contenido de la pagina
             </div>
         </div>
     </div>
-{%else%}
+<!--{%else%}-->
 
     <button type="button" id="botonModalCliente2" data-toggle="modal" data-target="#infoCliente"
                 style="display:none;"></button>
@@ -180,7 +180,7 @@ en esta seccion se va a poner el contenido de la pagina
             </div>
         </div>
     </div>
-{%endif%}
+<!--{%endif%}-->
 <!--{% if cliente %}-->
 
     <!--<button type="button" id="botonModalCliente" data-toggle="modal" data-target="#infoCliente"-->
@@ -257,13 +257,17 @@ para traer el bloque de codigo que esta en la pagina blank.html
 -->
 {{block.super}}
 
- <!-- DataTables JavaScript -->
+    <!-- DataTables JavaScript -->
     <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <!--pdfmake-->
+    <script src='{{STATIC_URL}}/static/js/pdfmake.min.js'></script>
+ 	<script src='{{STATIC_URL}}/static/js/vfs_fonts.js'></script>
     <!-- validacion del formulario editar-->
     <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}/static/js/cotizacionVehiculos.js"></script>
+
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
      <script>
@@ -315,13 +319,22 @@ para traer el bloque de codigo que esta en la pagina blank.html
 
 <!--script que abre el diálogo cuando viene de evaluar cliente-->
 
-     {%if sig %}
-        <script>
-            $(document).ready(function(){
-                $('#botonModalCliente').click();
-            });
-        </script>
-    {%endif%}
+{%if sig %}
+    <script>
+        $(document).ready(function(){
+            $('#botonModalCliente').click();
+        });
+    </script>
+{%endif%}
+
+<!--script para pasar a escribir el pdf y guardarlo en el archivo js-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#btnGuardar").click(function() {
+            writeCotizacion();
+        })
+    })
+</script>
 
 <!--script para pasar a la llenar del cliente-->
 <script type="text/javascript">

@@ -37,7 +37,7 @@ en esta seccion se va a poner el contenido de la pagina-->
                                         <i class="fa fa-check"></i> ¡Se ha creado un empleado con éxito!
                                     </div>
                                 {% endif %}
-                                <form action="" method="post">
+                                <form action="" method="post" id="form_empleado">
                                     {% csrf_token %}
 
                                     <!-- no_documento -->
@@ -141,21 +141,12 @@ en esta seccion se va a poner el contenido de la pagina-->
                                         </div>
                                     </div>
 
-                                    <!-- sucursal -->
+                                    <!-- Sucursal -->
                                     {{form.sucursal.errors}}
                                     <div class="form-group">
                                         <label>{{form.sucursal.label}}</label>
-                                        <p class="help-block">sucursal</p>
+                                        <p class="help-block">Nombre de la sucursal</p>
                                         {{form.sucursal}}
-                                    </div>
-
-                                    <!-- jefe -->
-
-                                    <div class="collapse">
-
-                                        <label>{{form.jefe.label}}</label>
-                                        <p class="help-block">Jefe del empleado</p>
-                                        {{form.jefe}}
                                     </div>
 
 
@@ -198,6 +189,13 @@ en esta seccion se va a poner el contenido de la pagina-->
 {% block js %}
     {{block.super}}
 
+<script src="{{STATIC_URL}}/static/js/crearempleado.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#id_sucursal").select2({width:'100%'});
+  });
+  </script>
+
 
    <!-- Date picker -->
    <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
@@ -220,21 +218,13 @@ en esta seccion se va a poner el contenido de la pagina-->
             var empcargo = document.getElementById('id_cargo').value;
             if (empcargo == "Mecanico") {
                 //alert("Selecciono Mecanico")
-                $(".collapse").collapse('show');
-                //document.getElementById('demo').style.display='none';
+                document.getElementById('demo').style.display='none';
             }
             else {
                 //alert("Selecciono otro");
-                $(".collapse").collapse('hide');
-                //document.getElementById('demo').style.display='inline';
+                document.getElementById('demo').style.display='inline';
             }
         }
-    </script>
-
-    <script type="text/javascript">
-    $(document).ready(function(){
-    $("#id_sucursal").select2({width:'100%'});
-    });
     </script>
 
 {% endblock %}

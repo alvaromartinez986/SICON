@@ -51,5 +51,5 @@ class Empleado(models.Model):
 
     estado_empleado = models.BooleanField(default=True)
     #models.ForeignKey(Departamento)
-    sucursal = models.ForeignKey(Sucursal)
-    jefe = models.IntegerField(null=True)
+    sucursal = models.ForeignKey(Sucursal, null=True, blank=True)
+    jefe = models.IntegerField(blank=True, null=True)

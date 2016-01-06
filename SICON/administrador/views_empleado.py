@@ -1,6 +1,6 @@
 from operator import is_
 from django.shortcuts import render
-from .forms_empleado import EmpleadoForm, JefeTallerForm, GerenteForm, SuperAdminForm
+from .forms_empleado import EmpleadoForm, JefeTallerForm, GerenteForm, SuperAdminForm, VendedorForm
 from .forms_usuarios import UsuariosForm
 from django.http import HttpResponseRedirect
 from .models import Empleado
@@ -47,25 +47,19 @@ def crear_empleado(request):
 def crear_empleado(request):
     empleado = EmpleadoForm()
     exito = False
-    print 'checkpoi'
 
     if request.method == 'POST':
         empleado = EmpleadoForm(request.POST)
         tipo_cargo = request.POST.get('cargo')
         print tipo_cargo
-        if not (tipo_cargo == 'Mecanico'):
-            empleado.jefe='0'
-            print 'entra'
         print empleado.is_valid()
     if empleado.is_valid():
-        print 'Es validooooo'
         is_user = request.POST.get('check')
 
         if (tipo_cargo == 'Mecanico'):
             empleado.save()
 
         elif (tipo_cargo == 'Jefe de taller'):
-            print 'Entra'
             password = request.POST.get('password')
             user = JefeTallerForm(empleado.data)
             user_save = user.save()
@@ -75,14 +69,24 @@ def crear_empleado(request):
             user_save.last_name=request.POST.get('apellido')
             user_save.save()
 
-        else:
-            print 'ingresa aqui'
-            username = request.POST.get('username')
+        elif (tipo_cargo == 'Vendedor'):
             password = request.POST.get('password')
-            user = UsuariosForm(empleado.data)
+            user = VendedorForm(empleado.data)
             user_save = user.save()
-            user_save.username = username
-            user_save.password = password
+            user_save.username = request.POST.get('username')
+            user_save.password = make_password(password)
+            user_save.first_name=request.POST.get('nombre')
+            user_save.last_name=request.POST.get('apellido')
+            user_save.save()
+
+        elif (tipo_cargo == 'Gerente'):
+            password = request.POST.get('password')
+            user = GerenteForm(empleado.data)
+            user_save = user.save()
+            user_save.username = request.POST.get('username')
+            user_save.password = make_password(password)
+            user_save.first_name=request.POST.get('nombre')
+            user_save.last_name=request.POST.get('apellido')
             user_save.save()
 
         exito = True

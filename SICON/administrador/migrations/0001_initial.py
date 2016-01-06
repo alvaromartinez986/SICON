@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models, migrations
+from django.db import migrations, models
+import django.contrib.auth.models
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('auth', '0006_require_contenttypes_0002'),
     ]
 
     operations = [
@@ -33,7 +36,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Empleado',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('emp_id', models.AutoField(serialize=False, primary_key=True)),
                 ('no_documento', models.CharField(unique=True, max_length=40)),
                 ('nombre', models.CharField(max_length=100)),
                 ('apellido', models.CharField(max_length=100)),
@@ -41,11 +44,10 @@ class Migration(migrations.Migration):
                 ('experiencia', models.IntegerField()),
                 ('jornada', models.CharField(max_length=15, choices=[(b'Manana', b'Ma\xc3\xb1ana'), (b'Tarde', b'Tarde'), (b'Noche', b'Noche')])),
                 ('fecha_vinculacion', models.DateField(blank=True)),
-                ('cargo', models.CharField(max_length=150, choices=[(b'Vendedor', b'Vendedor'), (b'Jefe de taller', b'Jefe de taller'), (b'Gerente', b'Gerente'), (b'Mec\xc3\xa1nico', b'Mec\xc3\xa1nico')])),
+                ('cargo', models.CharField(max_length=150, choices=[(b'Vendedor', b'Vendedor'), (b'Jefe de taller', b'Jefe de taller'), (b'Gerente', b'Gerente'), (b'Mecanico', b'Mec\xc3\xa1nico')])),
                 ('telefono', models.CharField(max_length=150)),
                 ('genero', models.CharField(max_length=15, choices=[(b'Masculino', b'Masculino'), (b'Femenino', b'Femenino')])),
                 ('fecha_nacimiento', models.DateField()),
-                ('area', models.CharField(max_length=150)),
                 ('estado_empleado', models.BooleanField(default=True)),
                 ('jefe', models.IntegerField()),
             ],
@@ -106,6 +108,54 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='Gerente',
+            fields=[
+                ('empleado_ptr', models.OneToOneField(parent_link=True, auto_created=True, to='administrador.Empleado')),
+                ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'abstract': False,
+                'verbose_name': 'user',
+                'verbose_name_plural': 'users',
+            },
+            bases=('auth.user', 'administrador.empleado'),
+            managers=[
+                ('objects', django.contrib.auth.models.UserManager()),
+            ],
+        ),
+        migrations.CreateModel(
+            name='JefeTaller',
+            fields=[
+                ('empleado_ptr', models.OneToOneField(parent_link=True, auto_created=True, to='administrador.Empleado')),
+                ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'abstract': False,
+                'verbose_name': 'user',
+                'verbose_name_plural': 'users',
+            },
+            bases=('auth.user', 'administrador.empleado'),
+            managers=[
+                ('objects', django.contrib.auth.models.UserManager()),
+            ],
+        ),
+        migrations.CreateModel(
+            name='SuperAdmin',
+            fields=[
+                ('empleado_ptr', models.OneToOneField(parent_link=True, auto_created=True, to='administrador.Empleado')),
+                ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'abstract': False,
+                'verbose_name': 'user',
+                'verbose_name_plural': 'users',
+            },
+            bases=('auth.user', 'administrador.empleado'),
+            managers=[
+                ('objects', django.contrib.auth.models.UserManager()),
+            ],
+        ),
+        migrations.CreateModel(
             name='Usuarios',
             fields=[
                 ('empleado_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='administrador.Empleado')),
@@ -131,6 +181,27 @@ class Migration(migrations.Migration):
                 ('placa', models.CharField(unique=True, max_length=6)),
             ],
             bases=('administrador.vehiculo',),
+        ),
+        migrations.CreateModel(
+            name='Vendedor',
+            fields=[
+                ('empleado_ptr', models.OneToOneField(parent_link=True, auto_created=True, to='administrador.Empleado')),
+                ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'abstract': False,
+                'verbose_name': 'user',
+                'verbose_name_plural': 'users',
+            },
+            bases=('auth.user', 'administrador.empleado'),
+            managers=[
+                ('objects', django.contrib.auth.models.UserManager()),
+            ],
+        ),
+        migrations.AddField(
+            model_name='empleado',
+            name='sucursal',
+            field=models.ForeignKey(to='administrador.Sucursal'),
         ),
         migrations.AddField(
             model_name='ciudad',

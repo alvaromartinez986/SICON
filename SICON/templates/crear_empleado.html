@@ -5,14 +5,11 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
     <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-
-
     <link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
-    
 {%endblock%}
 
 <!--
-en esta seccion se va a poner el contenido de la pagina
+en esta seccion se va a poner el contenido de la pagina-->
 
 {%block content %}
  <!-- Page Heading -->
@@ -185,6 +182,8 @@ en esta seccion se va a poner el contenido de la pagina
                                     <br>
 
                                     <!--BOTON-->
+
+
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Crear</button>
                                     </div>
@@ -210,10 +209,11 @@ en esta seccion se va a poner el contenido de la pagina
                 calendarWeeks: false,
                 autoclose: true,
                 language: 'es',
-                format: 'mm/dd/yyyy',
+                format: 'yyyy-mm-dd',
                 endDate: '-5h'
             });
    </script>
+
 
     <script>
         function myFunction() {
@@ -230,9 +230,5 @@ en esta seccion se va a poner el contenido de la pagina
             }
         }
     </script>
-
-
-
-
 
 {% endblock %}

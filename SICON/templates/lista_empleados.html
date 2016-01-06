@@ -1,9 +1,7 @@
-<!--
-herencia de blank.html que es la plantilla de la pagina
--->
-{%extends "indexAdmin.html" %}
+{%extends "indexAdmin.html"%}
 {% load staticfiles %}
 {% block style %}
+{{block.super}}
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
     <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
@@ -13,7 +11,7 @@ herencia de blank.html que es la plantilla de la pagina
 <!--
 en esta seccion se va a poner el contenido de la pagina
 -->
-{%block content%}
+{%block content %}
 
 
  <h1 class="page-header">Empleados</h1>
@@ -26,6 +24,7 @@ en esta seccion se va a poner el contenido de la pagina
                             <div class="container-fluid" align="right">
                                 <a href="{% url 'crear_empleado' %}" class="btn btn-info" data-toggle="tooltip" title="Nuevo Empleado">
                                     <span class="fa fa-plus-circle"></span></a>
+                        </div>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -178,7 +177,8 @@ en esta seccion se va a poner el contenido de la pagina
                                 <div class="col-lg-6 input-group date ">
                                     <span class="input-group-addon "><i class="fa fa-calendar"></i>
                                     </span>
-                                    {{form_edicion.fecha_vinculacion}}</div>
+                                    {{form_edicion.fecha_vinculacion}}
+                                </div>
 							</div>
 
 							<!-- cargo-->
@@ -237,22 +237,22 @@ en esta seccion se va a poner el contenido de la pagina
 								<div class="col-lg-6">{{form_edicion.jefe}}</div>
 							</div>
 
-                            <input type="checkbox" name="check" class="btn btn-info" data-toggle="collapse" data-target="#demo"> CREAR USUARIO
+
+                            <div class="col-lg-1"></div><input type="checkbox" name="check" class="btn btn-info" data-toggle="collapse" data-target="#demo"> <b>Crear Usuario</b>
                                     <br> <br>
                                   <div id="demo" class="collapse">
                                     <div class="form-group">
-                                    <label>Nombre de usuario</label>
-                                        <p class="help-block">Nombre de usuario</p>
-                                    <input id="id_username" name="username" class = "form-control">
+                                    <label class="col-lg-4 control-label">Nombre de usuario</label>
+                                    <div class="col-lg-6">
+                                    <input id="id_username" name="username" class = "form-control" value={{nomusuario}}>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Contraseña</label>
-                                        <p class="help-block">Contraseña del usuario</p>
-                                        <input id="id_password" type="password" name="password" class ="form-control">
-                                        <br>
-                                        <label>Confirmar Contraseña</label>
-                                        <p class="help-block">Confirmar contraseña de usuario</p>
-                                        <input id="id_password" type="password" name="password" class ="form-control">
+
+                                      <div class="form-group">
+                                        <label class="col-lg-4 control-label">Contraseña</label>
+                                        <div class="col-lg-6">
+                                        <input id="id_password" name="password" class ="form-control" value={{contras}}>
+                                          </div>
                                     </div>
                                   </div>
 
@@ -287,19 +287,17 @@ en esta seccion iran enlaces a libresrias externas en este caso a datatables
 <!--
 para traer el bloque de codigo que esta en la pagina blank.html
 -->
-{{block.super}}
+    {{block.super}}
 
  <!-- DataTables JavaScript -->
     <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
-
-    <!-- Date picker -->
-    <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
-
     <!-- validacion del formulario editar-->
     <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
+
+
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
@@ -334,8 +332,10 @@ para traer el bloque de codigo que esta en la pagina blank.html
         $('#botonModalEdicion').click();
         });
         </script>
-    {%endif%}
 
+
+<!-- Date picker -->
+    <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
     <script type="text/javascript">
             $('#data_1 .input-group.date').datepicker({
                 todayBtn: "linked",
@@ -344,9 +344,15 @@ para traer el bloque de codigo que esta en la pagina blank.html
                 calendarWeeks: false,
                 autoclose: true,
                 language: 'es',
-                format: 'mm/dd/yyyy',
+                format: 'yyyy-mm-dd',
                 endDate: '-5h'
             });
+
+           var zIndex = parseInt(this.element.parents().filter(function() {
+                            return $(this).css('z-index') != 'auto';
+                        }).first().css('z-index'))+1151;
    </script>
+    {%endif%}
+
 
 {%endblock%}

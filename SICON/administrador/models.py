@@ -4,6 +4,10 @@ from vehiculos import *
 from .empleado import Empleado
 from .usuarios import Usuarios
 from .repuesto import Repuesto
+from .jefetaller import JefeTaller
+from .gerente import Gerente
+from .vendedor import Vendedor
+from .superadmin import SuperAdmin
 
 # Create your models here.
 

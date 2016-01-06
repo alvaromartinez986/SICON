@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f43c95fe-2f1d-45bd-955f-a401324dae7b" name="Default" comment="validacion con bootstrap.&#10;">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/__init__.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/SICON/settings.py" afterPath="$PROJECT_DIR$/SICON/SICON/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/cotizacion_vehiculos.html" afterPath="$PROJECT_DIR$/SICON/templates/cotizacion_vehiculos.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" afterPath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/ventas/cliente.py" afterPath="$PROJECT_DIR$/SICON/ventas/cliente.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/ventas/urls.py" afterPath="$PROJECT_DIR$/SICON/ventas/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/ventas/views_cotizacion_vehiculos.py" afterPath="$PROJECT_DIR$/SICON/ventas/views_cotizacion_vehiculos.py" />
     </list>
     <ignored path="SICON.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,13 +39,14 @@
       <file leaf-file-name="cotizacion_vehiculos.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SICON/templates/cotizacion_vehiculos.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.24792">
-              <caret line="323" column="46" selection-start-line="323" selection-start-column="46" selection-end-line="323" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.57570714">
+              <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-                <marker date="1452060049327" expanded="true" signature="14178:14190" placeholder="..." />
+                <marker date="1452061214935" expanded="true" signature="14205:14217" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -1100,13 +1093,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SICON/templates/cotizacion_vehiculos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.24792">
-          <caret line="323" column="46" selection-start-line="323" selection-start-column="46" selection-end-line="323" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.57570714">
+          <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
           <folding>
             <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-            <marker date="1452060049327" expanded="true" signature="14178:14190" placeholder="..." />
+            <marker date="1452061214935" expanded="true" signature="14205:14217" placeholder="..." />
           </folding>
         </state>
       </provider>

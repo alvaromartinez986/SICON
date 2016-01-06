@@ -68,7 +68,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {%for veh in vehiculos_nuevos %}
                                     {%if veh.activo%}
                                         <tr>
-                                            <td><input id={{veh.id}} type="checkbox" value="selected"><br></td>
+                                            <td style="text-align:center;"><input id={{veh.id}} type="checkbox" value="selected"><br></td>
                                             <td>{{veh.codigo}}</td>
 											<td>{{veh.cilindraje}}</td>
                                             <td>{{veh.marca}}</td>

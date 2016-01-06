@@ -17,35 +17,6 @@ def listar_empleado(request):
     empleados = Empleado.objects.all()
     return render(request, 'lista_empleados.html', {'empleados': empleados})
 
-'''
-def crear_empleado(request):
-    empleado = EmpleadoForm()
-    exito = False
-
-    if request.method == 'POST':
-        empleado = EmpleadoForm(request.POST)
-    if empleado.is_valid():
-        is_user = request.POST.get('check')
-        if (is_user == None):
-            empleado.save()
-
-        else:
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            user = UsuariosForm(empleado.data)
-            user_save = user.save()
-            user_save.username = username
-            user_save.password = password
-            user_save.save()
-
-        exito = True
-
-        # empleado = EmpleadoForm()
-
-        # return HttpResponseRedirect('/empleado/listar')
-    return render(request, 'crear_empleado.html', {'form': empleado, 'exito': exito})
-'''
-
 def crear_empleado(request):
     empleado = EmpleadoForm()
     exito = False
@@ -59,7 +30,13 @@ def crear_empleado(request):
         is_user = request.POST.get('check')
 
         if (tipo_cargo == 'Mecanico'):
-            empleado.save()
+            user_save = empleado.save()
+
+            sucur=user_save.sucursal
+            jefeHallado=buscar_jefe(sucur, tipo_cargo)
+            user_save.jefe=jefeHallado
+
+            user_save.save()
 
         elif (tipo_cargo == 'Jefe de taller'):
             password = request.POST.get('password')
@@ -69,6 +46,11 @@ def crear_empleado(request):
             user_save.password = make_password(password)
             user_save.first_name=request.POST.get('nombre')
             user_save.last_name=request.POST.get('apellido')
+
+            sucur=user_save.sucursal
+            jefeHallado=buscar_jefe(sucur, tipo_cargo)
+            user_save.jefe=jefeHallado
+
             user_save.save()
 
         elif (tipo_cargo == 'Vendedor'):
@@ -79,6 +61,11 @@ def crear_empleado(request):
             user_save.password = make_password(password)
             user_save.first_name=request.POST.get('nombre')
             user_save.last_name=request.POST.get('apellido')
+
+            sucur=user_save.sucursal
+            jefeHallado=buscar_jefe(sucur, tipo_cargo)
+            user_save.jefe=jefeHallado
+
             user_save.save()
 
         elif (tipo_cargo == 'Gerente'):
@@ -92,12 +79,24 @@ def crear_empleado(request):
             user_save.save()
 
         exito = True
-
-        # empleado = EmpleadoForm()
-
-        # return HttpResponseRedirect('/empleado/listar')
     return render(request, 'crear_empleado.html', {'form': empleado, 'exito': exito})
 
+def buscar_jefe(objSucursal, tipoCargo):
+    idSucursal=objSucursal.id
+    jefes=[]
+
+    if (tipoCargo == 'Jefe de taller'):
+        jefes = Empleado.objects.filter(sucursal=objSucursal, cargo='Gerente')
+    elif (tipoCargo == 'Vendedor'):
+        jefes = Empleado.objects.filter(sucursal=objSucursal, cargo='Gerente')
+    elif (tipoCargo == 'Mecanico'):
+        jefes = Empleado.objects.filter(sucursal=objSucursal, cargo='Jefe de taller')
+
+    jefe=None
+    if len(jefes)>=1:
+        jefe=jefes[0]
+
+    return jefe
 
 def editar_empleado(request, id):
     empleados = Empleado.objects.all()

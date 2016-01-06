@@ -39,11 +39,14 @@ def crear_empleado(request):
 
             user_save.save()
 
-        elif (tipo_cargo == 'Jefe de taller'):
+        elif (tipo_cargo == "Jefe de taller"):
+            print "ENTRO JEFE TALLER"
+            print request.POST.get('username')
             password = request.POST.get('password')
             user = JefeTallerForm(empleado.data)
             user_save = user.save()
             user_save.username = request.POST.get('username')
+            print request.POST.get('username')
             user_save.password = make_password(password)
             user_save.first_name=request.POST.get('nombre')
             user_save.last_name=request.POST.get('apellido')
@@ -122,8 +125,12 @@ def editar_empleado(request, id):
         if form_edicion.is_valid():
             print "valido formedicion"
             #is_user = request.POST.get('check')
-            is_user = empleado.cargo
-            if (is_user=='Mecanico'):
+            cargo_emp = empleado.cargo
+
+            if (cargo_emp=='Mecanico'):
+                sucur=empleado.sucursal
+                jefeHallado=buscar_jefe(sucur, cargo_emp)
+                empleado.jefe=jefeHallado
                 empleado.save()
 
             else:
@@ -137,8 +144,13 @@ def editar_empleado(request, id):
                     usuarioeditar.password=contras2
                 else:
                     usuarioeditar.password=password
-                empleado.save()
+                #empleado.save()
                 usuarioeditar.save()
+
+                sucur=empleado.sucursal
+                jefeHallado=buscar_jefe(sucur, cargo_emp)
+                empleado.jefe=jefeHallado
+                empleado.save()
                 '''
                 username = request.POST.get('username')
                 print username

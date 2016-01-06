@@ -5,6 +5,7 @@ from .forms_usuarios import UsuariosForm
 from django.http import HttpResponseRedirect
 from .models import Empleado
 from .models import Usuarios
+from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password,is_password_usable
 from .models import Sucursal
 from django.http import JsonResponse
@@ -38,11 +39,14 @@ def crear_empleado(request):
 
             user_save.save()
 
-        elif (tipo_cargo == 'Jefe de taller'):
+        elif (tipo_cargo == "Jefe de taller"):
+            print "ENTRO JEFE TALLER"
+            print request.POST.get('username')
             password = request.POST.get('password')
             user = JefeTallerForm(empleado.data)
             user_save = user.save()
             user_save.username = request.POST.get('username')
+            print request.POST.get('username')
             user_save.password = make_password(password)
             user_save.first_name=request.POST.get('nombre')
             user_save.last_name=request.POST.get('apellido')
@@ -101,28 +105,59 @@ def buscar_jefe(objSucursal, tipoCargo):
 def editar_empleado(request, id):
     empleados = Empleado.objects.all()
     empleado = Empleado.objects.get(pk=id)
+    print ("ENTRO EN EDITAR")
+    usuario = User.objects.filter(pk=id)
 
-    usuario = Usuarios.objects.filter(pk=id)
     if len(usuario)>=1:
+        usuarioeditar = User.objects.get(pk=id)
         nomusuario=usuario[0].username
-        contras=usuario[0].password
+        contras=""
+        contras2=usuario[0].password
     else:
+        usuarioeditar = None
         nomusuario=""
         contras=""
-
+        contras2=""
+    print ("username",nomusuario)
     form_edicion = EmpleadoForm(instance=empleado, initial=empleado.__dict__)
     if request.method == 'POST':
         form_edicion = EmpleadoForm(request.POST, instance=empleado, initial=empleado.__dict__)
         if form_edicion.is_valid():
             print "valido formedicion"
-            is_user = request.POST.get('check')
-            if (is_user == None):
+            #is_user = request.POST.get('check')
+            cargo_emp = empleado.cargo
+
+            if (cargo_emp=='Mecanico'):
+                sucur=empleado.sucursal
+                jefeHallado=buscar_jefe(sucur, cargo_emp)
+                empleado.jefe=jefeHallado
                 empleado.save()
+
             else:
+                print ("ENTRO EN Else")
                 username = request.POST.get('username')
                 print username
                 password = request.POST.get('password')
                 print password
+                usuarioeditar.username=username
+                if(contras2==password):
+                    usuarioeditar.password=contras2
+                else:
+                    usuarioeditar.password=password
+                #empleado.save()
+                usuarioeditar.save()
+
+                sucur=empleado.sucursal
+                jefeHallado=buscar_jefe(sucur, cargo_emp)
+                empleado.jefe=jefeHallado
+                empleado.save()
+                '''
+                username = request.POST.get('username')
+                print username
+                password = request.POST.get('password')
+                print password
+                User.username=username
+                User.password=password
                 userf = UsuariosForm(request.POST, instance=usuario[0], initial=usuario[0].__dict__)
                 print "pasa formedicion data"
                 if userf.is_valid():
@@ -131,6 +166,7 @@ def editar_empleado(request, id):
                     user_save.username = username
                     user_save.password = password
                     user_save.save()
+                '''
             return HttpResponseRedirect("/empleado/listar_empleados")
     return render(request, 'lista_empleados.html', {'empleados': empleados, 'edicion': True,
                                                     'form_edicion': form_edicion, 'nomusuario': nomusuario,
@@ -138,7 +174,7 @@ def editar_empleado(request, id):
 
 
 def eliminar_empleado(request, id):
-    empleado = Empleado.objects.get(id=id)
+    empleado = Empleado.objects.get(pk=id)
     if empleado.estado_empleado:
         empleado.estado_empleado = False
     else:

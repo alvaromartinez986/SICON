@@ -118,7 +118,6 @@ en esta seccion se va a poner el contenido de la pagina
 							</div>
 
 							<!--asd
-
 							<!-- Nombre -->
 
 							<div class="form-group">
@@ -128,8 +127,6 @@ en esta seccion se va a poner el contenido de la pagina
 								<div class="col-lg-6 text-label">{{form_edicion.nombre}}</div>
 							</div>
 							<!--asd
-
-
 							<!-- apellido -->
 
 							<div class="form-group">
@@ -139,7 +136,6 @@ en esta seccion se va a poner el contenido de la pagina
 								<div class="col-lg-6 text-label">{{form_edicion.apellido}}</div>
 							</div>
 							<!--asd
-
 							<!-- tipo_sangre -->
 
 							<div class="form-group">
@@ -149,7 +145,6 @@ en esta seccion se va a poner el contenido de la pagina
 								<div class="col-lg-6">{{form_edicion.tipo_sangre}}</div>
 							</div>
 							<!--asd
-
 							<!-- experiencia -->
 
 							<div class="form-group">
@@ -159,8 +154,6 @@ en esta seccion se va a poner el contenido de la pagina
 								<div class="col-lg-6">{{form_edicion.experiencia}}</div>
 							</div>
 							<!--asd
-
-
 							<!-- jornada -->
 							{{form_edicion.jornada.errors}}
 							<div class="form-group">
@@ -187,7 +180,7 @@ en esta seccion se va a poner el contenido de la pagina
 								{{form_edicion.cargo.errors}}
 								<label class="col-lg-4 control-label">{{form_edicion.cargo.label}}</label>
 
-								<div class="col-lg-6">{{form_edicion.cargo}}</div>
+								<div class="col-lg-6" >{{form_edicion.cargo}} </div>
 							</div>
 
 							<!-- telefono -->
@@ -219,6 +212,15 @@ en esta seccion se va a poner el contenido de la pagina
 								    {{form_edicion.fecha_nacimiento}}</div>
 							</div>
 
+                        <!-- sucursal-->
+
+							<div class="form-group">
+								{{form_edicion.sucursal.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.sucursal.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.sucursal}}</div>
+							</div>
+
 							<!-- jefe -->
 
 							<div class="form-group">
@@ -229,11 +231,13 @@ en esta seccion se va a poner el contenido de la pagina
 							</div>
 
 
-                            <div class="col-lg-1"></div><input type="checkbox" name="check" class="btn btn-info" data-toggle="collapse" data-target="#demo"> <b>Crear Usuario</b>
-                                    <br> <br>
-                                  <div id="demo" class="collapse">
-                                    <div class="form-group">
-                                    <label class="col-lg-4 control-label">Nombre de usuario</label>
+                            <div class="col-lg-1">
+                            </div><!--<input type="checkbox" name="check" class="btn btn-info"  data-target="#demo"> <b>Crear Usuario</b> -->
+                                  <!--  <br> <br> -->
+                                  <div id="demo" class="collapse in">
+                                    <label class="col-lg-3 control-label">Nombre de usuario</label>
+                                      <div class="form-group">
+
                                     <div class="col-lg-6">
                                     <input id="id_username" name="username" class = "form-control" value={{nomusuario}}>
                                         </div>
@@ -242,22 +246,29 @@ en esta seccion se va a poner el contenido de la pagina
                                       <div class="form-group">
                                         <label class="col-lg-4 control-label">Contraseña</label>
                                         <div class="col-lg-6">
-                                        <input id="id_password" name="password" class ="form-control" value={{contras}}>
-                                          </div>
-                                    </div>
-                                  </div>
+                                        <input id="id_password" type="password" name="password" class ="form-control" value={{contras}}>
+                                            <label  style="color: dimgray" >Dejar en blanco para mantener actual  contraseña</label>
+                                            </div>
+                                          <!--
+                                        <label class="col-lg-4 control-label">Confirmar Contraseña</label>
+                                            <div class="col-lg-6">
+                                        <input id="id_password2" type="password" name="password2" class ="form-control" value={{contras}}>
 
+                                          </div>
+                                            -->
+                                  </div>
+                                </div>
 
                         <!--/div-->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-white"
                                     href="/empleado/listar_empleados" data-dismiss="modal">Cancelar
                             </button>
-                            <button type="submit" class="btn btn-primary">Guardar cambios
+                            <button onclick="FuncDisable()" type="submit" class="btn btn-primary">Guardar cambios
                             </button>
                         </div>
                     </form>
-                </div>
+
             </div>
         </div>
     </div>
@@ -338,11 +349,41 @@ para traer el bloque de codigo que esta en la pagina blank.html
                 format: 'yyyy-mm-dd',
                 endDate: '-5h'
             });
-
            var zIndex = parseInt(this.element.parents().filter(function() {
                             return $(this).css('z-index') != 'auto';
                         }).first().css('z-index'))+1151;
    </script>
+
+
+
+
+    <script>
+        document.getElementById("id_cargo").disabled = true;
+            $(document).ready(function(){
+            $("#id_sucursal").select2({width:'100%'});
+            });
+        </script>
+
+    <script>
+        function FuncDisable() {
+            document.getElementById("id_cargo").disabled = false;
+        }
+    </script>
+
+    <script>
+
+            var empcargo = document.getElementById('id_cargo').value;
+            if (empcargo == "Mecanico") {
+                //alert("Selecciono Mecanico")
+                document.getElementById('demo').style.display='none';
+            }
+            else {
+                //alert("Selecciono otro");
+                document.getElementById('demo').style.display='inline';
+
+        }
+    </script>
+
     {%endif%}
 
 

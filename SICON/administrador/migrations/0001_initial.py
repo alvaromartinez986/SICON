@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import migrations, models
+from django.db import models, migrations
 import django.contrib.auth.models
 from django.conf import settings
 
@@ -49,7 +49,6 @@ class Migration(migrations.Migration):
                 ('genero', models.CharField(max_length=15, choices=[(b'Masculino', b'Masculino'), (b'Femenino', b'Femenino')])),
                 ('fecha_nacimiento', models.DateField()),
                 ('estado_empleado', models.BooleanField(default=True)),
-                ('jefe', models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
@@ -197,6 +196,11 @@ class Migration(migrations.Migration):
             managers=[
                 ('objects', django.contrib.auth.models.UserManager()),
             ],
+        ),
+        migrations.AddField(
+            model_name='empleado',
+            name='jefe',
+            field=models.ForeignKey(blank=True, to='administrador.Empleado', null=True),
         ),
         migrations.AddField(
             model_name='empleado',

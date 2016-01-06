@@ -47,7 +47,6 @@ class Empleado(models.Model):
     genero = models.CharField(choices=GEN_CHOICES, max_length=15)
     
     fecha_nacimiento = models.DateField()
-    area = models.CharField(max_length=150)
     
 
     estado_empleado = models.BooleanField(default=True)

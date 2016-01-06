@@ -27,7 +27,6 @@ class EmpleadoForm(ModelForm):
             'telefono',
             'genero',
             'fecha_nacimiento',
-            'area',
             'jefe']
         widgets = {
             'no_documento': forms.NumberInput(
@@ -45,7 +44,6 @@ class EmpleadoForm(ModelForm):
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de nacimiento'}),
-            'area': forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Area'}),
             'jefe': forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Jefe'}),
         }
 
@@ -66,7 +64,6 @@ class JefeTallerForm(ModelForm):
             'telefono',
             'genero',
             'fecha_nacimiento',
-            'area',
             'jefe']
         widgets = {
             'no_documento': forms.NumberInput(
@@ -85,7 +82,6 @@ class JefeTallerForm(ModelForm):
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de nacimiento'}),
-            'area': forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Area'}),
             'jefe': forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Jefe'}),
         }
 
@@ -105,7 +101,6 @@ class GerenteForm(ModelForm):
             'telefono',
             'genero',
             'fecha_nacimiento',
-            'area',
             'jefe']
         widgets = {
             'no_documento': forms.NumberInput(
@@ -124,7 +119,6 @@ class GerenteForm(ModelForm):
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de nacimiento'}),
-            'area': forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Area'}),
             'jefe': forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Jefe'}),
         }
 
@@ -144,7 +138,6 @@ class VendedorForm(ModelForm):
             'telefono',
             'genero',
             'fecha_nacimiento',
-            'area',
             'jefe']
         widgets = {
             'no_documento': forms.NumberInput(
@@ -163,7 +156,6 @@ class VendedorForm(ModelForm):
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de nacimiento'}),
-            'area': forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Area'}),
             'jefe': forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Jefe'}),
         }
 
@@ -183,7 +175,6 @@ class SuperAdminForm(ModelForm):
             'telefono',
             'genero',
             'fecha_nacimiento',
-            'area',
             'jefe']
         widgets = {
             'no_documento': forms.NumberInput(
@@ -202,6 +193,5 @@ class SuperAdminForm(ModelForm):
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de nacimiento'}),
-            'area': forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Area'}),
             'jefe': forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Jefe'}),
         }

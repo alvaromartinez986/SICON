@@ -6,7 +6,6 @@ herencia de blank.html que es la plantilla de la pagina
 {% block css %}
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
 <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
-
 {%endblock%}
 
 <!--
@@ -69,7 +68,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {%for veh in vehiculos_nuevos %}
                                     {%if veh.activo%}
                                         <tr>
-                                            <td><input type="checkbox" value="selected"><br></td>
+                                            <td><input id={{veh.id}} type="checkbox" value="selected"><br></td>
                                             <td>{{veh.codigo}}</td>
 											<td>{{veh.cilindraje}}</td>
                                             <td>{{veh.marca}}</td>
@@ -84,96 +83,164 @@ en esta seccion se va a poner el contenido de la pagina
                                     </tbody>
                                 </table>
                             </div>
-                            <button class="btn btn-danger btn-block"><i class="fa fa-check-square-o"></i> Cotizar selección</button>
+                            <button id="btnCotizar" class="btn btn-danger btn-block"><i class="fa fa-check-square-o"></i> Cotizar selección</button>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-{% if cliente %}
+
+{%if sig%}
 
     <button type="button" id="botonModalCliente" data-toggle="modal" data-target="#infoCliente"
-            style="display:none;"></button>
-    <div class="modal inmodal" id="infoCliente" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content animated fadeIn">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span
-                            aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                    </button>
-                    <i class="fa fa-users modal-icon"></i>
-                    <h4 class="modal-title">Cliente</h4>
-                    <small class="font-bold">Por favor indique los datos del cliente al que pertenece la cotización.
-                    </small>
-                </div>
-                <div  class="modal-body">
-                    <form id= "form_cliente" action="" method="post" class="form-horizontal">
-                        {% csrf_token %}
-                        <!-- codigo -->
-                        <div class="form-group">
-                            {{form_cliente.codigo.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.codigo.label}}</label>
-                            <div class="col-lg-6">
-                                {{form_edicion.codigo}}
+                style="display:none;"></button>
+        <div class="modal inmodal" id="infoCliente" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content animated fadeIn">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                        <i class="fa fa-users modal-icon"></i>
+                        <h4 class="modal-title">Cliente</h4>
+                        <small class="font-bold">Por favor indique los datos del cliente al que pertenece la cotización.
+                        </small>
+                    </div>
+                    <div  class="modal-body">
+
+
+                        <form id= "form_cliente" action="" method="post" class="form-horizontal">
+                            {% csrf_token %}
+                            <!-- identificacion-->
+                            <div class="form-group">
+                                {{form.identificacion.errors}}
+                                <label class="col-lg-2 control-label">{{form.identificacion.label}}</label>
+                                <div class="col-lg-6 text-label">{{form.identificacion}}</div>
                             </div>
-                        </div>
-                        <!-- cilindraje -->
+                            <!-- nombres -->
+                            <div class="form-group">
+                                {{form.nombres.errors}}
+                                <label class="col-lg-2 control-label">{{form.nombres.label}}</label>
+                                <div class="col-lg-6 text-label">{{form.nombres}}</div>
+                            </div>
+                            <!-- apellidos -->
+                            <div class="form-group">
+                                {{form.apellidos.errors}}
+                                <label class="col-lg-2 control-label">{{form.apellidos.label}}</label>
+                                <div class="col-lg-6">{{form.apellidos}}</div>
+                            </div>
+                            <!-- telefono -->
+                            <div class="form-group">
+                                {{form.telefono.errors}}
+                                <label class="col-lg-2 control-label">{{form.telefono.label}}</label>
+                                <div class="col-lg-6">{{form.telefono}}</div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-white"
+                                        href="{% url 'cotizacion_vehiculos'%}" data-dismiss="modal">Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-primary">Guardar cambios
+                                </button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{%else%}
+
+    <button type="button" id="botonModalCliente2" data-toggle="modal" data-target="#infoCliente"
+                style="display:none;"></button>
+        <div class="modal inmodal" id="infoCliente2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content animated fadeIn">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                        <i class="fa fa-users modal-icon"></i>
+                        <h4 class="modal-title">Cliente</h4>
+                        <small class="font-bold">Por favor indique los datos del cliente al que pertenece la cotización.
+                        </small>
+                    </div>
+                    <div  class="modal-body">
+
+                        {% csrf_token %}
+                        <!-- identificacion -->
                         <div class="form-group">
-                            {{form_edicion.cilindraje.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.cilindraje.label}}</label>
-                            <div class="col-lg-6 text-label">{{form_edicion.cilindraje}}</div>
+                            <label class="col-lg-2 control-label">Identificación</label>
+                            <input type="number" id="identificacion" class="form-control" placeholder="Identificación...">
                         </div>
-                        <!-- marca -->
-                        <div class="form-group">
-                            {{form_edicion.marca.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.marca.label}}</label>
-                            <div class="col-lg-6">{{form_edicion.marca}}</div>
-                        </div>
-                        <!-- linea -->
-                        <div class="form-group">
-                            {{form_edicion.linea.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.linea.label}}</label>
-                            <div class="col-lg-6">{{form_edicion.linea}}</div>
-                        </div>
-                        <!-- modelo-->
-                        <div class="form-group">
-                            {{form_edicion.modelo.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.modelo.label}}</label>
-                            <div class="col-lg-6">{{form_edicion.modelo}}</div>
-                        </div>
-                        <!-- tipo_combustible-->
-                        <div class="form-group">
-                            {{form_edicion.tipo_combustible.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.tipo_combustible.label}}</label>
-                            <div class="col-lg-6">{{form_edicion.tipo_combustible}}</div>
-                        </div>
-                        <!--color-->
-                        <div class="form-group">
-                            {{form_edicion.color.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.color.label}}</label>
-                            <div class="col-lg-6">{{form_edicion.color}}</div>
-                        </div>
-                        <!--valor-->
-                        <div class="form-group">
-                            {{form_edicion.valor.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.valor.label}}</label>
-                            <div class="col-lg-6">{{form_edicion.valor}}</div>
-                        </div>
-                        <!--/div-->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-white"
-                                    href="/vehiculos_nuevos/listarvn" data-dismiss="modal">Cancelar
-                            </button>
-                            <button type="submit" class="btn btn-primary">Guardar cambios
-                            </button>
-                        </div>
+                        <!--boton siguiente-->
+                        <td><button class="btn btn-xs btn-info dim" id="btnSig">
+                            Siguiente</button></a></td>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 {%endif%}
+<!--{% if cliente %}-->
+
+    <!--<button type="button" id="botonModalCliente" data-toggle="modal" data-target="#infoCliente"-->
+            <!--style="display:none;"></button>-->
+    <!--<div class="modal inmodal" id="infoCliente" tabindex="-1" role="dialog" aria-hidden="true">-->
+        <!--<div class="modal-dialog">-->
+            <!--<div class="modal-content animated fadeIn">-->
+                <!--<div class="modal-header">-->
+                    <!--<button type="button" class="close" data-dismiss="modal"><span-->
+                            <!--aria-hidden="true">&times;</span><span class="sr-only">Close</span>-->
+                    <!--</button>-->
+                    <!--<i class="fa fa-users modal-icon"></i>-->
+                    <!--<h4 class="modal-title">Cliente</h4>-->
+                    <!--<small class="font-bold">Por favor indique los datos del cliente al que pertenece la cotización.-->
+                    <!--</small>-->
+                <!--</div>-->
+                <!--<div  class="modal-body">-->
+                    <!--<form id= "form_cliente" action="" method="post" class="form-horizontal">-->
+                        <!--&lt;!&ndash; identificacion &ndash;&gt;-->
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-lg-2 control-label">Identificación</label>-->
+                            <!--<input id="identificacion" class="form-control">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;boton siguiente&ndash;&gt;-->
+                        <!--<td><a href="/cotizacion_vehiculos/cliente/{{identificacion}}"><button class="btn btn-xs btn-info dim">-->
+                            <!--Siguiente</button></a></td>-->
+                        <!--{%if sig%}-->
+                            <!--<form id= "form_cliente" action="" method="post" class="form-horizontal">-->
+                            <!--&lt;!&ndash; nombres &ndash;&gt;-->
+                            <!--<div class="form-group">-->
+                                <!--{{form_cliente.nombres.errors}}-->
+                                <!--<label class="col-lg-2 control-label">{{form_edicion.nombres.label}}</label>-->
+                                <!--<div class="col-lg-6 text-label">{{form_edicion.nombres}}</div>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; apellidos &ndash;&gt;-->
+                            <!--<div class="form-group">-->
+                                <!--{{form_cliente.apellidos.errors}}-->
+                                <!--<label class="col-lg-2 control-label">{{form_edicion.apellidos.label}}</label>-->
+                                <!--<div class="col-lg-6">{{form_edicion.apellidos}}</div>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; telefono &ndash;&gt;-->
+                            <!--<div class="form-group">-->
+                                <!--{{form_cliente.telefono.errors}}-->
+                                <!--<label class="col-lg-2 control-label">{{form_edicion.telefono.label}}</label>-->
+                                <!--<div class="col-lg-6">{{form_edicion.telefono}}</div>-->
+                            <!--</div>-->
+                        <!--{%endif%}-->
+                        <!--<div class="modal-footer">-->
+                            <!--<button type="button" class="btn btn-white"-->
+                                    <!--href="/vehiculos_nuevos/listarvn" data-dismiss="modal">Cancelar-->
+                            <!--</button>-->
+                            <!--<button type="submit" class="btn btn-primary">Guardar cambios-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--{%endif%}-->
 
 <!--
           acontinuacion se pone el codigo para la edicion
@@ -227,9 +294,44 @@ para traer el bloque de codigo que esta en la pagina blank.html
 } );
     </script>
 
+<!--script que abre el diálogo-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#btnCotizar").click(function(){
+          $.ajax({
+            url: 'vehiculos.html',
+            success: function(data) {
+              $("#infoCliente2").load(data).dialog({modal:true}).dialog('open');
+            }
+          });
 
+        })
 
+    })
 
+</script>
 
+<!--script que abre el diálogo cuando viene de evaluar cliente-->
+
+     {%if sig %}
+        <script>
+            $(document).ready(function(){
+                $('#botonModalCliente').click();
+            });
+        </script>
+    {%endif%}
+
+<!--script para pasar a la llenar del cliente-->
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $("#btnSig").click(function() {
+            var txt= $('#identificacion').val()
+            if(txt!==""){
+                window.location = "../clientes/" + String(txt);
+            }
+        })
+    })
+</script>
 
 {%endblock%}

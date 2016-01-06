@@ -21,7 +21,7 @@ class UsuariosForm(ModelForm):
             'telefono' ,
             'genero' ,
             'fecha_nacimiento',
-            'area'  ,
+            'sucursal'  ,
             'jefe' ]
         widgets={
             'no_documento': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Numero de documento', 'min':'1'}),
@@ -35,7 +35,7 @@ class UsuariosForm(ModelForm):
             'telefono' : forms.TextInput(attrs={'class':'form-control ','placeholder':'Telefono'}),
             'genero' : forms.Select(attrs={'class':'form-control required'}),
             'fecha_nacimiento': forms.DateInput(attrs={'class':'form-control required','placeholder':'Fecha de nacimiento'}),
-            'area'  : forms.TextInput(attrs={'class':'form-control ','placeholder':'Area'}),
+            'sucursal' : forms.Select(attrs={'class':'chosen-select required', 'placeholder': 'sucursal'}),
             'jefe': forms.TextInput(attrs={'class':'form-control ','placeholder':'Jefe'}),
         }
 

@@ -141,12 +141,12 @@ en esta seccion se va a poner el contenido de la pagina-->
                                         </div>
                                     </div>
 
-                                    <!-- area -->
-                                    {{form.area.errors}}
+                                    <!-- sucursal -->
+                                    {{form.sucursal.errors}}
                                     <div class="form-group">
-                                        <label>{{form.area.label}}</label>
-                                        <p class="help-block">Area de trabajo</p>
-                                        {{form.area}}
+                                        <label>{{form.sucursal.label}}</label>
+                                        <p class="help-block">sucursal</p>
+                                        {{form.sucursal}}
                                     </div>
 
                                     <!-- jefe -->
@@ -175,7 +175,7 @@ en esta seccion se va a poner el contenido de la pagina-->
                                         <br>
                                         <label>Confirmar Contraseña</label>
                                         <p class="help-block">Confirmar contraseña de usuario</p>
-                                        <input id="id_password" type="password" name="password" class ="form-control">
+                                        <input id="id_password2" type="password" name="password2" class ="form-control">
                                     </div>
                                   </div>
 
@@ -218,17 +218,23 @@ en esta seccion se va a poner el contenido de la pagina-->
     <script>
         function myFunction() {
             var empcargo = document.getElementById('id_cargo').value;
-            if (empcargo == "Mecánico") {
+            if (empcargo == "Mecanico") {
                 //alert("Selecciono Mecanico")
                 $(".collapse").collapse('show');
-                document.getElementById('demo').style.display='none';
+                //document.getElementById('demo').style.display='none';
             }
             else {
                 //alert("Selecciono otro");
                 $(".collapse").collapse('hide');
-                document.getElementById('demo').style.display='inline';
+                //document.getElementById('demo').style.display='inline';
             }
         }
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $("#id_sucursal").select2({width:'100%'});
+    });
     </script>
 
 {% endblock %}

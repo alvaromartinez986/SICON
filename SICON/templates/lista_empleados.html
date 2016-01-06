@@ -69,13 +69,13 @@ en esta seccion se va a poner el contenido de la pagina
 											<td>{{emp.cargo}}</td>
                                         {%if emp.estado_empleado %}
                                             <td><p><span class="badge badge-primary">Activo</span></p></td>
-                                            <td><a href="/empleado/eliminar_empleado/{{emp.id}}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
+                                            <td><a href="/empleado/eliminar_empleado/{{emp.emp_id}}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
                                         {%else%}
                                             <td><p><span class="badge badge-danger">Inactivo</span></p></td>
-                                            <td><a href="/empleado/eliminar_empleado/{{emp.id}}"><button class="btn btn-xs btn-success dim"><i class="fa fa-check-square"></i> Reactivar</button></a></td>
+                                            <td><a href="/empleado/eliminar_empleado/{{emp.emp_id}}"><button class="btn btn-xs btn-success dim"><i class="fa fa-check-square"></i> Reactivar</button></a></td>
                                         {%endif%}
 
-											<td><a href="/empleado/editar_empleado/{{emp.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+											<td><a href="/empleado/editar_empleado/{{emp.emp_id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
                                         </tr>
                                         {%endfor%}
                                     </tbody>
@@ -118,7 +118,6 @@ en esta seccion se va a poner el contenido de la pagina
 							</div>
 
 							<!--asd
-
 							<!-- Nombre -->
 
 							<div class="form-group">
@@ -128,8 +127,6 @@ en esta seccion se va a poner el contenido de la pagina
 								<div class="col-lg-6 text-label">{{form_edicion.nombre}}</div>
 							</div>
 							<!--asd
-
-
 							<!-- apellido -->
 
 							<div class="form-group">
@@ -139,7 +136,6 @@ en esta seccion se va a poner el contenido de la pagina
 								<div class="col-lg-6 text-label">{{form_edicion.apellido}}</div>
 							</div>
 							<!--asd
-
 							<!-- tipo_sangre -->
 
 							<div class="form-group">
@@ -149,7 +145,6 @@ en esta seccion se va a poner el contenido de la pagina
 								<div class="col-lg-6">{{form_edicion.tipo_sangre}}</div>
 							</div>
 							<!--asd
-
 							<!-- experiencia -->
 
 							<div class="form-group">
@@ -159,8 +154,6 @@ en esta seccion se va a poner el contenido de la pagina
 								<div class="col-lg-6">{{form_edicion.experiencia}}</div>
 							</div>
 							<!--asd
-
-
 							<!-- jornada -->
 							{{form_edicion.jornada.errors}}
 							<div class="form-group">
@@ -338,7 +331,6 @@ para traer el bloque de codigo que esta en la pagina blank.html
                 format: 'yyyy-mm-dd',
                 endDate: '-5h'
             });
-
            var zIndex = parseInt(this.element.parents().filter(function() {
                             return $(this).css('z-index') != 'auto';
                         }).first().css('z-index'))+1151;

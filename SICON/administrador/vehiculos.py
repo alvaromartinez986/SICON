@@ -18,6 +18,7 @@ class Vehiculo(models.Model):
 class VehiculoNuevo(Vehiculo):
     valor = models.IntegerField()
     codigo = models.CharField(max_length=10,unique=True, default=01)
+    vendido = models.BooleanField(default=False)
 
 class VehiculoUsado(Vehiculo):
     #TIPOS DE SERVICIO

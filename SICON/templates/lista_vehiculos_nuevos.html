@@ -39,7 +39,8 @@ en esta seccion se va a poner el contenido de la pagina
                                     <col width="5%">
                                     <col width="5%">
                                     <col width="5%">
-                                    <col width="9%">
+                                    <col width="10%">
+                                    <col width="5%">
                                     <col width="5%">
                                     <col width="5%">
                                     <col width="5%">
@@ -55,6 +56,7 @@ en esta seccion se va a poner el contenido de la pagina
                                         <th>Tipo de combustible</th>
                                         <th>Color</th>
                                         <th>Valor</th>
+                                        <th>Vendido</th>
                                         <th>Estado</th>
                                         <th>Activar/Desactivar</th>
                                         <th>Editar</th>
@@ -70,6 +72,7 @@ en esta seccion se va a poner el contenido de la pagina
                                         <th>Combustible</th>
                                         <th>Color</th>
                                         <th>Valor</th>
+                                        <th>Vendido</th>
                                         <th>Estado</th>
                                         <th></th>
                                         <th></th>
@@ -86,8 +89,13 @@ en esta seccion se va a poner el contenido de la pagina
 											<td>{{veh.tipo_combustible}}</td>
 											<td>{{veh.color}}</td>
                                             <td>{{veh.valor}}</td>
+                                            {%if veh.vendido %}
+								                <td><p><span class="badge badge-danger">Vendido</span></p></td>
+                                            {%else%}
+                                                <td><p><span class="badge badge-primary">En inventario</span></p></td>
+                                            {%endif%}
                                             {%if veh.activo %}
-								                <td><p><span class="badge badge-danger">Activo</span></p></td>
+								                <td><p><span class="badge badge-primary">Activo</span></p></td>
                                                 <td><a href="/vehiculos_nuevos/eliminarvn/{{veh.id}}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
 							                {%else%}
                                                 <td><p><span class="badge badge-danger">Inactivo</span></p></td>
@@ -225,7 +233,7 @@ para traer el bloque de codigo que esta en la pagina blank.html
           var i=0;
           $('#vehiculos_nuevos tfoot th').each( function () {
               i++;
-              if (i <=9){
+              if (i <=10){
               var title = $(this).text();
               $(this).html( '<input type="text" placeholder='+title+' style="width: 100%;" />' );}
           } );

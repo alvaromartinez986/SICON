@@ -39,14 +39,11 @@ def crear_empleado(request):
 
             user_save.save()
 
-        elif (tipo_cargo == "Jefe de taller"):
-            print "ENTRO JEFE TALLER"
-            print request.POST.get('username')
+        elif (tipo_cargo == 'Jefe de taller'):
             password = request.POST.get('password')
             user = JefeTallerForm(empleado.data)
             user_save = user.save()
             user_save.username = request.POST.get('username')
-            print request.POST.get('username')
             user_save.password = make_password(password)
             user_save.first_name=request.POST.get('nombre')
             user_save.last_name=request.POST.get('apellido')
@@ -102,6 +99,7 @@ def buscar_jefe(objSucursal, tipoCargo):
 
     return jefe
 
+
 def editar_empleado(request, id):
     empleados = Empleado.objects.all()
     empleado = Empleado.objects.get(pk=id)
@@ -136,11 +134,11 @@ def editar_empleado(request, id):
             else:
                 print ("ENTRO EN Else")
                 username = request.POST.get('username')
-                print username
-                password = request.POST.get('password')
-                print password
+                passleida = request.POST.get('password')
+                password = make_password(passleida)
                 usuarioeditar.username=username
-                if(contras2==password):
+                if(passleida==""):
+                    print "entro a password vacio"
                     usuarioeditar.password=contras2
                 else:
                     usuarioeditar.password=password
@@ -169,8 +167,7 @@ def editar_empleado(request, id):
                 '''
             return HttpResponseRedirect("/empleado/listar_empleados")
     return render(request, 'lista_empleados.html', {'empleados': empleados, 'edicion': True,
-                                                    'form_edicion': form_edicion, 'nomusuario': nomusuario,
-                                                    'contras': contras})
+                                                    'form_edicion': form_edicion, 'nomusuario': nomusuario})
 
 
 def eliminar_empleado(request, id):

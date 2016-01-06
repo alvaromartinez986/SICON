@@ -4,10 +4,8 @@
     <list default="true" id="f43c95fe-2f1d-45bd-955f-a401324dae7b" name="Default" comment="validacion con bootstrap.&#10;">
       <change type="DELETED" beforePath="C:\Users\JuanDiego\Documents\GitHub\SICON\SICON\administrador\migrations\0005_auto_20160105_2343.py" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\JuanDiego\Documents\GitHub\SICON\SICON\administrador\migrations\0006_auto_20160106_0025.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SICON.iml" afterPath="$PROJECT_DIR$/.idea/SICON.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/lista_empleados.html" afterPath="$PROJECT_DIR$/SICON/templates/lista_empleados.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_empleado.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_empleado.py" />
     </list>
     <ignored path="SICON.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -121,8 +119,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -855,9 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="10" />
-          <folding>
-            <element signature="e#24#52#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -904,7 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44406196">
           <caret line="211" column="52" selection-start-line="211" selection-start-column="52" selection-end-line="211" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -912,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38554215">
           <caret line="93" column="3" selection-start-line="93" selection-start-column="3" selection-end-line="93" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -928,7 +921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1482701">
           <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -68,7 +68,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     {%for veh in vehiculos_nuevos %}
                                     {%if veh.activo%}
                                         <tr>
-                                            <td style="text-align:center;"><input id={{veh.id}} type="checkbox" value="selected"><br></td>
+                                            <td style="text-align:center;"><input type="checkbox"" value="selected"><br></td>
                                             <td>{{veh.codigo}}</td>
 											<td>{{veh.cilindraje}}</td>
                                             <td>{{veh.marca}}</td>
@@ -263,6 +263,7 @@ para traer el bloque de codigo que esta en la pagina blank.html
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
     <!-- validacion del formulario editar-->
     <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}/static/js/cotizacionVehiculos.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
      <script>
@@ -298,6 +299,7 @@ para traer el bloque de codigo que esta en la pagina blank.html
 <script type="text/javascript">
     $(document).ready(function() {
         $("#btnCotizar").click(function(){
+            getCheckboxes();
           $.ajax({
             url: 'vehiculos.html',
             success: function(data) {

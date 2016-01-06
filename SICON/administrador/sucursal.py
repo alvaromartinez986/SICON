@@ -33,6 +33,9 @@ class Sucursal(models.Model):
     ciudad = models.ForeignKey(Ciudad)
     activo = models.BooleanField(default=True)
 
+    def __unicode__(self):
+		return self.nombre
+
 
 
 

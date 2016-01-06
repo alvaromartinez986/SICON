@@ -6,6 +6,8 @@ from django.http import HttpResponseRedirect
 from .models import Empleado
 from .models import Usuarios
 from django.contrib.auth.hashers import make_password,is_password_usable
+from .models import Sucursal
+from django.http import JsonResponse
 
 __author__ = 'nelson'
 
@@ -144,3 +146,16 @@ def eliminar_empleado(request, id):
         empleado.estado_empleado = True
     empleado.save()
     return HttpResponseRedirect("/empleado/listar_empleados")
+
+def cargar_sucursales(request):
+    if request.method == 'POST':
+        sucursales = Sucursal.objects.all()
+        lista_sucursales = []
+    dir_sucursal = dict()
+    for sucursal in sucursales:
+        dir_sucursal["id"] = str(sucursal.id)
+        dir_sucursal["nombre"] = sucursal.nombre
+        lista_sucursales.append(dir_sucursal)
+        dir_sucursal = {}
+    return JsonResponse(lista_sucursales, None, False)
+

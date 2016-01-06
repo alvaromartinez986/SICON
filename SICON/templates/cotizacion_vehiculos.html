@@ -331,7 +331,8 @@ para traer el bloque de codigo que esta en la pagina blank.html
 <script type="text/javascript">
     $(document).ready(function() {
         $("#btnGuardar").click(function() {
-            writeCotizacion();
+            var form= "{{form.cleaned_data}}";
+            writeCotizacion(form);
         })
     })
 </script>

@@ -28,7 +28,7 @@ en esta seccion se va a poner el contenido de la pagina
                             {% if exito %}
                                 <div class="alert alert-success alert-dismissable">
                                     <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-                                    <i class="fa fa-check"></i> Se creado un curso con exito!
+                                    <i class="fa fa-check"></i> Se creado un Repuesto con exito!
                                 </div>
 					        {% endif %}
 					    <form id= "form_repuesto" action="" method="post">
@@ -37,7 +37,7 @@ en esta seccion se va a poner el contenido de la pagina
                                 {{form.codigo.errors}}
                                 <div class="form-group">
                                     <label>{{form.codigo.label}}</label>
-                                    <p class="help-block">codigo del repuesto.</p>
+                                    <p class="help-block">Código del repuesto.</p>
                                     {{form.codigo}}
                                 </div>
 
@@ -45,7 +45,7 @@ en esta seccion se va a poner el contenido de la pagina
                                 {{form.nombre.errors}}
                                 <div class="form-group">
                                     <label>{{form.nombre.label}}</label>
-                                    <p class="help-block">nombre del repuesto</p>
+                                    <p class="help-block">Nombre del repuesto</p>
                                     {{form.nombre}}
                                 </div>
 
@@ -53,7 +53,7 @@ en esta seccion se va a poner el contenido de la pagina
                                 {{form.marca.errors}}
                                 <div class="form-group">
                                     <label>{{form.marca.label}}</label>
-                                    <p class="help-block">marca del repuesto.</p>
+                                    <p class="help-block">Marca del repuesto.</p>
                                     {{form.marca}}
                                 </div>
 
@@ -61,28 +61,28 @@ en esta seccion se va a poner el contenido de la pagina
                                 {{form.costo.errors}}
                                 <div class="form-group">
                                     <label>{{form.costo.label}}</label>
-                                    <p class="help-block">costo del repuesto por unidad.</p>
+                                    <p class="help-block">Costo del repuesto por unidad.</p>
                                     {{form.costo}}
                                 </div>
 								<!-- marca del carro -->
                                 {{form.marca_carro.errors}}
                                 <div class="form-group">
-                                    <label>marca del carro</label>
-                                    <p class="help-block">marca del carro a la que fue diseñada el repuesto.</p>
+                                    <label>Marca del carro</label>
+                                    <p class="help-block">Marca del carro a la que fue diseñada el repuesto.</p>
                                     {{form.marca_carro}}
                                 </div>
                                 <!-- marca del carro -->
                                 {{form.modelo_carro.errors}}
                                 <div class="form-group">
-                                    <label>modelo del carro</label>
-                                    <p class="help-block">modelo del carro a la que fue diseñada el repuesto.</p>
+                                    <label>Linea del carro</label>
+                                    <p class="help-block">Linea del carro a la que fue diseñada el repuesto.</p>
                                     {{form.modelo_carro}}
                                 </div>
                                 <!-- cantidad -->
                                 {{form.cantidad.errors}}
                                 <div class="form-group">
                                     <label>{{form.cantidad.label}}</label>
-                                    <p class="help-block">cantidad inicial para registrar en el inventario</p>
+                                    <p class="help-block">Cantidad inicial para registrar en el inventario</p>
                                     {{form.cantidad}}
                                 </div>
                                 

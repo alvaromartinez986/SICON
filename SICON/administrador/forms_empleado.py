@@ -7,6 +7,7 @@ from .models import Gerente
 from .models import Vendedor
 from .models import SuperAdmin
 from .models import Usuarios
+from .models import Sucursal
 from django.forms.fields import DateField
 
 __author__ = 'nelson'
@@ -26,7 +27,8 @@ class EmpleadoForm(ModelForm):
             'cargo',
             'telefono',
             'genero',
-            'fecha_nacimiento']
+            'fecha_nacimiento',
+            'sucursal']
         widgets = {
             'no_documento': forms.NumberInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Numero de documento', 'min': '1'}),
@@ -43,6 +45,7 @@ class EmpleadoForm(ModelForm):
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de nacimiento'}),
+            'sucursal' : forms.Select(attrs={'class':'chosen-select required', 'placeholder': 'Sucursal..'}),
         }
 
 
@@ -61,7 +64,8 @@ class JefeTallerForm(ModelForm):
             'cargo',
             'telefono',
             'genero',
-            'fecha_nacimiento']
+            'fecha_nacimiento',
+            'sucursal']
         widgets = {
             'no_documento': forms.NumberInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Numero de documento', 'min': '1'}),
@@ -79,6 +83,7 @@ class JefeTallerForm(ModelForm):
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de nacimiento'}),
+            'sucursal' : forms.Select(attrs={'class':'chosen-select required', 'placeholder': 'Sucursal..'}),
         }
 
 class GerenteForm(ModelForm):
@@ -96,7 +101,8 @@ class GerenteForm(ModelForm):
             'cargo',
             'telefono',
             'genero',
-            'fecha_nacimiento']
+            'fecha_nacimiento',
+            'sucursal']
         widgets = {
             'no_documento': forms.NumberInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Numero de documento', 'min': '1'}),
@@ -114,6 +120,7 @@ class GerenteForm(ModelForm):
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de nacimiento'}),
+            'sucursal' : forms.Select(attrs={'class':'chosen-select required', 'placeholder': 'Sucursal..'}),
         }
 
 class VendedorForm(ModelForm):
@@ -131,7 +138,8 @@ class VendedorForm(ModelForm):
             'cargo',
             'telefono',
             'genero',
-            'fecha_nacimiento']
+            'fecha_nacimiento',
+            'sucursal']
         widgets = {
             'no_documento': forms.NumberInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Numero de documento', 'min': '1'}),
@@ -149,6 +157,7 @@ class VendedorForm(ModelForm):
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de nacimiento'}),
+            'sucursal' : forms.Select(attrs={'class':'chosen-select required', 'placeholder': 'Sucursal..'}),
         }
 
 class SuperAdminForm(ModelForm):
@@ -166,7 +175,8 @@ class SuperAdminForm(ModelForm):
             'cargo',
             'telefono',
             'genero',
-            'fecha_nacimiento']
+            'fecha_nacimiento',
+            'sucursal']
         widgets = {
             'no_documento': forms.NumberInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Numero de documento', 'min': '1'}),
@@ -184,4 +194,5 @@ class SuperAdminForm(ModelForm):
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de nacimiento'}),
+            'sucursal' : forms.Select(attrs={'class':'chosen-select required', 'placeholder': 'Sucursal..'}),
         }

@@ -49,7 +49,6 @@ class Migration(migrations.Migration):
                 ('genero', models.CharField(max_length=15, choices=[(b'Masculino', b'Masculino'), (b'Femenino', b'Femenino')])),
                 ('fecha_nacimiento', models.DateField()),
                 ('estado_empleado', models.BooleanField(default=True)),
-                ('jefe', models.IntegerField(null=True, blank=True)),
             ],
         ),
         migrations.CreateModel(
@@ -200,8 +199,13 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='empleado',
+            name='jefe',
+            field=models.ForeignKey(blank=True, to='administrador.Empleado', null=True),
+        ),
+        migrations.AddField(
+            model_name='empleado',
             name='sucursal',
-            field=models.ForeignKey(blank=True, to='administrador.Sucursal', null=True),
+            field=models.ForeignKey(to='administrador.Sucursal'),
         ),
         migrations.AddField(
             model_name='ciudad',

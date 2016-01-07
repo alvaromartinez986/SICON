@@ -10,20 +10,21 @@ def listar_sucursales(request):
     ordenes = Orden.objects.all()
     return render(request, 'lista_ordenes.html', {'ordenes': ordenes})
 
-#
-# def crear_sucursal(request):
-#     sucursal = SucursalForm()
-#     exito = False
-#     # raise Exception{request}
-#     if request.method == 'POST':
-#         sucursal = SucursalForm(request.POST)
-#     if sucursal.is_valid():
-#         sucursal.save()
-#         exito = True
-#         sucursal = SucursalForm()
-#         print exito
-#     return render(request, 'crear_sucursal.html', {'form': sucursal, 'exito': exito})
-#
+
+def crear_orden(request):
+    orden = OrdenForm()
+    exito = False
+    # raise Exception{request}
+    if request.method == 'POST':
+        orden = OrdenForm(request.POST)
+    if orden.is_valid():
+        orden.save(commit=False)
+        orden.estado = False
+        exito = True
+        orden = OrdenForm()
+        print exito
+    return render(request, 'crear_orden.html', {'form': orden, 'exito': exito})
+
 #
 # def editar_sucursal(request, id_sucursal):
 #     sucursales = Sucursal.objects.all()

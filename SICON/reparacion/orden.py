@@ -13,7 +13,7 @@ class Orden(models.Model):
     fecha_inicio = models.DateField(default=datetime.now)
     finalizada = models.BooleanField(default=False)
     fecha_fin = models.DateField(blank=True)
-    Estado = models.BooleanField(default=True)
+    estado = models.BooleanField(default=True)
 
 
 class DetalleRepuesto(models.Model):

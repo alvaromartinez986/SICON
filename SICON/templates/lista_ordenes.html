@@ -139,11 +139,11 @@ en esta seccion se va a poner el contenido de la pagina
                             <label class="col-lg-2 control-label">{{form_edicion.finalizacion.label}}</label>
                             <div class="col-lg-6">{{form_edicion.departamento}}</div>
                         </div>
-                        <!-- modelo-->
+                        <!-- Fecha finalizacion -->
                         <div class="form-group">
-                            {{form_edicion.ciudad.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.ciudad.label}}</label>
-                            <div class="col-lg-6">{{form_edicion.ciudad}}</div>
+                            {{form_edicion.fecha_fin.errors}}
+                            <label class="col-lg-2 control-label">{{form_edicion.fecha_fin.label}}</label>
+                            <div class="col-lg-6">{{form_edicion.fecha_fin}}</div>
                         </div>
 
                                      <div class="modal-footer">
@@ -206,21 +206,6 @@ en esta seccion se va a poner el contenido de la pagina
 } );
     </script>
 
-
-     {%if edicion %}
-
-        <script>
-            $(document).ready(function(){
-            $("#id_ciudad").select2({width:'100%'});
-            $("#id_departamento").select2({width:'100%'});
-            });
-        $(document).ready(function(){
-        $('#botonModalEdicion').click();
-        });
-
-            $('#id_departamento').val({{departamento}});
-        </script>
-    {%endif%}
 
 
 {% endblock %}

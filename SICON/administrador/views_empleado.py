@@ -87,11 +87,11 @@ def buscar_jefe(objSucursal, tipoCargo):
     jefes=[]
 
     if (tipoCargo == 'Jefe de taller'):
-        jefes = Empleado.objects.filter(sucursal=objSucursal, cargo='Gerente')
+        jefes = Empleado.objects.filter(sucursal=objSucursal, cargo='Gerente', estado_empleado=True)
     elif (tipoCargo == 'Vendedor'):
-        jefes = Empleado.objects.filter(sucursal=objSucursal, cargo='Gerente')
+        jefes = Empleado.objects.filter(sucursal=objSucursal, cargo='Gerente', estado_empleado=True)
     elif (tipoCargo == 'Mecanico'):
-        jefes = Empleado.objects.filter(sucursal=objSucursal, cargo='Jefe de taller')
+        jefes = Empleado.objects.filter(sucursal=objSucursal, cargo='Jefe de taller', estado_empleado=True)
 
     jefe=None
     if len(jefes)>=1:

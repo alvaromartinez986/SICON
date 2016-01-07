@@ -60,7 +60,7 @@ en esta seccion se va a poner el contenido de la pagina
                                 <a href="{% url 'id_cliente'%}" ><button type="button" class="btn btn-white"
                                         data-dismiss="modal">Cancelar
                                 </button></a>
-                                <button type="submit" class="btn btn-primary">Registrar</button>
+                                <button type="submit" class="btn btn-primary">Pasar a cotizar</button>
                             </div>
                         </form>
                     {%else%}
@@ -99,10 +99,8 @@ para traer el bloque de codigo que esta en la pagina blank.html
     <script type="text/javascript">
         $(document).ready(function() {;
             $("#btnSig").click(function() {
-                console.log('hola');
                 var txt= $('#identificacion').val();
                 if(txt!==""){
-                    console.log('fifaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
                     window.location = "../clientes/" + String(txt);
                 }
             })

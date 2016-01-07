@@ -16,19 +16,17 @@ function getCheckboxes() {
             codCarros[selected]=secondColumn.textContent;
         };
     }
-    console.log(codCarros);
 }
 
 function askPath(){
 
 }
 
-function writeCotizacion(form){
+function writeCotizacion(){
     //ruta = askPath();
-    console.log('hola');
-    console.log(form['identificacion']);
-    var ruta = "holi.pdf";
-    var docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
-    pdfMake.createPdf(docDefinition).download(ruta);
+    console.log($('body').data('identificacion'));
+    //var ruta = "holi.pdf";
+    //var docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
+    //pdfMake.createPdf(docDefinition).download(ruta);
 
 }

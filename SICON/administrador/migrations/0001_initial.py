@@ -155,15 +155,6 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Usuarios',
-            fields=[
-                ('empleado_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='administrador.Empleado')),
-                ('username', models.CharField(max_length=100)),
-                ('password', models.CharField(max_length=100)),
-            ],
-            bases=('administrador.empleado',),
-        ),
-        migrations.CreateModel(
             name='VehiculoNuevo',
             fields=[
                 ('vehiculo_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='administrador.Vehiculo')),

@@ -1,10 +1,8 @@
 from operator import is_
 from django.shortcuts import render
 from .forms_empleado import EmpleadoForm, JefeTallerForm, GerenteForm, SuperAdminForm, VendedorForm
-from .forms_usuarios import UsuariosForm
 from django.http import HttpResponseRedirect
 from .models import Empleado
-from .models import Usuarios
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password,is_password_usable
 from .models import Sucursal

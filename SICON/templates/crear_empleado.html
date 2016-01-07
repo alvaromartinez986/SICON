@@ -151,7 +151,7 @@ en esta seccion se va a poner el contenido de la pagina-->
 
 
 
-                                  </div><!--<input type="checkbox" name="check" class="btn btn-info"  data-target="#demo"> <b>Crear Usuario</b> -->
+                                  <!--<input type="checkbox" name="check" class="btn btn-info"  data-target="#demo"> <b>Crear Usuario</b> -->
                                   <!--  <br> <br> -->
                                   <div id="demo" class="collapse">
                                     <div class="form-group">
@@ -162,13 +162,14 @@ en esta seccion se va a poner el contenido de la pagina-->
                                     <div class="form-group">
                                         <label>Contraseña</label>
                                         <p class="help-block">Contraseña del usuario</p>
-                                        <input id="id_password" type="password" name="password" class ="form-control">
+                                        <input id="id_password" type="password" name="password" data-bv-field="password" class ="form-control">
                                         <br>
                                         <label>Confirmar Contraseña</label>
                                         <p class="help-block">Confirmar contraseña de usuario</p>
-                                        <input id="id_password2" type="password" name="password2" class ="form-control">
+                                        <input id="id_password2" type="password" name="password2" data-bv-field="password2"  class ="form-control">
                                     </div>
                                   </div>
+
 
                                     <br>
 
@@ -178,18 +179,21 @@ en esta seccion se va a poner el contenido de la pagina-->
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Crear</button>
                                     </div>
+                                    </div>
 
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div>
+
 {% endblock %}
 
 {% block js %}
     {{block.super}}
 
 <script src="{{STATIC_URL}}/static/js/crearempleado.js"></script>
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+ 
 <script type="text/javascript">
   $(document).ready(function(){
     $("#id_sucursal").select2({width:'100%'});

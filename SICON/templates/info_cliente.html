@@ -27,80 +27,85 @@ en esta seccion se va a poner el contenido de la pagina
                     </li>
                 </ol>
                 <div class="panel-body">
-                    <form action="" method="post" id="form_vehiculo_nuevo">
-                        {% csrf_token %}
-                        <!-- codigo -->
-                        {{form.codigo.errors}}
-                        <div class="form-group">
-                            <label>{{form.codigo.label}}</label>
-                            <p class="help-block">Codigo del vehículo</p>
-                            {{form.codigo}}
-                        </div>
+                    {%if sig%}
+                        <form id= "form_cliente" action="" method="post" class="form-horizontal">
+                            {% csrf_token %}
+                            <!-- identificacion-->
+                            <div class="form-group">
+                                {{form.identificacion.errors}}
+                                <label class="col-lg-2 control-label">{{form.identificacion.label}}</label>
+                                <div class="col-lg-6 text-label">{{form.identificacion}}</div>
+                            </div>
+                            <!-- nombres -->
+                            <div class="form-group">
+                                {{form.nombres.errors}}
+                                <label class="col-lg-2 control-label">{{form.nombres.label}}</label>
+                                <div class="col-lg-6 text-label">{{form.nombres}}</div>
+                            </div>
+                            <!-- apellidos -->
+                            <div class="form-group">
+                                {{form.apellidos.errors}}
+                                <label class="col-lg-2 control-label">{{form.apellidos.label}}</label>
+                                <div class="col-lg-6">{{form.apellidos}}</div>
+                            </div>
+                            <!-- telefono -->
+                            <div class="form-group">
+                                {{form.telefono.errors}}
+                                <label class="col-lg-2 control-label">{{form.telefono.label}}</label>
+                                <div class="col-lg-6">{{form.telefono}}</div>
+                            </div>
 
-                        <!-- Cilindraje -->
-                        {{form.cilindraje.errors}}
-                        <div class="form-group">
-                            <label>{{form.cilindraje.label}}</label>
-                            <p class="help-block">Cilindraje del vehículo</p>
-                            {{form.cilindraje}}
-                        </div>
-
-                        <!-- marca -->
-                        {{form.marca.errors}}
-                        <div class="form-group">
-                            <label>{{form.marca.label}}</label>
-                            <p class="help-block">Marca del vehículo</p>
-                            {{form.marca}}
-                        </div>
-
-                        <!-- Linea -->
-                        {{form.linea.errors}}
-                        <div class="form-group">
-                            <label>{{form.linea.label}}</label>
-                            <p class="help-block">Linea del vehículo</p>
-                            {{form.linea}}
-                        </div>
-
-                        <!-- modelo -->
-                        {{form.modelo.errors}}
-                        <div class="form-group">
-                            <label>{{form.modelo.label}}</label>
-                            <p class="help-block">Modelo del vehículo</p>
-                            {{form.modelo}}
-                        </div>
-
-                        <!-- tipo_combustible-->
-                        {{form.tipo_combustible.errors}}
-                        <div class="form-group">
-                            <label>{{form.tipo_combustible.label}}</label>
-                            <p class="help-block">Tipo de combustible</p>
-                            {{form.tipo_combustible}}
-                        </div>
-
-                        <!-- color -->
-                        {{form.color.errors}}
-                        <div class="form-group">
-                            <label>{{form.color.label}}</label>
-                            <p class="help-block">Color del vehículo</p>
-                            {{form.color}}
-                        </div>
-
-                        <!-- valor -->
-                        {{form.valor.errors}}
-                        <div class="form-group">
-                            <label>{{form.valor.label}}</label>
-                            <p class="help-block">Valor del vehículo</p>
-                            {{form.valor}}
-                        </div>
-
-                        <!--BOTON-->
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Registrar</button>
-                        </div>
-
-                    </form>
+                            <!--BOTONES-->
+                            <div class="modal-footer">
+                                <a href="{% url 'id_cliente'%}" ><button type="button" class="btn btn-white"
+                                        data-dismiss="modal">Cancelar
+                                </button></a>
+                                <button type="submit" class="btn btn-primary">Registrar</button>
+                            </div>
+                        </form>
+                    {%else%}
+                            <!-- identificacion -->
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Identificación</label>
+                                <input type="number" id="identificacion" class="form-control" placeholder="Identificación...">
+                            </div>
+                            <!--boton siguiente-->
+                            <td><button class="btn btn-xs btn-info dim" id="btnSig">
+                                Siguiente</button></a></td>
+                    {%endif%}
                 </div>
             </div>
         </div>
     </div>
+
+{%endblock%}
+
+<!--
+en esta seccion iran enlaces a libresrias externas en este caso a datatables
+-->
+{%block js%}
+<!--
+para traer el bloque de codigo que esta en la pagina blank.html
+-->
+{{block.super}}
+
+    <!-- DataTables JavaScript -->
+    <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+
+    <!--script para pasar a la llenar del cliente-->
+    <script type="text/javascript">
+        $(document).ready(function() {;
+            $("#btnSig").click(function() {
+                console.log('hola');
+                var txt= $('#identificacion').val();
+                if(txt!==""){
+                    console.log('fifaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+                    window.location = "../clientes/" + String(txt);
+                }
+            })
+        })
+    </script>
+{%endblock%}

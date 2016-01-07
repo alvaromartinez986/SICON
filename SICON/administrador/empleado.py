@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.utils.encoding import smart_unicode
+from .sucursal import Sucursal
 
 __author__ = 'nelson'
 
 class Empleado(models.Model):
-    no_documento =      models.IntegerField(unique=True)
-    nombre =            models.CharField(max_length=100)
-    apellido =          models.CharField(max_length=100)
+    emp_id = models.AutoField(primary_key=True)
+    no_documento = models.CharField(unique=True, max_length=40)
+    nombre = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100)
     
     OMAS= 'O+'
     OMENOS= 'O-'
@@ -19,36 +21,35 @@ class Empleado(models.Model):
     ABMENOS= 'AB-'
     TIPO_CHOICES = ((OMAS, 'O+'), (OMENOS, 'O-'), (AMAS, 'A+'), (AMENOS, 'A-'), 
     (BMAS, 'B+'), (BMENOS, 'B-'), (ABMAS, 'AB+'), (ABMENOS, 'AB-'))
-    tipo_sangre =       models.CharField(choices=TIPO_CHOICES, max_length=20)
+    tipo_sangre = models.CharField(choices=TIPO_CHOICES, max_length=20)
     
-    experiencia =       models.IntegerField()
+    experiencia = models.IntegerField()
     
-    MANANA= 'Mañana'
+    MANANA= 'Manana'
     TARDE= 'Tarde'
     NOCHE= 'Noche'
     JORNADA_CHOICES = ((MANANA, 'Mañana'), (TARDE, 'Tarde'), (NOCHE, 'Noche'))
-    jornada=            models.CharField(choices=JORNADA_CHOICES, max_length=15)
+    jornada = models.CharField(choices=JORNADA_CHOICES, max_length=15)
     
     fecha_vinculacion = models.DateField(blank=True)
     
     VEND='Vendedor'
     JT='Jefe de taller'
     GER='Gerente'
-    MEC='Mecánico' 
+    MEC='Mecanico'
     CARGO_CHOICES = ((VEND, 'Vendedor'), (JT, 'Jefe de taller'), (GER, 'Gerente'), (MEC,'Mecánico')) 
-    cargo =             models.CharField(choices= CARGO_CHOICES, max_length=150)
-    telefono =          models.CharField(max_length=150)
+    cargo = models.CharField(choices= CARGO_CHOICES, max_length=150)
+    telefono = models.CharField(max_length=150)
     
     MASC= 'Masculino'
     FEM= 'Femenino'
     GEN_CHOICES = ((MASC, 'Masculino'), (FEM, 'Femenino'))
-    genero =            models.CharField(choices=GEN_CHOICES, max_length=15)
+    genero = models.CharField(choices=GEN_CHOICES, max_length=15)
     
-    fecha_nacimiento =  models.DateField()
-    area    =           models.CharField(max_length=150)
+    fecha_nacimiento = models.DateField()
     
-    ACT='Activado'
-    DES='Desactivado'
-    VINC_CHOICES = ((ACT,'Activado'), (DES,'Desactivado'))
-    estado_empleado =   models.CharField(choices=VINC_CHOICES, max_length=15) #Vinculado/Desvinculado
-    jefe =              models.IntegerField()
+
+    estado_empleado = models.BooleanField(default=True)
+    #models.ForeignKey(Departamento)
+    sucursal = models.ForeignKey(Sucursal)
+    jefe = models.ForeignKey('self', null=True, blank=True)

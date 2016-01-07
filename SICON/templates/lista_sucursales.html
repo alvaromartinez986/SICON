@@ -7,123 +7,141 @@ herencia de blank.html que es la plantilla de la pagina
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
     <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
 {%endblock%}
 
 <!--
 en esta seccion se va a poner el contenido de la pagina
 -->
 {%block content%}
-<br>
-<br>
-<br>
-                <div class="row">
-                    <div class="col-lg-12">
+
+<h1 class="page-header">Sucursales</h1>
+
+
+
+<!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3>Sucursales <small>Información básica de sucursales...</small></h3>
+                            <h3>Sucursales <small>Información básica de las sucursales...</small></h3>
                             <div class="container-fluid" align="right">
-                                <a href="crear" class="btn btn-info" data-toggle="tooltip" title="Nueva sucursal"><span class="fa fa-plus-circle"></span></a>
+                                <a href="{% url 'sucursales_crear' %}" class="btn btn-info" data-toggle="tooltip" title="Nueva Sucursal">
+                                    <span class="fa fa-plus-circle"></span></a>
                             </div>
-                        </div>                       
-                        <div class="table-responsive">
-                            <table class="table table-hover table-striped">
-                                <thead>
+
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="sucursales">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Ciudad</th>
+                                            <th>Dirección</th>
+                                            <th>Teléfono</th>
+                                            <th>Estado</th>
+                                            <th>Activar/Desactivar</th>
+                                            <th>Editar</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
                                     <tr>
-                                        <th>Nombre de la sucusal</th>
+                                        <th>Nombre</th>
+                                        <th>Ciudad</th>
                                         <th>Dirección</th>
                                         <th>Teléfono</th>
-                                        <th>Ciudad</th>
-                                        <th>Editar</th>
                                         <th>Estado</th>
-                                        <th>Activar/Desactivar</th>
+                                        <th></th>
+                                        <th></th>
 
                                     </tr>
-                                </thead>
-                                <tbody>
-                                {%for sucursal in sucursales%}
-                                    <tr>
-                                        <td>{{sucursal.nombre}}</td>
-                                        <td>{{sucursal.direccion}}</td>
-                                        <td>{{sucursal.telefono}}</td>
-                                        <td>{{sucursal.ciudad}}</td>
-                                        <td><a href="/sucursales/editar/{{sucursal.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+                                    </tfoot>
+                                    <tbody>
+                                        {%for sucursal in sucursales %}
+                                        <tr>
+											<td>{{sucursal.nombre}}</td>
+											<td>{{sucursal.ciudad}}</td>
+											<td>{{sucursal.direccion}}</td>
+											<td>{{sucursal.telefono}}</td>
                                         {%if sucursal.activo %}
                                             <td><p><span class="badge badge-primary">Activo</span></p></td>
-                                            <td><a href="/sucursales/eliminar/{{sucursal.id}}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
+                                            <td><a href="{% url 'sucursales_eliminar' sucursal.id %}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
                                         {%else%}
                                             <td><p><span class="badge badge-danger">Inactivo</span></p></td>
-                                            <td><a href="/sucursales/eliminar/{{sucursal.id}}"><button class="btn btn-xs btn-success dim"><i class="fa fa-check-square"></i> Reactivar</button></a></td>
+                                            <td><a href="{% url 'sucursales_eliminar' sucursal.id %}"><button class="btn btn-xs btn-success dim"><i class="fa fa-check-square"></i> Reactivar</button></a></td>
                                         {%endif%}
+                                            <td><a href="{% url 'sucursales_editar' sucursal.id %}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
 
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
+                                        </tr>
+                                        {%endfor%}
+
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    </div>
                 </div>
-
+            </div>
 
 <!-- A Continuación se incluirá el código que será tenido en cuenta para la edición de un curso cuando se presiona el botón 'Editar'
         El código incluye un botón invisible, un modal y un script que hará clic en el botón para que salga el modal con el formulario lleno
         con la información del integrante en cuestión-->
 {% if edicion %}
-    <button type="button" id="botonModalEdicion" data-toggle="modal" data-target="#editarSucursal" style="display:none;"></button>
 
+
+    <button type="button" id="botonModalEdicion" data-toggle="modal" data-target="#editarSucursal"
+            style="display:none;"></button>
     <div class="modal inmodal" id="editarSucursal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
-        <div class="modal-content animated fadeIn">
+            <div class="modal-content animated fadeIn">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <i class="fa fa-users modal-icon"></i>
                     <h4 class="modal-title">Editar Sucursal</h4>
                     <small class="font-bold">Por favor modifique a continuación los campos deseados y dé clic en guardar cambios cuando haya terminado, de lo contrario de clic en cancelar.</small>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post" class="form-horizontal">
+                    <form action="" method="post" class="form-horizontal"  id="form_sucursal">
                         {% csrf_token %}
-                        <form action="" method="post">
-                                    {% csrf_token %}
-                                    <!-- Nombre -->
-                                    {{form.nombre.errors}}
-                                    <div class="form-group">
-                                        <label>{{form.nombre.label}}</label>
-                                        <p class="help-block">Nombre de la sucursal</p>
-                                        {{form_edicion.nombre}}
-                                    </div>
+                        <form action="" method="post" class="form-horizontal">
 
-                                    <!-- Direccion -->
-                                    {{form.direccion.errors}}
-                                    <div class="form-group">
-                                        <label>{{form.direccion.label}}</label>
-                                        <p class="help-block">Dirección de la sucursal</p>
-                                        {{form_edicion.direccion}}
-                                    </div>
-
-                                    <!-- Telefono -->
-                                    {{form.telefono.errors}}
-                                    <div class="form-group">
-                                        <label>{{form.telefono.label}}</label>
-                                        <p class="help-block">Teléfono de la sucursal</p>
-                                        {{form_edicion.telefono}}
-                                    </div>
-
-                                    <!-- Departamento-->
-                                    {{form.departamento.errors}}
-                                    <div class="form-group">
-                                        <label>{{form.departamento.label}}</label>
-                                        <p class="help-block">Departamento de la sucursal</p>
-                                        {{form_edicion.departamento}}
-                                    </div>
-
-                                    <!-- Ciudad -->
-                                    {{form.ciudad.errors}}
-                                    <div class="form-group">
-                                        <label>{{form.ciudad.label}}</label>
-                                        <p class="help-block">Ciudad de la sucursal</p>
-                                        {{form_edicion.ciudad}}
-                                    </div>
+                        <!-- NOmbre-->
+                        <div class="form-group">
+                            {{form_edicion.codigo.errors}}
+                            <label class="col-lg-2 control-label">{{form_edicion.nombre.label}}</label>
+                            <div class="col-lg-6">
+                                {{form_edicion.nombre}}
+                            </div>
+                        </div>
+                        <!-- cilindraje -->
+                        <div class="form-group">
+                            {{form_edicion.direccion.errors}}
+                            <label class="col-lg-2 control-label">{{form_edicion.direccion.label}}</label>
+                            <div class="col-lg-6 text-label">{{form_edicion.direccion}}</div>
+                        </div>
+                        <!-- marca -->
+                        <div class="form-group">
+                            {{form_edicion.telefono.errors}}
+                            <label class="col-lg-2 control-label">{{form_edicion.telefono.label}}</label>
+                            <div class="col-lg-6">{{form_edicion.telefono}}</div>
+                        </div>
+                        <!-- linea -->
+                        <div class="form-group">
+                            {{form_edicion.departamento.errors}}
+                            <label class="col-lg-2 control-label">{{form_edicion.departamento.label}}</label>
+                            <div class="col-lg-6">{{form_edicion.departamento}}</div>
+                        </div>
+                        <!-- modelo-->
+                        <div class="form-group">
+                            {{form_edicion.ciudad.errors}}
+                            <label class="col-lg-2 control-label">{{form_edicion.ciudad.label}}</label>
+                            <div class="col-lg-6">{{form_edicion.ciudad}}</div>
+                        </div>
 
                                      <div class="modal-footer">
                                         <button type="button" class="btn btn-white"
@@ -144,18 +162,63 @@ en esta seccion se va a poner el contenido de la pagina
 {% endblock %}
 {%block js%}
     {{block.super}}
-    <!-- Data Tables -->
+
+
+ <!-- DataTables JavaScript -->
     <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-    <!-- validacion del formulario editar-->
-    <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>>
+    <script src="{{STATIC_URL}}/static/js/crearsucursal.js"></script>
 
-    {%if edicion %}
+    <!-- validacion del formulario editar-->
+    <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+     <script>
+      $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+          var i=0;
+    $('#sucursales tfoot th').each( function () {
+        i++;
+        if (i <=5){
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="'+title+'" style="width: 100%;" />' );}
+    } );
+
+    // DataTable
+    var table = $('#sucursales').DataTable({responsive:true});
+
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
+    </script>
+
+
+     {%if edicion %}
+
         <script>
             $(document).ready(function(){
-                $('#botonModalEdicion').click();
+            $("#id_ciudad").select2({width:'100%'});
+            $("#id_departamento").select2({width:'100%'});
             });
+        $(document).ready(function(){
+        $('#botonModalEdicion').click();
+        });
+
+            $('#id_departamento').val({{departamento}});
         </script>
     {%endif%}
+
+
 {% endblock %}

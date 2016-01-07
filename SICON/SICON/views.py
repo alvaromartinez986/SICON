@@ -12,28 +12,26 @@ def index(request):
     return render(request, 'indexAdmin.html',{})
 
 def iniciar_sesion(request):
-    if Sesion.creada(Sesion(),request.user):
-        return HttpResponseRedirect('/index')
-    else:
-        if request.method =='POST':
-            usuario = request.POST.get('username')
-            contrasena = request.POST.get('password')
+    print 'nelsini'
+    if request.method =='POST':
+        usuario = request.POST.get('username')
+        contrasena = request.POST.get('password')
 
-            usuario = authenticate(username=usuario,password=contrasena)
+        usuario = authenticate(username=usuario,password=contrasena)
 
-            if usuario is not None:
+        if usuario is not None:
 
-                if usuario.is_active:
-                    login(request, usuario)
-                    return HttpResponseRedirect('/index')
-                else:
-                    return render(request,'login.html',{'error':'Su cuenta se encuentra desactivada'})
+            if usuario.is_active:
+                login(request, usuario)
+                return HttpResponseRedirect('')
             else:
-                error = "Su nombre de usuario o contrasena son invalidos"
-                return render(request,'login.html',{'error':error})
+                return render(request,'login.html',{'error':'Su cuenta se encuentra desactivada'})
         else:
-            return render(request,'login.html',{'error':''})
-        return render(request,'login.html',{})
+            error = "Su nombre de usuario o contrasena son invalidos"
+            return render(request,'login.html',{'error':error})
+    else:
+        return render(request,'login.html',{'error':''})
+    return render(request,'login.html',{})
 
 @login_required
 def cerrar_sesion(request):

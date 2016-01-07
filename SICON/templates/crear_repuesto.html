@@ -1,6 +1,6 @@
 {%extends "indexAdmin.html"%}
 {% load staticfiles %}
-{% block css %}
+{% block style %}
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
         <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
 
@@ -116,8 +116,8 @@ para traer el bloque de codigo que esta en la pagina blank.html
 {{block.super}}
 
  <!-- DataTables JavaScript -->
-    <script src="../static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="../static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
     
@@ -129,7 +129,12 @@ para traer el bloque de codigo que esta en la pagina blank.html
         });
     });
     </script>
-    <script type="text/javascript" src="../static/validator.js"></script>
-
+    <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}/static/js/modelos.js"></script>
+    <script >
+        $(document).ready(function () {
+            $('#id_modelo_carro').empty();
+        });
+    </script>
 
 {%endblock%}

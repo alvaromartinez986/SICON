@@ -295,6 +295,7 @@ para traer el bloque de codigo que esta en la pagina blank.html
     <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}/static/js/validatorEmpleadosEditar.js"></script>
 
     <!-- validacion del formulario editar-->
     <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
@@ -348,6 +349,11 @@ para traer el bloque de codigo que esta en la pagina blank.html
                 language: 'es',
                 format: 'yyyy-mm-dd',
                 endDate: '-5h'
+            });
+
+            $('#data_1 .input-group.date').on('changeDate show', function(e) {
+            $('#form_empleado').bootstrapValidator('revalidateField', 'fecha_vinculacion');
+            $('#form_empleado').bootstrapValidator('revalidateField', 'fecha_nacimiento');
             });
            var zIndex = parseInt(this.element.parents().filter(function() {
                             return $(this).css('z-index') != 'auto';

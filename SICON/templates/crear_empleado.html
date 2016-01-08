@@ -2,9 +2,6 @@
 {% load staticfiles %}
 {% block style %}
 {{block.super}}
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
-    <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
-    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
     <link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
 {%endblock%}
 
@@ -163,13 +160,13 @@ en esta seccion se va a poner el contenido de la pagina-->
                                         <label>Contraseña</label>
                                         <p class="help-block">Contraseña del usuario</p>
                                         <input id="id_password" type="password" name="password" data-bv-field="password" class ="form-control">
-                                        <br>
+                                    </div>
+                                    <div class="form-group">
                                         <label>Confirmar Contraseña</label>
                                         <p class="help-block">Confirmar contraseña de usuario</p>
                                         <input id="id_password2" type="password" name="password2" data-bv-field="password2"  class ="form-control">
                                     </div>
                                   </div>
-
 
                                     <br>
 
@@ -179,13 +176,12 @@ en esta seccion se va a poner el contenido de la pagina-->
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Crear</button>
                                     </div>
-                                    </div>
 
                                 </form>
                             </div>
                         </div>
                     </div>
-
+                </div>
 {% endblock %}
 
 {% block js %}
@@ -193,6 +189,7 @@ en esta seccion se va a poner el contenido de la pagina-->
 
 <script src="{{STATIC_URL}}/static/js/crearempleado.js"></script>
 <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}/static/js/validatorEmpleados.js"></script>
 
 <script type="text/javascript">
   $(document).ready(function(){
@@ -213,6 +210,11 @@ en esta seccion se va a poner el contenido de la pagina-->
                 language: 'es',
                 format: 'yyyy-mm-dd',
                 endDate: '-5h'
+            });
+
+            $('#data_1 .input-group.date').on('changeDate show', function(e) {
+            $('#form_empleado').bootstrapValidator('revalidateField', 'fecha_vinculacion');
+            $('#form_empleado').bootstrapValidator('revalidateField', 'fecha_nacimiento');
             });
    </script>
 

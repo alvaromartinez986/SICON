@@ -27,11 +27,20 @@ class Ciudad(models.Model):
 
 class Sucursal(models.Model):
 
+    class Meta:
+        permissions = (
+            # Permission identifier     human-readable permission name
+            ("listar_Sucursales",       "Se permite editar, activar , desactivar" ),
+        )
+
     nombre = models.CharField(max_length=100, unique=True)
     direccion = models.CharField(max_length=150)
     telefono = models.TextField(max_length=150)
     ciudad = models.ForeignKey(Ciudad)
     activo = models.BooleanField(default=True)
+
+    def __unicode__(self):
+		return self.nombre
 
 
 

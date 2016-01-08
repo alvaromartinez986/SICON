@@ -1,0 +1,167 @@
+<!--
+herencia de blank.html que es la plantilla de la pagina
+-->
+{%extends "indexAdmin.html" %}
+{% load staticfiles %}
+{% block css %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
+<link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina
+-->
+
+{%block content%}
+
+<h1 class="page-header">Venta de vehículos</h1>
+
+
+
+<!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Cotización de vehículos</h3>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <form id= "form_venta" action="" method="post">
+                        {% csrf_token %}
+                    <div class="dataTable_wrapper table-responsive">
+                        <table style="width: 130%;" class="table table-striped table-bordered table-hover" id="vehiculos_nuevos">
+                            <col width="2%">
+                            <col width="5%">
+                            <col width="5%">
+                            <col width="5%">
+                            <col width="5%">
+                            <col width="5%">
+                            <col width="9%">
+                            <col width="5%">
+                            <col width="5%">
+                            <thead>
+                                <tr>
+                                <th>Seleccionar</th>
+                                <th>Código</th>
+                                <th>Cilindraje</th>
+                                <th>Marca</th>
+                                <th>Línea</th>
+                                <th>Modelo</th>
+                                <th>Tipo de combustible</th>
+                                <th>Color</th>
+                                <th>Valor</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th></th>
+                                <th>Código</th>
+                                <th>Cilindraje</th>
+                                <th>Marca</th>
+                                <th>Línea</th>
+                                <th>Modelo</th>
+                                <th>Combustible</th>
+                                <th>Color</th>
+                                <th>Valor</th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                            {%for veh in vehiculos_nuevos %}
+                            {%if veh.activo%}
+                                <tr>
+                                    <td style="text-align:center;"><input type="checkbox" name="carros" value={{veh.vehiculo_ptr_id}}><br></td>
+                                    <td>{{veh.codigo}}</td>
+                                    <td>{{veh.cilindraje}}</td>
+                                    <td>{{veh.marca}}</td>
+                                    <td>{{veh.linea}}</td>
+                                    <td>{{veh.modelo}}</td>
+                                    <td>{{veh.tipo_combustible}}</td>
+                                    <td>{{veh.color}}</td>
+                                    <td>{{veh.valor}}</td>
+                                </tr>
+                            {%endif%}
+                            {%endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="btnCotizar" type="submit" class="btn btn-danger btn-block"><i class="fa fa-check-square-o"></i> Vender selección</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--
+          acontinuacion se pone el codigo para la edicion
+-->
+
+{%endblock%}
+
+<!--
+en esta seccion iran enlaces a libresrias externas en este caso a datatables
+-->
+{%block js%}
+<!--
+para traer el bloque de codigo que esta en la pagina blank.html
+-->
+{{block.super}}
+
+    <!-- DataTables JavaScript -->
+    <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <!--pdfmake-->
+    <script src='{{STATIC_URL}}/static/js/pdfmake.min.js'></script>
+ 	<script src='{{STATIC_URL}}/static/js/vfs_fonts.js'></script>
+    <!-- validacion del formulario editar-->
+    <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}/static/js/cotizacionVehiculos.js"></script>
+
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+     <script>
+         $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+          var i=0;
+          $('#vehiculos_nuevos tfoot th').each( function () {
+              i++;
+              if (i!==1 &&  i <=9){
+              var title = $(this).text();
+              $(this).html( '<input type="text" placeholder='+title+' style="width: 100%;" />' );}
+          } );
+
+        // DataTable
+            var table = $('#vehiculos_nuevos').DataTable({responsive:true});
+
+            // Apply the search
+            table.columns().every( function () {
+                var that = this;
+
+            $( 'input', this.footer() ).on( 'keyup change', function () {
+                if ( that.search() !== this.value ) {
+                    that
+                        .search( this.value )
+                        .draw();
+                }
+        } );
+    } );
+} );
+    </script>
+
+
+    <!--script para pasar a escribir el pdf y guardarlo en el archivo js-->
+    <!--<script type="text/javascript">-->
+        <!--$(document).ready(function() {-->
+            <!--$("#btnCotizar").click(function() {-->
+                <!--getCheckboxes();-->
+                <!--$('body').data('identificacion','{{cliente.identificacion}}');-->
+<!--//                console.log(cliente);-->
+                <!--writeCotizacion();-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+{%endblock%}

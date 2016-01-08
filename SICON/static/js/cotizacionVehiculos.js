@@ -5,24 +5,42 @@
 function getCheckboxes() {
     var table = document.getElementById("vehiculos_nuevos");
     var checkboxes = table.getElementsByTagName("input");
-    var codCarros = [];
+    var carros = [];
     var selected = 0;
     for (var i = 0; i < checkboxes.length; i++) {
         var checkbox = checkboxes[i];
         if(checkbox.checked){
             var currentRow = checkbox.parentNode.parentNode;
-            var secondColumn = currentRow.getElementsByTagName("td")[1];
+            var row = currentRow.getElementsByTagName("td");
             selected++;
-            codCarros[selected]=secondColumn.textContent;
-        };
+            carros[selected]=row;
+        }
     }
+    return carros;
 }
 
 function writeCotizacion(){
+    var carros = getCheckboxes();
     var identificacion  = $('body').data('identificacion');
     var ruta = "cotización"+ identificacion+".pdf";
+    var tabla = [];
+    var firstRow = [{ text: 'Cilindraje', bold: true }, { text: 'Marca', bold: true }, { text: 'Linea', bold: true }, { text: 'Modelo', bold: true }, { text: 'Tipo de Combustible', bold: true },{ text: 'Color', bold: true },{ text: 'Valor', bold: true }];
+    tabla.push(firstRow);
+    for (var i=0;i<carros.length;i++){
+        carros.length
+        var newRow=[];
+        console.log(carros);
+        for(var j=0;j<carros[i].length;j++){
+            if(j!==0&&j!==1) {
+                newRow.push(carros[i][j].textContent);
+            }
+        }
+        tabla.push(newRow);
+    }
     var docDefinition = {
       content: [
+        'Esta es la cotizacion hecha al cliente '+identificacion+':',
+
         {
           table: {
             // headers are automatically repeated if the table spans over multiple pages
@@ -30,11 +48,7 @@ function writeCotizacion(){
             headerRows: 1,
             widths: [ '*', 'auto', 100, '*' ],
 
-            body: [
-              [ 'First', 'Second', 'Third', 'The last one' ],
-              [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
-              [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
-            ]
+            body: tabla
           }
         }
       ]

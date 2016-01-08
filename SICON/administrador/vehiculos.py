@@ -1,4 +1,5 @@
 from django.db import models
+from .sucursal import Sucursal
 
 class Vehiculo(models.Model):
     cilindraje = models.IntegerField()
@@ -11,6 +12,7 @@ class Vehiculo(models.Model):
     COMB_CHOICES = ((GASOLINA, 'Gasolina'), (GAS, 'Gas'))
     tipo_combustible = models.CharField(choices=COMB_CHOICES, max_length=50)
     color = models.CharField(max_length=50)
+    sucursal = models.ForeignKey(Sucursal)
     activo = models.BooleanField(default=True)
     def __str__(self):
         return self.linea
@@ -18,6 +20,7 @@ class Vehiculo(models.Model):
 class VehiculoNuevo(Vehiculo):
     valor = models.IntegerField()
     codigo = models.CharField(max_length=10,unique=True, default=01)
+    vendido = models.BooleanField(default=False)
 
 class VehiculoUsado(Vehiculo):
     #TIPOS DE SERVICIO

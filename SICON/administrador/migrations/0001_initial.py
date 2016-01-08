@@ -120,6 +120,7 @@ class Migration(migrations.Migration):
                 ('vehiculo_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='administrador.Vehiculo')),
                 ('valor', models.IntegerField()),
                 ('codigo', models.CharField(default=1, unique=True, max_length=10)),
+                ('vendido', models.BooleanField(default=False)),
             ],
             bases=('administrador.vehiculo',),
         ),
@@ -131,6 +132,11 @@ class Migration(migrations.Migration):
                 ('placa', models.CharField(unique=True, max_length=6)),
             ],
             bases=('administrador.vehiculo',),
+        ),
+        migrations.AddField(
+            model_name='vehiculo',
+            name='sucursal',
+            field=models.ForeignKey(to='administrador.Sucursal'),
         ),
         migrations.AddField(
             model_name='ciudad',

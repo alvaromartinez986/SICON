@@ -5,20 +5,27 @@ from models import Cliente
 from models import Venta
 from administrador.models import VehiculoNuevo
 from forms_cliente import ClienteForm
-import time
+import datetime
+from reportlab.pdfgen import canvas
+from django.http import HttpResponse
+
 
 def venta_vehiculos(request, id_cliente):
     if request.method=='POST':
         vehiculos = request.POST.getlist('carros')
+        veh_report = vehiculos
         cliente = Cliente.objects.filter(id=id_cliente).first()
-        fecha = time.strftime("%c")
+        fecha = datetime.datetime.now()
 
         print cliente
         for vehiculo in vehiculos:
             veh_nuevo = VehiculoNuevo.objects.filter(id=vehiculo).first()
             venta = Venta (identificacion_cliente = cliente,vehiculo=veh_nuevo,fecha=fecha)
+            veh_nuevo.vendido = True
+            veh_nuevo.save()
             venta.save()
-        return HttpResponseRedirect('/ventas/venta/cliente/')
+        return pdf_venta(veh_report,id_cliente)
+        # return HttpResponseRedirect('/ventas/venta/cliente')
 
     vehiculos_n = VehiculoNuevo.objects.all()
     cliente = Cliente.objects.filter(id=id_cliente).first()
@@ -49,3 +56,20 @@ def gestionar_cliente_venta (request, identificacion):
 
 def id_cliente_venta(request):
     return render(request,'info_cliente_venta.html')
+
+def pdf_venta (vehiculos,cliente):
+    # Create the HttpResponse object with the appropriate PDF headers.
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="somefilename.pdf"'
+
+    # Create the PDF object, using the response object as its "file."
+    p = canvas.Canvas(response)
+
+    # Draw things on the PDF. Here's where the PDF generation happens.
+    # See the ReportLab documentation for the full list of functionality.
+    p.drawString(100, 100, "Hello world.")
+
+    # Close the PDF object cleanly, and we're done.
+    p.showPage()
+    p.save()
+    return response

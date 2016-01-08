@@ -34,7 +34,7 @@ en esta seccion se va a poner el contenido de la pagina
                                         <i class="fa fa-check"></i> Se ha registrado un vehículo para reparar con exito.
                                     </div>
                                 {% endif %}
-                                <form action="" method="post">
+                                <form action="" method="post" id="form_vehiculo_usado">
                                     {% csrf_token %}
                                     <!-- placa -->
                                     {{form.placa.errors}}
@@ -69,7 +69,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     </div>
 
                                     <!-- modelo -->
-                                    {{form.telefono.errors}}
+                                    {{form.modelo.errors}}
                                     <div class="form-group">
                                         <label>{{form.modelo.label}}</label>
                                         <p class="help-block">Modelo del vehículo</p>
@@ -111,4 +111,11 @@ en esta seccion se va a poner el contenido de la pagina
                         </div>
                     </div>
                 </div>
+{% endblock %}
+
+
+{%block js%}
+{{block.super}}
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}/static/js/validatorVehiculos.js"></script>
 {% endblock %}

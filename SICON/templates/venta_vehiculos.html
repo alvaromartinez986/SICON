@@ -68,7 +68,7 @@ en esta seccion se va a poner el contenido de la pagina
                             </tfoot>
                             <tbody>
                             {%for veh in vehiculos_nuevos %}
-                            {%if veh.activo%}
+                            {%if veh.activo and not veh.vendido  %}
                                 <tr>
                                     <td style="text-align:center;"><input type="checkbox" name="carros" value={{veh.vehiculo_ptr_id}}><br></td>
                                     <td>{{veh.codigo}}</td>

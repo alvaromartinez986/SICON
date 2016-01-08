@@ -2,7 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f43c95fe-2f1d-45bd-955f-a401324dae7b" name="Default" comment="validacion con bootstrap.&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/SICON/settings.py" afterPath="$PROJECT_DIR$/SICON/SICON/settings.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/plugins/datapicker/bootstrap-datepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/crearempleado.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/css/plugins/datapicker/datepicker3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/gerente.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/jefetaller.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/superadmin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/validatorEmpleados.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/validatorEmpleadosEditar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/validatorVehiculos.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/vendedor.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/forms_usuarios.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/usuarios.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/administrador/views_usuarios.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SICON.iml" afterPath="$PROJECT_DIR$/.idea/SICON.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_empleado.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_empleado.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/empleado.py" afterPath="$PROJECT_DIR$/SICON/administrador/empleado.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms_empleado.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms_empleado.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" afterPath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/lista_empleados.html" afterPath="$PROJECT_DIR$/SICON/templates/lista_empleados.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html" afterPath="$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/lista_vehiculos_usados.html" afterPath="$PROJECT_DIR$/SICON/templates/lista_vehiculos_usados.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/models.py" afterPath="$PROJECT_DIR$/SICON/administrador/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/repuesto.py" afterPath="$PROJECT_DIR$/SICON/administrador/repuesto.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/sucursal.py" afterPath="$PROJECT_DIR$/SICON/administrador/sucursal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/SICON/urls.py" afterPath="$PROJECT_DIR$/SICON/SICON/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/urls.py" afterPath="$PROJECT_DIR$/SICON/administrador/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/vehiculos.py" afterPath="$PROJECT_DIR$/SICON/administrador/vehiculos.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/SICON/views.py" afterPath="$PROJECT_DIR$/SICON/SICON/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views.py" afterPath="$PROJECT_DIR$/SICON/administrador/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_empleado.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_empleado.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_sucursales.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_sucursales.py" />
     </list>
     <ignored path="SICON.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/SICON/administrador/empleado.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -83,18 +118,8 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SICON/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.833333">
-              <caret line="69" column="108" selection-start-line="69" selection-start-column="108" selection-end-line="69" selection-end-column="108" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms_usuarios.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_usuarios.py">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="69" column="108" selection-start-line="69" selection-start-column="108" selection-end-line="69" selection-end-column="108" />
               <folding />
             </state>
           </provider>
@@ -113,7 +138,7 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SICON/SICON/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37849945">
+            <state vertical-scroll-proportion="0.13063584">
               <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
               <folding />
             </state>
@@ -598,14 +623,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1682" height="1025" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24404761" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24404761" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -641,9 +666,9 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24444444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -681,6 +706,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/SICON/SICON/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/templates/lista_empleados.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SICON/SICON/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -940,13 +981,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_usuarios.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SICON/templates/lista_sucursales.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="42.0">
@@ -965,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="101" column="28" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -987,14 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_usuarios.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SICON/templates/crear_usuario.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1006,7 +1031,7 @@
     <entry file="file://$PROJECT_DIR$/SICON/administrador/empleado.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1041,7 +1066,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SICON/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.833333">
+        <state vertical-scroll-proportion="0.0">
           <caret line="69" column="108" selection-start-line="69" selection-start-column="108" selection-end-line="69" selection-end-column="108" />
           <folding />
         </state>
@@ -1049,7 +1074,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SICON/SICON/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37849945">
+        <state vertical-scroll-proportion="0.13063584">
           <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
           <folding />
         </state>

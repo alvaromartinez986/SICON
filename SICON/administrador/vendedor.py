@@ -7,12 +7,10 @@ from .empleado import *
 
 class Vendedor(User, Empleado):
     class Meta:
-        '''permissions = (
+        permissions = (
             # Permission identifier     human-readable permission name
-            ("anadir_calificaciones", "Puede calificar cursos"),
-            ("editar_datos_personales", "Puede editar sus propios datos"),
-            ("terminar_datos_mt", "Terminar datos lab y acad mt"),
-        #)'''
+            ("listar_Vendedor",       "Se permite editar, activar , desactivar" ),
+        )
 
     def __str__(self):
         return self.get_full_name()

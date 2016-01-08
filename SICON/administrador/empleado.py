@@ -6,6 +6,13 @@ from .sucursal import Sucursal
 __author__ = 'nelson'
 
 class Empleado(models.Model):
+
+    class Meta:
+        permissions = (
+            # Permission identifier     human-readable permission name
+            ("listar_Empleados",       "Se permite editar, activar , desactivar" ),
+        )
+
     emp_id = models.AutoField(primary_key=True)
     no_documento = models.CharField(unique=True, max_length=40)
     nombre = models.CharField(max_length=100)

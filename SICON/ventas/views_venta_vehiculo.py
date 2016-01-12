@@ -8,13 +8,20 @@ from forms_cliente import ClienteForm
 import datetime
 from reportlab.pdfgen import canvas
 from django.http import HttpResponse
+from django.http import JsonResponse
+import json
 
+def redirect():
+    return HttpResponseRedirect('/ventas/venta/cliente')
 
 def venta_vehiculos(request, id_cliente):
+    vehiculos_n = VehiculoNuevo.objects.all()
+    vehiculos_sele = ""
+    cliente = Cliente.objects.filter(id=id_cliente).first()
     if request.method=='POST':
         vehiculos = request.POST.getlist('carros')
+        vehiculos_sele = vehiculos
         veh_report = vehiculos
-        cliente = Cliente.objects.filter(id=id_cliente).first()
         fecha = datetime.datetime.now()
 
         print cliente
@@ -22,13 +29,26 @@ def venta_vehiculos(request, id_cliente):
             veh_nuevo = VehiculoNuevo.objects.filter(id=vehiculo).first()
             venta = Venta (identificacion_cliente = cliente,vehiculo=veh_nuevo,fecha=fecha)
             veh_nuevo.vendido = True
-            veh_nuevo.save()
-            venta.save()
-        return pdf_venta(veh_report,id_cliente)
-        # return HttpResponseRedirect('/ventas/venta/cliente')
+            # veh_nuevo.save()
+            # venta.save()
 
-    vehiculos_n = VehiculoNuevo.objects.all()
-    cliente = Cliente.objects.filter(id=id_cliente).first()
+        lista_vehiculos =  []
+        veh = dict()
+        for vehiculo in vehiculos_sele:
+            vehiculo_n = veh_nuevo = VehiculoNuevo.objects.filter(id=vehiculo).first();
+            veh["cilindraje"] = str(vehiculo_n.cilindraje)
+            veh["marca"] = str (vehiculo_n.marca)
+            veh["linea"] = str (vehiculo_n.linea)
+            veh["modelo"] = str (vehiculo_n.modelo)
+            veh["tipo_comb"] = str (vehiculo_n.tipo_combustible)
+            veh["color"] = str (vehiculo_n.color)
+            veh["valor"] = str (vehiculo_n.valor)
+            lista_vehiculos.append(veh)
+            veh = {}
+        return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente})
+
+
+
     return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente})
 
 def gestionar_cliente_venta (request, identificacion):
@@ -56,20 +76,3 @@ def gestionar_cliente_venta (request, identificacion):
 
 def id_cliente_venta(request):
     return render(request,'info_cliente_venta.html')
-
-def pdf_venta (vehiculos,cliente):
-    # Create the HttpResponse object with the appropriate PDF headers.
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="somefilename.pdf"'
-
-    # Create the PDF object, using the response object as its "file."
-    p = canvas.Canvas(response)
-
-    # Draw things on the PDF. Here's where the PDF generation happens.
-    # See the ReportLab documentation for the full list of functionality.
-    p.drawString(100, 100, "Hello world.")
-
-    # Close the PDF object cleanly, and we're done.
-    p.showPage()
-    p.save()
-    return response

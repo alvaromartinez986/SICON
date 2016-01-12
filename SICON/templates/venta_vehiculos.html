@@ -87,6 +87,8 @@ en esta seccion se va a poner el contenido de la pagina
                     </div>
                     <button id="btnCotizar" type="submit" class="btn btn-danger btn-block"><i class="fa fa-check-square-o"></i> Vender selección</button>
                         </form>
+
+                    <div id = "texto"></div>
                 </div>
             </div>
         </div>
@@ -149,19 +151,92 @@ para traer el bloque de codigo que esta en la pagina blank.html
     } );
 } );
     </script>
+{% if venta %}
+<script>
+    $(document).ready(function() {
 
+        var d = new Date();
+        var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+        var fecha = d.getDate() + " de " + meses [(d.getMonth() +1)] + " del " + d.getFullYear();
+        var carros = "{{vehiculos}}"
+        $("#texto").html(carros)
+        obj_carros = JSON.parse(carros.replace(/&quot;/g,'"'));
 
-    <!--script para pasar a escribir el pdf y guardarlo en el archivo js-->
-    <!--<script type="text/javascript">-->
-        <!--$(document).ready(function() {-->
-            <!--$("#btnCotizar").click(function() {-->
-                <!--getCheckboxes();-->
-                <!--$('body').data('identificacion','{{cliente.identificacion}}');-->
-<!--//                console.log(cliente);-->
-                <!--writeCotizacion();-->
-            <!--})-->
-        <!--})-->
-    <!--</script>-->
+        var identificacion = '{{cliente.identificacion}}';
+        var nombres = '{{cliente.nombres}}';
+        var apellidos = '{{cliente.apellidos}}';
 
+        var ruta = "venta"+ identificacion+".pdf";
+        var firstRow = [{ text: 'Cilindraje', bold: true }, { text: 'Marca', bold: true }, { text: 'Linea', bold: true }, { text: 'Modelo', bold: true }, { text: 'Tipo de Combustible', bold: true },{ text: 'Color', bold: true },{ text: 'Valor (COP)', bold: true }];
+        var tabla= [firstRow];
+        var valorTotal = 0;
+        for (carro in obj_carros){
+            vehiculo = obj_carros[carro]
+            var arrayRow = [vehiculo.cilindraje,vehiculo.marca,vehiculo.linea,vehiculo.modelo,vehiculo.tipo_comb,vehiculo.color,vehiculo.valor]
+            tabla.push(arrayRow);
+            valorTotal += parseInt (vehiculo.valor);
+            console.log(vehiculo.valor);
+        }
+        console.log(tabla);
+
+        var docDefinition = {
+  content: [
+    { text: 'VENTA SICON', style: 'header' },
+    { text: 'Fecha : ' + fecha + '\n \n', bold:true, alignment: 'right',fontSize : 18  },
+
+    {
+      columns: [
+         {
+
+             stack: [
+                 // second column consists of paragraphs
+                 'Vendedor',
+                 'Identificacion : 1143857923' ,
+                 'Nombres : Fernando',
+                 'apellidos : Sanchez Quintero'
+             ],
+          fontSize: 15
+         },
+
+        {
+          stack: [
+            // second column consists of paragraphs
+            'Cliente',
+            'Identificacion : ' + identificacion,
+            'Nombres : ' + nombres,
+            'Apellidos : ' + apellidos,
+          ],
+          fontSize: 15
+        }
+      ]
+    },
+
+      { text: '\n \n' },
+
+      {
+          table: {
+                widths: [ '*', '*', '*', '*', '*', '*', '*'],
+                body:tabla
+              }
+      },
+
+      { text: '\n \n' },
+      {text:'El valor total de la Venta es: '+valorTotal+' COP', bold:true, fontSize : 15, alignment: 'right' }
+
+  ],
+            styles:
+            {
+                header:
+                {
+                    fontSize: 22,
+                    bold: true
+                }
+            }
+};
+        pdfMake.createPdf(docDefinition).download(ruta);
+        window.location = "{% url 'id_cliente_venta' %}"
+    });
+</script>
+{%endif%}
 
 {%endblock%}

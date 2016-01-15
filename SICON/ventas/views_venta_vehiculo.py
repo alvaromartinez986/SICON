@@ -16,9 +16,9 @@ def redirect():
     return HttpResponseRedirect('/ventas/venta/cliente')
 
 def venta_vehiculos(request, id_cliente):
-    #id = request.session["id"]
-    #vendedor = User.objects.filter (id = id).first()
-    #print vendedor.username
+    id = request.session["id"]
+    vendedor = User.objects.filter (id = id).first()
+    print vendedor.username
     vehiculos_n = VehiculoNuevo.objects.filter(activo = True, vendido = False)
     vehiculos_sele = ""
     cliente = Cliente.objects.filter(id=id_cliente).first()
@@ -49,8 +49,8 @@ def venta_vehiculos(request, id_cliente):
             veh["valor"] = str (vehiculo_n.valor)
             lista_vehiculos.append(veh)
             veh = {}
-        return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente, 'vendedor':"" })
-        #return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente,'vendedor':vendedor})
+        # return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente, 'vendedor':"" })
+        return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente,'vendedor':vendedor})
 
 
 

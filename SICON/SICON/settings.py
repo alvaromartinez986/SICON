@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'administrador',
+    'ventas',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -76,10 +77,10 @@ DATABASES = {
     'default': {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'python',
-        'USER': 'adminvwjhget',
-        'PASSWORD': 'HXKR7hI6AP_q',
-        'HOST': 'postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT',
+        'NAME': 'sicondb',
+        'USER': 'siconuser',
+        'PASSWORD': 'hola123',
+        'HOST': 'localhost',
         'PORT': '5432',
 
     }

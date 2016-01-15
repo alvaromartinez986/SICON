@@ -26,7 +26,11 @@ function writeCotizacion(){
     var carros = getCheckboxes();
     var valorTotal = carros[carros.length-1];
     carros.length=carros.length-1;
+    var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+    var fecha = d.getDate() + " de " + meses [(d.getMonth() +1)] + " del " + d.getFullYear();
     var identificacion  = $('body').data('identificacion');
+    var nombres = $('body').data('nombres');
+    var apellidos = $('body').data('apellidos');
     var ruta = "cotización"+ identificacion+".pdf";
     var firstRow = [{ text: 'Cilindraje', bold: true }, { text: 'Marca', bold: true }, { text: 'Linea', bold: true }, { text: 'Modelo', bold: true }, { text: 'Tipo de Combustible', bold: true },{ text: 'Color', bold: true },{ text: 'Valor (COP)', bold: true }];
     var tabla= [firstRow];
@@ -36,7 +40,19 @@ function writeCotizacion(){
     console.log(tabla);
     var docDefinition = {
       content: [
-        'Esta es la cotizacion hecha al cliente con número de identificación: '+identificacion+':',
+          { text: 'COTIZACIÓN SICON', style: 'header' },
+        { text: 'Fecha : ' + fecha + '\n \n', bold:true, alignment: 'right',fontSize : 18  },
+        {
+          stack: [
+            // second column consists of paragraphs
+            { text: 'CLIENTE', bold: true },
+            'Identificacion : ' + identificacion,
+            'Nombres : ' + nombres,
+            'Apellidos : ' + apellidos,
+          ],
+          fontSize: 15
+        },
+          { text: '\n \n' },
 
         {
           table: {

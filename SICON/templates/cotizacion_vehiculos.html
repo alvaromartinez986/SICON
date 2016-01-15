@@ -67,7 +67,7 @@ en esta seccion se va a poner el contenido de la pagina
                             <tbody>
                             {%for veh in vehiculos_nuevos %}
                                 <tr>
-                                    <td style="text-align:center;"><input type="checkbox" value="selected"><br></td>
+                                    <td style="text-align:center;"><input type="checkbox" name="carros" value={{veh.vehiculo_ptr_id}}><br></td>
                                     <td>{{veh.codigo}}</td>
                                     <td>{{veh.cilindraje}}</td>
                                     <td>{{veh.marca}}</td>
@@ -150,12 +150,14 @@ para traer el bloque de codigo que esta en la pagina blank.html
     <script type="text/javascript">
         $(document).ready(function() {
             $("#btnCotizar").click(function() {
-//                var marcados = getCheckboxes().length;
-//                if(marcados>0) {
+                var marcados = getCheckboxes().length;
+                if(marcados>0) {
                     $('body').data('identificacion', '{{cliente.identificacion}}');
-//                console.log(cliente);
+                    $('body').data('nombres', '{{cliente.nombres}}');
+                    $('body').data('apellidos', '{{cliente.apellidos}}');
+                    console.log(cliente);
                     writeCotizacion();
-//                }
+                }
             })
         })
     </script>

@@ -76,10 +76,10 @@ DATABASES = {
     'default': {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'python',
-        'USER': 'adminvwjhget',
-        'PASSWORD': 'HXKR7hI6AP_q',
-        'HOST': 'postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT',
+        'NAME': 'sicondb',
+        'USER': 'siconuser',
+        'PASSWORD': 'hola123',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
 
     }

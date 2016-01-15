@@ -156,7 +156,7 @@ def buscar_jefe(objSucursal, tipoCargo):
 
     return jefe
 
-
+@login_required
 def editar_empleado(request, id):
     id_sesion = request.session["id"]
     print "ID DEL USUARIO"

@@ -5,7 +5,6 @@ from .models import Repuesto, Sucursal
 from views_sucursales import *
 from .views_repuesto import *
 from views_empleado import *
-from views_usuarios import *
 # Create your views here.
 
 

@@ -66,7 +66,7 @@
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar op-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle text-danger" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -95,12 +95,15 @@
                             <!-- /input-group -->
                         </li>
                             <!-- /input-group -->
-                        <li>
-                            <a href="{% url 'listar_sucursales' %}" class="text-danger"> <i class="fa fa-briefcase fa-fw"></i> Sucursales</a>
-                        </li>
+                         {% if 'sucursal.listar_Sucursales' in perms and user.is_authenticated%}
+
+                            <li>
+                                <a href="{% url 'listar_sucursales' %}" class="text-danger"> <i class="fa fa-briefcase fa-fw"></i> Sucursales</a>
+                            </li>
+                        {% endif %}
                      
                         <li>
-                            <a href="{% url 'listar_empleados' %}" class="text-danger"><i class="fa fa-user-md fa-fw"></i> Usuarios</a>
+                            <a href="{% url 'listar_empleados' %}" class="text-danger"><i class="fa fa-user-md fa-fw"></i> Empleados</a>
                         </li>
                         <li>
                             <a href="{% url 'listar_repuestos' %}" class="text-danger"><i class="fa fa-wrench fa-fw"></i> Repuestos</a>

@@ -15,6 +15,13 @@ class Modelo(models.Model):
 
 
 class Repuesto (models.Model):
+
+	class Meta:
+		permissions = (
+            # Permission identifier     human-readable permission name
+            ("listar_Repuestos",       "Se permite editar, activar , desactivar" ),
+        )
+
 	codigo = models.CharField(max_length = 40, unique=True)
 	nombre = models.CharField(max_length = 40)
 	marca  = models.CharField(max_length = 40)

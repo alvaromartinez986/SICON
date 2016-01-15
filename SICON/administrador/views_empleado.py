@@ -58,18 +58,23 @@ def crear_empleado(request):
     s_admin = SuperAdmin.objects.filter(id=id_sesion)
     empleados = []
     sucursal = None
+    opciones=0
     if len(gerente)>0:
         gerente=gerente[0]
         sucursal=gerente.sucursal
+        opciones=1
     elif len(jefe)>0:
         jefe=jefe[0]
         sucursal=jefe.sucursal
+        opciones=2
     elif len(vendedor)>0:
         vendedor=vendedor[0]
         sucursal=vendedor.sucursal
+        opciones=0
     elif len(s_admin)>0:
         s_admin=s_admin[0]
         sucursal=s_admin.sucursal
+        opciones=3
 
     '''--------------------------------------------------------------------------------'''
 
@@ -137,7 +142,7 @@ def crear_empleado(request):
             user_save.save()
 
         exito = True
-    return render(request, 'crear_empleado.html', {'form': empleado, 'exito': exito})
+    return render(request, 'crear_empleado.html', {'form': empleado, 'exito': exito, 'opciones':opciones})
 
 def buscar_jefe(objSucursal, tipoCargo):
     idSucursal=objSucursal.id

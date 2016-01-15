@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from .forms import VehiculoNuevoForm, VehiculoUsadoForm
 from django.http import HttpResponseRedirect
-from .models import VehiculoNuevo,VehiculoUsado
+from .models import VehiculoNuevo,VehiculoUsado, Empleado
 
 def crear_vehiculo_nuevo(request):
-    vehiculo_n = VehiculoNuevoForm()
+    id_user =  request.session["id"]
+    id_sucursal = Empleado.objects.filter(id=id_user).first().sucursal
+    vehiculo_n = VehiculoNuevoForm(initial={'sucursal': id_sucursal})
     exito = False
     if request.method=='POST':
         vehiculo_n = VehiculoNuevoForm(request.POST)
@@ -41,7 +43,9 @@ def eliminar_vehiculo_nuevo(request, id):
 
 
 def crear_vehiculo_usado(request):
-    vehiculo_u = VehiculoUsadoForm()
+    id_user =  request.session["id"]
+    id_sucursal = Empleado.objects.filter(id=id_user).first().sucursal
+    vehiculo_u = VehiculoUsadoForm(initial={'sucursal': id_sucursal})
     exito = False
     if request.method=='POST':
         vehiculo_u = VehiculoUsadoForm(request.POST)

@@ -50,6 +50,9 @@ class Migration(migrations.Migration):
                 ('fecha_nacimiento', models.DateField()),
                 ('estado_empleado', models.BooleanField(default=True)),
             ],
+            options={
+                'permissions': (('listar_Empleados', 'Se permite editar, activar , desactivar'),),
+            },
         ),
         migrations.CreateModel(
             name='Marca',
@@ -81,6 +84,9 @@ class Migration(migrations.Migration):
                 ('marca_carro', models.ForeignKey(blank=True, to='administrador.Marca', null=True)),
                 ('modelo_carro', models.ForeignKey(blank=True, to='administrador.Modelo', null=True)),
             ],
+            options={
+                'permissions': (('listar_Repuestos', 'Se permite editar, activar , desactivar'),),
+            },
         ),
         migrations.CreateModel(
             name='Sucursal',
@@ -92,6 +98,9 @@ class Migration(migrations.Migration):
                 ('activo', models.BooleanField(default=True)),
                 ('ciudad', models.ForeignKey(to='administrador.Ciudad')),
             ],
+            options={
+                'permissions': (('listar_Sucursales', 'Se permite editar, activar , desactivar'),),
+            },
         ),
         migrations.CreateModel(
             name='Vehiculo',
@@ -113,9 +122,7 @@ class Migration(migrations.Migration):
                 ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
             ],
             options={
-                'abstract': False,
-                'verbose_name': 'user',
-                'verbose_name_plural': 'users',
+                'permissions': (('listar_Gerente', 'Se permite editar, activar , desactivar'),),
             },
             bases=('auth.user', 'administrador.empleado'),
             managers=[
@@ -129,9 +136,7 @@ class Migration(migrations.Migration):
                 ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
             ],
             options={
-                'abstract': False,
-                'verbose_name': 'user',
-                'verbose_name_plural': 'users',
+                'permissions': (('listar_Jefe_Taller', 'Se permite editar, activar , desactivar'),),
             },
             bases=('auth.user', 'administrador.empleado'),
             managers=[
@@ -144,11 +149,6 @@ class Migration(migrations.Migration):
                 ('empleado_ptr', models.OneToOneField(parent_link=True, auto_created=True, to='administrador.Empleado')),
                 ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
             ],
-            options={
-                'abstract': False,
-                'verbose_name': 'user',
-                'verbose_name_plural': 'users',
-            },
             bases=('auth.user', 'administrador.empleado'),
             managers=[
                 ('objects', django.contrib.auth.models.UserManager()),
@@ -160,7 +160,11 @@ class Migration(migrations.Migration):
                 ('vehiculo_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='administrador.Vehiculo')),
                 ('valor', models.IntegerField()),
                 ('codigo', models.CharField(default=1, unique=True, max_length=10)),
+                ('vendido', models.BooleanField(default=False)),
             ],
+            options={
+                'permissions': (('listar_Vehiculo_Nuevo', 'Se permite editar, activar , desactivar'),),
+            },
             bases=('administrador.vehiculo',),
         ),
         migrations.CreateModel(
@@ -170,6 +174,9 @@ class Migration(migrations.Migration):
                 ('servicio', models.CharField(max_length=50, choices=[(b'Publico', b'Publico'), (b'Prviado', b'Privado')])),
                 ('placa', models.CharField(unique=True, max_length=6)),
             ],
+            options={
+                'permissions': (('listar_Vehiculo_Usado', 'Se permite editar, activar , desactivar'),),
+            },
             bases=('administrador.vehiculo',),
         ),
         migrations.CreateModel(
@@ -179,9 +186,7 @@ class Migration(migrations.Migration):
                 ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
             ],
             options={
-                'abstract': False,
-                'verbose_name': 'user',
-                'verbose_name_plural': 'users',
+                'permissions': (('listar_Vendedor', 'Se permite editar, activar , desactivar'),),
             },
             bases=('auth.user', 'administrador.empleado'),
             managers=[

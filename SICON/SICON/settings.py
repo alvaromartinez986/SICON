@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,8 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'administrador',
     'ventas',
-)
 
+)
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,10 +78,10 @@ DATABASES = {
     'default': {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'python',
-        'USER': 'adminvwjhget',
-        'PASSWORD': 'HXKR7hI6AP_q',
-        'HOST': 'postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT',
+        'NAME': 'sicondb',
+        'USER': 'fernando',
+        'PASSWORD': 'fernando1128',
+        'HOST': 'localhost',
         'PORT': '5432',
 
     }

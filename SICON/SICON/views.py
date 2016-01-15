@@ -20,6 +20,7 @@ def iniciar_sesion(request):
 
             if usuario.is_active:
                 login(request, usuario)
+                request.session["id"] = usuario.id
                 return HttpResponseRedirect('')
             else:
                 return render(request,'login.html',{'error':'Su cuenta se encuentra desactivada'})

@@ -50,7 +50,33 @@ def listar_empleado(request):
 
 @login_required
 def crear_empleado(request):
-    empleado = EmpleadoForm()
+
+    id_sesion = request.session["id"]
+    gerente = Gerente.objects.filter(id=id_sesion)
+    jefe = JefeTaller.objects.filter(id=id_sesion)
+    vendedor = Vendedor.objects.filter(id=id_sesion)
+    s_admin = SuperAdmin.objects.filter(id=id_sesion)
+    empleados = []
+    sucursal = None
+    if len(gerente)>0:
+        gerente=gerente[0]
+        sucursal=gerente.sucursal
+    elif len(jefe)>0:
+        jefe=jefe[0]
+        sucursal=jefe.sucursal
+    elif len(vendedor)>0:
+        vendedor=vendedor[0]
+        sucursal=vendedor.sucursal
+    elif len(s_admin)>0:
+        s_admin=s_admin[0]
+        sucursal=s_admin.sucursal
+
+    '''--------------------------------------------------------------------------------'''
+
+    objEmpleado = Empleado(no_documento= None, emp_id=None, nombre=None, apellido=None, tipo_sangre=None, experiencia=None, jornada=None, fecha_vinculacion=None, cargo=None, telefono=None, genero=None,
+                           fecha_nacimiento=None, estado_empleado=None, jefe=None)
+    objEmpleado.sucursal = sucursal
+    empleado = EmpleadoForm(instance=objEmpleado, initial=objEmpleado.__dict__)
     exito = False
 
     if request.method == 'POST':

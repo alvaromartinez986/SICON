@@ -151,11 +151,10 @@ para traer el bloque de codigo que esta en la pagina blank.html
         $(document).ready(function() {
             $("#btnCotizar").click(function() {
                 var marcados = getCheckboxes().length;
-                if(marcados>0) {
+                if(marcados>1) {
                     $('body').data('identificacion', '{{cliente.identificacion}}');
                     $('body').data('nombres', '{{cliente.nombres}}');
                     $('body').data('apellidos', '{{cliente.apellidos}}');
-                    console.log(cliente);
                     writeCotizacion();
                 }
             })

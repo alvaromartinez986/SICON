@@ -13,7 +13,7 @@ class Vehiculo(models.Model):
     COMB_CHOICES = ((GASOLINA, 'Gasolina'), (GAS, 'Gas'))
     tipo_combustible = models.CharField(choices=COMB_CHOICES, max_length=50)
     color = models.CharField(max_length=50)
-    sucursal = models.ForeignKey(Sucursal)
+    #sucursal = models.ForeignKey(Sucursal)
     activo = models.BooleanField(default=True)
     def __str__(self):
         return self.linea

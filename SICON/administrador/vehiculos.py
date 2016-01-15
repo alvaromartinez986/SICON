@@ -20,15 +20,15 @@ class Vehiculo(models.Model):
 
 class VehiculoNuevo(Vehiculo):
 
+    valor = models.IntegerField()
+    codigo = models.CharField(max_length=10, default=01)
+    vendido = models.BooleanField(default=False)
     class Meta:
         permissions = (
             # Permission identifier     human-readable permission name
             ("listar_Vehiculo_Nuevo",       "Se permite editar, activar , desactivar" ),
         )
-
-    valor = models.IntegerField()
-    codigo = models.CharField(max_length=10,unique=True, default=01)
-    vendido = models.BooleanField(default=False)
+        unique_together = (("codigo", "sucursal"),)
 
 class VehiculoUsado(Vehiculo):
 

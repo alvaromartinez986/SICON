@@ -1,12 +1,11 @@
 from operator import is_
 from django.shortcuts import render
 from .forms_empleado import EmpleadoForm, JefeTallerForm, GerenteForm, SuperAdminForm, VendedorForm
-from .forms_usuarios import UsuariosForm
 from django.http import HttpResponseRedirect
 from .models import Empleado
-from .models import Usuarios
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password,is_password_usable
+from django.contrib.auth.decorators import login_required,permission_required
 from .models import Sucursal
 from django.http import JsonResponse
 
@@ -14,10 +13,11 @@ __author__ = 'nelson'
 
 
 def listar_empleado(request):
-    print "hola que hace"
     empleados = Empleado.objects.all()
     return render(request, 'lista_empleados.html', {'empleados': empleados})
 
+@login_required
+@permission_required('teacher.listar_LT', login_url="/index")
 def crear_empleado(request):
     empleado = EmpleadoForm()
     exito = False

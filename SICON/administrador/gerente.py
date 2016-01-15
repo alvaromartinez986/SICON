@@ -6,4 +6,11 @@ from .empleado import *
 
 
 class Gerente(User, Empleado):
-    pass
+    class Meta:
+        permissions = (
+            # Permission identifier     human-readable permission name
+            ("listar_Gerente",       "Se permite editar, activar , desactivar" ),
+        )
+
+    def __str__(self):
+        return self.get_full_name()

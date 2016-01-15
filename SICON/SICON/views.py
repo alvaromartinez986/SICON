@@ -8,9 +8,6 @@ from .singletonsesion import Sesion
 
 
 
-def index(request):
-    return render(request, 'indexAdmin.html',{})
-
 def iniciar_sesion(request):
     print 'nelsini'
     if request.method =='POST':
@@ -23,6 +20,7 @@ def iniciar_sesion(request):
 
             if usuario.is_active:
                 login(request, usuario)
+                request.session["id"] = usuario.id
                 return HttpResponseRedirect('')
             else:
                 return render(request,'login.html',{'error':'Su cuenta se encuentra desactivada'})
@@ -44,5 +42,5 @@ def index(request):
     return render(request,'index.html',{'form':lt_form,'exito':False,'total_lt':lt_registrados})
 '''
 @login_required(login_url='/login')
-def admin_index(request):
-    return render(request,'index_admin.html',{})
+def index(request):
+    return render(request,'indexAdmin.html',{})

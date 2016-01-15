@@ -6,7 +6,6 @@ from .models import JefeTaller
 from .models import Gerente
 from .models import Vendedor
 from .models import SuperAdmin
-from .models import Usuarios
 from .models import Sucursal
 from django.forms.fields import DateField
 

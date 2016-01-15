@@ -9,7 +9,7 @@ from .singletonsesion import Sesion
 
 
 def iniciar_sesion(request):
-    print 'nelsini'
+
     if request.method =='POST':
         usuario = request.POST.get('username')
         contrasena = request.POST.get('password')
@@ -31,7 +31,7 @@ def iniciar_sesion(request):
         return render(request,'login.html',{'error':''})
     return render(request,'login.html',{})
 
-@login_required
+#@login_required
 def cerrar_sesion(request):
     logout(request)
     return HttpResponseRedirect('/login')
@@ -41,6 +41,6 @@ def index(request):
     lt_registrados = LeaderTeacher.objects.all().count()
     return render(request,'index.html',{'form':lt_form,'exito':False,'total_lt':lt_registrados})
 '''
-@login_required(login_url='/login')
+#@login_required(login_url='/login')
 def index(request):
-    return render(request,'indexAdmin.html',{})
+    return render(request,'index.html',{})

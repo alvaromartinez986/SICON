@@ -68,7 +68,6 @@ en esta seccion se va a poner el contenido de la pagina
                             </tfoot>
                             <tbody>
                             {%for veh in vehiculos_nuevos %}
-                            {%if veh.activo and not veh.vendido  %}
                                 <tr>
                                     <td style="text-align:center;"><input type="checkbox" name="carros" value={{veh.vehiculo_ptr_id}}><br></td>
                                     <td>{{veh.codigo}}</td>
@@ -80,7 +79,7 @@ en esta seccion se va a poner el contenido de la pagina
                                     <td>{{veh.color}}</td>
                                     <td>{{veh.valor}}</td>
                                 </tr>
-                            {%endif%}
+
                             {%endfor%}
                             </tbody>
                         </table>
@@ -161,10 +160,14 @@ para traer el bloque de codigo que esta en la pagina blank.html
         var carros = "{{vehiculos}}"
         $("#texto").html(carros)
         obj_carros = JSON.parse(carros.replace(/&quot;/g,'"'));
-
+//      datos cliente
         var identificacion = '{{cliente.identificacion}}';
         var nombres = '{{cliente.nombres}}';
         var apellidos = '{{cliente.apellidos}}';
+//      datos vendedor
+        var identificacion_vendedor = '{{vendedor.id}}';
+        var nombres_vendedor = '{{vendedor.first_name}}';
+        var apellidos_vendedor = '{{vendedor.last_name}}';
 
         var ruta = "venta"+ identificacion+".pdf";
         var firstRow = [{ text: 'Cilindraje', bold: true }, { text: 'Marca', bold: true }, { text: 'Linea', bold: true }, { text: 'Modelo', bold: true }, { text: 'Tipo de Combustible', bold: true },{ text: 'Color', bold: true },{ text: 'Valor (COP)', bold: true }];
@@ -190,10 +193,10 @@ para traer el bloque de codigo que esta en la pagina blank.html
 
              stack: [
                  // second column consists of paragraphs
-                 'Vendedor',
-                 'Identificacion : 1143857923' ,
-                 'Nombres : Fernando',
-                 'apellidos : Sanchez Quintero'
+                 { text: 'VENDEDOR', bold: true },
+                 'Identificacion : ' + identificacion_vendedor,
+                 'Nombres : ' + nombres_vendedor,
+                 'Apellidos : '+ apellidos_vendedor,
              ],
           fontSize: 15
          },
@@ -201,7 +204,7 @@ para traer el bloque de codigo que esta en la pagina blank.html
         {
           stack: [
             // second column consists of paragraphs
-            'Cliente',
+            { text: 'CLIENTE', bold: true },
             'Identificacion : ' + identificacion,
             'Nombres : ' + nombres,
             'Apellidos : ' + apellidos,

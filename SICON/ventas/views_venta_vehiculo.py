@@ -10,12 +10,16 @@ from reportlab.pdfgen import canvas
 from django.http import HttpResponse
 from django.http import JsonResponse
 import json
+from django.contrib.auth.models import User
 
 def redirect():
     return HttpResponseRedirect('/ventas/venta/cliente')
 
 def venta_vehiculos(request, id_cliente):
-    vehiculos_n = VehiculoNuevo.objects.all()
+    #id = request.session["id"]
+    #vendedor = User.objects.filter (id = id).first()
+    #print vendedor.username
+    vehiculos_n = VehiculoNuevo.objects.filter(activo = True, vendido = False)
     vehiculos_sele = ""
     cliente = Cliente.objects.filter(id=id_cliente).first()
     if request.method=='POST':
@@ -29,8 +33,8 @@ def venta_vehiculos(request, id_cliente):
             veh_nuevo = VehiculoNuevo.objects.filter(id=vehiculo).first()
             venta = Venta (identificacion_cliente = cliente,vehiculo=veh_nuevo,fecha=fecha)
             veh_nuevo.vendido = True
-            # veh_nuevo.save()
-            # venta.save()
+            veh_nuevo.save()
+            venta.save()
 
         lista_vehiculos =  []
         veh = dict()
@@ -45,7 +49,8 @@ def venta_vehiculos(request, id_cliente):
             veh["valor"] = str (vehiculo_n.valor)
             lista_vehiculos.append(veh)
             veh = {}
-        return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente})
+        return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente, 'vendedor':"" })
+        #return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente,'vendedor':vendedor})
 
 
 

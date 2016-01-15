@@ -5,7 +5,7 @@ from models import Cliente
 from forms_cliente import ClienteForm
 
 def cotizar_vehiculos(request, id_cliente):
-    vehiculos_n = VehiculoNuevo.objects.all()
+    vehiculos_n = VehiculoNuevo.objects.filter(estado=True,vendido=False)
     cliente = Cliente.objects.filter(id=id_cliente).first()
     return render(request,'cotizacion_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente})
 

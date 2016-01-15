@@ -1,31 +1,36 @@
 from django.shortcuts import render
 from .forms import VehiculoNuevoForm, VehiculoUsadoForm
 from django.http import HttpResponseRedirect
-from .models import VehiculoNuevo,VehiculoUsado, Empleado
+from .models import VehiculoNuevo,VehiculoUsado, Empleado, Gerente
 
 def crear_vehiculo_nuevo(request):
-    id_user =  request.session["id"]
-    id_sucursal = Empleado.objects.filter(id=id_user).first().sucursal
-    vehiculo_n = VehiculoNuevoForm(initial={'sucursal': id_sucursal})
+    vehiculo_n = VehiculoNuevoForm()
     exito = False
     if request.method=='POST':
         vehiculo_n = VehiculoNuevoForm(request.POST)
+        id = request.session["id"]
+        id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
+        empleado = Empleado.objects.filter (emp_id = id_empleado).first()
     if vehiculo_n.is_valid():
-        vehiculo_n.save()
+        veh = vehiculo_n.save(commit=False)
+        veh.sucursal = empleado.sucursal
+        veh.save()
         exito = True
         return HttpResponseRedirect('/vehiculos_nuevos/listarvn')
     return render(request, 'crear_vehiculo_nuevo.html', {'form':vehiculo_n,'exito':exito} )
 
 def listar_vehiculos_nuevos(request):
-    id_user =  request.session["id"]
-    id_sucursal = Empleado.objects.filter(id=id_user).first().sucursal
-    vehiculos_n = VehiculoNuevo.objects.filter(sucursal=id_sucursal)
+    id = request.session["id"]
+    id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
+    empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+    vehiculos_n = VehiculoNuevo.objects.filter(sucursal=empleado.sucursal)
     return render(request,'lista_vehiculos_nuevos.html',{'vehiculos_nuevos':vehiculos_n })
 
 def editar_vehiculo_nuevo(request, id):
-    id_user =  request.session["id"]
-    id_sucursal = Empleado.objects.filter(id=id_user).first().sucursal
-    vehs_n = VehiculoNuevo.objects.filter(sucursal=id_sucursal)
+    id = request.session["id"]
+    id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
+    empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+    vehs_n = VehiculoNuevo.objects.filter(sucursal=empleado.sucursal)
     veh_n = VehiculoNuevo.objects.get(id = id)
     form_edicion = VehiculoNuevoForm(instance=veh_n, initial=veh_n.__dict__)
     if request.method == 'POST':
@@ -49,26 +54,34 @@ def eliminar_vehiculo_nuevo(request, id):
 def crear_vehiculo_usado(request):
     id_user =  request.session["id"]
     id_sucursal = Empleado.objects.filter(id=id_user).first().sucursal
-    vehiculo_u = VehiculoUsadoForm(initial={'sucursal': id_sucursal})
+    veh_u= VehiculoNuevo(sucursal=)
+    vehiculo_u = VehiculoUsadoForm()
     exito = False
     if request.method=='POST':
         vehiculo_u = VehiculoUsadoForm(request.POST)
+        id = request.session["id"]
+        id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
+        empleado = Empleado.objects.filter (emp_id = id_empleado).first()
     if vehiculo_u.is_valid():
-        vehiculo_u.save()
+        veh = vehiculo_u.save()
+        veh.sucursal = empleado.sucursal
+        veh.save()
         exito = True
         return HttpResponseRedirect('/vehiculos_usados/listarvu')
     return render(request, 'crear_vehiculo_usado.html', {'form':vehiculo_u,'exito':exito} )
 
 def listar_vehiculos_usados(request):
-    id_user =  request.session["id"]
-    id_sucursal = Empleado.objects.filter(id=id_user).first().sucursal
-    vehiculos_u = VehiculoUsado.objects.filter(sucursal=id_sucursal)
+    id = request.session["id"]
+    id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
+    empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+    vehiculos_u = VehiculoUsado.objects.filter(sucursal=empleado.sucursal)
     return render(request,'lista_vehiculos_usados.html',{'vehiculos_usados':vehiculos_u })
 
 def editar_vehiculo_usado(request, id):
-    id_user =  request.session["id"]
-    id_sucursal = Empleado.objects.filter(id=id_user).first().sucursal
-    vehs_u = VehiculoUsado.objects.filter(sucursal=id_sucursal)
+    id = request.session["id"]
+    id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
+    empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+    vehs_u = VehiculoUsado.objects.filter(sucursal=empleado.sucursal)
     veh_u = VehiculoUsado.objects.get(id = id)
     form_edicion = VehiculoUsadoForm(instance=veh_u, initial=veh_u.__dict__)
     if request.method == 'POST':

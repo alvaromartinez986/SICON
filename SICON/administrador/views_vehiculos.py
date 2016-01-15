@@ -52,9 +52,6 @@ def eliminar_vehiculo_nuevo(request, id):
 
 
 def crear_vehiculo_usado(request):
-    id_user =  request.session["id"]
-    id_sucursal = Empleado.objects.filter(id=id_user).first().sucursal
-    veh_u= VehiculoNuevo(sucursal=)
     vehiculo_u = VehiculoUsadoForm()
     exito = False
     if request.method=='POST':

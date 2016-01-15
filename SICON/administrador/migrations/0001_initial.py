@@ -194,6 +194,11 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AddField(
+            model_name='repuesto',
+            name='sucursal',
+            field=models.ForeignKey(to='administrador.Sucursal'),
+        ),
+        migrations.AddField(
             model_name='empleado',
             name='jefe',
             field=models.ForeignKey(blank=True, to='administrador.Empleado', null=True),

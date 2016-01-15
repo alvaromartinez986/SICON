@@ -1,5 +1,5 @@
 from django.db import models
-
+from .sucursal import Sucursal
 class Marca(models.Model):
 
     nombre = models.CharField(max_length=100,unique=True)
@@ -21,8 +21,9 @@ class Repuesto (models.Model):
             # Permission identifier     human-readable permission name
             ("listar_Repuestos",       "Se permite editar, activar , desactivar" ),
         )
+		unique_together = ("codigo", "sucursal")
 
-	codigo = models.CharField(max_length = 40, unique=True)
+	codigo = models.CharField(max_length = 40)
 	nombre = models.CharField(max_length = 40)
 	marca  = models.CharField(max_length = 40)
 	costo  = models.IntegerField(blank=True, null=True)
@@ -30,3 +31,5 @@ class Repuesto (models.Model):
 	modelo_carro = models.ForeignKey(Modelo,blank=True,null=True)
 	cantidad = models.IntegerField()
 	activo = models.BooleanField(default=True)
+	sucursal = models.ForeignKey(Sucursal, null=True)
+

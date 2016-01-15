@@ -10,10 +10,12 @@ from administrador.views import *
 
 
 urlpatterns = patterns('',
-    url(r'^$',index),
+    url(r'^index',index),
     url(r'^dropdown_modelo',cargar_modelos),
     url(r'^login$',iniciar_sesion),
     url(r'^logout',cerrar_sesion),
+
+    url(r'^admin/', include(admin.site.urls)),
 
     url(r'^',include('administrador.urls')),
     url(r'^',include('ventas.urls')),

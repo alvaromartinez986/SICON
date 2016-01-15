@@ -19,14 +19,15 @@ urlpatterns = patterns('',
 	url(r'^sucursales/eliminar/(\d+)$',eliminar_sucursal, name='sucursales_eliminar'),
 	url(r'^sucursales/editar/(\d+)$',editar_sucursal, name='sucursales_editar'),
 
-    url(r'^repuestos-editar/(\d+)$',editar_repuesto),
-    url(r'^repuestos/crear',crear_repuesto),
+    url(r'^repuestos-editar/(\d+)$',editar_repuesto,name='editar_repuesto'),
+    url(r'^repuestos/crear',crear_repuesto,name='crear_repuesto'),
     url(r'^repuestos/',listar_repuestos, name='listar_repuestos'),
-    url(r'^repuestos-inventario/(\d+)$',inventario),
-    url(r'^repuestos-eliminar/(\d+)$',eliminar_repuesto),
+    url(r'^repuestos-inventario/(\d+)$',inventario,name='inventario_repuesto'),
+    url(r'^repuestos-eliminar/(\d+)$',eliminar_repuesto,name='eliminar_repuesto'),
 
     url(r'^empleado/crear_empleado', crear_empleado, name='crear_empleado'),
     url(r'^empleado/listar_empleados', listar_empleado, name='listar_empleados'),
-    url(r'^empleado/editar_empleado(\d+)$', editar_empleado)
+    url(r'^empleado/editar_empleado/(\d+)$', editar_empleado),
+    url(r'^empleado/eliminar_empleado/(\d+)$', eliminar_empleado)
 
 )

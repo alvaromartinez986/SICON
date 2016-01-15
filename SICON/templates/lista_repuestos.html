@@ -72,13 +72,13 @@ en esta seccion se va a poner el contenido de la pagina
 											<td>{{rep.cantidad}}</td>
                                             {%if rep.activo %}
                                             <td><p><span class="badge badge-primary">Activo</span></p></td>
-                                            <td><a href="/repuestos-eliminar/{{rep.id}}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
+                                            <td><a href="{% url 'eliminar_repuesto' rep.id %}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
                                             {%else%}
                                             <td><p><span class="badge badge-danger">Inactivo</span></p></td>
-                                            <td><a href="/repuestos-eliminar/{{rep.id}}"><button class="btn btn-xs btn-success dim"><i class="fa fa-check-square"></i> Reactivar</button></a></td>
+                                            <td><a href="{% url 'eliminar_repuesto' rep.id %}"><button class="btn btn-xs btn-success dim"><i class="fa fa-check-square"></i> Reactivar</button></a></td>
                                             {%endif%}
-											<td><a href="/repuestos-editar/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
-											<td><a href="/repuestos-inventario/{{rep.id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Añadir</button></a></td>
+											<td><a href="{% url 'editar_repuesto' rep.id %}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+											<td><a href="{% url 'inventario_repuesto' rep.id %}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Añadir</button></a></td>
                                         </tr>
                                         {%endfor%}
 

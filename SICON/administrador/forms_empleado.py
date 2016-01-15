@@ -119,7 +119,7 @@ class GerenteForm(ModelForm):
             'genero': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_nacimiento': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de nacimiento'}),
-            'sucursal' : forms.Select(attrs={'class':'chosen-select required', 'placeholder': 'Sucursal..'}),
+            'sucursal' : forms.Select(attrs={ 'class':'chosen-select required', 'placeholder': 'Sucursal..'}),
         }
 
 class VendedorForm(ModelForm):

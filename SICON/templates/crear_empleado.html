@@ -174,7 +174,7 @@ en esta seccion se va a poner el contenido de la pagina-->
 
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Crear</button>
+                                        <button onclick="FuncDisable()" type="submit" class="btn btn-primary">Crear</button>
                                     </div>
 
                                 </form>
@@ -219,6 +219,14 @@ en esta seccion se va a poner el contenido de la pagina-->
    </script>
 
 
+<script>
+        function FuncDisable() {
+
+            document.getElementById("id_sucursal").disabled = false;
+
+        }
+    </script>
+
     <script>
         function myFunction() {
             var empcargo = document.getElementById('id_cargo').value;
@@ -236,12 +244,14 @@ en esta seccion se va a poner el contenido de la pagina-->
 {% ifequal opciones 0 %}
 <script>
 document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = true;
 </script>
 {% endifequal %}
 
 {% ifequal opciones 1 %}
 <script>
 document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = true;
 var sel = document.getElementById('id_cargo');
 var opt = document.createElement('option'); // create new option element
 opt.appendChild( document.createTextNode('Jefe de taller') );
@@ -258,6 +268,7 @@ sel.appendChild(opt2); // add opt to end of select box (sel)
 {% ifequal opciones 2 %}
 <script>
 document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = true;
 var sel = document.getElementById('id_cargo');
 var opt = document.createElement('option'); // create new option element
 opt.appendChild( document.createTextNode('Mecanico') );
@@ -269,6 +280,7 @@ sel.appendChild(opt); // add opt to end of select box (sel)
 {% ifequal opciones 3 %}
 <script>
 document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = false;
 var sel = document.getElementById('id_cargo');
 var opt = document.createElement('option'); // create new option element
 opt.appendChild( document.createTextNode('Gerente') );

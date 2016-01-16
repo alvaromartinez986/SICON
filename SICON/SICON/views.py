@@ -9,7 +9,6 @@ from .singletonsesion import Sesion
 
 
 def iniciar_sesion(request):
-    print 'nelsini'
     if request.method =='POST':
         usuario = request.POST.get('username')
         contrasena = request.POST.get('password')
@@ -20,7 +19,7 @@ def iniciar_sesion(request):
 
             if usuario.is_active:
                 login(request, usuario)
-                return HttpResponseRedirect('')
+                return HttpResponseRedirect('indexAdmin.html')
             else:
                 return render(request,'login.html',{'error':'Su cuenta se encuentra desactivada'})
         else:
@@ -30,16 +29,11 @@ def iniciar_sesion(request):
         return render(request,'login.html',{'error':''})
     return render(request,'login.html',{})
 
-@login_required
+@login_required(login_url='/login')
 def cerrar_sesion(request):
     logout(request)
-    return HttpResponseRedirect('/login')
-'''
-def index(request):
-    lt_form = LeaderTeacherForm()
-    lt_registrados = LeaderTeacher.objects.all().count()
-    return render(request,'index.html',{'form':lt_form,'exito':False,'total_lt':lt_registrados})
-'''
+    return render(request, 'login.html',{})
+
 @login_required(login_url='/login')
 def index(request):
     return render(request,'indexAdmin.html',{})

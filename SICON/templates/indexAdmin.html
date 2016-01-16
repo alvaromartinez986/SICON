@@ -129,6 +129,18 @@
                                 <a href="{% url 'listar_vehiculos_usados' %}" class="text-danger"><i class="fa fa-car fa-fw"></i> Vehiculos Usados</a>
                             </li>
                         {% endif %}
+
+                        {% if 'empleado.venta_vehiculos' in perms and user.is_authenticated%}
+                            <li>
+                                <a href="{% url 'venta_vehiculos' %}" class="text-danger"><i class="fa fa-car fa-fw"></i> Venta de vechiculos</a>
+                            </li>
+                        {% endif %}
+
+                        {% if 'empleado.cotizar_vehiculo' in perms and user.is_authenticated%}
+                            <li>
+                                <a href="{% url 'cotizar_vehiculos' %}" class="text-danger"><i class="fa fa-shoping-bag fa-fw"></i> Cotización  de vehiculos</a>
+                            </li>
+                        {% endif %}
                         
                     </ul>
                 </div>

@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from administrador.models import VehiculoNuevo
+from SICON.administrador.models import VehiculoNuevo
 from models import Cliente
 from models import Venta
-from administrador.models import VehiculoNuevo
+from SICON.administrador.models import VehiculoNuevo
 from forms_cliente import ClienteForm
 import datetime
 from reportlab.pdfgen import canvas

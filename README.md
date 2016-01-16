@@ -24,16 +24,16 @@ password: hola123
 
 Descargar heroku: https://devcenter.heroku.com/articles/getting-started-with-python#set-up
 
-$ heroku login 
+heroku login 
 email: brayan.rodriguez.rivera@correounivalle.edu.co
 password: bryan1112
 
 
-$ git clone https://github.com/fermat986/SICON/
+git clone https://github.com/fermat986/SICON/
 
-$ cd SICON
+cd SICON
 
-$ heroku create 
+heroku create 
 
 #Colocar todos los archivos del repositorio de heroku (https://github.com/heroku/python-getting-started.git) y la carpeta gettingstarted, en esta carpeta debe ir el settings.py y el wsgi.py del SICON. Estos archivos en la raíz.
 
@@ -48,24 +48,24 @@ urlpatterns += patterns('',
         (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     )
 
-$ git add .
+git add .
 
-$ git commit -m "mi commit"
+git commit -m "mi commit"
 
-$ git push heroku master
+git push heroku master
 
-$ heroku ps:scale web=1
+heroku ps:scale web=1
 
-$ heroku open
+heroku open
 
 #Cada que se haga una modificación se haga se debe hacer git add, commit y push heroku master
 
 # Para hacer push al github, se debe hacer:
-$ git push https://github.com/fermat986/SICON.git  
+git push https://github.com/fermat986/SICON.git  
 
 # Para hacer pull al github, se debe hacer:
-$ git pull https://github.com/fermat986/SICON.git  
+git pull https://github.com/fermat986/SICON.git  
 
 # Para clonar de heroku
-$ heroku git:clone -a still-earth-4140
+heroku git:clone -a still-earth-4140
 

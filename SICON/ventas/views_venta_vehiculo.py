@@ -6,7 +6,6 @@ from models import Venta
 from SICON.administrador.models import VehiculoNuevo
 from forms_cliente import ClienteForm
 import datetime
-from reportlab.pdfgen import canvas
 from django.http import HttpResponse
 from django.http import JsonResponse
 import json

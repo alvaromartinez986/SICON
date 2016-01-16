@@ -57,7 +57,7 @@ ROOT_URLCONF = 'SICON.SICON.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["SICON.templates"],
+        'DIRS': ["SICON/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,11 +128,11 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "SICON.static"),
 
 )
-
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'SICON.templates'),
-
-)
+#
+# TEMPLATE_DIRS = (
+#     os.path.join(BASE_DIR,  'SICON.templates'),
+#
+# )
 
 
 # Static files (CSS, JavaScript, Images)

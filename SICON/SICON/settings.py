@@ -72,42 +72,42 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'SICON.SICON.wsgi.application'
 
+#
+# DATABASES = {
+#     'default': {
+#
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd8bn3ai6qhpo8r',
+#         'USER': 'wcmiceorbsxdsu',
+#         'PASSWORD': '27X4BZarTc2VRjtMc8EI-YIKn6',
+#         'HOST': 'ec2-54-225-165-132.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#
+#     }
+#  }
+
 
 DATABASES = {
     'default': {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd8bn3ai6qhpo8r',
-        'USER': 'wcmiceorbsxdsu',
-        'PASSWORD': '27X4BZarTc2VRjtMc8EI-YIKn6',
-        'HOST': 'ec2-54-225-165-132.compute-1.amazonaws.com',
+        'NAME': 'sicondb',
+        'USER': 'siconuser',
+        'PASSWORD': 'hola123',
+        'HOST': 'localhost',
         'PORT': '5432',
 
     }
- }
+}
 
-
-# DATABASES = {
-#     'default': {
-#
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': 'sicondb',
-#         'USER': 'siconuser',
-#         'PASSWORD': 'hola123',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#
-#     }
-# }
-'''
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.sqlite3',
-'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-}
-}'''
+# DATABASES = {
+# 'default': {
+# 'ENGINE': 'django.db.backends.sqlite3',
+# 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+# }
+# }
 
 
 
@@ -123,11 +123,11 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "SICON/static"),
-
-)
+#
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "SICON/static"),
+#
+# )
 #
 # TEMPLATE_DIRS = (
 #     os.path.join(BASE_DIR,  'SICON.templates'),
@@ -140,6 +140,7 @@ STATICFILES_DIRS = (
 # STATIC_ROOT = 'staticfiles'
 #estas lineas se descomentan cuando se trabaje en heroku master
 STATIC_ROOT = 'SICON/static'
-STATIC_URL = '/static/'
+# STATIC_URL = 'SICON/static/'
+STATIC_URL = '/SICON/static/'
 
 

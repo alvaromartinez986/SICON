@@ -72,6 +72,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'SICON.wsgi.application'
 
+#
+# DATABASES = {
+#     'default': {
+#
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd8iqskvvjeap7k',
+#         'USER': 'xuwkeddvghzrkm',
+#         'PASSWORD': 'dJ4PuKI_aHJvjo_dtkyW1bf4MT',
+#         'HOST': 'ec2-54-83-10-210.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#
+#     }
+# }
+
 
 DATABASES = {
     'default': {
@@ -123,5 +137,9 @@ TEMPLATE_DIRS = (
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
+STATIC_ROOT = 'staticfiles'
+#estas lineas se descomentan cuando se trabaje en heroku master
+# STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
+
+

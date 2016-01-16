@@ -21,7 +21,7 @@ def iniciar_sesion(request):
             if usuario.is_active:
                 login(request, usuario)
                 request.session["id"] = usuario.id
-                return HttpResponseRedirect('/index')
+                return HttpResponseRedirect('/indexAdmin')
             else:
                 return render(request,'login.html',{'error':'Su cuenta se encuentra desactivada'})
         else:
@@ -44,3 +44,7 @@ def index(request):
 #@login_required(login_url='/login')
 def index(request):
     return render(request,'index.html',{})
+
+@login_required(login_url='/login')
+def index_admin(request):
+    return render(request,'indexAdmin.html',{})

@@ -95,13 +95,13 @@
                             <!-- /input-group -->
                         </li>
                             <!-- /input-group -->
-                        {% if 'sucursal.listar_Sucursales' in perms and user.is_authenticated%}
+                        {% if user.is_authenticated%}
                             <li>
                                 <a href="{% url 'listar_sucursales' %}" class="text-danger"> <i class="fa fa-briefcase fa-fw"></i> Sucursales</a>
                             </li>
                         {% endif %}
 
-                        {% if 'empleado.listar_Empleados' in perms and user.is_authenticated%}
+                        {% if user.is_authenticated%}
 
                             <li>
                                 <a href="{% url 'listar_empleados' %}" class="text-danger"><i class="fa fa-user-md fa-fw"></i> Empleados</a>
@@ -109,7 +109,7 @@
 
                         {% endif %}
 
-                        {% if 'empleado.listar_Repuestos' in perms and user.is_authenticated%}
+                        {% if user.is_authenticated%}
 
                             <li>
                                 <a href="{% url 'listar_repuestos' %}" class="text-danger"><i class="fa fa-wrench fa-fw"></i> Repuestos</a>
@@ -117,14 +117,14 @@
 
                         {% endif %}
 
-                        {% if 'empleado.listar_Vehiculo_Nuevo' in perms and user.is_authenticated%}
+                        {% if user.is_authenticated%}
 
                             <li>
                                 <a href="{% url 'listar_vehiculos_nuevos' %}" class="text-danger"><i class="fa fa-car fa-fw"></i> Vehiculos Nuevos</a>
                             </li>
                         {% endif %}
 
-                        {% if 'empleado.listar_Vehiculo_Usado' in perms and user.is_authenticated%}
+                        {% if user.is_authenticated%}
                             <li>
                                 <a href="{% url 'listar_vehiculos_usados' %}" class="text-danger"><i class="fa fa-car fa-fw"></i> Vehiculos Usados</a>
                             </li>

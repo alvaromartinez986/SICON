@@ -19,6 +19,8 @@ urlpatterns = patterns('',
 
     url(r'^',include('administrador.urls')),
 
+    url(r'^',include('reparacion.urls')),
+
 
 )
 

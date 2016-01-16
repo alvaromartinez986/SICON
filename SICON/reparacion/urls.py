@@ -10,12 +10,8 @@ from reparacion.views import *
 
 
 urlpatterns = patterns('',
-    url(r'^$',index),
-    url(r'^dropdown_modelo',cargar_modelos),
-    url(r'^login$',iniciar_sesion),
-    url(r'^logout',cerrar_sesion),
-
-    url(r'^',include('administrador.urls')),
+    url(r'^reparacion/listar_ordenes', listar_ordenes, name='listar_ordenes'),
+    url(r'^reparacion/crear_orden', crear_orden, name='crear_orden'),
 
 
 )

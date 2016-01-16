@@ -130,23 +130,8 @@
                             </li>
                         {% endif %}
 
-                        {% if 'empleado.venta_vehiculos' in perms and user.is_authenticated%}
-                            <li>
-                                <a href="{% url 'venta_vehiculos' %}" class="text-danger"><i class="fa fa-car fa-fw"></i> Venta de vechiculos</a>
-                            </li>
-                        {% endif %}
 
-                        {% if 'empleado.cotizar_vehiculo' in perms and user.is_authenticated%}
-                            <li>
-                                <a href="{% url 'cotizar_vehiculos' %}" class="text-danger"><i class="fa fa-shoping-bag fa-fw"></i> Cotización  de vehiculos</a>
-                            </li>
-                        {% endif %}
 
-                        {% if 'empleado.listar_ordenes' in perms and user.is_authenticated%}
-                            <li>
-                                <a href="{% url 'listar_ordenes' %}" class="text-danger"><i class="fa fa-shoping-bag fa-fw"></i> Cotización  de vehiculos</a>
-                            </li>
-                        {% endif %}
 
                         {% if 'empleado.listar_ordenes' in perms and user.is_authenticated%}
                             <li>
@@ -156,7 +141,7 @@
 
                         {% if 'empleado.listar_ordenes_repuestos' in perms and user.is_authenticated%}
                             <li>
-                                <a href="{% url 'listar_ordenes_repuestos' %}" class="text-danger"><i class="fa fa-cogs fa-fw"></i> Ordenes de Trabajo</a>
+                                <!--a href="{#% url 'listar_ordenes_repuestos' %#}" class="text-danger"><i class="fa fa-cogs fa-fw"></i> Ordenes de Trabajo</a-->
                             </li>
                         {% endif %}
                     </ul>

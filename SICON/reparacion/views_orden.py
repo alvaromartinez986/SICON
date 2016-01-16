@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from .models import Orden, DetalleRepuesto
 
 
-def listar_sucursales(request):
+def listar_ordenes(request):
     ordenes = Orden.objects.all()
     return render(request, 'lista_ordenes.html', {'ordenes': ordenes})
 

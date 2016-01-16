@@ -26,7 +26,7 @@ en esta seccion se va a poner el contenido de la pagina
                         <div class="panel-heading">
                             <h3>Ordenes de trabajo<small>Información básica de las ordenes de trabajo..</small></h3>
                             <div class="container-fluid" align="right">
-                                <a href="{% url 'ordenes_crear' %}" class="btn btn-info" data-toggle="tooltip" title="Nueva Orden de Trabajo">
+                                <a href="{% url 'crear_orden' %}" class="btn btn-info" data-toggle="tooltip" title="Nueva Orden de Trabajo">
                                     <span class="fa fa-plus-circle"></span></a>
                             </div>
 
@@ -137,7 +137,7 @@ en esta seccion se va a poner el contenido de la pagina
                         <div class="form-group">
                             {{form_edicion.finalizacion.errors}}
                             <label class="col-lg-2 control-label">{{form_edicion.finalizacion.label}}</label>
-                            <div class="col-lg-6">{{form_edicion.departamento}}</div>
+                            <div class="col-lg-6">{{form_edicion.terminado}}</div>
                         </div>
                         <!-- Fecha finalizacion -->
                         <div class="form-group">
@@ -146,13 +146,13 @@ en esta seccion se va a poner el contenido de la pagina
                             <div class="col-lg-6">{{form_edicion.fecha_fin}}</div>
                         </div>
 
-                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-white"
-                                                href="/ordenes" data-dismiss="modal">Cancelar
-                                        </button>
-                                        <button type="submit" class="btn btn-primary">Guardar cambios
-                                        </button>
-                                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white"
+                                    href="/ordenes" data-dismiss="modal">Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-primary">Guardar cambios
+                            </button>
+                        </div>
 
                     </form>
                 </div>

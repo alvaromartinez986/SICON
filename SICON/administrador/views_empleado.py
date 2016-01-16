@@ -2,7 +2,7 @@ from operator import is_
 from django.shortcuts import render
 from .forms_empleado import EmpleadoForm, JefeTallerForm, GerenteForm, SuperAdminForm, VendedorForm
 from django.http import HttpResponseRedirect
-from .models import Empleado
+from .models import Empleado, Gerente, SuperAdmin, JefeTaller, Vendedor
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password,is_password_usable
 from django.contrib.auth.decorators import login_required,permission_required
@@ -11,15 +11,77 @@ from django.http import JsonResponse
 
 __author__ = 'nelson'
 
-
+@login_required
 def listar_empleado(request):
-    empleados = Empleado.objects.all()
+    id_sesion = request.session["id"]
+    print "ID DEL USUARIO"
+    print id
+    gerente = Gerente.objects.filter(id=id_sesion)
+    jefe = JefeTaller.objects.filter(id=id_sesion)
+    vendedor = Vendedor.objects.filter(id=id_sesion)
+    s_admin = SuperAdmin.objects.filter(id=id_sesion)
+    empleados = []
+    if len(gerente)>0:
+        gerente=gerente[0]
+        sucursal=gerente.sucursal
+        print gerente.username
+        print gerente
+        empleados = Empleado.objects.filter(cargo='Jefe de taller', sucursal=sucursal) | Empleado.objects.filter(cargo='Vendedor', sucursal=sucursal)
+    elif len(jefe)>0:
+        jefe=jefe[0]
+        sucursal=jefe.sucursal
+        print jefe.username
+        print jefe
+        empleados = Empleado.objects.filter(cargo='Mecanico', sucursal=sucursal)
+    elif len(vendedor)>0:
+        vendedor=vendedor[0]
+        sucursal=vendedor.sucursal
+        print vendedor.username
+        print vendedor
+        empleados = []
+    elif len(s_admin)>0:
+        s_admin=s_admin[0]
+        sucursal=s_admin.sucursal
+        print s_admin.username
+        print s_admin
+        empleados = Empleado.objects.filter(cargo='Gerente', sucursal=sucursal)
+    print sucursal
     return render(request, 'lista_empleados.html', {'empleados': empleados})
 
 @login_required
-@permission_required('teacher.listar_LT', login_url="/index")
 def crear_empleado(request):
-    empleado = EmpleadoForm()
+
+    id_sesion = request.session["id"]
+    gerente = Gerente.objects.filter(id=id_sesion)
+    jefe = JefeTaller.objects.filter(id=id_sesion)
+    vendedor = Vendedor.objects.filter(id=id_sesion)
+    s_admin = SuperAdmin.objects.filter(id=id_sesion)
+    empleados = []
+    sucursal = None
+    opciones=0
+    if len(gerente)>0:
+        gerente=gerente[0]
+        sucursal=gerente.sucursal
+        opciones=1
+    elif len(jefe)>0:
+        jefe=jefe[0]
+        sucursal=jefe.sucursal
+        opciones=2
+    elif len(vendedor)>0:
+        vendedor=vendedor[0]
+        sucursal=vendedor.sucursal
+        opciones=0
+    elif len(s_admin)>0:
+        s_admin=s_admin[0]
+        sucursal=s_admin.sucursal
+        opciones=3
+
+    '''--------------------------------------------------------------------------------'''
+
+    objEmpleado = Empleado(no_documento= None, emp_id=None, nombre=None, apellido=None, tipo_sangre=None, experiencia=None, jornada=None, fecha_vinculacion=None, cargo=None, telefono=None, genero=None,
+                           fecha_nacimiento=None, estado_empleado=None, jefe=None)
+    objEmpleado.sucursal = sucursal
+    empleado = EmpleadoForm(instance=objEmpleado, initial=objEmpleado.__dict__)
     exito = False
 
     if request.method == 'POST':
@@ -80,7 +142,7 @@ def crear_empleado(request):
             user_save.save()
 
         exito = True
-    return render(request, 'crear_empleado.html', {'form': empleado, 'exito': exito})
+    return render(request, 'crear_empleado.html', {'form': empleado, 'exito': exito, 'opciones':opciones})
 
 def buscar_jefe(objSucursal, tipoCargo):
     idSucursal=objSucursal.id
@@ -99,9 +161,42 @@ def buscar_jefe(objSucursal, tipoCargo):
 
     return jefe
 
-
+@login_required
 def editar_empleado(request, id):
-    empleados = Empleado.objects.all()
+    id_sesion = request.session["id"]
+    print "ID DEL USUARIO"
+    print id
+    gerente = Gerente.objects.filter(id=id_sesion)
+    jefe = JefeTaller.objects.filter(id=id_sesion)
+    vendedor = Vendedor.objects.filter(id=id_sesion)
+    s_admin = SuperAdmin.objects.filter(id=id_sesion)
+    empleados = []
+    if len(gerente)>0:
+        gerente=gerente[0]
+        sucursal=gerente.sucursal
+        print gerente.username
+        print gerente
+        empleados = Empleado.objects.filter(cargo='Jefe de taller', sucursal=sucursal) | Empleado.objects.filter(cargo='Vendedor', sucursal=sucursal)
+    elif len(jefe)>0:
+        jefe=jefe[0]
+        sucursal=jefe.sucursal
+        print jefe.username
+        print jefe
+        empleados = Empleado.objects.filter(cargo='Mecanico', sucursal=sucursal)
+    elif len(vendedor)>0:
+        vendedor=vendedor[0]
+        sucursal=vendedor.sucursal
+        print vendedor.username
+        print vendedor
+        empleados = []
+    elif len(s_admin)>0:
+        s_admin=s_admin[0]
+        sucursal=s_admin.sucursal
+        print s_admin.username
+        print s_admin
+        empleados = Empleado.objects.filter(cargo='Gerente', sucursal=sucursal)
+
+    '''--------------------------------------------------------------------------------'''
     empleado = Empleado.objects.get(pk=id)
     print ("ENTRO EN EDITAR")
     usuario = User.objects.filter(pk=id)

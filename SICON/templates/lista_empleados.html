@@ -365,14 +365,20 @@ para traer el bloque de codigo que esta en la pagina blank.html
 
     <script>
         document.getElementById("id_cargo").disabled = true;
+        document.getElementById("id_sucursal").disabled = true;
+
             $(document).ready(function(){
             $("#id_sucursal").select2({width:'100%'});
             });
         </script>
 
+
+
     <script>
         function FuncDisable() {
             document.getElementById("id_cargo").disabled = false;
+            document.getElementById("id_sucursal").disabled = false;
+
         }
     </script>
 

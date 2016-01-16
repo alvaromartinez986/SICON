@@ -57,7 +57,7 @@ ROOT_URLCONF = 'SICON.SICON.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': ["SICON.templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -4,8 +4,8 @@ from .views import *
 from django.shortcuts import render
 from django.contrib import admin
 from .views import *
-from administrador.views import *
-from SICON import settings
+from SICON.administrador.views import *
+from SICON.SICON import settings
 
 
 
@@ -18,8 +18,8 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^',include('administrador.urls')),
-    url(r'^',include('ventas.urls')),
+    url(r'^',include('SICON.administrador.urls')),
+    url(r'^',include('SICON.ventas.urls')),
     url(r'^',index),
 
 

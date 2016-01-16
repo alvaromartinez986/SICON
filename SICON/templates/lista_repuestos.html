@@ -1,0 +1,319 @@
+<!--
+herencia de blank.html que es la plantilla de la pagina
+-->
+{%extends "indexAdmin.html" %}
+{% load staticfiles %}
+{% block style %}
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
+        <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
+
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina
+-->
+
+{%block content%}
+
+<h1 class="page-header">Repuestos</h1>
+
+
+ 
+<!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Repuestos <small>Información básica de repuestos...</small></h3>
+                            <div class="container-fluid" align="right">
+                                <a href="../repuestos/crear" class="btn btn-info" data-toggle="tooltip" title="Nuevo Repuesto">
+                                    <span class="fa fa-plus-circle"></span></a>
+                            </div>
+
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="repuestos">
+                                    <thead>
+                                        <tr>
+                                            <th>Codigo</th>
+                                            <th>Nombre</th>
+                                            <th>Marca</th>
+                                            <th>Costo</th>
+                                            <th>Cantidad</th>
+                                            <th>Estado</th>
+                                            <th>Activar / Desactivar</th>
+                                            <th>Editar</th>
+                                            <th>Inventario</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th>codigo</th>
+                                        <th>nombre</th>
+                                        <th>marca</th>
+                                        <th>costo</th>
+                                        <th>cantidad</th>
+                                        <th>estado</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {%for rep in repuestos %}
+                                        <tr>
+											<td>{{rep.codigo}}</td>
+											<td>{{rep.nombre}}</td>
+											<td>{{rep.marca}}</td>
+											<td>{{rep.costo}}</td>
+											<td>{{rep.cantidad}}</td>
+                                            {%if rep.activo %}
+                                            <td><p><span class="badge badge-primary">Activo</span></p></td>
+                                            <td><a href="{% url 'eliminar_repuesto' rep.id %}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
+                                            {%else%}
+                                            <td><p><span class="badge badge-danger">Inactivo</span></p></td>
+                                            <td><a href="{% url 'eliminar_repuesto' rep.id %}"><button class="btn btn-xs btn-success dim"><i class="fa fa-check-square"></i> Reactivar</button></a></td>
+                                            {%endif%}
+											<td><a href="{% url 'editar_repuesto' rep.id %}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+											<td><a href="{% url 'inventario_repuesto' rep.id %}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Añadir</button></a></td>
+                                        </tr>
+                                        {%endfor%}
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% if edicion %}
+
+    <button type="button" id="botonModalEdicion" data-toggle="modal" data-target="#editarRepuesto"
+            style="display:none;"></button>
+    <div class="modal inmodal" id="editarRepuesto" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <i class="fa fa-users modal-icon"></i>
+                    <h4 class="modal-title">Editar Curso</h4>
+                    <small class="font-bold">Por favor modifique a continuación los campos
+                        deseados y dé clic en guardar cambios cuando haya terminado, de lo
+                        contrario de clic en cancelar.
+                    </small>
+                </div>
+                <div  class="modal-body">
+                    <form id= "form_repuesto" action="" method="post" class="form-horizontal">
+                        {% csrf_token %}
+                        <!-- codigo -->
+                        <div class="form-group">
+                            {{form_edicion.codigo.errors}}
+                            <label class="col-lg-2 control-label">{{form_edicion.codigo.label}}</label>
+
+                            <div class="col-lg-6">
+                                {{form_edicion.codigo}}
+                            </div>
+                        </div>
+                        <!-- nombre -->
+                        <div class="form-group">
+                            {{form_edicion.nombre.errors}}
+                            <label class="col-lg-2 control-label">{{form_edicion.nombre.label}}</label>
+
+                            <div class="col-lg-6 text-label">{{form_edicion.nombre}}</div>
+                        </div>
+                        <!-- marca -->
+                        <div class="form-group">
+                            {{form_edicion.marca.errors}}
+                            <label class="col-lg-2 control-label">{{form_edicion.marca.label}}</label>
+
+                            <div class="col-lg-6">{{form_edicion.marca}}</div>
+                        </div>
+                        <!-- costo -->
+                        <div class="form-group">
+                            {{form_edicion.costo.errors}}
+                            <label class="col-lg-2 control-label">{{form_edicion.costo.label}}</label>
+
+                            <div class="col-lg-6">{{form_edicion.costo}}</div>
+                        </div>
+                        <!-- marca carro -->
+                        <div class="form-group">
+                            {{form_edicion.marca_carro.errors}}
+                            <label class="col-lg-2 control-label">Marca carro</label>
+
+                            <div class="col-lg-6">{{form_edicion.marca_carro}}</div>
+                        </div>
+                        <!-- modelo carro-->
+                        <div class="form-group">
+                            {{form_edicion.modelo_carro.errors}}
+                            <label class="col-lg-2 control-label">Modelo carro</label>
+
+                            <div class="col-lg-6">
+                                <select id="id_modelo_carro" class="form-control" placeholder="Modelo del carro" name="modelo_carro">
+                                {% for modelo in modelos %}
+                                    {% if modelo.id == repuesto.modelo_carro.id %}
+                                        <option selected="selected" value = {{modelo.id}}> {{modelo.nombre}}</option>
+                                    {% else %}
+                                        <option value = {{modelo.id}}> {{modelo.nombre}}</option>
+                                    {%endif%}
+                                {%endfor%}
+
+
+                                </select>
+
+                            </div>
+                        </div>
+                        <!--cantidad-->
+                        <div class="form-group">
+                            {{form_edicion.cantidad.errors}}
+                            <label class="col-lg-2 control-label">{{form_edicion.cantidad.label}}</label>
+
+                            <div class="col-lg-6">{{form_edicion.cantidad}}</div>
+                        </div>
+                        <!--/div-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white"
+                                    href="/repuestos" data-dismiss="modal">Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-primary">Guardar cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endif%}
+
+
+{% if inventario %}
+
+    <button type="button" id="botonModalInv" data-toggle="modal" data-target="#inventarioRepuesto"
+            style="display:none;"></button>
+    <div class="modal inmodal" id="inventarioRepuesto" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <i class="fa fa-users modal-icon"></i>
+                    <h4 class="modal-title">Inventario</h4>
+                    <small class="font-bold">
+                        por este formulario podra agregar cantidad al repuesto {{rep.nombre}}
+                    </small>
+                </div>
+                <div  class="modal-body">
+                    <form id= "form_inventario" action="" method="post" class="form-horizontal">
+                        {% csrf_token %}
+                        <!-- codigo -->
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">Cantidad Actual</label>
+                            <input class="col-lg-6" id="disabledInput" class="form-control" type="text" disabled="" value={{rep.cantidad}} >
+
+                            </input>
+                            </div>
+                        <!-- nombre -->
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">Cantidad a Registrar</label>
+                            <input name="cantidad_inv"class="col-lg-6" type="number" min="1" ng-model="name">
+                            </input>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white"
+                                    href="/repuestos" data-dismiss="modal">Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-primary">Guardar cambios
+                            </button>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endif%}
+
+                            
+<!--
+          acontinuacion se pone el codigo para la edicion                  
+-->
+
+{%endblock%}                            
+
+<!--
+en esta seccion iran enlaces a libresrias externas en este caso a datatables
+-->
+{%block js%}
+<!--
+para traer el bloque de codigo que esta en la pagina blank.html
+-->
+{{block.super}}
+
+ <!-- DataTables JavaScript -->
+    <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <!-- validacion del formulario editar-->
+    <script type="text/javascript" src="../static/validator.js"></script>
+    
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+     <script>
+      $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+          var i=0;
+    $('#repuestos tfoot th').each( function () {
+        i++;
+        if (i <=6){
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="'+title+'" style="width: 100%;" />' );}
+    } );
+
+    // DataTable
+    var table = $('#repuestos').DataTable({responsive:true});
+
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
+    </script>
+
+
+     {%if edicion %}
+        <script>
+        $(document).ready(function(){
+        $('#botonModalEdicion').click();
+        });
+        </script>
+    {%endif%}
+
+    {%if inventario %}
+        <script>
+        $(document).ready(function(){
+        $('#botonModalInv').click();
+        });
+        </script>
+    {%endif%}
+
+<script type="text/javascript" src="{{STATIC_URL}}/static/js/modelos.js"></script>
+
+
+{%endblock%}

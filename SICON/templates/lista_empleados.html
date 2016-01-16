@@ -1,0 +1,402 @@
+{%extends "indexAdmin.html"%}
+{% load staticfiles %}
+{% block style %}
+{{block.super}}
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
+    <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina
+-->
+{%block content %}
+
+
+ <h1 class="page-header">Empleados</h1>
+<!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Empleados <small>Información básica de empleados...</small></h3>
+                            <div class="container-fluid" align="right">
+                                <a href="{% url 'crear_empleado' %}" class="btn btn-info" data-toggle="tooltip" title="Nuevo Empleado">
+                                    <span class="fa fa-plus-circle"></span></a>
+                        </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="empleados">
+                                    <col width="15%">
+                                    <col width="15%">
+                                    <col width="15%">
+                                    <col width="15%">
+                                    <col width="10%">
+                                    <col width="20%">
+                                    <col width="10%">
+                                    <thead>
+                                        <tr>
+                                            <th>Documento</th>
+                                            <th>Apellido</th>
+                                            <th>Nombre</th>
+                                            <th>Cargo</th>
+                                            <th>Estado</th>
+                                            <th>Activar/Desactivar</th>
+                                            <th>Editar</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Documento</th>
+                                        <th>Apellido</th>
+                                        <th>Nombre</th>
+                                        <th>Cargo</th>
+                                        <th>Estado</th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {%for emp in empleados %}
+                                        <tr>
+											<td>{{emp.no_documento}}</td>
+											<td>{{emp.apellido}}</td>
+											<td>{{emp.nombre}}</td>
+											<td>{{emp.cargo}}</td>
+                                        {%if emp.estado_empleado %}
+                                            <td><p><span class="badge badge-primary">Activo</span></p></td>
+                                            <td><a href="/empleado/eliminar_empleado/{{emp.emp_id}}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
+                                        {%else%}
+                                            <td><p><span class="badge badge-danger">Inactivo</span></p></td>
+                                            <td><a href="/empleado/eliminar_empleado/{{emp.emp_id}}"><button class="btn btn-xs btn-success dim"><i class="fa fa-check-square"></i> Reactivar</button></a></td>
+                                        {%endif%}
+
+											<td><a href="/empleado/editar_empleado/{{emp.emp_id}}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+                                        </tr>
+                                        {%endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% if edicion %}
+
+    <button type="button" id="botonModalEdicion" data-toggle="modal" data-target="#editarEmpleado"
+            style="display:none;"></button>
+    <div class="modal inmodal" id="editarEmpleado" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <i class="fa fa-users modal-icon"></i>
+                    <h4 class="modal-title">Editar Empleado</h4>
+                    <small class="font-bold">Por favor modifique a continuación los campos
+                        deseados y dé clic en guardar cambios cuando haya terminado, de lo
+                        contrario de clic en cancelar.
+                    </small>
+                </div>
+                <div class="modal-body">
+                    <form id="form_empleado" action="" method="post" class="form-horizontal">
+                        {% csrf_token %}
+                        <!-- no_documento -->
+
+							<div class="form-group">
+								{{form_edicion.no_documento.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.no_documento.label}}</label>
+
+                            <div class="col-lg-6">
+								{{form_edicion.no_documento}}</div>
+							</div>
+
+							<!--asd
+							<!-- Nombre -->
+
+							<div class="form-group">
+								{{form_edicion.nombre.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.nombre.label}}</label>
+
+								<div class="col-lg-6 text-label">{{form_edicion.nombre}}</div>
+							</div>
+							<!--asd
+							<!-- apellido -->
+
+							<div class="form-group">
+								{{form_edicion.apellido.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.apellido.label}}</label>
+
+								<div class="col-lg-6 text-label">{{form_edicion.apellido}}</div>
+							</div>
+							<!--asd
+							<!-- tipo_sangre -->
+
+							<div class="form-group">
+								{{form_edicion.tipo_sangre.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.tipo_sangre.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.tipo_sangre}}</div>
+							</div>
+							<!--asd
+							<!-- experiencia -->
+
+							<div class="form-group">
+								{{form_edicion.experiencia.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.experiencia.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.experiencia}}</div>
+							</div>
+							<!--asd
+							<!-- jornada -->
+							{{form_edicion.jornada.errors}}
+							<div class="form-group">
+								<label class="col-lg-4 control-label">{{form_edicion.jornada.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.jornada}}</div>
+							</div>
+
+							<!-- fecha_vinculacion -->
+
+							<div class="form-group" id="data_1">
+								{{form_edicion.fecha_vinculacion.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.fecha_vinculacion.label}}</label>
+                                <div class="col-lg-6 input-group date ">
+                                    <span class="input-group-addon "><i class="fa fa-calendar"></i>
+                                    </span>
+                                    {{form_edicion.fecha_vinculacion}}
+                                </div>
+							</div>
+
+							<!-- cargo-->
+
+							<div class="form-group">
+								{{form_edicion.cargo.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.cargo.label}}</label>
+
+								<div class="col-lg-6" >{{form_edicion.cargo}} </div>
+							</div>
+
+							<!-- telefono -->
+
+							<div class="form-group">
+								{{form_edicion.telefono.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.telefono.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.telefono}}</div>
+							</div>
+
+							<!-- genero -->
+
+							<div class="form-group">
+								{{form_edicion.genero.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.genero.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.genero}}</div>
+							</div>
+
+							<!-- fecha_nacimiento -->
+
+							<div class="form-group" id="data_1">
+								{{form_edicion.fecha_nacimiento.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.fecha_nacimiento.label}}</label>
+                                <div class="col-lg-6 input-group date ">
+                                    <span class="input-group-addon "><i class="fa fa-calendar"></i>
+                                    </span>
+								    {{form_edicion.fecha_nacimiento}}</div>
+							</div>
+
+                        <!-- sucursal-->
+
+							<div class="form-group">
+								{{form_edicion.sucursal.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.sucursal.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.sucursal}}</div>
+							</div>
+
+							<!-- jefe -->
+
+							<div class="form-group">
+								{{form_edicion.jefe.errors}}
+								<label class="col-lg-4 control-label">{{form_edicion.jefe.label}}</label>
+
+								<div class="col-lg-6">{{form_edicion.jefe}}</div>
+							</div>
+
+
+                            <div class="col-lg-1">
+                            </div><!--<input type="checkbox" name="check" class="btn btn-info"  data-target="#demo"> <b>Crear Usuario</b> -->
+                                  <!--  <br> <br> -->
+                                  <div id="demo" class="collapse in">
+                                    <label class="col-lg-3 control-label">Nombre de usuario</label>
+                                      <div class="form-group">
+
+                                    <div class="col-lg-6">
+                                    <input id="id_username" name="username" class = "form-control" value={{nomusuario}}>
+                                        </div>
+                                    </div>
+
+                                      <div class="form-group">
+                                        <label class="col-lg-4 control-label">Contraseña</label>
+                                        <div class="col-lg-6">
+                                        <input id="id_password" type="password" name="password" class ="form-control">
+                                            <label  style="color: dimgray" >Dejar en blanco para mantener actual  contraseña</label>
+                                            </div>
+
+                                        <label class="col-lg-4 control-label">Confirmar Contraseña</label>
+                                            <div class="col-lg-6">
+                                        <input id="id_password2" type="password" name="password2" class ="form-control" >
+
+                                          </div>
+
+                                  </div>
+                                </div>
+
+                        <!--/div-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white"
+                                    href="/empleado/listar_empleados" data-dismiss="modal">Cancelar
+                            </button>
+                            <button onclick="FuncDisable()" type="submit" class="btn btn-primary">Guardar cambios
+                            </button>
+                        </div>
+                    </form>
+
+            </div>
+        </div>
+    </div>
+{%endif%}
+
+
+
+<!--
+          acontinuacion se pone el codigo para la edicion
+-->
+
+{%endblock%}
+
+<!--
+en esta seccion iran enlaces a libresrias externas en este caso a datatables
+-->
+{%block js%}
+<!--
+para traer el bloque de codigo que esta en la pagina blank.html
+-->
+    {{block.super}}
+
+ <!-- DataTables JavaScript -->
+    <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}/static/js/validatorEmpleadosEditar.js"></script>
+
+    <!-- validacion del formulario editar-->
+    <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
+
+
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+      $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+          var i=0;
+    $('#empleados tfoot th').each( function () {
+        i++;
+        if (i <=5){
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="'+title+'" style="width: 100%;" />' );}
+    } );
+    // DataTable
+    var table = $('#empleados').DataTable({responsive:true});
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
+    </script>
+
+     {%if edicion %}
+        <script>
+        $(document).ready(function(){
+        $('#botonModalEdicion').click();
+        });
+        </script>
+
+
+<!-- Date picker -->
+    <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
+    <script type="text/javascript">
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: false,
+                autoclose: true,
+                language: 'es',
+                format: 'yyyy-mm-dd',
+                endDate: '-5h'
+            });
+
+            $('#data_1 .input-group.date').on('changeDate show', function(e) {
+            $('#form_empleado').bootstrapValidator('revalidateField', 'fecha_vinculacion');
+            $('#form_empleado').bootstrapValidator('revalidateField', 'fecha_nacimiento');
+            });
+           var zIndex = parseInt(this.element.parents().filter(function() {
+                            return $(this).css('z-index') != 'auto';
+                        }).first().css('z-index'))+1151;
+   </script>
+
+
+
+
+    <script>
+        document.getElementById("id_cargo").disabled = true;
+        document.getElementById("id_sucursal").disabled = true;
+
+            $(document).ready(function(){
+            $("#id_sucursal").select2({width:'100%'});
+            });
+        </script>
+
+
+
+    <script>
+        function FuncDisable() {
+            document.getElementById("id_cargo").disabled = false;
+            document.getElementById("id_sucursal").disabled = false;
+
+        }
+    </script>
+
+    <script>
+
+            var empcargo = document.getElementById('id_cargo').value;
+            if (empcargo == "Mecanico") {
+                //alert("Selecciono Mecanico")
+                document.getElementById('demo').style.display='none';
+            }
+            else {
+                //alert("Selecciono otro");
+                document.getElementById('demo').style.display='inline';
+
+        }
+    </script>
+
+    {%endif%}
+
+
+{%endblock%}

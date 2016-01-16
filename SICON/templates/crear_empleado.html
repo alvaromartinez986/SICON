@@ -1,0 +1,292 @@
+{%extends "indexAdmin.html"%}
+{% load staticfiles %}
+{% block style %}
+{{block.super}}
+    <link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina-->
+
+{%block content %}
+ <!-- Page Heading -->
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="page-header">
+                                    Empleados <small>Registre los empleados a crear...</small>
+                                </h1>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-dashboard"></i> Aqui podra crear los empleados...
+                                </li>
+
+                            </ol>
+                            <div class="panel-body">
+                                {% if exito %}
+                                    <div class="alert alert-success alert-dismissable">
+                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+                                        <i class="fa fa-check"></i> ¡Se ha creado un empleado con éxito!
+                                    </div>
+                                {% endif %}
+                                <form action="" method="post" id="form_empleado">
+                                    {% csrf_token %}
+
+                                    <!-- no_documento -->
+                                    {{form.no_documento.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.no_documento.label}}</label>
+                                        <p class="help-block">Numero de Documento</p>
+                                        {{form.no_documento}}
+                                    </div>
+                                    <!--asd
+
+                                    <!-- Nombre -->
+                                    {{form.nombre.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.nombre.label}}</label>
+                                        <p class="help-block">Nombre del empleado</p>
+                                        {{form.nombre}}
+                                    </div>
+                                    <!--asd
+
+
+                                    <!-- apellido -->
+                                    {{form.apellido.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.apellido.label}}</label>
+                                        <p class="help-block">Apellido del empleado</p>
+                                        {{form.apellido}}
+                                    </div>
+                                    <!--asd
+
+                                    <!-- tipo_sangre -->
+                                    {{form.tipo_sangre.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.tipo_sangre.label}}</label>
+                                        <p class="help-block">Tipo de sangre del empleado</p>
+                                        {{form.tipo_sangre}}
+                                    </div>
+                                    <!--asd
+
+                                    <!-- experiencia -->
+                                    {{form.experiencia.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.experiencia.label}}</label>
+                                        <p class="help-block">Experiencia del empleado (años)</p>
+                                        {{form.experiencia}}
+                                    </div>
+                                    <!--asd
+
+
+                                    <!-- jornada -->
+                                    {{form.jornada.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.jornada.label}}</label>
+                                        <p class="help-block">Jornada</p>
+                                        {{form.jornada}}
+                                    </div>
+
+                                    <!-- fecha_vinculacion -->
+                                    {{form.fecha_vinculacion.errors}}
+                                    <div class="form-group" id="data_1">
+                                        <label>{{form.fecha_vinculacion.label}}</label>
+                                        <p class="help-block">Fecha de vinculacion</p>
+                                        <div class=" input-group date ">
+                                                <span class="input-group-addon "><i class="fa fa-calendar"></i></span>
+                                                {{form.fecha_vinculacion}}
+                                        </div>
+                                    </div>
+
+                                    <!-- cargo-->
+                                    {{form.cargo.errors}}
+                                    <div id="cargo" class="form-group">
+                                        <label id="cargo">{{form.cargo.label}}</label>
+                                        <p id="cargo" onclick="myFunction()" class="help-block">Cargo</p>
+                                        {{form.cargo}}
+                                    </div>
+
+                                    <!-- telefono -->
+                                    {{form.telefono.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.telefono.label}}</label>
+                                        <p class="help-block">Telefono</p>
+                                        {{form.telefono}}
+                                    </div>
+
+                                    <!-- genero -->
+                                    {{form.genero.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.genero.label}}</label>
+                                        <p class="help-block">Genero</p>
+                                        {{form.genero}}
+                                    </div>
+                                    
+                                    <!-- fecha_nacimiento -->
+                                    {{form.fecha_nacimiento.errors}}
+                                    <div class="form-group" id="data_1">
+                                        <label>{{form.fecha_nacimiento.label}}</label>
+                                        <p class="help-block">Fecha de nacimiento</p>
+                                        <div class=" input-group date ">
+                                                <span class="input-group-addon "><i class="fa fa-calendar"></i></span>
+                                                {{form.fecha_nacimiento}}
+                                        </div>
+                                    </div>
+
+                                    <!-- Sucursal -->
+                                    {{form.sucursal.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.sucursal.label}}</label>
+                                        <p class="help-block">Nombre de la sucursal</p>
+                                        {{form.sucursal}}
+                                    </div>
+
+
+
+                                  <!--<input type="checkbox" name="check" class="btn btn-info"  data-target="#demo"> <b>Crear Usuario</b> -->
+                                  <!--  <br> <br> -->
+                                  <div id="demo" class="collapse">
+                                    <div class="form-group">
+                                    <label>Nombre de usuario</label>
+                                        <p class="help-block">Nombre de usuario</p>
+                                    <input id="id_username" name="username" class = "form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Contraseña</label>
+                                        <p class="help-block">Contraseña del usuario</p>
+                                        <input id="id_password" type="password" name="password" data-bv-field="password" class ="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confirmar Contraseña</label>
+                                        <p class="help-block">Confirmar contraseña de usuario</p>
+                                        <input id="id_password2" type="password" name="password2" data-bv-field="password2"  class ="form-control">
+                                    </div>
+                                  </div>
+
+                                    <br>
+
+                                    <!--BOTON-->
+
+
+                                    <div class="form-group">
+                                        <button onclick="FuncDisable()" type="submit" class="btn btn-primary">Crear</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}
+
+{% block js %}
+    {{block.super}}
+
+<script src="{{STATIC_URL}}/static/js/crearempleado.js"></script>
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}/static/js/validatorEmpleados.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#id_sucursal").select2({width:'100%'});
+  });
+  </script>
+
+
+   <!-- Date picker -->
+   <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
+   <script type="text/javascript">
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: false,
+                autoclose: true,
+                language: 'es',
+                format: 'yyyy-mm-dd',
+                endDate: '-5h'
+            });
+
+            $('#data_1 .input-group.date').on('changeDate show', function(e) {
+            $('#form_empleado').bootstrapValidator('revalidateField', 'fecha_vinculacion');
+            $('#form_empleado').bootstrapValidator('revalidateField', 'fecha_nacimiento');
+            });
+   </script>
+
+
+<script>
+        function FuncDisable() {
+
+            document.getElementById("id_sucursal").disabled = false;
+
+        }
+    </script>
+
+    <script>
+        function myFunction() {
+            var empcargo = document.getElementById('id_cargo').value;
+            if (empcargo == "Mecanico") {
+                //alert("Selecciono Mecanico")
+                document.getElementById('demo').style.display='none';
+            }
+            else {
+                //alert("Selecciono otro");
+                document.getElementById('demo').style.display='inline';
+            }
+        }
+    </script>
+
+{% ifequal opciones 0 %}
+<script>
+document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = true;
+</script>
+{% endifequal %}
+
+{% ifequal opciones 1 %}
+<script>
+document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = true;
+var sel = document.getElementById('id_cargo');
+var opt = document.createElement('option'); // create new option element
+opt.appendChild( document.createTextNode('Jefe de taller') );
+opt.value = 'Jefe de taller'; // set value property of opt
+sel.appendChild(opt); // add opt to end of select box (sel)
+
+var opt2 = document.createElement('option'); // create new option element
+opt2.appendChild( document.createTextNode('Vendedor') );
+opt2.value = 'Vendedor'; // set value property of opt
+sel.appendChild(opt2); // add opt to end of select box (sel)
+</script>
+{% endifequal %}
+
+{% ifequal opciones 2 %}
+<script>
+document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = true;
+var sel = document.getElementById('id_cargo');
+var opt = document.createElement('option'); // create new option element
+opt.appendChild( document.createTextNode('Mecanico') );
+opt.value = 'Mecanico'; // set value property of opt
+sel.appendChild(opt); // add opt to end of select box (sel)
+</script>
+{% endifequal %}
+
+{% ifequal opciones 3 %}
+<script>
+document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = false;
+var sel = document.getElementById('id_cargo');
+var opt = document.createElement('option'); // create new option element
+opt.appendChild( document.createTextNode('Gerente') );
+opt.value = 'Gerente'; // set value property of opt
+sel.appendChild(opt); // add opt to end of select box (sel)
+</script>
+{% endifequal %}
+
+{% endblock %}

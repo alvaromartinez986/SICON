@@ -1,0 +1,140 @@
+{%extends "indexAdmin.html"%}
+{% load staticfiles %}
+{% block style %}
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
+        <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
+
+
+
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina
+-->
+{%block content%}
+<div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Repuestos <small>Registre el repuesto a crear...</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Aqui podra crear los repuestos que va a manejar en el inventario
+                            </li>
+
+                        </ol>
+
+                        <div class="col-lg-8">
+                            {% if exito %}
+                                <div class="alert alert-success alert-dismissable">
+                                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+                                    <i class="fa fa-check"></i> Se creado un Repuesto con exito!
+                                </div>
+					        {% endif %}
+					    <form id= "form_repuesto" action="" method="post">
+                                {% csrf_token %}
+                                <!-- codigo -->
+                                {{form.codigo.errors}}
+                                <div class="form-group">
+                                    <label>{{form.codigo.label}}</label>
+                                    <p class="help-block">Código del repuesto.</p>
+                                    {{form.codigo}}
+                                </div>
+
+                                <!-- nombre -->
+                                {{form.nombre.errors}}
+                                <div class="form-group">
+                                    <label>{{form.nombre.label}}</label>
+                                    <p class="help-block">Nombre del repuesto</p>
+                                    {{form.nombre}}
+                                </div>
+
+                                <!-- marca -->
+                                {{form.marca.errors}}
+                                <div class="form-group">
+                                    <label>{{form.marca.label}}</label>
+                                    <p class="help-block">Marca del repuesto.</p>
+                                    {{form.marca}}
+                                </div>
+
+                                <!-- costo -->
+                                {{form.costo.errors}}
+                                <div class="form-group">
+                                    <label>{{form.costo.label}}</label>
+                                    <p class="help-block">Costo del repuesto por unidad.</p>
+                                    {{form.costo}}
+                                </div>
+								<!-- marca del carro -->
+                                {{form.marca_carro.errors}}
+                                <div class="form-group">
+                                    <label>Marca del carro</label>
+                                    <p class="help-block">Marca del carro a la que fue diseñada el repuesto.</p>
+                                    {{form.marca_carro}}
+                                </div>
+                                <!-- marca del carro -->
+                                {{form.modelo_carro.errors}}
+                                <div class="form-group">
+                                    <label>Linea del carro</label>
+                                    <p class="help-block">Linea del carro a la que fue diseñada el repuesto.</p>
+                                    {{form.modelo_carro}}
+                                </div>
+                                <!-- cantidad -->
+                                {{form.cantidad.errors}}
+                                <div class="form-group">
+                                    <label>{{form.cantidad.label}}</label>
+                                    <p class="help-block">Cantidad inicial para registrar en el inventario</p>
+                                    {{form.cantidad}}
+                                </div>
+                                
+                                <!-- modelo del carro -->
+                                
+                                    <!--BOTON del submit-->
+
+								<div class="form-group">
+									<button type="submit" class="btn btn-primary">Crear</button>
+								</div>
+
+                            </form>
+                        </div>
+					</div>
+</div>
+                            
+                            
+    
+
+
+                       
+{%endblock%}                            
+
+<!--
+en esta seccion iran enlaces a libresrias externas en este caso a datatables
+-->
+{%block js%}
+<!--
+para traer el bloque de codigo que esta en la pagina blank.html
+-->
+{{block.super}}
+
+ <!-- DataTables JavaScript -->
+    <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+                responsive: true
+        });
+    });
+    </script>
+    <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}/static/js/modelos.js"></script>
+    <script >
+        $(document).ready(function () {
+            $('#id_modelo_carro').empty();
+        });
+    </script>
+
+{%endblock%}

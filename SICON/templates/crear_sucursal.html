@@ -1,0 +1,108 @@
+{%extends "indexAdmin.html"%}
+{% load staticfiles %}
+{% block style %}
+
+
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina
+-->
+{%block content %}
+ <!-- Page Heading -->
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="page-header">
+                                    Sucursales <small>Registre la sucursal a crear...</small>
+                                </h1>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <i class="fa fa-dashboard"></i> Aqui podra crear las sucursales...
+                                </li>
+
+                            </ol>
+                            <div class="panel-body">
+                                {% if exito %}
+                                    <div class="alert alert-success alert-dismissable">
+                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+                                        <i class="fa fa-check"></i> Se creado una sucursal con exito!
+                                    </div>
+                                {% endif %}
+                                <form action="" method="post" id="form_sucursal">
+                                    {% csrf_token %}
+                                    <!-- Nombre -->
+                                    {{form.nombre.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.nombre.label}}</label>
+                                        <p class="help-block">Nombre de la sucursal</p>
+                                        {{form.nombre}}
+                                    </div>
+
+                                    <!-- Direccion -->
+                                    {{form.direccion.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.direccion.label}}</label>
+                                        <p class="help-block">Dirección de la sucursal</p>
+                                        {{form.direccion}}
+                                    </div>
+
+                                    <!-- Telefono -->
+                                    {{form.telefono.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.telefono.label}}</label>
+                                        <p class="help-block">Teléfono de la sucursal</p>
+                                        {{form.telefono}}
+                                    </div>
+
+                                    <!-- Departamento-->
+                                    {{form.departamento.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.departamento.label}}</label>
+                                        <p class="help-block">Departamento de la sucursal</p>
+                                        {{form.departamento}}
+                                    </div>
+
+                                    <!-- Ciudad -->
+                                    {{form.ciudad.errors}}
+                                    <div class="form-group">
+                                        <label>{{form.ciudad.label}}</label>
+                                        <p class="help-block">Ciudad de la sucursal</p>
+                                        {{form.ciudad}}
+                                    </div>
+
+                                    <!--BOTON-->
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Crear</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+{% endblock %}
+
+-->
+{%block js%}
+{{block.super}}
+<script src="{{STATIC_URL}}/static/js/crearsucursal.js"></script>
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}/static/js/validatorSucursales.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#id_ciudad").select2({width:'100%'});
+      $("#id_departamento").select2({width:'100%'});
+  });
+  </script>
+{% endblock %}
+

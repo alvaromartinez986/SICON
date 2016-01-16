@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'SICON.wsgi.application'
+WSGI_APPLICATION = 'SICON.SICON.wsgi.application'
 
 
 DATABASES = {
@@ -125,7 +125,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "SICON.static"),
 
 )
 

@@ -14,7 +14,7 @@ nombre: sicondb
 usuario: siconuser
 password: hola123
 
-#Url pagina internet
+#Url página internet
 http://still-earth-4140.herokuapp.com/
 
 #conexión a base de datos de heroku

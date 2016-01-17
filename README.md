@@ -14,6 +14,9 @@ nombre: sicondb
 usuario: siconuser
 password: hola123
 
+#Url pagina internet
+http://still-earth-4140.herokuapp.com/
+
 #conexión a base de datos de heroku
 'ENGINE': 'django.db.backends.postgresql_psycopg2',
 'NAME': 'd8bn3ai6qhpo8r',

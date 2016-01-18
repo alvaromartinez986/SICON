@@ -45,7 +45,7 @@ class Empleado(models.Model):
     GER='Gerente'
     MEC='Mecanico'
     CARGO_CHOICES = ((VEND, 'Vendedor'), (JT, 'Jefe de taller'), (GER, 'Gerente'), (MEC,'Mecánico')) 
-    cargo = models.CharField(choices= CARGO_CHOICES, max_length=150)
+    cargo = models.CharField(choices= CARGO_CHOICES, max_length=150, null=True, blank=True)
     telefono = models.CharField(max_length=150)
     
     MASC= 'Masculino'
@@ -58,5 +58,5 @@ class Empleado(models.Model):
 
     estado_empleado = models.BooleanField(default=True)
     #models.ForeignKey(Departamento)
-    sucursal = models.ForeignKey(Sucursal)
+    sucursal = models.ForeignKey(Sucursal, null=True, blank=True)
     jefe = models.ForeignKey('self', null=True, blank=True)

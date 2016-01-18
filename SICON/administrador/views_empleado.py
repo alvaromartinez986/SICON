@@ -11,7 +11,7 @@ from django.http import JsonResponse
 
 __author__ = 'nelson'
 
-@login_required
+@login_required(login_url='/login')
 def listar_empleado(request):
     id_sesion = request.session["id"]
     print "ID DEL USUARIO"
@@ -41,14 +41,12 @@ def listar_empleado(request):
         empleados = []
     elif len(s_admin)>0:
         s_admin=s_admin[0]
-        sucursal=s_admin.sucursal
         print s_admin.username
         print s_admin
-        empleados = Empleado.objects.filter(cargo='Gerente', sucursal=sucursal)
-    print sucursal
+        empleados = Empleado.objects.filter(cargo='Gerente')
     return render(request, 'lista_empleados.html', {'empleados': empleados})
 
-@login_required
+@login_required(login_url='/login')
 def crear_empleado(request):
 
     id_sesion = request.session["id"]
@@ -77,10 +75,10 @@ def crear_empleado(request):
         opciones=3
 
     '''--------------------------------------------------------------------------------'''
-
     objEmpleado = Empleado(no_documento= None, emp_id=None, nombre=None, apellido=None, tipo_sangre=None, experiencia=None, jornada=None, fecha_vinculacion=None, cargo=None, telefono=None, genero=None,
-                           fecha_nacimiento=None, estado_empleado=None, jefe=None)
-    objEmpleado.sucursal = sucursal
+                           fecha_nacimiento=None, estado_empleado=None, jefe=None, sucursal=None)
+    if opciones != 3:
+        objEmpleado.sucursal = sucursal
     empleado = EmpleadoForm(instance=objEmpleado, initial=objEmpleado.__dict__)
     exito = False
 
@@ -113,6 +111,7 @@ def crear_empleado(request):
             sucur=user_save.sucursal
             jefeHallado=buscar_jefe(sucur, tipo_cargo)
             user_save.jefe=jefeHallado
+            user_save.groups.add(3)
 
             user_save.save()
 
@@ -128,6 +127,7 @@ def crear_empleado(request):
             sucur=user_save.sucursal
             jefeHallado=buscar_jefe(sucur, tipo_cargo)
             user_save.jefe=jefeHallado
+            user_save.groups.add(4)
 
             user_save.save()
 
@@ -139,6 +139,7 @@ def crear_empleado(request):
             user_save.password = make_password(password)
             user_save.first_name=request.POST.get('nombre')
             user_save.last_name=request.POST.get('apellido')
+            user_save.groups.add(2)
             user_save.save()
 
         exito = True
@@ -161,7 +162,7 @@ def buscar_jefe(objSucursal, tipoCargo):
 
     return jefe
 
-@login_required
+@login_required(login_url='/login')
 def editar_empleado(request, id):
     id_sesion = request.session["id"]
     print "ID DEL USUARIO"
@@ -185,16 +186,14 @@ def editar_empleado(request, id):
         empleados = Empleado.objects.filter(cargo='Mecanico', sucursal=sucursal)
     elif len(vendedor)>0:
         vendedor=vendedor[0]
-        sucursal=vendedor.sucursal
         print vendedor.username
         print vendedor
         empleados = []
     elif len(s_admin)>0:
         s_admin=s_admin[0]
-        sucursal=s_admin.sucursal
         print s_admin.username
         print s_admin
-        empleados = Empleado.objects.filter(cargo='Gerente', sucursal=sucursal)
+        empleados = Empleado.objects.filter(cargo='Gerente')
 
     '''--------------------------------------------------------------------------------'''
     empleado = Empleado.objects.get(pk=id)
@@ -264,7 +263,7 @@ def editar_empleado(request, id):
     return render(request, 'lista_empleados.html', {'empleados': empleados, 'edicion': True,
                                                     'form_edicion': form_edicion, 'nomusuario': nomusuario})
 
-
+@login_required(login_url='/login')
 def eliminar_empleado(request, id):
     empleado = Empleado.objects.get(pk=id)
     if empleado.estado_empleado:

@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block style %}
 {{block.super}}
-    <link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
+    <link href="{{STATIC_URL}}/static/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 {%endblock%}
 
 <!--
@@ -199,7 +199,7 @@ en esta seccion se va a poner el contenido de la pagina-->
 
 
    <!-- Date picker -->
-   <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
+   <script src="{{STATIC_URL}}/static/js/plugins/datapicker/bootstrap-datepicker.js"></script>
    <script type="text/javascript">
             $('#data_1 .input-group.date').datepicker({
                 todayBtn: "linked",

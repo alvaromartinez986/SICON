@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required,permission_required
 
 
 
-@login_required
+@login_required(login_url='/login')
 def listar_sucursales(request):
     sucursales = Sucursal.objects.all()
     return render(request, 'lista_sucursales.html', {'sucursales': sucursales})

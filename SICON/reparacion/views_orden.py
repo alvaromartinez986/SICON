@@ -4,14 +4,22 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.http import JsonResponse
 from .models import Orden, DetalleRepuesto
+from administrador.models import  Empleado, Repuesto, VehiculoUsado
+from django.contrib.auth.decorators import login_required,permission_required
 
 
+@login_required(login_url='/login')
 def listar_ordenes(request):
     ordenes = Orden.objects.all()
     return render(request, 'lista_ordenes.html', {'ordenes': ordenes})
 
 
+@login_required(login_url='/login')
 def crear_orden(request):
+    id_sesion = request.session["id"]
+    jefe = JefeTaller.objects.filter(id=id_sesion)
+    sucursal_jefe = jefe.sucursal
+    Mecanicos = Empleado.objects.filtre(sucursal = sucursal_jefe, cargo = 'Mecanico')
     orden = OrdenForm()
     exito = False
     # raise Exception{request}
@@ -24,6 +32,18 @@ def crear_orden(request):
         orden = OrdenForm()
         print exito
     return render(request, 'crear_orden.html', {'form': orden, 'exito': exito})
+
+
+def obtenerMecanicos(sucursal):
+    Mecanicos = Empleado.objects.filtre(sucursal = sucursal_jefe, cargo = 'Mecanico')
+    lista_mecanicos = []
+    for mecanico in Mecanicos:
+        dir_mecanico["id"] = str(mecanico.id)
+        dir_mecanico["nombre"] = mecanico.nombre+" "+mecanico.apellido
+        lista_mecanicos.append(dir_mecanico)
+    return lista_mecanicos
+
+
 
 #
 # def editar_sucursal(request, id_sucursal):

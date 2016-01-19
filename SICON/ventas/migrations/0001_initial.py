@@ -22,12 +22,29 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='DetalleVenta',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+            ],
+        ),
+        migrations.CreateModel(
             name='Venta',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('total', models.IntegerField(null=True)),
                 ('fecha', models.DateTimeField()),
                 ('identificacion_cliente', models.ForeignKey(to='ventas.Cliente')),
-                ('vehiculo', models.ForeignKey(to='administrador.VehiculoNuevo', unique=True)),
+                ('identificacion_vendedor', models.ForeignKey(to='administrador.Empleado')),
             ],
+        ),
+        migrations.AddField(
+            model_name='detalleventa',
+            name='id_venta',
+            field=models.ForeignKey(to='ventas.Venta'),
+        ),
+        migrations.AddField(
+            model_name='detalleventa',
+            name='vehiculo',
+            field=models.OneToOneField(to='administrador.VehiculoNuevo'),
         ),
     ]

@@ -168,6 +168,7 @@ para traer el bloque de codigo que esta en la pagina blank.html
         var identificacion_vendedor = '{{vendedor.id}}';
         var nombres_vendedor = '{{vendedor.first_name}}';
         var apellidos_vendedor = '{{vendedor.last_name}}';
+        var id = '{{id}}';
 
         var ruta = "venta"+ identificacion+".pdf";
         var firstRow = [{ text: 'Cilindraje', bold: true }, { text: 'Marca', bold: true }, { text: 'Linea', bold: true }, { text: 'Modelo', bold: true }, { text: 'Tipo de Combustible', bold: true },{ text: 'Color', bold: true },{ text: 'Valor (COP)', bold: true }];
@@ -185,7 +186,17 @@ para traer el bloque de codigo que esta en la pagina blank.html
         var docDefinition = {
   content: [
     { text: 'VENTA SICON', style: 'header' },
-    { text: 'Fecha : ' + fecha + '\n \n', bold:true, alignment: 'right',fontSize : 18  },
+      {
+          columns: [
+              {
+                text: 'Id : ' + id,bold:true,fontSize : 18
+              },
+
+              {
+                text: 'Fecha : ' + fecha + '\n \n', bold:true,fontSize : 18
+              }
+          ]
+      },
 
     {
       columns: [

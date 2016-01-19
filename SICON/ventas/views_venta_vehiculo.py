@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from SICON.administrador.models import VehiculoNuevo
+from SICON.administrador.models import VehiculoNuevo,Empleado,Vendedor
 from models import Cliente
-from models import Venta
-from SICON.administrador.models import VehiculoNuevo
+from models import Venta,DetalleVenta
 from forms_cliente import ClienteForm
 import datetime
 from django.http import HttpResponse
@@ -17,7 +16,8 @@ def redirect():
 def venta_vehiculos(request, id_cliente):
     id = request.session["id"]
     vendedor = User.objects.filter (id = id).first()
-    print vendedor.username
+    emp = Vendedor.objects.filter (user_ptr_id = id).first()
+    empleado = Empleado.objects.filter (emp_id = emp.empleado_ptr_id).first()
     vehiculos_n = VehiculoNuevo.objects.filter(activo = True, vendido = False)
     vehiculos_sele = ""
     cliente = Cliente.objects.filter(id=id_cliente).first()
@@ -26,14 +26,21 @@ def venta_vehiculos(request, id_cliente):
         vehiculos_sele = vehiculos
         veh_report = vehiculos
         fecha = datetime.datetime.now()
+        venta = Venta (identificacion_cliente = cliente,identificacion_vendedor = empleado,total = 0,fecha = fecha)
+        venta.save()
 
-        print cliente
+        total = 0;
         for vehiculo in vehiculos:
             veh_nuevo = VehiculoNuevo.objects.filter(id=vehiculo).first()
-            venta = Venta (identificacion_cliente = cliente,vehiculo=veh_nuevo,fecha=fecha)
+            total += veh_nuevo.valor
+            detalle = DetalleVenta (id_venta = venta,vehiculo = veh_nuevo)
+            detalle.save()
             veh_nuevo.vendido = True
             veh_nuevo.save()
-            venta.save()
+
+        venta.total = total
+        venta.save()
+
 
         lista_vehiculos =  []
         veh = dict()
@@ -49,7 +56,7 @@ def venta_vehiculos(request, id_cliente):
             lista_vehiculos.append(veh)
             veh = {}
         # return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente, 'vendedor':"" })
-        return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente,'vendedor':vendedor})
+        return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente,'vendedor':vendedor,'id':venta.id})
 
 
 

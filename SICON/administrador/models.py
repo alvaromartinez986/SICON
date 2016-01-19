@@ -10,7 +10,7 @@ from .superadmin import SuperAdmin
 
 # Create your models here.
 
-from .repuesto import Repuesto,Marca,Modelo
+from .repuesto import Repuesto,Marca,Modelo,Inventario
 	
 	
 	

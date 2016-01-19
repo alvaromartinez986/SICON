@@ -14,6 +14,7 @@ class Modelo(models.Model):
     marca = models.ForeignKey(Marca)
 
 
+
 class Repuesto (models.Model):
 
 	class Meta:
@@ -33,3 +34,11 @@ class Repuesto (models.Model):
 	activo = models.BooleanField(default=True)
 	sucursal = models.ForeignKey(Sucursal, null=True)
 
+
+class Inventario (models.Model):
+
+    repuesto = models.ForeignKey(Repuesto)
+    tipo_movimiento = models.CharField(max_length = 40)
+    cantidad = models.IntegerField()
+    cantidad_anterior = models.IntegerField()
+    cantidad_actual = models.IntegerField()

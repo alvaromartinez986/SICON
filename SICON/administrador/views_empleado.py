@@ -15,7 +15,7 @@ __author__ = 'nelson'
 def listar_empleado(request):
     id_sesion = request.session["id"]
     print "ID DEL USUARIO"
-    print id
+    print id_sesion
     gerente = Gerente.objects.filter(id=id_sesion)
     jefe = JefeTaller.objects.filter(id=id_sesion)
     vendedor = Vendedor.objects.filter(id=id_sesion)
@@ -163,10 +163,10 @@ def buscar_jefe(objSucursal, tipoCargo):
     return jefe
 
 @login_required(login_url='/login')
-def editar_empleado(request, id):
+def editar_empleado(request, id_empleado):
     id_sesion = request.session["id"]
     print "ID DEL USUARIO"
-    print id
+    print id_sesion
     gerente = Gerente.objects.filter(id=id_sesion)
     jefe = JefeTaller.objects.filter(id=id_sesion)
     vendedor = Vendedor.objects.filter(id=id_sesion)
@@ -196,13 +196,32 @@ def editar_empleado(request, id):
         empleados = Empleado.objects.filter(cargo='Gerente')
 
     '''--------------------------------------------------------------------------------'''
-    empleado = Empleado.objects.get(pk=id)
+    empleado = Empleado.objects.get(pk=id_empleado)
     print ("ENTRO EN EDITAR")
-    usuario = User.objects.filter(pk=id)
+
+
+    '''-------------------------------------------CONSULTA DE LA PK DE USUARIO DEL EMPLEADO----------------------'''
+    id_emp_usuario = None
+    if empleado.cargo == 'Gerente':
+        emp_perfil=Gerente.objects.get(emp_id=id_empleado)
+        id_emp_usuario = emp_perfil.id
+    elif empleado.cargo == 'Jefe de taller':
+        emp_perfil=JefeTaller.objects.get(emp_id=id_empleado)
+        id_emp_usuario = emp_perfil.id
+    elif empleado.cargo == 'Vendedor':
+        emp_perfil=Vendedor.objects.get(emp_id=id_empleado)
+        id_emp_usuario = emp_perfil.id
+
+
+    '''------------------------------------------------------------------------------------------------'''
+    usuario = User.objects.filter(pk=id_emp_usuario)
+
 
     if len(usuario)>=1:
-        usuarioeditar = User.objects.get(pk=id)
+        usuarioeditar = User.objects.get(pk=id_emp_usuario)
         nomusuario=usuario[0].username
+        print "Username empleado:"
+        print nomusuario
         contras=""
         contras2=usuario[0].password
     else:
@@ -243,22 +262,6 @@ def editar_empleado(request, id):
                 jefeHallado=buscar_jefe(sucur, cargo_emp)
                 empleado.jefe=jefeHallado
                 empleado.save()
-                '''
-                username = request.POST.get('username')
-                print username
-                password = request.POST.get('password')
-                print password
-                User.username=username
-                User.password=password
-                userf = UsuariosForm(request.POST, instance=usuario[0], initial=usuario[0].__dict__)
-                print "pasa formedicion data"
-                if userf.is_valid():
-                    user_save = userf.save()
-                    print "pasa user save"
-                    user_save.username = username
-                    user_save.password = password
-                    user_save.save()
-                '''
             return HttpResponseRedirect("/empleado/listar_empleados")
     return render(request, 'lista_empleados.html', {'empleados': empleados, 'edicion': True,
                                                     'form_edicion': form_edicion, 'nomusuario': nomusuario})

@@ -10,42 +10,20 @@ from django.http import JsonResponse
 import json
 from django.contrib.auth.models import User
 
-def redirect():
-    return HttpResponseRedirect('/ventas/venta/cliente')
-
-def venta_vehiculos(request, id_cliente):
-    id = request.session["id"]
-    vendedor = User.objects.filter (id = id).first()
-    emp = Vendedor.objects.filter (user_ptr_id = id).first()
-    empleado = Empleado.objects.filter (emp_id = emp.empleado_ptr_id).first()
-    vehiculos_n = VehiculoNuevo.objects.filter(activo = True, vendido = False)
-    vehiculos_sele = ""
-    cliente = Cliente.objects.filter(id=id_cliente).first()
+def venta_final (request):
     if request.method=='POST':
+        id = request.POST['id_cliente']
         vehiculos = request.POST.getlist('carros')
         vehiculos_sele = vehiculos
-        veh_report = vehiculos
-        fecha = datetime.datetime.now()
-        venta = Venta (identificacion_cliente = cliente,identificacion_vendedor = empleado,total = 0,fecha = fecha)
-        venta.save()
+        lista_vehiculos =  []
 
         total = 0;
-        for vehiculo in vehiculos:
-            veh_nuevo = VehiculoNuevo.objects.filter(id=vehiculo).first()
-            total += veh_nuevo.valor
-            detalle = DetalleVenta (id_venta = venta,vehiculo = veh_nuevo)
-            detalle.save()
-            veh_nuevo.vendido = True
-            veh_nuevo.save()
-
-        venta.total = total
-        venta.save()
-
-
-        lista_vehiculos =  []
+        lista_json =  []
         veh = dict()
         for vehiculo in vehiculos_sele:
-            vehiculo_n = veh_nuevo = VehiculoNuevo.objects.filter(id=vehiculo).first();
+            vehiculo_n = VehiculoNuevo.objects.filter(id=vehiculo).first();
+            lista_vehiculos.append(vehiculo_n)
+            total+= vehiculo_n.valor
             veh["cilindraje"] = str(vehiculo_n.cilindraje)
             veh["marca"] = str (vehiculo_n.marca)
             veh["linea"] = str (vehiculo_n.linea)
@@ -53,14 +31,68 @@ def venta_vehiculos(request, id_cliente):
             veh["tipo_comb"] = str (vehiculo_n.tipo_combustible)
             veh["color"] = str (vehiculo_n.color)
             veh["valor"] = str (vehiculo_n.valor)
-            lista_vehiculos.append(veh)
+            lista_json.append(veh)
             veh = {}
-        # return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente, 'vendedor':"" })
-        return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente,'vehiculos':json.dumps(lista_vehiculos),'venta':True,'cliente':cliente,'vendedor':vendedor,'id':venta.id})
+
+        return render(request,'venta_final.html',{'vehiculos':lista_vehiculos,'vehiculos_json':json.dumps(lista_json),'id_cliente': id, 'total':total})
 
 
+def registrar_venta (request):
+    if request.method=='POST':
+        print ("metodo post")
+        id = request.POST['id_cliente']
+        cliente = Cliente.objects.filter(id=id).first()
+        vehiculos = request.POST.getlist('codigos')
+        dctos = request.POST.getlist('descuentos')
 
+        fecha = datetime.datetime.now()
+        id_vendedor = request.session["id"]
+        emp = Vendedor.objects.filter (user_ptr_id = id_vendedor).first()
+        empleado = Empleado.objects.filter (emp_id = emp.empleado_ptr_id).first()
+        venta = Venta (identificacion_cliente = cliente,identificacion_vendedor = empleado,total = 0,fecha = fecha)
+        venta.save()
+
+        total = 0.0;
+        i =0;
+        lista_json =  []
+        veh = dict()
+        for vehiculo in vehiculos:
+            veh_nuevo = VehiculoNuevo.objects.filter(codigo=vehiculo,sucursal=empleado.sucursal).first()
+            print "descuento"
+            print dctos[i]
+            valor = float (float( veh_nuevo.valor) - float (veh_nuevo.valor * (float (dctos[i]) / 100)))
+            total += valor
+            detalle = DetalleVenta (id_venta = venta,vehiculo = veh_nuevo)
+            detalle.save()
+            veh["codigo"] = str(veh_nuevo.codigo)
+            veh["cilindraje"] = str(veh_nuevo.cilindraje)
+            veh["marca"] = str (veh_nuevo.marca)
+            veh["linea"] = str (veh_nuevo.linea)
+            veh["modelo"] = str (veh_nuevo.modelo)
+            veh["tipo_comb"] = str (veh_nuevo.tipo_combustible)
+            veh["color"] = str (veh_nuevo.color)
+            veh["valor"] = str (valor)
+            lista_json.append(veh)
+            veh = {}
+            i+=1;
+            # veh_nuevo.vendido = True
+            # veh_nuevo.save()
+
+        venta.total = total
+        venta.save()
+        return render(request,'generar_pdf.html',{'vehiculos': json.dumps(lista_json),'cliente': cliente,'venta':True,'vendedor':empleado,'id':venta.id})
+
+
+def venta_vehiculos(request, id_cliente):
+    id = request.session["id"]
+    emp = Vendedor.objects.filter (user_ptr_id = id).first()
+    empleado = Empleado.objects.filter (emp_id = emp.empleado_ptr_id).first()
+    vehiculos_n = VehiculoNuevo.objects.filter(activo = True, vendido = False,sucursal = empleado.sucursal)
+    cliente = Cliente.objects.filter(id=id_cliente).first()
     return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente})
+
+
+
 
 def gestionar_cliente_venta (request, identificacion):
     cliente = Cliente.objects.filter(identificacion=identificacion).first()

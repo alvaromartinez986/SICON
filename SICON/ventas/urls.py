@@ -10,5 +10,7 @@ urlpatterns = patterns('',
 	url(r'^ventas/venta/cliente',id_cliente_venta, name='id_cliente_venta'),
 	url(r'^ventas/cliente_venta/(\d+)$',gestionar_cliente_venta, name='clientes_venta'),
 	url(r'^ventas/venta/vehiculos/(\d+)$',venta_vehiculos, name='venta_vehiculos'),
+	url(r'^ventas/venta/final',venta_final, name='venta_final'),
+	url(r'^ventas/venta/genpdf',registrar_venta, name='registrar_venta'),
 
 )

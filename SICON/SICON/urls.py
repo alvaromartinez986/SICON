@@ -22,6 +22,8 @@ urlpatterns = patterns('',
     url(r'^',include('SICON.ventas.urls')),
     url(r'^$',index),
 
+    url(r'^',include('reparacion.urls')),
+
 
 )
 #estas lineas se descomentan cuando se trabaje en heroku master

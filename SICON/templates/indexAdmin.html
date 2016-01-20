@@ -129,7 +129,21 @@
                                 <a href="{% url 'listar_vehiculos_usados' %}" class="text-danger"><i class="fa fa-car fa-fw"></i> Vehiculos Usados</a>
                             </li>
                         {% endif %}
-                        
+
+
+
+
+                        {% if 'empleado.listar_ordenes' in perms and user.is_authenticated%}
+                            <li>
+                                <a href="{% url 'listar_ordenes' %}" class="text-danger"><i class="fa fa-cogs fa-fw"></i> Ordenes de Trabajo</a>
+                            </li>
+                        {% endif %}
+
+                        {% if 'empleado.listar_ordenes_repuestos' in perms and user.is_authenticated%}
+                            <li>
+                                <!--a href="{#% url 'listar_ordenes_repuestos' %#}" class="text-danger"><i class="fa fa-cogs fa-fw"></i> Ordenes de Trabajo</a-->
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

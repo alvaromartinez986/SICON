@@ -4,6 +4,7 @@ from SICON.administrador.models import VehiculoNuevo,Empleado,Vendedor
 from models import Cliente
 from models import Venta,DetalleVenta
 from forms_cliente import ClienteForm
+from django.db import transaction
 import datetime
 from django.http import HttpResponse
 from django.http import JsonResponse
@@ -36,7 +37,7 @@ def venta_final (request):
 
         return render(request,'venta_final.html',{'vehiculos':lista_vehiculos,'vehiculos_json':json.dumps(lista_json),'id_cliente': id, 'total':total})
 
-
+@transaction.atomic
 def registrar_venta (request):
     if request.method=='POST':
         print ("metodo post")
@@ -62,7 +63,7 @@ def registrar_venta (request):
             print dctos[i]
             valor = float (float( veh_nuevo.valor) - float (veh_nuevo.valor * (float (dctos[i]) / 100)))
             total += valor
-            detalle = DetalleVenta (id_venta = venta,vehiculo = veh_nuevo)
+            detalle = DetalleVenta (id_venta = venta,vehiculo = veh_nuevo,costo=veh_nuevo.valor,dcto=(dctos[i]),costo_venta=valor)
             detalle.save()
             veh["codigo"] = str(veh_nuevo.codigo)
             veh["cilindraje"] = str(veh_nuevo.cilindraje)
@@ -75,11 +76,12 @@ def registrar_venta (request):
             lista_json.append(veh)
             veh = {}
             i+=1;
-            # veh_nuevo.vendido = True
-            # veh_nuevo.save()
-
+            veh_nuevo.vendido = True
+            veh_nuevo.save()
         venta.total = total
         venta.save()
+        sid = transaction.savepoint()
+        transaction.savepoint_commit(sid)
         return render(request,'generar_pdf.html',{'vehiculos': json.dumps(lista_json),'cliente': cliente,'venta':True,'vendedor':empleado,'id':venta.id})
 
 

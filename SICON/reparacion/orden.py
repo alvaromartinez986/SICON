@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 import datetime
-from administrador.models import  Empleado, Repuesto, VehiculoUsado
+from SICON.administrador.models import  Empleado, Repuesto, VehiculoUsado
 from django.utils.encoding import smart_unicode
 
 

@@ -4,8 +4,10 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.http import JsonResponse
 from .models import Orden, DetalleRepuesto
-from administrador.models import  Empleado, Repuesto, VehiculoUsado
+from SICON.administrador.models import  Empleado, Repuesto, VehiculoUsado, JefeTaller
 from django.contrib.auth.decorators import login_required,permission_required
+import json
+from django.core import serializers
 
 
 @login_required(login_url='/login')
@@ -19,7 +21,7 @@ def crear_orden(request):
     id_sesion = request.session["id"]
     jefe = JefeTaller.objects.filter(id=id_sesion)
     sucursal_jefe = jefe.sucursal
-    Mecanicos = Empleado.objects.filtre(sucursal = sucursal_jefe, cargo = 'Mecanico')
+    Mecanicos = Empleado.objects.filter(sucursal = sucursal_jefe, cargo = 'Mecanico')
     orden = OrdenForm()
     exito = False
     # raise Exception{request}
@@ -34,14 +36,56 @@ def crear_orden(request):
     return render(request, 'crear_orden.html', {'form': orden, 'exito': exito})
 
 
-def obtenerMecanicos(sucursal):
-    Mecanicos = Empleado.objects.filtre(sucursal = sucursal_jefe, cargo = 'Mecanico')
-    lista_mecanicos = []
-    for mecanico in Mecanicos:
-        dir_mecanico["id"] = str(mecanico.id)
-        dir_mecanico["nombre"] = mecanico.nombre+" "+mecanico.apellido
-        lista_mecanicos.append(dir_mecanico)
-    return lista_mecanicos
+def devuelve_estado(request, placa_rec):
+    veh_usados=VehiculoUsado.objects.filter(placa=placa_rec)
+    veh_usado=None
+    orden_actual=None
+    if len(veh_usados)>=1:
+        veh_usado=veh_usados[0]
+        ordenes=Orden.objects.filter(placa=veh_usado).order_by('-fecha_inicio')
+        if len(ordenes)>=1:
+            orden_actual=ordenes[0]
+
+
+    data = {}
+    data['mensaje'] = ''
+    data['estado'] = ''
+    data['fecha_ini'] = ''
+    data['fecha_fin'] = ''
+
+    if orden_actual==None:
+        data['mensaje'] = 'nada'
+        data['estado'] = 'nada'
+        data['fecha_ini'] = 'nada'
+        data['fecha_fin'] = 'nada'
+    else:
+        data['mensaje'] = 'encontrado'
+        data['estado'] = str(orden_actual.finalizado)
+        data['fecha_ini'] = str(orden_actual.fecha_inicio)
+        data['fecha_fin'] = str(orden_actual.fecha_fin)
+    print orden_actual
+    print "LLEGA A DEVUELVE ESTADO CON PLACA"
+    print placa_rec
+
+    datas = []
+    datas.append(data)
+
+    # foos = []
+    # foos.append(orden_actual)
+    # data = serializers.serialize('json', foos)
+
+    # return HttpResponse(data, content_type='application/json')
+    return HttpResponse(json.dumps(datas), content_type="application/json")
+
+
+# def obtenerMecanicos(sucursal):
+#     Mecanicos = Empleado.objects.filter(sucursal = sucursal_jefe, cargo = 'Mecanico')
+#     lista_mecanicos = []
+#     for mecanico in Mecanicos:
+#         dir_mecanico["id"] = str(mecanico.id)
+#         dir_mecanico["nombre"] = mecanico.nombre+" "+mecanico.apellido
+#         lista_mecanicos.append(dir_mecanico)
+#     return lista_mecanicos
 
 
 

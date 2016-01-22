@@ -28,7 +28,7 @@ function writeCotizacion(){
     carros.length=carros.length-1;
      var d = new Date();
     var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-    var fecha = d.getDate() + " de " + meses [(d.getMonth() +1)] + " del " + d.getFullYear();
+    var fecha = d.getDate() + " de " + meses [(d.getMonth())] + " del " + d.getFullYear();
     var identificacion  = $('body').data('identificacion');
     var nombres = $('body').data('nombres');
     var apellidos = $('body').data('apellidos');

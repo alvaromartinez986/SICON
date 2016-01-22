@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'SICON.administrador',
     'SICON.ventas',
+    'SICON.reparacion'
 )
 
 MIDDLEWARE_CLASSES = (

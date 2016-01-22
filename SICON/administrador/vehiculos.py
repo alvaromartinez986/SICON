@@ -28,7 +28,6 @@ class VehiculoNuevo(Vehiculo):
             # Permission identifier     human-readable permission name
             ("listar_Vehiculo_Nuevo",       "Se permite editar, activar , desactivar" ),
         )
-        #unique_together = (("codigo", "sucursal"),)
 
 class VehiculoUsado(Vehiculo):
 

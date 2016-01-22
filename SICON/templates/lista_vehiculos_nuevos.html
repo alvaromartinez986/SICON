@@ -134,6 +134,12 @@ en esta seccion se va a poner el contenido de la pagina
                     </small>
                 </div>
                 <div  class="modal-body">
+                    {% if not exito and post%}
+                        <div class="alert alert-danger alert-dismissable">
+                            <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+                            <i class="fa fa-close"></i> El código ya existe en la base de datos.
+                        </div>
+                    {% endif %}
                     <form id= "form_repuesto" action="" method="post" class="form-horizontal">
                         {% csrf_token %}
                         <!-- codigo -->

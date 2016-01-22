@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from .forms_orden import OrdenForm, DetalleRepuestoForm
 from django.http import HttpResponseRedirect
@@ -52,30 +53,45 @@ def devuelve_estado(request, placa_rec):
     data['estado'] = ''
     data['fecha_ini'] = ''
     data['fecha_fin'] = ''
+    data['placa'] = ''
+    data['respuesta'] = ''
 
     if orden_actual==None:
         data['mensaje'] = 'nada'
         data['estado'] = 'nada'
         data['fecha_ini'] = 'nada'
         data['fecha_fin'] = 'nada'
+        data['placa'] = str(placa_rec)
+        data['respuesta'] = "Lo sentimos, no se encuentra ninguna orden para el vehículo" + \
+                            " con placa " + str(placa_rec) + " en el sistema"
     else:
         data['mensaje'] = 'encontrado'
         data['estado'] = str(orden_actual.finalizado)
         data['fecha_ini'] = str(orden_actual.fecha_inicio)
         data['fecha_fin'] = str(orden_actual.fecha_fin)
+        data['placa'] = str(placa_rec)
+        if data['estado'] == 'False':
+            data['respuesta'] = "El vehículo con placa " + str(placa_rec) + " todavía se encuentra" \
+                                " en reparaciones, por favor consulte " \
+                                "nuevamente " + "en los" + " próximos días.\n\nFecha de ingreso: " + str(orden_actual.fecha_inicio)
+        else:
+            data['respuesta'] = "El vehículo con placa " + str(placa_rec) + " se encuentra listo " + \
+            "para ser recogido.\n\nFecha de ingreso: " + str(orden_actual.fecha_inicio) + "\n\nFecha" + \
+            " de fin de reparaciones: " + str(orden_actual.fecha_fin)
+
     print orden_actual
     print "LLEGA A DEVUELVE ESTADO CON PLACA"
     print placa_rec
 
-    datas = []
-    datas.append(data)
+    # datas = []
+    # datas.append(data)
 
     # foos = []
     # foos.append(orden_actual)
     # data = serializers.serialize('json', foos)
 
     # return HttpResponse(data, content_type='application/json')
-    return HttpResponse(json.dumps(datas), content_type="application/json")
+    return HttpResponse(json.dumps(data), content_type="application/json")
 
 
 # def obtenerMecanicos(sucursal):

@@ -5,7 +5,7 @@
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
     <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-    <link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
+    <link href="{{STATIC_URL}}/static/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 {%endblock%}
 
 <!--
@@ -338,7 +338,7 @@ para traer el bloque de codigo que esta en la pagina blank.html
 
 
 <!-- Date picker -->
-    <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
+    <script src="{{STATIC_URL}}/static/js/plugins/datapicker/bootstrap-datepicker.js"></script>
     <script type="text/javascript">
             $('#data_1 .input-group.date').datepicker({
                 todayBtn: "linked",
@@ -365,14 +365,20 @@ para traer el bloque de codigo que esta en la pagina blank.html
 
     <script>
         document.getElementById("id_cargo").disabled = true;
+        document.getElementById("id_sucursal").disabled = true;
+
             $(document).ready(function(){
             $("#id_sucursal").select2({width:'100%'});
             });
         </script>
 
+
+
     <script>
         function FuncDisable() {
             document.getElementById("id_cargo").disabled = false;
+            document.getElementById("id_sucursal").disabled = false;
+
         }
     </script>
 

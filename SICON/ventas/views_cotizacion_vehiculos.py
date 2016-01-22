@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from administrador.models import VehiculoNuevo
+from SICON.administrador.models import VehiculoNuevo
 from models import Cliente
 from forms_cliente import ClienteForm
 

@@ -37,8 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'administrador',
-    'ventas',
+    'SICON.administrador',
+    'SICON.ventas',
+    'SICON.reparacion'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,12 +53,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'SICON.urls'
+ROOT_URLCONF = 'SICON.SICON.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': ["SICON/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,7 +71,21 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'SICON.wsgi.application'
+WSGI_APPLICATION = 'SICON.SICON.wsgi.application'
+
+#
+# DATABASES = {
+#     'default': {
+#
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd8bn3ai6qhpo8r',
+#         'USER': 'wcmiceorbsxdsu',
+#         'PASSWORD': '27X4BZarTc2VRjtMc8EI-YIKn6',
+#         'HOST': 'ec2-54-225-165-132.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#
+#     }
+#  }
 
 
 DATABASES = {
@@ -85,15 +100,15 @@ DATABASES = {
 
     }
 }
-'''
+
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.sqlite3',
-'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-}
-}'''
+# DATABASES = {
+# 'default': {
+# 'ENGINE': 'django.db.backends.sqlite3',
+# 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+# }
+# }
 
 
 
@@ -109,19 +124,24 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-
-)
-
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
-
-)
+#
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "SICON/static"),
+#
+# )
+#
+# TEMPLATE_DIRS = (
+#     os.path.join(BASE_DIR,  'SICON.templates'),
+#
+# )
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
+# STATIC_ROOT = 'staticfiles'
+#estas lineas se descomentan cuando se trabaje en heroku master
+STATIC_ROOT = 'SICON/static'
+# STATIC_URL = 'SICON/static/'
+STATIC_URL = '/SICON/static/'
 
-STATIC_URL = '/static/'
+

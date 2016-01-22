@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import migrations, models
+from django.db import models, migrations
 import django.contrib.auth.models
 from django.conf import settings
 
@@ -75,7 +75,7 @@ class Migration(migrations.Migration):
             name='Repuesto',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('codigo', models.CharField(unique=True, max_length=40)),
+                ('codigo', models.CharField(max_length=40)),
                 ('nombre', models.CharField(max_length=40)),
                 ('marca', models.CharField(max_length=40)),
                 ('costo', models.IntegerField(null=True, blank=True)),
@@ -159,7 +159,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('vehiculo_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='administrador.Vehiculo')),
                 ('valor', models.IntegerField()),
-                ('codigo', models.CharField(default=1, unique=True, max_length=10)),
+                ('codigo', models.CharField(default=1, max_length=10)),
                 ('vendido', models.BooleanField(default=False)),
             ],
             options={
@@ -196,7 +196,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='vehiculo',
             name='sucursal',
-            field=models.ForeignKey(to='administrador.Sucursal'),
+            field=models.ForeignKey(to='administrador.Sucursal', null=True),
+        ),
+        migrations.AddField(
+            model_name='repuesto',
+            name='sucursal',
+            field=models.ForeignKey(to='administrador.Sucursal', null=True),
         ),
         migrations.AddField(
             model_name='empleado',
@@ -212,5 +217,9 @@ class Migration(migrations.Migration):
             model_name='ciudad',
             name='departamento',
             field=models.ForeignKey(to='administrador.Departamento'),
+        ),
+        migrations.AlterUniqueTogether(
+            name='repuesto',
+            unique_together=set([('codigo', 'sucursal')]),
         ),
     ]

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import RepuestoForm
 from django.http import HttpResponseRedirect,HttpResponse
-from .models import Repuesto,Marca,Modelo
+from .models import Repuesto,Marca,Modelo,Empleado,Gerente
 import json
 # Create your views here.
 def crear_repuesto(request):
@@ -9,19 +9,31 @@ def crear_repuesto(request):
 	exito = False
 	if request.method=='POST':
 		repuesto = RepuestoForm(request.POST)
+		id = request.session["id"]
+		id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
+		empleado = Empleado.objects.filter (emp_id = id_empleado).first()
 	if repuesto.is_valid():
-		repuesto.save()
+		repuest =  repuesto.save(commit=False)
+		repuest.sucursal = empleado.sucursal
+		repuest.save()
 		exito = True
 		repuesto = RepuestoForm()
 		return HttpResponseRedirect('/repuestos/')
 	return render(request, 'crear_repuesto.html', {'form':repuesto,'exito':exito} )
 
 def listar_repuestos(request):
-	repuestos = Repuesto.objects.all()
+	id = request.session["id"]
+	print id
+	id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
+	empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+	repuestos = Repuesto.objects.filter(sucursal = empleado.sucursal)
 	return render(request,'lista_repuestos.html',{'repuestos':repuestos})
 
 def editar_repuesto(request, id):
-	repuestos= Repuesto.objects.all()
+	id_session = request.session["id"]
+	id_empleado = Gerente.objects.filter (user_ptr_id = id_session).first().empleado_ptr_id
+	empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+	repuestos = Repuesto.objects.filter(sucursal = empleado.sucursal)
 	repuesto = Repuesto.objects.get(pk = id)
 	print "marca"
 	print repuesto.marca_carro

@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block style %}
 {{block.super}}
-    <link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
+    <link href="{{STATIC_URL}}/static/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 {%endblock%}
 
 <!--
@@ -174,7 +174,7 @@ en esta seccion se va a poner el contenido de la pagina-->
 
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Crear</button>
+                                        <button onclick="FuncDisable()" type="submit" class="btn btn-primary">Crear</button>
                                     </div>
 
                                 </form>
@@ -199,7 +199,7 @@ en esta seccion se va a poner el contenido de la pagina-->
 
 
    <!-- Date picker -->
-   <script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
+   <script src="{{STATIC_URL}}/static/js/plugins/datapicker/bootstrap-datepicker.js"></script>
    <script type="text/javascript">
             $('#data_1 .input-group.date').datepicker({
                 todayBtn: "linked",
@@ -219,6 +219,14 @@ en esta seccion se va a poner el contenido de la pagina-->
    </script>
 
 
+<script>
+        function FuncDisable() {
+
+            document.getElementById("id_sucursal").disabled = false;
+
+        }
+    </script>
+
     <script>
         function myFunction() {
             var empcargo = document.getElementById('id_cargo').value;
@@ -232,5 +240,53 @@ en esta seccion se va a poner el contenido de la pagina-->
             }
         }
     </script>
+
+{% ifequal opciones 0 %}
+<script>
+document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = true;
+</script>
+{% endifequal %}
+
+{% ifequal opciones 1 %}
+<script>
+document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = true;
+var sel = document.getElementById('id_cargo');
+var opt = document.createElement('option'); // create new option element
+opt.appendChild( document.createTextNode('Jefe de taller') );
+opt.value = 'Jefe de taller'; // set value property of opt
+sel.appendChild(opt); // add opt to end of select box (sel)
+
+var opt2 = document.createElement('option'); // create new option element
+opt2.appendChild( document.createTextNode('Vendedor') );
+opt2.value = 'Vendedor'; // set value property of opt
+sel.appendChild(opt2); // add opt to end of select box (sel)
+</script>
+{% endifequal %}
+
+{% ifequal opciones 2 %}
+<script>
+document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = true;
+var sel = document.getElementById('id_cargo');
+var opt = document.createElement('option'); // create new option element
+opt.appendChild( document.createTextNode('Mecanico') );
+opt.value = 'Mecanico'; // set value property of opt
+sel.appendChild(opt); // add opt to end of select box (sel)
+</script>
+{% endifequal %}
+
+{% ifequal opciones 3 %}
+<script>
+document.getElementById('id_cargo').options.length = 1;
+document.getElementById("id_sucursal").disabled = false;
+var sel = document.getElementById('id_cargo');
+var opt = document.createElement('option'); // create new option element
+opt.appendChild( document.createTextNode('Gerente') );
+opt.value = 'Gerente'; // set value property of opt
+sel.appendChild(opt); // add opt to end of select box (sel)
+</script>
+{% endifequal %}
 
 {% endblock %}

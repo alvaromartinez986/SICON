@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from .singletonsesion import Sesion
+from django.contrib.auth.models import User
+
 
 
 
@@ -47,4 +49,6 @@ def index(request):
 
 @login_required(login_url='/login')
 def index_admin(request):
-    return render(request,'indexAdmin.html',{})
+    id_sesion = request.session["id"]
+    usuario = User.objects.filter(id=id_sesion)
+    return render(request,'indexAdmin.html',{'usuario':usuario[0]})

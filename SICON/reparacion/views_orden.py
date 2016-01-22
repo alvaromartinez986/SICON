@@ -20,8 +20,9 @@ def listar_ordenes(request):
 def crear_orden(request):
     id_sesion = request.session["id"]
     jefe = JefeTaller.objects.filter(id=id_sesion)
-    sucursal_jefe = jefe.sucursal
-    Mecanicos = Empleado.objects.filter(sucursal = sucursal_jefe, cargo = 'Mecanico')
+    jefe_sucursal = jefe[0]
+    sucursal = jefe_sucursal.sucursal
+    mecanicos = obtenerMecanicos(sucursal)
     orden = OrdenForm()
     exito = False
     # raise Exception{request}
@@ -33,7 +34,7 @@ def crear_orden(request):
         exito = True
         orden = OrdenForm()
         print exito
-    return render(request, 'crear_orden.html', {'form': orden, 'exito': exito})
+    return render(request, 'crear_orden.html', {'form': orden, 'exito': exito, 'mecanicos': mecanicos})
 
 
 def devuelve_estado(request, placa_rec):
@@ -78,14 +79,9 @@ def devuelve_estado(request, placa_rec):
     return HttpResponse(json.dumps(datas), content_type="application/json")
 
 
-# def obtenerMecanicos(sucursal):
-#     Mecanicos = Empleado.objects.filter(sucursal = sucursal_jefe, cargo = 'Mecanico')
-#     lista_mecanicos = []
-#     for mecanico in Mecanicos:
-#         dir_mecanico["id"] = str(mecanico.id)
-#         dir_mecanico["nombre"] = mecanico.nombre+" "+mecanico.apellido
-#         lista_mecanicos.append(dir_mecanico)
-#     return lista_mecanicos
+def obtenerMecanicos(sucursal):
+    mecanicos = Empleado.objects.filter(sucursal = sucursal, cargo = 'Mecanico')
+    return mecanicos
 
 
 

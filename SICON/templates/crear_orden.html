@@ -92,8 +92,8 @@ en esta seccion se va a poner el contenido de la pagina
 {%block js%}
 {{block.super}}
 <script src="{{STATIC_URL}}/static/js/crearsucursal.js"></script>
-<script src="{% static 'js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
-<link href="{% static 'css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet">
+<script src="{{STATIC_URL}}/static/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<link href="{{STATIC_URL}}/static/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
 
 <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
@@ -102,7 +102,15 @@ en esta seccion se va a poner el contenido de la pagina
 <script type="text/javascript">
   $(document).ready(function(){
     $("#id_mecanicos").select2({width:'100%'});
-      $("#id_placa").select2({width:'100%'});
+    $("#id_placa").select2({width:'100%'});
+    $("#id_mecanicos").html('');
+    {%for mecanico in mecanicos %}
+        $("#id_mecanicos").append($('<option>', {
+            value: {{mecanico.emp_id}},
+            text: '{{ mecanico}}'}));
+      {% endfor %}
+
+
   });
 
             $('#data_1 .input-group.date').datepicker({
@@ -119,7 +127,8 @@ en esta seccion se va a poner el contenido de la pagina
             $('#data_1 .input-group.date').on('changeDate show', function(e) {
             $('#form_orden').bootstrapValidator('revalidateField', 'fecha_inicio');
             });
+
+
    </script>
 
-  </script>
 {% endblock %}

@@ -7,6 +7,13 @@ from django.utils.encoding import smart_unicode
 
 class Orden(models.Model):
 
+
+    class Meta:
+        permissions = (
+            # Permission identifier     human-readable permission name
+            ("listar_ordenes",       "Se permite editar, activar , desactivar, listar" ),
+        )
+
     numero = models.CharField(max_length=100, unique=True)
     mecanicos = models.ManyToManyField(Empleado)
     placa = models.ForeignKey(VehiculoUsado)
@@ -18,6 +25,14 @@ class Orden(models.Model):
 
 
 class DetalleRepuesto(models.Model):
+
+
+
+    class Meta:
+        permissions = (
+            # Permission identifier     human-readable permission name
+            ("listar_ordenes_repuestos",       "Se permite editar, activar , desactivar, listar" ),
+        )
 
     orden = models.ForeignKey(Orden)
     repuesto = models.ManyToManyField(Repuesto)

@@ -46,14 +46,14 @@ $('#form_repuesto').bootstrapValidator({
                     {
                         message: 'debe ingresar el costo del repuesto'
                     },
-                    digits:
-                    {
-                        message:'debe introducir numeros'
+                      between: {
+                            min: 0,
+                            max: 2147483647,
+                            message: 'El costo debe ser menor a 2.147\'483.647'
+                        }
+
                     }
-
-                }
-
-            },
+                },
 
             cantidad:
             {
@@ -63,10 +63,11 @@ $('#form_repuesto').bootstrapValidator({
                     {
                         message: 'debe ingresar la cantidad'
                     },
-                    digits:
-                    {
-                        message:'debe introducir numeros'
-                    }
+                    between: {
+                            min: 0,
+                            max: 2147483647,
+                            message: 'El cantidad debe ser menor a 2.147\'483.647'
+                        }
 
                 }
             }

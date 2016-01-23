@@ -13,7 +13,6 @@ from SICON.SICON import settings
 urlpatterns = patterns('',
     url(r'^indexAdmin',index_admin),
     url(r'^login',iniciar_sesion),
-    url(r'^dropdown_modelo',cargar_modelos),
     url(r'^logout',cerrar_sesion),
 
     url(r'^admin/', include(admin.site.urls)),

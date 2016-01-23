@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from .forms import RepuestoForm
 from django.http import HttpResponseRedirect,HttpResponse
-from .models import Repuesto,Marca,Modelo,Empleado,Gerente,Inventario
+from .models import Repuesto,Marca,Empleado,Gerente
 from django import forms
+from SICON.reparacion.views_inventario import registro_inventario
 import json
 # Create your views here.
 def crear_repuesto(request):
@@ -14,7 +15,8 @@ def crear_repuesto(request):
         id = request.session["id"]
         empleado = Gerente.objects.filter (user_ptr_id = id).first()
         r = Repuesto.objects.filter (codigo =request.POST['codigo'], sucursal = empleado.sucursal).first()
-        post = True
+        if not r is None:
+            post = True
     if (repuesto.is_valid() and r is  None):
         repuest =  repuesto.save(commit=False)
         repuest.sucursal = empleado.sucursal
@@ -58,24 +60,20 @@ def inventario (request,id):
     repuesto = Repuesto.objects.get(pk = id)
     if request.method == 'POST':
         cantidad = request.POST['cantidad_inv']
-        repuesto.cantidad+= int (cantidad)
-        repuesto.save()
-        mvto = Inventario (repuesto = repuesto,tipo_movimiento = 'entrada',cantidad = cantidad,
-                           cantidad_anterior = int (repuesto.cantidad) - int (cantidad) , cantidad_actual = repuesto.cantidad)
-        mvto.save()
+        registro_inventario(repuesto,'entrada',cantidad);
         return HttpResponseRedirect('/repuestos/')
     return render(request, 'lista_repuestos.html', {'repuestos': repuestos, 'inventario': True, 'rep': repuesto})
 
 
-def cargar_modelos (request):
-        opcion =request.GET['option']
-        modelos = Modelo.objects.filter(marca = opcion)
-        string_respuesta = ""
-        for modelo in modelos:
-            string_respuesta += str(modelo.id)+":"+modelo.nombre+","
-        string_respuesta = string_respuesta[0:-1]
-
-        return HttpResponse(string_respuesta)
+# def cargar_modelos (request):
+#         opcion =request.GET['option']
+#         modelos = Modelo.objects.filter(marca = opcion)
+#         string_respuesta = ""
+#         for modelo in modelos:
+#             string_respuesta += str(modelo.id)+":"+modelo.nombre+","
+#         string_respuesta = string_respuesta[0:-1]
+#
+#         return HttpResponse(string_respuesta)
 
 
 def eliminar_repuesto(request, id):

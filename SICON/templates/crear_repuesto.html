@@ -131,11 +131,12 @@ para traer el bloque de codigo que esta en la pagina blank.html
     });
     </script>
     <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
-    <script type="text/javascript" src="{{STATIC_URL}}/static/js/modelos.js"></script>
-    <script >
-        $(document).ready(function () {
-            $('#id_modelo_carro').empty();
-        });
-    </script>
+    <!--<script type="text/javascript" src="{{STATIC_URL}}/static/js/modelos.js"></script>-->
+
+    <script type="text/javascript">
+  $(document).ready(function(){
+    $("#id_marca_carro").select2({width:'100%'});
+  });
+  </script>
 
 {%endblock%}

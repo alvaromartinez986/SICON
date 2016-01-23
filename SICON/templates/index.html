@@ -83,7 +83,7 @@
                     <div class="intro-message">
                         <img src="{{STATIC_URL}}/static/img/logoSiscon.png">
                         <h1><b>SICON</b></h1>
-                        <h3>Sistema de Inforacion de concesionario</h3>
+                        <h3>Sistema de Informacion de concesionario</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
 
@@ -113,30 +113,17 @@
 
             <div class="row">
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <h2 class="section-heading" style="color:white">Deseas conocer el estado de tu vehiculo?</h2>
-                    <p class="lead" style="color:white">Ingresa tu placa aqui!</p>
-                            {% if exito_app %}
-						        <div class="alert alert-success alert-dismissable">
-							        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-							        <i class="fa fa-check"></i> Se ha registrado su solicitud con exito!
-						        </div>
-					        {% endif %}
-                            <form role="form" class="form-inline" method="post">
-                                {% csrf_token %}
-                                <h3><small style="color: white">.</small></h3>
-                                <p style="color: red">{{error}}</p>
-                                <div class="form-group"><label for="cc" class="sr-only">Cedula</label>
-                                    <input type="number" placeholder="Ingrese su cedula" id="cc" name= "cc" class="form-control"></div>
-                                <button class="btn btn-primary" type="submit">Consultar</button></form>
+                    <h2 class="section-heading" style="color:white">¿Deseas conocer el estado de tu vehiculo?</h2>
+                    <p class="lead" style="color:white">¡Ingresa tu placa aqui!</p>
+                                <div class="form-group"><label for="placa" class="sr-only">Placa</label>
+                                    <input placeholder="Ingrese la placa" id="placa" name= "placa" class="form-control"></div>
+                                <button class="btn btn-primary" id="btnEstado">Consultar</button></form>
+                    <p class="lead" style="color:white" id="lblRespuesta"></p>
                 </div>
                 <div class="col-lg-6 col-sm-pull-6  col-sm-6">
                     <img class="img-responsive" src="{{STATIC_URL}}/static/img/car-status.jpg" alt="">
                     <div class="col-lg-15">
                         <div class="widget navy-bg no-padding">
-
-                            <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-chart1"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -254,6 +241,22 @@
     <script src="{{STATIC_URL}}/static/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
     <script src="{{STATIC_URL}}/static/js/plugins/flot/jquery.flot.resize.js"></script>
     <script src="{{STATIC_URL}}/static/js/plugins/chosen/chosen.jquery.js"></script>
+
+    <script>
+    $(document).ready(function() {
+      $("#btnEstado").click( function()
+           {
+            var pla = $('#placa').val();
+            $.getJSON('/reparacion/estado_orden/'+pla, function(data, jqXHR){
+                $("p#lblRespuesta").text(data.respuesta);
+    });
+           }
+      );
+});
+    </script>
+
+    <!--    alert('Fetched ' + data.respuesta + ' items!');-->
+
 
     <script>
 

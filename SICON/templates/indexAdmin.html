@@ -62,7 +62,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"> <p class="text-danger">Panel Administrador de SISCON ,  Bienvenido  {{usuario.first_name}} </p> </a>
+                <a class="navbar-brand" href="index.html"> <p class="text-danger">Panel Administrador de SISCON ,  Bienvenido  {{request.user.name}} </p> </a>
 
             </div>
             <!-- /.navbar-header -->
@@ -96,13 +96,13 @@
                             <!-- /input-group -->
                         </li>
                             <!-- /input-group -->
-                        {% if user.is_authenticated%}
+                        {% if 'administrador.listar_Sucursales' in permisos and user.is_authenticated%}
                             <li>
                                 <a href="{% url 'listar_sucursales' %}" class="text-danger"> <i class="fa fa-briefcase fa-fw"></i> Sucursales</a>
                             </li>
                         {% endif %}
 
-                        {% if user.is_authenticated%}
+                        {% if 'administrador.listar_Empleados' in permisos and user.is_authenticated%}
 
                             <li>
                                 <a href="{% url 'listar_empleados' %}" class="text-danger"><i class="fa fa-user-md fa-fw"></i> Empleados</a>
@@ -110,7 +110,7 @@
 
                         {% endif %}
 
-                        {% if user.is_authenticated%}
+                        {% if 'administrador.listar_Repuestos' in permisos  and user.is_authenticated%}
 
                             <li>
                                 <a href="{% url 'listar_repuestos' %}" class="text-danger"><i class="fa fa-wrench fa-fw"></i> Repuestos</a>
@@ -118,23 +118,23 @@
 
                         {% endif %}
 
-                        {% if user.is_authenticated%}
+                        {% if 'administrador.listar_Vehiculo_Nuevo' in permisos  and user.is_authenticated%}
 
                             <li>
-                                <a href="{% url 'listar_vehiculos_nuevos' %}" class="text-danger"><i class="fa fa-car fa-fw"></i> Vehiculos Nuevos</a>
+                                <a href="{% url 'listar_vehiculos_nuevos' %}" class="text-danger"><i class="fa fa-car fa-fw"></i> Vehiculos para vender</a>
                             </li>
                         {% endif %}
 
-                        {% if user.is_authenticated%}
+                        {% if 'administrador.listar_Vehiculo_Usado' in permisos and user.is_authenticated%}
                             <li>
-                                <a href="{% url 'listar_vehiculos_usados' %}" class="text-danger"><i class="fa fa-car fa-fw"></i> Vehiculos Usados</a>
+                                <a href="{% url 'listar_vehiculos_usados' %}" class="text-danger"><i class="fa fa-car fa-fw"></i> Vehiculos para reparación</a>
                             </li>
                         {% endif %}
 
 
 
 
-                        {% if 'empleado.listar_ordenes' in perms and user.is_authenticated%}
+                        {% if 'reparacion.listar_ordenes' in permisos and user.is_authenticated%}
                             <li>
                                 <a href="{% url 'listar_ordenes' %}" class="text-danger"><i class="fa fa-cogs fa-fw"></i> Ordenes de Trabajo</a>
                             </li>

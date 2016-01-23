@@ -50,5 +50,6 @@ def index(request):
 @login_required(login_url='/login')
 def index_admin(request):
     id_sesion = request.session["id"]
-    usuario = User.objects.filter(id=id_sesion)
-    return render(request,'indexAdmin.html',{'usuario':usuario[0]})
+    usuario = User.objects.filter(id=id_sesion).first()
+    permisos = list(usuario.get_all_permissions())
+    return render(request,'indexAdmin.html',{'usuario':usuario, 'permisos':permisos})

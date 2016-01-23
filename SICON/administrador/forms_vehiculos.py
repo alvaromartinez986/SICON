@@ -10,7 +10,7 @@ class VehiculoNuevoForm(ModelForm):
         widgets = {
             'codigo': forms.TextInput(attrs={'class':'form-control required','placeholder':'Código...'}),
 			'cilindraje': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Cilindraje...', 'min':'0'}),
-            'marca': forms.TextInput(attrs={'class':'form-control required','placeholder':'Marca...'}),
+            'marca': forms.Select(attrs={'class':'chosen-select required', 'placeholder': 'Marca..'}),
             'linea': forms.TextInput(attrs={'class':'form-control required','placeholder':'Línea...'}),
             'modelo': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Modelo...', 'min':'1950'}),
             'tipo_combustible' : forms.Select(attrs={'class':'form-control required'}),

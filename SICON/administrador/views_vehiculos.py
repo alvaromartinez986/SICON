@@ -10,10 +10,10 @@ def crear_vehiculo_nuevo(request):
     if request.method=='POST':
         vehiculo_n = VehiculoNuevoForm(request.POST)
         id = request.session["id"]
-        id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
-        empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+        empleado = Gerente.objects.filter (user_ptr_id = id).first()
         v = VehiculoNuevo.objects.filter (codigo =request.POST['codigo'], sucursal = empleado.sucursal).first()
-        post = True
+        if not v is None:
+            post = True
     if vehiculo_n.is_valid() and v is None:
         veh = vehiculo_n.save(commit=False)
         veh.sucursal = empleado.sucursal
@@ -24,8 +24,7 @@ def crear_vehiculo_nuevo(request):
 
 def listar_vehiculos_nuevos(request):
     id = request.session["id"]
-    id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
-    empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+    empleado = Gerente.objects.filter (user_ptr_id = id).first()
     vehiculos_n = VehiculoNuevo.objects.filter(sucursal=empleado.sucursal)
     return render(request,'lista_vehiculos_nuevos.html',{'vehiculos_nuevos':vehiculos_n })
 
@@ -69,8 +68,7 @@ def crear_vehiculo_usado(request):
     if request.method=='POST':
         vehiculo_u = VehiculoUsadoForm(request.POST)
         id = request.session["id"]
-        id_empleado = JefeTaller.objects.filter (user_ptr_id = id).first().empleado_ptr_id
-        empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+        empleado = JefeTaller.objects.filter (user_ptr_id = id).first()
     if vehiculo_u.is_valid():
         veh = vehiculo_u.save()
         veh.sucursal = empleado.sucursal
@@ -81,15 +79,13 @@ def crear_vehiculo_usado(request):
 
 def listar_vehiculos_usados(request):
     id = request.session["id"]
-    id_empleado = JefeTaller.objects.filter (user_ptr_id = id).first().empleado_ptr_id
-    empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+    empleado = JefeTaller.objects.filter (user_ptr_id = id).first()
     vehiculos_u = VehiculoUsado.objects.filter(sucursal=empleado.sucursal)
     return render(request,'lista_vehiculos_usados.html',{'vehiculos_usados':vehiculos_u })
 
 def editar_vehiculo_usado(request, id_v):
     id = request.session["id"]
-    id_empleado = JefeTaller.objects.filter (user_ptr_id = id).first().empleado_ptr_id
-    empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+    empleado = JefeTaller.objects.filter (user_ptr_id = id).first()
     vehs_u = VehiculoUsado.objects.filter(sucursal=empleado.sucursal)
     veh_u = VehiculoUsado.objects.get(id = id_v)
     form_edicion = VehiculoUsadoForm(instance=veh_u, initial=veh_u.__dict__)

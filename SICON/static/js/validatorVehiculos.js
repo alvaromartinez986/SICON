@@ -75,6 +75,11 @@ $('#form_vehiculo_nuevo').bootstrapValidator({
                     notEmpty: {
                         message: 'El valor del vehículo es requerido'
                     }
+                    between: {
+                            min: 0.0,
+                            max: 2147483647,
+                            message: 'El valor del vehículo debe ser menor a 2\'147.483.647'
+                    }
 
                 }
 

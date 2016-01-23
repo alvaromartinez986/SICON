@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f43c95fe-2f1d-45bd-955f-a401324dae7b" name="Default" comment="validacion con bootstrap.&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/static/js/validatorVehiculos.js" afterPath="$PROJECT_DIR$/SICON/static/js/validatorVehiculos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" />
     </list>
     <ignored path="SICON.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,16 +37,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modelos.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/static/js/modelos.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="marcas.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SICON/static/marcas.sql">
           <provider selected="true" editor-type-id="text-editor">
@@ -60,10 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views_vehiculos.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views_vehiculos.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SICON/administrador/views_vehiculos.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56278026">
+            <state vertical-scroll-proportion="0.0">
               <caret line="87" column="67" selection-start-line="87" selection-start-column="67" selection-end-line="87" selection-end-column="67" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -95,8 +82,18 @@
       <file leaf-file-name="crear_vehiculo_nuevo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.625">
-              <caret line="33" column="87" selection-start-line="33" selection-start-column="87" selection-end-line="33" selection-end-column="87" />
+            <state vertical-scroll-proportion="-28.666666">
+              <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="123" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crear_vehiculo_usado.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.86175114">
+              <caret line="118" column="11" selection-start-line="118" selection-start-column="11" selection-end-line="118" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -172,13 +169,13 @@
         <option value="$PROJECT_DIR$/SICON/templates/index.html" />
         <option value="$PROJECT_DIR$/SICON/templates/indexAdmin.html" />
         <option value="$PROJECT_DIR$/SICON/SICON/settings.py" />
-        <option value="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" />
         <option value="$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html" />
         <option value="$PROJECT_DIR$/SICON/administrador/vehiculos.py" />
         <option value="$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py" />
         <option value="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" />
         <option value="$PROJECT_DIR$/SICON/static/js/validatorVehiculos.js" />
         <option value="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" />
+        <option value="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" />
       </list>
     </option>
   </component>
@@ -584,7 +581,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1682" height="1025" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -873,14 +870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="52" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_usados.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1007,14 +996,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.625">
-          <caret line="33" column="87" selection-start-line="33" selection-start-column="87" selection-end-line="33" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SICON/static/js/validatorVehiculos.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1025,11 +1006,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SICON/administrador/views_vehiculos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56278026">
+        <state vertical-scroll-proportion="0.0">
           <caret line="87" column="67" selection-start-line="87" selection-start-column="67" selection-end-line="87" selection-end-column="67" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.666666">
+          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="123" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.86175114">
+          <caret line="118" column="11" selection-start-line="118" selection-start-column="11" selection-end-line="118" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>

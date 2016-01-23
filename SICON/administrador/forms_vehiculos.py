@@ -25,7 +25,7 @@ class VehiculoUsadoForm(ModelForm):
         widgets = {
             'placa': forms.TextInput(attrs={'class':'form-control required','placeholder':'Placa...'}),
 			'cilindraje': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Cilindraje...'}),
-            'marca': forms.TextInput(attrs={'class':'form-control required','placeholder':'Marca...'}),
+            'marca': forms.Select(attrs={'class':'chosen-select required', 'placeholder': 'Marca..'}),
             'linea': forms.TextInput(attrs={'class':'form-control required','placeholder':'Línea...'}),
             'modelo': forms.NumberInput(attrs={'class':'form-control required','placeholder':'Modelo...', 'min':'1950'}),
             'tipo_combustible' : forms.Select(attrs={'class':'form-control required'}),

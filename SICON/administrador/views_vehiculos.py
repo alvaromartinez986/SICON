@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import VehiculoNuevoForm, VehiculoUsadoForm
 from django.http import HttpResponseRedirect
-from .models import VehiculoNuevo,VehiculoUsado, Empleado, Gerente
+from .models import VehiculoNuevo,VehiculoUsado, Empleado, Gerente, JefeTaller
 
 def crear_vehiculo_nuevo(request):
     vehiculo_n = VehiculoNuevoForm()
@@ -69,7 +69,7 @@ def crear_vehiculo_usado(request):
     if request.method=='POST':
         vehiculo_u = VehiculoUsadoForm(request.POST)
         id = request.session["id"]
-        id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
+        id_empleado = JefeTaller.objects.filter (user_ptr_id = id).first().empleado_ptr_id
         empleado = Empleado.objects.filter (emp_id = id_empleado).first()
     if vehiculo_u.is_valid():
         veh = vehiculo_u.save()
@@ -81,14 +81,14 @@ def crear_vehiculo_usado(request):
 
 def listar_vehiculos_usados(request):
     id = request.session["id"]
-    id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
+    id_empleado = JefeTaller.objects.filter (user_ptr_id = id).first().empleado_ptr_id
     empleado = Empleado.objects.filter (emp_id = id_empleado).first()
     vehiculos_u = VehiculoUsado.objects.filter(sucursal=empleado.sucursal)
     return render(request,'lista_vehiculos_usados.html',{'vehiculos_usados':vehiculos_u })
 
 def editar_vehiculo_usado(request, id_v):
     id = request.session["id"]
-    id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
+    id_empleado = JefeTaller.objects.filter (user_ptr_id = id).first().empleado_ptr_id
     empleado = Empleado.objects.filter (emp_id = id_empleado).first()
     vehs_u = VehiculoUsado.objects.filter(sucursal=empleado.sucursal)
     veh_u = VehiculoUsado.objects.get(id = id_v)

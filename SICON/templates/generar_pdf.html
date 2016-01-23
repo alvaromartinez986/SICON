@@ -64,10 +64,9 @@ para traer el bloque de codigo que esta en la pagina blank.html
 {% if venta %}
 <script>
     $(document).ready(function() {
-        alert ("generar_pdf")
         var d = new Date();
         var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-        var fecha = d.getDate() + " de " + meses [(d.getMonth() +1)] + " del " + d.getFullYear();
+        var fecha = d.getDate() + " de " + meses [(d.getMonth())] + " del " + d.getFullYear();
         var carros = "{{vehiculos}}"
         obj_carros = JSON.parse(carros.replace(/&quot;/g,'"'));
 //      datos cliente

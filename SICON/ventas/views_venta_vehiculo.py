@@ -48,8 +48,7 @@ def registrar_venta (request):
 
         fecha = datetime.datetime.now()
         id_vendedor = request.session["id"]
-        emp = Vendedor.objects.filter (user_ptr_id = id_vendedor).first()
-        empleado = Empleado.objects.filter (emp_id = emp.empleado_ptr_id).first()
+        empleado = Vendedor.objects.filter (user_ptr_id = id_vendedor).first()
         venta = Venta (identificacion_cliente = cliente,identificacion_vendedor = empleado,total = 0,fecha = fecha)
         venta.save()
 
@@ -87,8 +86,7 @@ def registrar_venta (request):
 
 def venta_vehiculos(request, id_cliente):
     id = request.session["id"]
-    emp = Vendedor.objects.filter (user_ptr_id = id).first()
-    empleado = Empleado.objects.filter (emp_id = emp.empleado_ptr_id).first()
+    empleado = Vendedor.objects.filter (user_ptr_id = id).first()
     vehiculos_n = VehiculoNuevo.objects.filter(activo = True, vendido = False,sucursal = empleado.sucursal)
     cliente = Cliente.objects.filter(id=id_cliente).first()
     return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente})

@@ -12,8 +12,7 @@ def crear_repuesto(request):
     if request.method=='POST':
         repuesto = RepuestoForm(request.POST)
         id = request.session["id"]
-        id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
-        empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+        empleado = Gerente.objects.filter (user_ptr_id = id).first()
         r = Repuesto.objects.filter (codigo =request.POST['codigo'], sucursal = empleado.sucursal).first()
         post = True
     if (repuesto.is_valid() and r is  None):
@@ -28,15 +27,13 @@ def crear_repuesto(request):
 def listar_repuestos(request):
     id = request.session["id"]
     print id
-    id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
-    empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+    empleado = Gerente.objects.filter (user_ptr_id = id).first()
     repuestos = Repuesto.objects.filter(sucursal = empleado.sucursal)
     return render(request,'lista_repuestos.html',{'repuestos':repuestos})
 
 def editar_repuesto(request, id):
     id_session = request.session["id"]
-    id_empleado = Gerente.objects.filter (user_ptr_id = id_session).first().empleado_ptr_id
-    empleado = Empleado.objects.filter (emp_id = id_empleado).first()
+    empleado = Gerente.objects.filter (user_ptr_id = id_session).first()
     repuestos = Repuesto.objects.filter(sucursal = empleado.sucursal)
     repuesto = Repuesto.objects.get(pk = id)
     print "marca"

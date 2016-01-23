@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
                 ('experiencia', models.IntegerField()),
                 ('jornada', models.CharField(max_length=15, choices=[(b'Manana', b'Ma\xc3\xb1ana'), (b'Tarde', b'Tarde'), (b'Noche', b'Noche')])),
                 ('fecha_vinculacion', models.DateField(blank=True)),
-                ('cargo', models.CharField(max_length=150, choices=[(b'Vendedor', b'Vendedor'), (b'Jefe de taller', b'Jefe de taller'), (b'Gerente', b'Gerente'), (b'Mecanico', b'Mec\xc3\xa1nico')])),
+                ('cargo', models.CharField(blank=True, max_length=150, null=True, choices=[(b'Vendedor', b'Vendedor'), (b'Jefe de taller', b'Jefe de taller'), (b'Gerente', b'Gerente'), (b'Mecanico', b'Mec\xc3\xa1nico')])),
                 ('telefono', models.CharField(max_length=150)),
                 ('genero', models.CharField(max_length=15, choices=[(b'Masculino', b'Masculino'), (b'Femenino', b'Femenino')])),
                 ('fecha_nacimiento', models.DateField()),
@@ -211,7 +211,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='empleado',
             name='sucursal',
-            field=models.ForeignKey(to='administrador.Sucursal'),
+            field=models.ForeignKey(blank=True, to='administrador.Sucursal', null=True),
         ),
         migrations.AddField(
             model_name='ciudad',

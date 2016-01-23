@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,7 +91,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-							
+
                             <img src="{{STATIC_URL}}/static/logoSiscon.png" alt="logo siscon" class="img-rounded" width="180" height="150">
                             <!-- /input-group -->
                         </li>
@@ -168,17 +169,37 @@
                 </div>
                 <!-- /.row -->
             </div>
+
+
             <div id="footer">
-      <div class="container">
-        <p class="text-danger credit"><strong>Copyright </strong>SISCON Univalle &copy; 2015</a>.</p>
-      </div>
-    </div>
+                  <div class="container">
+                    <p class="text-danger credit"><strong>Copyright </strong>SISCON Univalle &copy; 2015</a>.</p>
+                  </div>
+                </div>
             <!-- /.container-fluid -->
+
+            <div id="chartdiv" style="height: 450px"></div>
+                <div class="container-fluid">
+                  <div class="row text-center" style="overflow:hidden;">
+                        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+                            <label class="text-left">Angle:</label>
+                            <input class="chart-input" data-property="angle" type="range" min="0" max="60" value="40" step="1"/>
+                        </div>
+
+                        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+                            <label class="text-left">Depth:</label>
+                            <input class="chart-input" data-property="depth3D" type="range" min="1" max="120" value="100" step="1"/>
+                        </div>
+
+                    </div>
+                </div>
+
+
         </div>
         <!-- /#page-wrapper -->
 
         </div>
-        
+
     <!-- /#wrapper -->
 
     {%block js%}
@@ -202,6 +223,74 @@
 
     {%endblock%}
 
-</body>
 
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/funnel.js"></script>
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+
+    <script>
+     $(document).ready(function(){
+         console.log("Hola");
+    var chart = AmCharts.makeChart( "chartdiv", {
+  "type": "funnel",
+  "theme": "light",
+  "dataProvider": [ {
+    "title": "Website visits",
+    "value": 200
+  }, {
+    "title": "Downloads",
+    "value": 123
+  }, {
+    "title": "Requested price list",
+    "value": 98
+  }, {
+    "title": "Contaced for more info",
+    "value": 72
+  }, {
+    "title": "Purchased",
+    "value": 35
+  }, {
+    "title": "Contacted for support",
+    "value": 35
+  }, {
+    "title": "Purchased additional products",
+    "value": 26
+  } ],
+  "balloon": {
+    "fixedPosition": true
+  },
+  "valueField": "value",
+  "titleField": "title",
+  "marginRight": 240,
+  "marginLeft": 50,
+  "startX": -500,
+  "depth3D": 100,
+  "angle": 40,
+  "outlineAlpha": 1,
+  "outlineColor": "#FFFFFF",
+  "outlineThickness": 2,
+  "labelPosition": "right",
+  "balloonText": "[[title]]: [[value]]n[[description]]",
+  "export": {
+    "enabled": true
+  }} ,0);
+
+jQuery( '.chart-input' ).off().on( 'input change', function() {
+  var property = jQuery( this ).data( 'property' );
+  var target = chart;
+  var value = Number( this.value );
+  chart.startDuration = 0;
+
+  if ( property == 'innerRadius' ) {
+    value += "%";
+  }
+
+  target[ property ] = value;
+  chart.validateNow();
+} );});
+        console.log("Despues")
+</script>
+
+</body>
 </html>

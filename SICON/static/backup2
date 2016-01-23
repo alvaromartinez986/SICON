@@ -1,0 +1,1501 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.4.5
+-- Dumped by pg_dump version 9.4.5
+-- Started on 2016-01-23 13:11:39 COT
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+SET search_path = public, pg_catalog;
+
+--
+-- TOC entry 3123 (class 0 OID 935101)
+-- Dependencies: 193
+-- Data for Name: administrador_departamento; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY administrador_departamento (id, nombre, codigo, latitud, longitud) FROM stdin;
+1	Amazonas	91	-1	-72
+2	Antioquia	5	7	-76
+3	Arauca	81	7	-71
+4	Atlántico	8	11	-75
+5	Bolívar	13	9	-74
+6	Boyacá	15	6	-73
+7	Caldas	17	5	-76
+8	Caquetá	18	1	-74
+9	Casanare	85	6	-72
+10	Cauca	19	3	-77
+11	Cesar	20	9	-74
+12	Chocó	27	6	-77
+13	Cundinamarca	25	5	-74
+14	Córdoba	23	8	-76
+15	Guainía	94	3	-69
+16	Guaviare	95	2	-73
+17	Huila	41	3	-76
+18	La Guajira	44	12	-73
+19	Magdalena	47	10	-75
+20	Meta	50	4	-73
+21	Nariño	52	2	-78
+22	Norte de Santander	54	8	-73
+23	Putumayo	86	1	-76
+24	Quindío	63	5	-76
+25	Risaralda	66	5	-76
+26	San Andrés	88	13	-82
+27	Santander	68	7	-73
+28	Sucre	70	9	-75
+29	Tolima	73	4	-75
+30	Valle del Cauca	76	4	-77
+31	Vaupés	97	0	-71
+32	Vichada	99	5	-70
+\.
+
+
+--
+-- TOC entry 3121 (class 0 OID 935093)
+-- Dependencies: 191
+-- Data for Name: administrador_ciudad; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY administrador_ciudad (id, nombre, codigo, latitud, longitud, departamento_id) FROM stdin;
+1	Abejorral	5002	6	-75	2
+2	Abriaquí	5004	7	-76	2
+3	Acacías	50006	4	-74	20
+4	Acandí	27006	8	-77	12
+5	Acevedo	41006	2	-76	17
+6	Achí	13006	8	-75	5
+7	Agrado	41013	2	-76	17
+8	Agua de Dios	25001	4	-75	13
+9	Aguachica	20011	8	-74	11
+10	Aguada	68013	6	-73	27
+11	Aguadas	17013	6	-75	7
+12	Aguazul	85010	5	-73	9
+13	Agustín Codazzi	20013	10	-73	11
+14	Aipe	41016	3	-75	17
+15	Albania	18029	1	-76	8
+16	Albania	44035	11	-73	18
+17	Albania	68020	6	-74	27
+18	Albán	25019	5	-74	13
+19	Albán (San José)	52019	1	-77	21
+20	Alcalá	76020	5	-76	30
+21	Aldana	52022	1	-78	21
+22	Alejandria	5021	6	-75	2
+23	Algarrobo	47030	10	-75	19
+24	Algeciras	41020	3	-75	17
+25	Almaguer	19022	2	-77	10
+26	Almeida	15022	5	-73	6
+27	Alpujarra	73024	3	-75	29
+28	Altamira	41026	2	-76	17
+29	Alto Baudó (Pie de Pato)	27025	6	-77	12
+30	Altos del Rosario	13030	9	-74	5
+31	Alvarado	73026	5	-75	29
+32	Amagá	5030	6	-76	2
+33	Amalfi	5031	7	-75	2
+34	Ambalema	73030	5	-75	29
+35	Anapoima	25035	5	-75	13
+36	Ancuya	52036	1	-78	21
+37	Andalucía	76036	4	-76	30
+38	Andes	5034	6	-76	2
+39	Angelópolis	5036	6	-76	2
+40	Angostura	5038	7	-75	2
+41	Anolaima	25040	5	-75	13
+42	Anorí	5040	7	-75	2
+43	Anserma	17042	5	-76	7
+44	Ansermanuevo	76041	5	-76	30
+45	Anzoátegui	73043	5	-75	29
+46	Anzá	5044	6	-76	2
+47	Apartadó	5045	8	-77	2
+48	Apulo	25599	5	-75	13
+49	Apía	66045	5	-76	25
+50	Aquitania	15047	6	-73	6
+51	Aracataca	47053	11	-74	19
+52	Aranzazu	17050	5	-75	7
+53	Aratoca	68051	7	-73	27
+54	Arauca	81001	7	-71	3
+55	Arauquita	81065	7	-71	3
+56	Arbeláez	25053	4	-75	13
+57	Arboleda (Berruecos)	52051	2	-77	21
+58	Arboledas	54051	8	-73	22
+59	Arboletes	5051	9	-76	2
+60	Arcabuco	15051	6	-73	6
+61	Arenal	13042	8	-74	5
+62	Argelia	5055	6	-75	2
+63	Argelia	19050	2	-77	10
+64	Argelia	76054	5	-76	30
+65	Ariguaní (El Difícil)	47058	10	-74	19
+66	Arjona	13052	10	-75	5
+67	Armenia	5059	6	-76	2
+68	Armenia	63001	5	-76	24
+69	Armero (Guayabal)	73055	5	-75	29
+70	Arroyohondo	13062	10	-75	5
+71	Astrea	20032	10	-74	11
+72	Ataco	73067	3	-76	29
+73	Atrato (Yuto)	27050	6	-77	12
+74	Ayapel	23068	8	-75	14
+75	Bagadó	27073	6	-76	12
+76	Bahía Solano (Mútis)	27075	6	-77	12
+77	Bajo Baudó (Pizarro)	27077	5	-77	12
+78	Balboa	19075	2	-77	10
+79	Balboa	66075	5	-76	25
+80	Baranoa	8078	11	-75	4
+81	Baraya	41078	3	-75	17
+82	Barbacoas	52079	2	-78	21
+83	Barbosa	5079	6	-75	2
+84	Barbosa	68077	6	-74	27
+85	Barichara	68079	7	-73	27
+86	Barranca de Upía	50110	5	-73	20
+87	Barrancabermeja	68081	7	-74	27
+88	Barrancas	44078	0	-73	18
+89	Barranco de Loba	13074	9	-74	5
+90	Barranquilla	8001	11	-75	4
+91	Becerríl	20045	10	-73	11
+92	Belalcázar	17088	5	-76	7
+93	Bello	5088	6	-76	2
+94	Belmira	5086	7	-76	2
+95	Beltrán	25086	5	-75	13
+96	Belén	15087	6	-73	6
+97	Belén	52083	2	-77	21
+98	Belén de Bajirá	27086	7	-77	12
+99	Belén de Umbría	66088	5	-76	25
+100	Belén de los Andaquíes	18094	1	-76	8
+101	Berbeo	15090	5	-73	6
+102	Betania	5091	6	-76	2
+103	Beteitiva	15092	6	-73	6
+104	Betulia	5093	6	-76	2
+105	Betulia	68092	7	-73	27
+106	Bituima	25095	5	-75	13
+107	Boavita	15097	6	-73	6
+108	Bochalema	54099	8	-73	22
+109	Bogotá D.C.	11001	5	-74	13
+110	Bojacá	25099	5	-74	13
+111	Bojayá (Bellavista)	27099	7	-77	12
+112	Bolívar	5101	6	-76	2
+113	Bolívar	19100	2	-77	10
+114	Bolívar	68101	6	-74	27
+115	Bolívar	76100	4	-76	30
+116	Bosconia	20060	10	-74	11
+117	Boyacá	15104	6	-73	6
+118	Briceño	5107	7	-76	2
+119	Briceño	15106	6	-74	6
+120	Bucaramanga	68001	7	-73	27
+121	Bucarasica	54109	8	-73	22
+122	Buenaventura	76109	4	-77	30
+123	Buenavista	15109	6	-74	6
+124	Buenavista	23079	9	-76	14
+125	Buenavista	63111	4	-76	24
+126	Buenavista	70110	9	-75	28
+127	Buenos Aires	19110	3	-77	10
+128	Buesaco	52110	1	-77	21
+129	Guadalajara de Buga	76111	4	-76	30
+130	Bugalagrande	76113	4	-76	30
+131	Burítica	5113	7	-76	2
+132	Busbanza	15114	6	-73	6
+133	Cabrera	25120	4	-74	13
+134	Cabrera	68121	7	-73	27
+135	Cabuyaro	50124	4	-73	20
+136	Cachipay	25123	5	-75	13
+137	Caicedo	5125	6	-76	2
+138	Caicedonia	76122	4	-76	30
+139	Caimito	70124	9	-75	28
+140	Cajamarca	73124	4	-76	29
+141	Cajibío	19130	3	-77	10
+142	Cajicá	25126	5	-74	13
+143	Calamar	13140	10	-75	5
+144	Calamar	95015	2	-73	16
+145	Calarcá	63130	5	-76	24
+146	Caldas	5129	6	-76	2
+147	Caldas	15131	6	-74	6
+148	Caldono	19137	3	-76	10
+149	California	68132	7	-73	27
+150	Calima el Darién	76126	4	-77	30
+151	Caloto	19142	3	-76	10
+152	Santiago de Cali	76001	3	-77	30
+153	Campamento	5134	7	-75	2
+154	Campo de la Cruz	8137	10	-75	4
+155	Campoalegre	41132	3	-75	17
+156	Campohermoso	15135	5	-73	6
+157	Canalete	23090	9	-76	14
+158	Candelaria	8141	11	-75	4
+159	Candelaria	76130	3	-76	30
+160	Cantagallo	13160	7	-74	5
+161	Cantón de San Pablo	27135	5	-77	12
+162	Caparrapí	25148	5	-75	13
+163	Capitanejo	68147	7	-73	27
+164	Caracolí	5142	6	-75	2
+165	Caramanta	5145	6	-76	2
+166	Carcasí	68152	7	-73	27
+167	Carepa	5147	8	-77	2
+168	Carmen de Apicalá	73148	4	-75	29
+169	Carmen de Carupa	25154	5	-74	13
+170	Carmen de Viboral	5148	6	-75	2
+171	Carmen del Darién (CURBARADÓ)	27150	7	-77	12
+172	Carolina	5150	7	-75	2
+173	Cartagena	13001	10	-76	5
+174	Cartagena del Chairá	18150	1	-75	8
+175	Cartago	76147	5	-76	30
+176	Carurú	97161	1	-71	31
+177	Casabianca	73152	5	-75	29
+178	Castilla la Nueva	50150	4	-74	20
+179	Caucasia	5154	8	-75	2
+180	Cañasgordas	5138	7	-76	2
+181	Cepita	68160	7	-73	27
+182	Cereté	23162	9	-76	14
+183	Cerinza	15162	6	-73	6
+184	Cerrito	68162	7	-73	27
+185	Cerro San Antonio	47161	10	-75	19
+186	Chachaguí	52240	1	-77	21
+187	Chaguaní	25168	5	-75	13
+188	Chalán	70230	10	-75	28
+189	Chaparral	73168	4	-76	29
+190	Charalá	68167	6	-73	27
+191	Charta	68169	7	-73	27
+192	Chigorodó	5172	8	-77	2
+193	Chima	68176	6	-73	27
+194	Chimichagua	20175	9	-74	11
+195	Chimá	23168	9	-76	14
+196	Chinavita	15172	5	-73	6
+197	Chinchiná	17174	5	-76	7
+198	Chinácota	54172	8	-73	22
+199	Chinú	23182	9	-75	14
+200	Chipaque	25178	5	-74	13
+201	Chipatá	68179	6	-74	27
+202	Chiquinquirá	15176	6	-74	6
+203	Chiriguaná	20178	10	-73	11
+204	Chiscas	15180	7	-72	6
+205	Chita	15183	6	-72	6
+206	Chitagá	54174	7	-73	22
+207	Chitaraque	15185	6	-73	6
+208	Chivatá	15187	6	-73	6
+209	Chivolo	47170	10	-75	19
+210	Choachí	25181	5	-74	13
+211	Chocontá	25183	5	-74	13
+212	Chámeza	85015	5	-73	9
+213	Chía	25175	5	-74	13
+214	Chíquiza	15232	6	-73	6
+215	Chívor	15236	5	-73	6
+216	Cicuco	13188	9	-75	5
+217	Cimitarra	68190	6	-74	27
+218	Circasia	63190	5	-76	24
+219	Cisneros	5190	7	-75	2
+220	Ciénaga	15189	5	-73	6
+221	Ciénaga	47189	11	-74	19
+222	Ciénaga de Oro	23189	9	-76	14
+223	Clemencia	13222	11	-75	5
+224	Cocorná	5197	6	-75	2
+225	Coello	73200	4	-75	29
+226	Cogua	25200	5	-74	13
+227	Colombia	41206	3	-76	17
+228	Colosó (Ricaurte)	70204	9	-75	28
+229	Colón	86219	1	-77	23
+230	Colón (Génova)	52203	2	-77	21
+231	Concepción	5206	6	-75	2
+232	Concepción	68207	7	-73	27
+233	Concordia	5209	6	-76	2
+234	Concordia	47205	10	-74	19
+235	Condoto	27205	5	-77	12
+236	Confines	68209	6	-73	27
+237	Consaca	52207	1	-77	21
+238	Contadero	52210	1	-78	21
+239	Contratación	68211	6	-73	27
+240	Convención	54206	9	-73	22
+241	Copacabana	5212	6	-76	2
+242	Coper	15212	5	-74	6
+243	Cordobá	63212	4	-76	24
+244	Corinto	19212	3	-76	10
+245	Coromoro	68217	6	-73	27
+246	Corozal	70215	9	-75	28
+247	Corrales	15215	6	-73	6
+248	Cota	25214	5	-74	13
+249	Cotorra	23300	9	-76	14
+250	Covarachía	15218	7	-73	6
+251	Coveñas	70221	9	-76	28
+252	Coyaima	73217	4	-75	29
+253	Cravo Norte	81220	6	-70	3
+254	Cuaspud (Carlosama)	52224	1	-78	21
+255	Cubarral	50223	4	-74	20
+256	Cubará	15223	7	-72	6
+257	Cucaita	15224	6	-73	6
+258	Cucunubá	25224	5	-74	13
+259	Cucutilla	54223	8	-73	22
+260	Cuitiva	15226	6	-73	6
+261	Cumaral	50226	4	-73	20
+262	Cumaribo	99773	4	-70	32
+263	Cumbal	52227	1	-78	21
+264	Cumbitara	52233	2	-78	21
+265	Cunday	73226	4	-75	29
+266	Curillo	18205	1	-76	8
+267	Curití	68229	7	-73	27
+268	Curumaní	20228	9	-74	11
+269	Cáceres	5120	8	-75	2
+270	Cáchira	54128	8	-73	22
+271	Cácota	54125	7	-73	22
+272	Cáqueza	25151	4	-74	13
+273	Cértegui	27160	5	-77	12
+274	Cómbita	15204	6	-73	6
+275	Córdoba	13212	10	-75	5
+276	Córdoba	52215	1	-77	21
+277	Cúcuta	54001	8	-73	22
+278	Dabeiba	5234	7	-76	2
+279	Dagua	76233	4	-77	30
+280	Dibulla	44090	11	-73	18
+281	Distracción	44098	11	-73	18
+282	Dolores	73236	4	-75	29
+283	Don Matías	5237	7	-75	2
+284	Dos Quebradas	66170	5	-76	25
+285	Duitama	15238	6	-73	6
+286	Durania	54239	8	-73	22
+287	Ebéjico	5240	6	-76	2
+288	El Bagre	5250	8	-75	2
+289	El Banco	47245	9	-74	19
+290	El Cairo	76246	5	-76	30
+291	El Calvario	50245	4	-74	20
+292	El Carmen	54245	9	-73	22
+293	El Carmen	68235	7	-74	27
+294	El Carmen de Atrato	27245	0	0	12
+295	El Carmen de Bolívar	13244	10	-75	5
+296	El Castillo	50251	4	-74	20
+297	El Cerrito	76248	4	-76	30
+298	El Charco	52250	2	-78	21
+299	El Cocuy	15244	6	-72	6
+300	El Colegio	25245	5	-74	13
+301	El Copey	20238	10	-74	11
+302	El Doncello	18247	2	-75	8
+303	El Dorado	50270	3	-73	20
+304	El Dovio	76250	5	-76	30
+305	El Espino	15248	7	-72	6
+306	El Guacamayo	68245	6	-73	27
+307	El Guamo	13248	10	-75	5
+308	El Molino	44110	11	-73	18
+309	El Paso	20250	10	-74	11
+310	El Paujil	18256	2	-75	8
+311	El Peñol	52254	1	-77	21
+312	El Peñon	13268	9	-74	5
+313	El Peñon	68250	7	-73	27
+314	El Peñón	25258	5	-74	13
+315	El Piñon	47258	10	-75	19
+316	El Playón	68255	7	-73	27
+317	El Retorno	95025	2	-73	16
+318	El Retén	47268	11	-74	19
+319	El Roble	70233	9	-75	28
+320	El Rosal	25260	5	-74	13
+321	El Rosario	52256	2	-77	21
+322	El Tablón de Gómez	52258	2	-77	21
+323	El Tambo	19256	3	-77	10
+324	El Tambo	52260	1	-77	21
+325	El Tarra	54250	9	-73	22
+326	El Zulia	54261	8	-73	22
+327	El Águila	76243	5	-76	30
+328	Elías	41244	2	-76	17
+329	Encino	68264	6	-73	27
+330	Enciso	68266	7	-73	27
+331	Entrerríos	5264	7	-76	2
+332	Envigado	5266	6	-76	2
+333	Espinal	73268	4	-75	29
+334	Facatativá	25269	5	-74	13
+335	Falan	73270	5	-75	29
+336	Filadelfia	17272	5	-76	7
+337	Filandia	63272	5	-76	24
+338	Firavitoba	15272	6	-73	6
+339	Flandes	73275	4	-75	29
+340	Florencia	18001	2	-76	8
+341	Florencia	19290	2	-77	10
+342	Floresta	15276	6	-73	6
+343	Florida	76275	3	-76	30
+344	Floridablanca	68276	7	-73	27
+345	Florián	68271	6	-74	27
+346	Fonseca	44279	11	-73	18
+347	Fortúl	81300	7	-72	3
+348	Fosca	25281	4	-74	13
+349	Francisco Pizarro	52520	2	-79	21
+350	Fredonia	5282	6	-76	2
+351	Fresno	73283	5	-75	29
+352	Frontino	5284	7	-76	2
+353	Fuente de Oro	50287	3	-74	20
+354	Fundación	47288	10	-74	19
+355	Funes	52287	1	-77	21
+356	Funza	25286	5	-74	13
+357	Fusagasugá	25290	4	-74	13
+358	Fómeque	25279	5	-74	13
+359	Fúquene	25288	5	-74	13
+360	Gachalá	25293	5	-74	13
+361	Gachancipá	25295	5	-74	13
+362	Gachantivá	15293	6	-74	6
+363	Gachetá	25297	5	-74	13
+364	Galapa	8296	11	-75	4
+365	Galeras (Nueva Granada)	70235	9	-75	28
+366	Galán	68296	7	-73	27
+367	Gama	25299	5	-74	13
+368	Gamarra	20295	8	-74	11
+369	Garagoa	15299	5	-73	6
+370	Garzón	41298	2	-76	17
+371	Gigante	41306	3	-76	17
+372	Ginebra	76306	4	-76	30
+373	Giraldo	5306	7	-76	2
+374	Girardot	25307	4	-75	13
+375	Girardota	5308	6	-75	2
+376	Girón	68306	7	-73	27
+377	Gonzalez	20310	8	-73	11
+378	Gramalote	54313	8	-73	22
+379	Granada	5313	6	-75	2
+380	Granada	25312	5	-75	13
+381	Granada	50313	4	-74	20
+382	Guaca	68318	7	-73	27
+383	Guacamayas	15317	7	-73	6
+384	San Juan Bautista de Guacarí	76318	4	-76	30
+385	Guachavés	52699	1	-78	21
+386	Guachené	19300	3	-76	10
+387	Guachetá	25317	5	-74	13
+388	Guachucal	52317	1	-78	21
+389	Guadalupe	5315	7	-75	2
+390	Guadalupe	41319	2	-76	17
+391	Guadalupe	68320	6	-73	27
+392	Guaduas	25320	5	-75	13
+393	Guaitarilla	52320	1	-78	21
+394	Gualmatán	52323	1	-78	21
+395	Guamal	47318	9	-74	19
+396	Guamal	50318	4	-74	20
+397	Guamo	73319	4	-75	29
+398	Guapota	68322	6	-73	27
+399	Guapí	19318	2	-78	10
+400	Guaranda	70265	8	-76	28
+401	Guarne	5318	6	-75	2
+402	Guasca	25322	5	-74	13
+403	Guatapé	5321	6	-75	2
+404	Guataquí	25324	5	-75	13
+405	Guatavita	25326	5	-74	13
+406	Guateque	15322	5	-74	6
+407	Guavatá	68324	6	-74	27
+408	Guayabal de Siquima	25328	5	-74	13
+409	Guayabetal	25335	4	-74	13
+410	Guayatá	15325	5	-74	6
+411	Guepsa	68327	6	-74	27
+412	Guicán	15332	7	-72	6
+413	Gutiérrez	25339	4	-74	13
+414	Guática	66318	5	-76	25
+415	Gámbita	68298	6	-73	27
+416	Gámeza	15296	6	-73	6
+417	Génova	63302	4	-76	24
+418	Gómez Plata	5310	7	-76	2
+419	Hacarí	54344	9	-73	22
+420	Hatillo de Loba	13300	9	-74	5
+421	Hato	68344	7	-73	27
+422	Hato Corozal	85125	6	-72	9
+423	Hatonuevo	44378	11	-73	18
+424	Heliconia	5347	6	-76	2
+425	Herrán	54347	8	-72	22
+426	Herveo	73347	5	-75	29
+427	Hispania	5353	6	-76	2
+428	Hobo	41349	3	-76	17
+429	Honda	73349	5	-75	29
+430	Ibagué	73001	4	-75	29
+431	Icononzo	73352	4	-75	29
+432	Iles	52352	1	-78	21
+433	Imúes	52354	1	-78	21
+434	Inzá	19355	3	-76	10
+435	Inírida	94001	4	-68	15
+436	Ipiales	52356	1	-78	21
+437	Isnos	41359	2	-76	17
+438	Istmina	27361	5	-77	12
+439	Itagüí	5360	6	-76	2
+440	Ituango	5361	7	-76	2
+441	Izá	15362	6	-73	6
+442	Jambaló	19364	3	-76	10
+443	Jamundí	76364	3	-77	30
+444	Jardín	5364	6	-76	2
+445	Jenesano	15367	5	-73	6
+446	Jericó	5368	6	-76	2
+447	Jericó	15368	6	-73	6
+448	Jerusalén	25368	5	-75	13
+449	Jesús María	68368	6	-74	27
+450	Jordán	68370	7	-73	27
+451	Juan de Acosta	8132	11	-75	4
+452	Junín	25372	5	-74	13
+453	Juradó	27372	7	-78	12
+454	La Apartada y La Frontera	23350	-77	12	14
+455	La Argentina	41378	2	-76	17
+456	La Belleza	68377	6	-74	27
+457	La Calera	25377	5	-74	13
+458	La Capilla	15380	5	-73	6
+459	La Ceja	5376	6	-75	2
+460	La Celia	66383	5	-76	25
+461	La Cruz	52378	2	-77	21
+462	La Cumbre	76677	4	-77	30
+463	La Dorada	17380	6	-75	7
+464	La Esperanza	54385	8	-72	22
+465	La Estrella	5380	6	-76	2
+466	La Florida	52381	1	-77	21
+467	La Gloria	20383	9	-74	11
+468	La Jagua de Ibirico	20400	10	-73	11
+469	La Jagua del Pilar	44420	11	-73	18
+470	La Llanada	52385	1	-78	21
+471	La Macarena	50350	3	-74	20
+472	La Merced	17388	5	-76	7
+473	La Mesa	25386	5	-75	13
+474	La Montañita	18410	2	-75	8
+475	La Palma	25394	5	-74	13
+476	La Paz	68397	6	-73	27
+477	La Paz (Robles)	20621	10	-73	11
+478	La Peña	25398	5	-74	13
+479	La Pintada	5390	6	-76	2
+480	La Plata	41396	2	-76	17
+481	La Playa	54398	8	-73	22
+482	La Primavera	99524	5	-70	32
+483	La Salina	85136	6	-72	9
+484	La Sierra	19392	2	-77	10
+485	La Tebaida	63401	4	-76	24
+486	La Tola	52390	2	-78	21
+487	La Unión	5400	6	-75	2
+488	La Unión	52399	2	-77	21
+489	La Unión	70400	9	-75	28
+490	La Unión	76400	5	-76	30
+491	La Uvita	15403	6	-73	6
+492	La Vega	19397	2	-77	10
+493	La Vega	25402	5	-74	13
+494	La Victoria	15401	6	-74	6
+495	La Victoria	17867	5	-76	7
+496	La Victoria	76403	5	-76	30
+497	La Virginia	66400	5	-76	25
+498	Labateca	54377	7	-73	22
+499	Labranzagrande	15377	6	-73	6
+500	Landázuri	68385	6	-74	27
+501	Lebrija	68406	7	-73	27
+502	Leiva	52405	2	-77	21
+503	Lejanías	50400	4	-74	20
+504	Lenguazaque	25407	5	-74	13
+505	Leticia	91001	-4	-70	1
+506	Liborina	5411	7	-76	2
+507	Linares	52411	1	-77	21
+508	Lloró	27413	6	-76	12
+509	Lorica	23417	9	-76	14
+510	Los Córdobas	23419	9	-76	14
+511	Los Palmitos	70418	9	-75	28
+512	Los Patios	54405	8	-73	22
+513	Los Santos	68418	7	-73	27
+514	Lourdes	54418	8	-73	22
+515	Luruaco	8421	11	-75	4
+516	Lérida	73408	5	-75	29
+517	Líbano	73411	5	-75	29
+518	López (Micay)	19418	2	-77	10
+519	Macanal	15425	5	-73	6
+520	Macaravita	68425	7	-73	27
+521	Maceo	5425	7	-75	2
+522	Machetá	25426	5	-74	13
+523	Madrid	25430	5	-74	13
+524	Magangué	13430	9	-75	5
+525	Magüi (Payán)	52427	2	-78	21
+526	Mahates	13433	10	-75	5
+527	Maicao	44430	11	-72	18
+528	Majagual	70429	9	-75	28
+529	Malambo	8433	11	-75	4
+530	Mallama (Piedrancha)	52435	1	-78	21
+531	Manatí	8436	11	-75	4
+532	Manaure	44560	12	-72	18
+533	Manaure Balcón del Cesar	20443	10	-73	11
+534	Manizales	17001	5	-76	7
+535	Manta	25436	5	-74	13
+536	Manzanares	17433	5	-75	7
+537	Maní	85139	5	-72	9
+538	Mapiripan	50325	3	-72	20
+539	Margarita	13440	9	-74	5
+540	Marinilla	5440	6	-75	2
+541	Maripí	15442	6	-74	6
+542	Mariquita	73443	5	-75	29
+543	Marmato	17442	6	-76	7
+544	Marquetalia	17444	5	-75	7
+545	Marsella	66440	5	-76	25
+546	Marulanda	17446	5	-75	7
+547	María la Baja	13442	1	-75	5
+548	Matanza	68444	7	-73	27
+549	Medellín	5001	6	-76	2
+550	Medina	25438	5	-73	13
+551	Medio Atrato	27425	1	1	12
+552	Medio Baudó	27430	10	12	12
+553	Medio San Juan (ANDAGOYA)	27450	5	-77	12
+554	Melgar	73449	4	-75	29
+555	Mercaderes	19450	2	-77	10
+556	Mesetas	50330	3	-74	20
+557	Milán	18460	1	-76	8
+558	Miraflores	15455	5	-73	6
+559	Miraflores	95200	1	-72	16
+560	Miranda	19455	3	-76	10
+561	Mistrató	66456	5	-76	25
+562	Mitú	97001	1	-70	31
+563	Mocoa	86001	1	-77	23
+564	Mogotes	68464	7	-73	27
+565	Molagavita	68468	7	-73	27
+566	Momil	23464	9	-76	14
+567	Mompós	13468	9	-75	5
+568	Mongua	15464	6	-73	6
+569	Monguí	15466	6	-73	6
+570	Moniquirá	15469	6	-74	6
+571	Montebello	5467	6	-76	2
+572	Montecristo	13458	8	-74	5
+573	Montelíbano	23466	8	-76	14
+574	Montenegro	63470	5	-76	24
+575	Monteria	23001	9	-76	14
+576	Monterrey	85162	5	-73	9
+577	Morales	13473	8	-74	5
+578	Morales	19473	3	-77	10
+579	Morelia	18479	1	-76	8
+580	Morroa	70473	9	-75	28
+581	Mosquera	25473	5	-74	13
+582	Mosquera	52473	2	-78	21
+583	Motavita	15476	6	-73	6
+584	Moñitos	23500	8	-76	14
+585	Murillo	73461	5	-75	29
+586	Murindó	5475	7	-77	2
+587	Mutatá	5480	7	-77	2
+588	Mutiscua	54480	7	-73	22
+589	Muzo	15480	6	-74	6
+590	Málaga	68432	7	-73	27
+591	Nariño	5483	6	-75	2
+592	Nariño	25483	4	-75	13
+593	Nariño	52480	2	-78	21
+594	Natagaima	73483	4	-75	29
+595	Nechí	5495	8	-75	2
+596	Necoclí	5490	8	-77	2
+597	Neira	17486	5	-76	7
+598	Neiva	41001	3	-75	17
+599	Nemocón	25486	5	-74	13
+600	Nilo	25488	4	-75	13
+601	Nimaima	25489	5	-74	13
+602	Nobsa	15491	6	-73	6
+603	Nocaima	25491	5	-74	13
+604	Norcasia	17495	6	-75	7
+605	Norosí	13490	9	-74	5
+606	Novita	27491	5	-77	12
+607	Nueva Granada	47460	10	-74	19
+608	Nuevo Colón	15494	5	-73	6
+609	Nunchía	85225	6	-72	9
+610	Nuquí	27495	6	-77	12
+611	Nátaga	41483	3	-76	17
+612	Obando	76497	5	-76	30
+613	Ocamonte	68498	6	-73	27
+614	Ocaña	54498	8	-73	22
+615	Oiba	68500	6	-73	27
+616	Oicatá	15500	6	-73	6
+617	Olaya	5501	7	-76	2
+618	Olaya Herrera	52490	1	-77	21
+619	Onzaga	68502	6	-73	27
+620	Oporapa	41503	2	-76	17
+621	Orito	86320	1	-77	23
+622	Orocué	85230	5	-71	9
+623	Ortega	73504	4	-75	29
+624	Ospina	52506	1	-78	21
+625	Otanche	15507	6	-74	6
+626	Ovejas	70508	10	-75	28
+627	Pachavita	15511	5	-73	6
+628	Pacho	25513	5	-74	13
+629	Padilla	19513	3	-76	10
+630	Paicol	41518	2	-76	17
+631	Pailitas	20517	9	-74	11
+632	Paime	25518	5	-74	13
+633	Paipa	15516	6	-73	6
+634	Pajarito	15518	5	-73	6
+635	Palermo	41524	3	-76	17
+636	Palestina	17524	5	-76	7
+637	Palestina	41530	2	-76	17
+638	Palmar	68522	7	-73	27
+639	Palmar de Varela	8520	11	-75	4
+640	Palmas del Socorro	68524	6	-73	27
+641	Palmira	76520	4	-76	30
+642	Palmito	70523	9	-76	28
+643	Palocabildo	73520	5	-75	29
+644	Pamplona	54518	7	-73	22
+645	Pamplonita	54520	8	-73	22
+646	Pandi	25524	4	-75	13
+647	Panqueba	15522	7	-72	6
+648	Paratebueno	25530	4	-73	13
+649	Pasca	25535	4	-74	13
+650	Patía (El Bordo)	19532	2	-77	10
+651	Pauna	15531	6	-74	6
+652	Paya	15532	6	-72	6
+653	Paz de Ariporo	85250	6	-72	9
+654	Paz de Río	15537	6	-73	6
+655	Pedraza	47441	10	-75	19
+656	Pelaya	20550	9	-74	11
+657	Pensilvania	17541	6	-75	7
+658	Peque	5543	7	-76	2
+659	Pereira	66001	5	-76	25
+660	Pesca	15542	6	-73	6
+661	Peñol	5541	6	-75	2
+662	Piamonte	19533	8	-75	10
+663	Pie de Cuesta	68547	6	-74	27
+664	Piedras	73547	5	-75	29
+665	Piendamó	19548	3	-77	10
+666	Pijao	63548	4	-76	24
+667	Pijiño	47545	9	-74	19
+668	Pinchote	68549	7	-73	27
+669	Pinillos	13549	9	-74	5
+670	Piojo	8549	11	-75	4
+671	Pisva	15550	6	-72	6
+672	Pital	41548	2	-76	17
+673	Pitalito	41551	2	-76	17
+674	Pivijay	47551	10	-74	19
+675	Planadas	73555	3	-76	29
+676	Planeta Rica	23555	8	-76	14
+677	Plato	47555	10	-74	19
+678	Policarpa	52540	2	-77	21
+679	Polonuevo	8558	11	-75	4
+680	Ponedera	8560	11	-75	4
+681	Popayán	19001	3	-76	10
+682	Pore	85263	6	-72	9
+683	Potosí	52560	1	-77	21
+684	Pradera	76563	3	-76	30
+685	Prado	73563	4	-75	29
+686	Providencia	52565	2	-77	21
+687	Providencia	88564	13	-82	26
+688	Pueblo Bello	20570	10	-74	11
+689	Pueblo Nuevo	23570	8	-75	14
+690	Pueblo Rico	66572	5	-76	25
+691	Pueblorrico	5576	6	-76	2
+692	Puebloviejo	47570	11	-74	19
+693	Puente Nacional	68572	6	-74	27
+694	Puerres	52573	1	-77	21
+695	Puerto Asís	86568	1	-76	23
+696	Puerto Berrío	5579	6	-75	2
+697	Puerto Boyacá	15572	6	-75	6
+698	Puerto Caicedo	86569	1	-77	23
+699	Puerto Carreño	99001	6	-67	32
+700	Puerto Colombia	8573	11	-75	4
+701	Puerto Concordia	50450	3	-73	20
+702	Puerto Escondido	23574	9	-76	14
+703	Puerto Gaitán	50568	4	-72	20
+704	Puerto Guzmán	86571	1	-77	23
+705	Puerto Leguízamo	86573	0	-75	23
+706	Puerto Libertador	23580	5	-74	14
+707	Puerto Lleras	50577	3	-73	20
+708	Puerto López	50573	4	-73	20
+709	Puerto Nare	5585	6	-75	2
+710	Puerto Nariño	91540	-4	-70	1
+711	Puerto Parra	68573	7	-74	27
+712	Puerto Rico	18592	2	-75	8
+713	Puerto Rico	50590	3	-73	20
+714	Puerto Rondón	81591	6	-71	3
+715	Puerto Salgar	25572	6	-75	13
+716	Puerto Santander	54553	8	-72	22
+717	Puerto Tejada	19573	3	-76	10
+718	Puerto Triunfo	5591	6	-75	2
+719	Puerto Wilches	68575	8	-74	27
+720	Pulí	25580	5	-75	13
+721	Pupiales	52585	1	-78	21
+722	Puracé (Coconuco)	19585	2	-77	10
+723	Purificación	73585	4	-75	29
+724	Purísima	23586	9	-76	14
+725	Pácora	17513	6	-76	7
+726	Páez	15514	5	-73	6
+727	Páez (Belalcazar)	19517	5	-73	10
+728	Páramo	68533	7	-73	27
+729	Quebradanegra	25592	5	-75	13
+730	Quetame	25594	4	-74	13
+731	Quibdó	27001	6	-77	12
+732	Quimbaya	63594	5	-76	24
+733	Quinchía	66594	5	-76	25
+734	Quipama	15580	6	-74	6
+735	Quipile	25596	5	-75	13
+736	Ragonvalia	54599	8	-73	22
+737	Ramiriquí	15599	5	-73	6
+738	Recetor	85279	5	-73	9
+739	Regidor	13580	9	-74	5
+740	Remedios	5604	7	-74	2
+741	Remolino	47605	11	-75	19
+742	Repelón	8606	11	-75	4
+743	Restrepo	50606	4	-73	20
+744	Restrepo	76606	4	-77	30
+745	Retiro	5607	6	-76	2
+746	Ricaurte	25612	4	-75	13
+747	Ricaurte	52612	1	-78	21
+748	Rio Negro	68615	7	-73	27
+749	Rioblanco	73616	4	-76	29
+750	Riofrío	76616	4	-76	30
+751	Riohacha	44001	12	-73	18
+752	Risaralda	17616	5	-76	7
+753	Rivera	41615	3	-75	17
+754	Roberto Payán (San José)	52621	2	-78	21
+755	Roldanillo	76622	4	-76	30
+756	Roncesvalles	73622	4	-76	29
+757	Rondón	15621	5	-73	6
+758	Rosas	19622	2	-77	10
+759	Rovira	73624	4	-75	29
+760	Ráquira	15600	6	-74	6
+761	Río Iró	27580	5	-77	12
+762	Río Quito	27600	6	-77	12
+763	Río Sucio	17614	5	-76	7
+764	Río Viejo	13600	9	-74	5
+765	Río de oro	20614	8	-74	11
+766	Ríonegro	5615	6	-75	2
+767	Ríosucio	27615	7	-77	12
+768	Sabana de Torres	68655	7	-73	27
+769	Sabanagrande	8634	11	-75	4
+770	Sabanalarga	5628	7	-76	2
+771	Sabanalarga	8638	11	-75	4
+772	Sabanalarga	85300	5	-73	9
+773	Sabanas de San Angel (SAN ANGEL)	47660	10	-74	19
+774	Sabaneta	5631	6	-76	2
+775	Saboyá	15632	6	-74	6
+776	Sahagún	23660	9	-75	14
+777	Saladoblanco	41660	2	-76	17
+778	Salamina	17653	5	-75	7
+779	Salamina	47675	11	-75	19
+780	Salazar	54660	8	-73	22
+781	Saldaña	73671	4	-75	29
+782	Salento	63690	5	-76	24
+783	Salgar	5642	6	-76	2
+784	Samacá	15646	6	-74	6
+785	Samaniego	52678	1	-78	21
+786	Samaná	17662	6	-75	7
+787	Sampués	70670	9	-75	28
+788	San Agustín	41668	2	-76	17
+789	San Alberto	20710	8	-73	11
+790	San Andrés	68669	7	-73	27
+791	San Andrés Sotavento	23670	9	-76	14
+792	San Andrés de Cuerquía	5647	7	-76	2
+793	San Antero	23672	9	-76	14
+794	San Antonio	73675	4	-76	29
+795	San Antonio de Tequendama	25645	4	-75	13
+796	San Benito	68673	6	-73	27
+797	San Benito Abad	70678	9	-75	28
+798	San Bernardo	25649	4	-74	13
+799	San Bernardo	52685	2	-77	21
+800	San Bernardo del Viento	23675	9	-76	14
+801	San Calixto	54670	9	-73	22
+802	San Carlos	5649	6	-75	2
+803	San Carlos	23678	9	-76	14
+804	San Carlos de Guaroa	50680	4	-73	20
+805	San Cayetano	25653	5	-74	13
+806	San Cayetano	54673	8	-73	22
+807	San Cristobal	13620	10	-75	5
+808	San Diego	20750	10	-73	11
+809	San Eduardo	15660	5	-73	6
+810	San Estanislao	13647	10	-75	5
+811	San Fernando	13650	9	-74	5
+812	San Francisco	5652	6	-76	2
+813	San Francisco	25658	5	-74	13
+814	San Francisco	86755	1	-77	23
+815	San Gíl	68679	7	-73	27
+816	San Jacinto	13654	10	-75	5
+817	San Jacinto del Cauca	13655	10	-75	5
+818	San Jerónimo	5656	6	-76	2
+819	San Joaquín	68682	6	-73	27
+820	San José	17665	5	-76	7
+821	San José de Miranda	68686	7	-73	27
+822	San José de Montaña	5658	7	-76	2
+823	San José de Pare	15664	6	-73	6
+824	San José de Uré	23682	8	-76	14
+825	San José del Fragua	18610	1	-76	8
+826	San José del Guaviare	95001	3	-73	16
+827	San José del Palmar	27660	5	-76	12
+828	San Juan de Arama	50683	3	-74	20
+829	San Juan de Betulia	70702	9	-75	28
+830	San Juan de Nepomuceno	13657	10	-75	5
+831	San Juan de Pasto	52001	1	-77	21
+832	San Juan de Río Seco	25662	5	-75	13
+833	San Juan de Urabá	5659	9	-77	2
+834	San Juan del Cesar	44650	11	-73	18
+835	San Juanito	50686	4	-74	20
+836	San Lorenzo	52687	2	-77	21
+837	San Luis	73678	4	-75	29
+838	San Luís	5660	6	-75	2
+839	San Luís de Gaceno	15667	5	-73	6
+840	San Luís de Palenque	85325	5	-72	9
+841	San Marcos	70708	9	-75	28
+842	San Martín	20770	8	-74	11
+843	San Martín	50689	4	-74	20
+844	San Martín de Loba	13667	9	-74	5
+845	San Mateo	15673	7	-73	6
+846	San Miguel	68684	7	-73	27
+847	San Miguel	86757	0	-77	23
+848	San Miguel de Sema	15676	6	-74	6
+849	San Onofre	70713	10	-76	28
+850	San Pablo	13670	10	-75	5
+851	San Pablo	52693	2	-77	21
+852	San Pablo de Borbur	15681	6	-74	6
+853	San Pedro	5664	6	-76	2
+854	San Pedro	70717	9	-75	28
+855	San Pedro	76670	4	-76	30
+856	San Pedro de Cartago	52694	2	-77	21
+857	San Pedro de Urabá	5665	8	-76	2
+858	San Pelayo	23686	9	-76	14
+859	San Rafael	5667	6	-75	2
+860	San Roque	5670	6	-75	2
+861	San Sebastián	19693	2	-77	10
+862	San Sebastián de Buenavista	47692	9	-74	19
+863	San Vicente	5674	6	-75	2
+864	San Vicente del Caguán	18753	2	-75	8
+865	San Vicente del Chucurí	68689	7	-73	27
+866	San Zenón	47703	9	-74	19
+867	Sandoná	52683	1	-77	21
+868	Santa Ana	47707	9	-75	19
+869	Santa Bárbara	5679	6	-76	2
+870	Santa Bárbara	68705	7	-73	27
+871	Santa Bárbara (Iscuandé)	52695	2	-78	21
+872	Santa Bárbara de Pinto	47720	11	-74	19
+873	Santa Catalina	13673	11	-75	5
+874	Santa Fé de Antioquia	5042	7	-76	2
+875	Santa Genoveva de Docorodó	27250	4	-77	12
+876	Santa Helena del Opón	68720	6	-74	27
+877	Santa Isabel	73686	5	-75	29
+878	Santa Lucía	8675	10	-75	4
+879	Santa Marta	47001	11	-74	19
+880	Santa María	15690	5	-73	6
+881	Santa María	41676	3	-76	17
+882	Santa Rosa	13683	10	-75	5
+883	Santa Rosa	19701	2	-77	10
+884	Santa Rosa de Cabal	66682	5	-76	25
+885	Santa Rosa de Osos	5686	7	-75	2
+886	Santa Rosa de Viterbo	15693	6	-73	6
+887	Santa Rosa del Sur	13688	8	-74	5
+888	Santa Rosalía	99624	5	-71	32
+889	Santa Sofía	15696	6	-74	6
+890	Santana	15686	6	-73	6
+891	Santander de Quilichao	19698	3	-76	10
+892	Santiago	54680	8	-73	22
+893	Santiago	86760	1	-77	23
+894	Santo Domingo	5690	6	-75	2
+895	Santo Tomás	8685	11	-75	4
+896	Santuario	5697	6	-75	2
+897	Santuario	66687	5	-76	25
+898	Sapuyes	52720	1	-78	21
+899	Saravena	81736	7	-72	3
+900	Sardinata	54720	8	-73	22
+901	Sasaima	25718	5	-74	13
+902	Sativanorte	15720	6	-73	6
+903	Sativasur	15723	6	-73	6
+904	Segovia	5736	7	-75	2
+905	Sesquilé	25736	5	-74	13
+906	Sevilla	76736	4	-76	30
+907	Siachoque	15740	6	-73	6
+908	Sibaté	25740	4	-74	13
+909	Sibundoy	86749	1	-77	23
+910	Silos	54743	7	-73	22
+911	Silvania	25743	5	-74	13
+912	Silvia	19743	3	-76	10
+913	Simacota	68745	6	-73	27
+914	Simijaca	25745	6	-74	13
+915	Simití	13744	8	-74	5
+916	Sincelejo	70001	9	-75	28
+917	Sincé	70742	9	-75	28
+918	Sipí	27745	5	-77	12
+919	Sitionuevo	47745	11	-75	19
+920	Soacha	25754	5	-74	13
+921	Soatá	15753	6	-73	6
+922	Socha	15757	6	-73	6
+923	Socorro	68755	7	-73	27
+924	Socotá	15755	6	-73	6
+925	Sogamoso	15759	6	-73	6
+926	Solano	18765	1	-75	8
+927	Soledad	8758	11	-75	4
+928	Solita	18785	1	-76	8
+929	Somondoco	15761	5	-73	6
+930	Sonsón	5756	6	-75	2
+931	Sopetrán	5761	7	-76	2
+932	Soplaviento	13760	10	-75	5
+933	Sopó	25758	5	-74	13
+934	Sora	15762	6	-73	6
+935	Soracá	15764	6	-73	6
+936	Sotaquirá	15763	6	-73	6
+937	Sotara (Paispamba)	19760	2	-77	10
+938	Sotomayor (Los Andes)	52418	2	-77	21
+939	Suaita	68770	6	-73	27
+940	Suan	8770	10	-75	4
+941	Suaza	41770	2	-76	17
+942	Subachoque	25769	5	-74	13
+943	Sucre	19785	2	-77	10
+944	Sucre	68773	6	-74	27
+945	Sucre	70771	9	-75	28
+946	Suesca	25772	5	-74	13
+947	Supatá	25777	5	-74	13
+948	Supía	17777	6	-76	7
+949	Suratá	68780	8	-73	27
+950	Susa	25779	6	-74	13
+951	Susacón	15774	6	-73	6
+952	Sutamarchán	15776	6	-74	6
+953	Sutatausa	25781	5	-74	13
+954	Sutatenza	15778	5	-73	6
+955	Suárez	19780	3	-77	10
+956	Suárez	73770	4	-75	29
+957	Sácama	85315	6	-72	9
+958	Sáchica	15638	6	-74	6
+959	Tabio	25785	5	-74	13
+960	Tadó	27787	5	-76	12
+961	Talaigua Nuevo	13780	9	-75	5
+962	Tamalameque	20787	9	-74	11
+963	Tame	81794	6	-72	3
+964	Taminango	52786	2	-77	21
+965	Tangua	52788	1	-77	21
+966	Taraira	97666	0	-70	31
+967	Tarazá	5790	8	-75	2
+968	Tarqui	41791	2	-76	17
+969	Tarso	5792	6	-76	2
+970	Tasco	15790	6	-73	6
+971	Tauramena	85410	5	-73	9
+972	Tausa	25793	5	-74	13
+973	Tello	41799	3	-75	17
+974	Tena	25797	5	-74	13
+975	Tenerife	47798	0	-75	19
+976	Tenjo	25799	5	-74	13
+977	Tenza	15798	5	-73	6
+978	Teorama	54800	9	-73	22
+979	Teruel	41801	3	-76	17
+980	Tesalia	41797	3	-76	17
+981	Tibacuy	25805	4	-75	13
+982	Tibaná	15804	5	-73	6
+983	Tibasosa	15806	6	-73	6
+984	Tibirita	25807	5	-74	13
+985	Tibú	54810	9	-73	22
+986	Tierralta	23807	8	-76	14
+987	Timaná	41807	2	-76	17
+988	Timbiquí	19809	3	-78	10
+989	Timbío	19807	2	-77	10
+990	Tinjacá	15808	6	-74	6
+991	Tipacoque	15810	6	-73	6
+992	Tiquisio (Puerto Rico)	13810	9	-74	5
+993	Titiribí	5809	6	-76	2
+994	Toca	15814	6	-73	6
+995	Tocaima	25815	5	-75	13
+996	Tocancipá	25817	5	-74	13
+997	Toguí	15816	6	-73	6
+998	Toledo	5819	7	-76	2
+999	Toledo	54820	7	-72	22
+1000	Tolú	70820	10	-76	28
+1001	Tolú Viejo	70823	0	0	28
+1002	Tona	68820	7	-73	27
+1003	Topagá	15820	6	-73	6
+1004	Topaipí	25823	5	-74	13
+1005	Toribío	19821	3	-76	10
+1006	Toro	76823	5	-76	30
+1007	Tota	15822	6	-73	6
+1008	Totoró	19824	3	-76	10
+1009	Trinidad	85430	5	-72	9
+1010	Trujillo	76828	4	-76	30
+1011	Tubará	8832	11	-75	4
+1012	Tuchín	23815	9	-76	14
+1013	Tuluá	76834	4	-76	30
+1014	Tumaco	52835	2	-79	21
+1015	Tunja	15001	6	-73	6
+1016	Tunungua	15832	6	-74	6
+1017	Turbaco	13836	10	-75	5
+1018	Turbaná	13838	10	-75	5
+1019	Turbo	5837	8	-77	2
+1020	Turmequé	15835	5	-74	6
+1021	Tuta	15837	6	-73	6
+1022	Tutasá	15839	6	-73	6
+1023	Támara	85400	6	-72	9
+1024	Támesis	5789	6	-76	2
+1025	Túquerres	52838	1	-78	21
+1026	Ubalá	25839	5	-74	13
+1027	Ubaque	25841	5	-74	13
+1028	Ubaté	25843	5	-74	13
+1029	Ulloa	76845	5	-76	30
+1030	Une	25845	4	-74	13
+1031	Unguía	27800	8	-77	12
+1032	Unión Panamericana (ÁNIMAS)	27810	5	-77	12
+1033	Uramita	5842	7	-76	2
+1034	Uribe	50370	3	-74	20
+1035	Uribia	44847	12	-72	18
+1036	Urrao	5847	6	-76	2
+1037	Urumita	44855	11	-73	18
+1038	Usiacuri	8849	11	-75	4
+1039	Valdivia	5854	7	-75	2
+1040	Valencia	23855	8	-76	14
+1041	Valle de San José	68855	7	-73	27
+1042	Valle de San Juan	73854	4	-75	29
+1043	Valle del Guamuez	86865	0	-77	23
+1044	Valledupar	20001	10	-73	11
+1045	Valparaiso	5856	6	-76	2
+1046	Valparaiso	18860	1	-76	8
+1047	Vegachí	5858	7	-75	2
+1048	Venadillo	73861	5	-75	29
+1049	Venecia	5861	6	-76	2
+1050	Venecia (Ospina Pérez)	25506	4	-75	13
+1051	Ventaquemada	15861	5	-74	6
+1052	Vergara	25862	5	-74	13
+1053	Versalles	76863	5	-76	30
+1054	Vetas	68867	7	-73	27
+1055	Viani	25867	5	-75	13
+1056	Vigía del Fuerte	5873	7	-77	2
+1057	Vijes	76869	4	-76	30
+1058	Villa Caro	54871	8	-73	22
+1059	Villa Rica	19845	3	-77	10
+1060	Villa de Leiva	15407	6	-74	6
+1061	Villa del Rosario	54874	8	-72	22
+1062	Villagarzón	86885	1	-77	23
+1063	Villagómez	25871	5	-74	13
+1064	Villahermosa	73870	5	-75	29
+1065	Villamaría	17873	5	-76	7
+1066	Villanueva	13873	10	-75	5
+1067	Villanueva	44874	11	-73	18
+1068	Villanueva	68872	7	-73	27
+1069	Villanueva	85440	5	-72	9
+1070	Villapinzón	25873	5	-74	13
+1071	Villarrica	73873	4	-75	29
+1072	Villavicencio	50001	4	-74	20
+1073	Villavieja	41872	3	-75	17
+1074	Villeta	25875	5	-75	13
+1075	Viotá	25878	5	-75	13
+1076	Viracachá	15879	6	-73	6
+1077	Vista Hermosa	50711	3	-74	20
+1078	Viterbo	17877	5	-76	7
+1079	Vélez	68861	6	-74	27
+1080	Yacopí	25885	6	-74	13
+1081	Yacuanquer	52885	1	-77	21
+1082	Yaguará	41885	3	-76	17
+1083	Yalí	5885	7	-75	2
+1084	Yarumal	5887	7	-76	2
+1085	Yolombó	5890	7	-75	2
+1086	Yondó (Casabe)	5893	7	-74	2
+1087	Yopal	85001	5	-72	9
+1088	Yotoco	76890	4	-76	30
+1089	Yumbo	76892	4	-76	30
+1090	Zambrano	13894	10	-75	5
+1091	Zapatoca	68895	7	-73	27
+1092	Zapayán (PUNTA DE PIEDRAS)	47960	10	-75	19
+1093	Zaragoza	5895	8	-75	2
+1094	Zarzal	76895	4	-76	30
+1095	Zetaquirá	15897	5	-73	6
+1096	Zipacón	25888	5	-74	13
+1097	Zipaquirá	25899	5	-74	13
+1098	Zona Bananera (PRADO - SEVILLA)	47980	0	0	19
+1099	Ábrego	54003	8	-73	22
+1100	Íquira	41357	3	-76	17
+1101	Úmbita	15842	5	-73	6
+1102	Útica	25851	5	-75	13
+\.
+
+
+--
+-- TOC entry 3135 (class 0 OID 0)
+-- Dependencies: 190
+-- Name: administrador_ciudad_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+SELECT pg_catalog.setval('administrador_ciudad_id_seq', 1, false);
+
+
+--
+-- TOC entry 3136 (class 0 OID 0)
+-- Dependencies: 192
+-- Name: administrador_departamento_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+SELECT pg_catalog.setval('administrador_departamento_id_seq', 1, false);
+
+
+--
+-- TOC entry 3127 (class 0 OID 935148)
+-- Dependencies: 203
+-- Data for Name: administrador_sucursal; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY administrador_sucursal (id, nombre, direccion, telefono, activo, ciudad_id) FROM stdin;
+1	Zarzal 1	Cll 13 Cra 2	231313123	t	1094
+2	Pasoancho	Cr 13 # 100 00	5587898	t	152
+3	Roosvelt	Cl 5 # 39-45	44478582	t	152
+4	Sameco	Cl 5 nte # 3-56	44457898	t	152
+\.
+
+
+--
+-- TOC entry 3125 (class 0 OID 935109)
+-- Dependencies: 195
+-- Data for Name: administrador_empleado; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY administrador_empleado (emp_id, no_documento, nombre, apellido, tipo_sangre, experiencia, jornada, fecha_vinculacion, cargo, telefono, genero, fecha_nacimiento, estado_empleado, jefe_id, sucursal_id) FROM stdin;
+1	15615116	Edixon	Perea	A-	11	Manana	2016-01-03	\N	31321231	Masculino	2016-01-05	t	\N	\N
+2	1321321431	Nelson	Portilla	B+	11	Tarde	2016-01-06	Gerente	4314324	Masculino	2016-01-04	t	\N	1
+4	13414141241	Alvaro	Martinez	A-	31	Tarde	2016-01-05	Vendedor	131313123	Masculino	2016-01-04	t	2	1
+5	321313123	Mario	Payan	A-	3	Manana	2016-01-06	Mecanico	32131	Masculino	2016-01-04	t	3	1
+6	111245789	Mauricio	Gaona	O-	3	Tarde	2016-01-01	Gerente	45464546	Masculino	2016-01-22	t	\N	2
+7	325597889	Mario	Payan	O-	3	Tarde	2016-01-01	Gerente	45464546	Masculino	2016-01-22	t	\N	3
+8	984445789	Lisa	Betancourth	O+	6	Tarde	2016-01-02	Gerente	7789585	Femenino	2016-01-22	t	\N	4
+9	4564561231	Fernando	Sanchez	A-	8	Manana	2016-01-02	Vendedor	8859878	Masculino	2016-01-08	t	7	3
+10	6547841125	Carlos	Gutierrez	O-	4	Tarde	1980-02-05	Jefe de taller	4456445	Masculino	1980-02-06	t	7	3
+3	32131413	Brayan	Rodriguez	A-	1331	Manana	2016-01-06	Jefe de taller	312312312	Masculino	2016-01-05	t	2	1
+\.
+
+
+--
+-- TOC entry 3137 (class 0 OID 0)
+-- Dependencies: 194
+-- Name: administrador_empleado_emp_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+SELECT pg_catalog.setval('administrador_empleado_emp_id_seq', 10, true);
+
+
+--
+-- TOC entry 3115 (class 0 OID 934995)
+-- Dependencies: 183
+-- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
+1	pbkdf2_sha256$20000$WfIfTxvp25Yr$ICgeaBw07RJndNFUf5q+TyTTfxA7UlmUQ/0+q+hQlXk=	2016-01-22 07:28:28.258+00	t	su			su@g.com	t	t	2016-01-22 07:27:28.393+00
+2	pbkdf2_sha256$24000$c1z8wtG1k9O6$F3N+G0fpYW1S5bgYy92tOouP3NKGRs0YjOGB/ewAu3o=	2016-01-22 12:22:05.592722+00	f	sadmin1	Edixon	Perea	eperea@gmail.com	f	t	2016-01-22 07:30:04+00
+6	pbkdf2_sha256$24000$ddWgOLZRIrGR$kT2e8xZF7kswS8hd4gvDHXqkcZV/vnraLGPzL+tg7KA=	\N	f	gaona	Mauricio	 Gaona		f	t	2016-01-22 12:26:43.603971+00
+8	pbkdf2_sha256$24000$g6lVTg5QELc7$zJKDqpar+8sFICiGIeJcvNnkhPWjlW+4B30A4Uuu04E=	\N	f	lisa	Lisa	Betancourth		f	t	2016-01-22 12:29:55.713518+00
+7	pbkdf2_sha256$24000$7qRaNFzCLveG$5XvmGZp/RPbOiy0Y+JRbYwBfsj14uELZjklFmCC4YYA=	2016-01-22 12:30:19.111152+00	f	mario	Mauricio	Payan		f	t	2016-01-22 12:27:21.894472+00
+9	pbkdf2_sha256$24000$XuzHSU7KA1jw$0FSoN8dWLOAIm8fcEHnaUOmmaMmvGR706nIK43h+1Jk=	\N	f	fernando	Fernando	Sanchez		f	t	2016-01-22 12:32:26.994839+00
+10	pbkdf2_sha256$24000$xDZoZnQi1ci0$3xSkz7Lz1jQ48gODYqimEYqacxcTe/hA9HULajA3WcM=	\N	f	carlos	Carlos	Gutierrez		f	t	2016-01-22 12:34:23.506454+00
+5	pbkdf2_sha256$24000$WGKqiz0M04PR$JKcVTPea+3+aIJ3dZA+CoNxZeiF2woc3O9BKRPtwwok=	2016-01-22 12:34:26.815556+00	f	alvaro	Alvaro	Martinez		f	t	2016-01-22 07:36:29.317743+00
+4	pbkdf2_sha256$24000$kz0n6YLC7sHC$LEHIEpp1mSH2TDUoEv8iN0qNrPSv46mr5AG3Zk8BPrg=	2016-01-22 12:49:48.005645+00	f	brayan	Brayan	Rodriguez		f	t	2016-01-22 07:35:58.349835+00
+3	pbkdf2_sha256$24000$rd8PfguVFiV4$LCVwQTNI0IN9Zr8Vd4H86FzVYIsjw+FNr56lVvYVnZc=	2016-01-23 15:54:13.065143+00	f	nelson	Nelson	Portilla		f	t	2016-01-22 07:35:03.386985+00
+\.
+
+
+--
+-- TOC entry 3128 (class 0 OID 935167)
+-- Dependencies: 206
+-- Data for Name: administrador_gerente; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY administrador_gerente (user_ptr_id, empleado_ptr_id) FROM stdin;
+3	2
+6	6
+7	7
+8	8
+\.
+
+
+--
+-- TOC entry 3129 (class 0 OID 935174)
+-- Dependencies: 207
+-- Data for Name: administrador_jefetaller; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY administrador_jefetaller (user_ptr_id, empleado_ptr_id) FROM stdin;
+4	3
+10	10
+\.
+
+
+--
+-- TOC entry 3138 (class 0 OID 0)
+-- Dependencies: 202
+-- Name: administrador_sucursal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+SELECT pg_catalog.setval('administrador_sucursal_id_seq', 4, true);
+
+
+--
+-- TOC entry 3130 (class 0 OID 935181)
+-- Dependencies: 208
+-- Data for Name: administrador_superadmin; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY administrador_superadmin (user_ptr_id, empleado_ptr_id) FROM stdin;
+2	1
+\.
+
+
+--
+-- TOC entry 3111 (class 0 OID 934975)
+-- Dependencies: 179
+-- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY auth_group (id, name) FROM stdin;
+1	SuperAdmins
+2	Gerentes
+3	JefesTaller
+4	Vendedores
+\.
+
+
+--
+-- TOC entry 3139 (class 0 OID 0)
+-- Dependencies: 178
+-- Name: auth_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+SELECT pg_catalog.setval('auth_group_id_seq', 4, true);
+
+
+--
+-- TOC entry 3109 (class 0 OID 934965)
+-- Dependencies: 177
+-- Data for Name: auth_permission; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
+1	Can add log entry	1	add_logentry
+2	Can change log entry	1	change_logentry
+3	Can delete log entry	1	delete_logentry
+4	Can add permission	2	add_permission
+5	Can change permission	2	change_permission
+6	Can delete permission	2	delete_permission
+7	Can add group	3	add_group
+8	Can change group	3	change_group
+9	Can delete group	3	delete_group
+10	Can add user	4	add_user
+11	Can change user	4	change_user
+12	Can delete user	4	delete_user
+13	Can add content type	5	add_contenttype
+14	Can change content type	5	change_contenttype
+15	Can delete content type	5	delete_contenttype
+16	Can add session	6	add_session
+17	Can change session	6	change_session
+18	Can delete session	6	delete_session
+19	Can add departamento	7	add_departamento
+20	Can change departamento	7	change_departamento
+21	Can delete departamento	7	delete_departamento
+22	Can add ciudad	8	add_ciudad
+23	Can change ciudad	8	change_ciudad
+24	Can delete ciudad	8	delete_ciudad
+25	Can add sucursal	9	add_sucursal
+26	Can change sucursal	9	change_sucursal
+27	Can delete sucursal	9	delete_sucursal
+28	Se permite editar, activar , desactivar	9	listar_Sucursales
+29	Can add vehiculo	10	add_vehiculo
+30	Can change vehiculo	10	change_vehiculo
+31	Can delete vehiculo	10	delete_vehiculo
+32	Can add vehiculo nuevo	11	add_vehiculonuevo
+33	Can change vehiculo nuevo	11	change_vehiculonuevo
+34	Can delete vehiculo nuevo	11	delete_vehiculonuevo
+35	Se permite editar, activar , desactivar	11	listar_Vehiculo_Nuevo
+36	Can add vehiculo usado	12	add_vehiculousado
+37	Can change vehiculo usado	12	change_vehiculousado
+38	Can delete vehiculo usado	12	delete_vehiculousado
+39	Se permite editar, activar , desactivar	12	listar_Vehiculo_Usado
+40	Can add empleado	13	add_empleado
+41	Can change empleado	13	change_empleado
+42	Can delete empleado	13	delete_empleado
+43	Se permite editar, activar , desactivar	13	listar_Empleados
+44	Can add marca	14	add_marca
+45	Can change marca	14	change_marca
+46	Can delete marca	14	delete_marca
+47	Can add modelo	15	add_modelo
+48	Can change modelo	15	change_modelo
+49	Can delete modelo	15	delete_modelo
+50	Can add repuesto	16	add_repuesto
+51	Can change repuesto	16	change_repuesto
+52	Can delete repuesto	16	delete_repuesto
+53	Se permite editar, activar , desactivar	16	listar_Repuestos
+54	Can add jefe taller	17	add_jefetaller
+55	Can change jefe taller	17	change_jefetaller
+56	Can delete jefe taller	17	delete_jefetaller
+57	Se permite editar, activar , desactivar	17	listar_Jefe_Taller
+58	Can add gerente	18	add_gerente
+59	Can change gerente	18	change_gerente
+60	Can delete gerente	18	delete_gerente
+61	Se permite editar, activar , desactivar	18	listar_Gerente
+62	Can add vendedor	19	add_vendedor
+63	Can change vendedor	19	change_vendedor
+64	Can delete vendedor	19	delete_vendedor
+65	Se permite editar, activar , desactivar	19	listar_Vendedor
+66	Can add super admin	20	add_superadmin
+67	Can change super admin	20	change_superadmin
+68	Can delete super admin	20	delete_superadmin
+69	Can add cliente	21	add_cliente
+70	Can change cliente	21	change_cliente
+71	Can delete cliente	21	delete_cliente
+72	Can add venta	22	add_venta
+73	Can change venta	22	change_venta
+74	Can delete venta	22	delete_venta
+75	Can add orden	23	add_orden
+76	Can change orden	23	change_orden
+77	Can delete orden	23	delete_orden
+78	Can add detalle repuesto	24	add_detallerepuesto
+79	Can change detalle repuesto	24	change_detallerepuesto
+80	Can delete detalle repuesto	24	delete_detallerepuesto
+\.
+
+
+--
+-- TOC entry 3113 (class 0 OID 934985)
+-- Dependencies: 181
+-- Data for Name: auth_group_permissions; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY auth_group_permissions (id, group_id, permission_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3140 (class 0 OID 0)
+-- Dependencies: 180
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+SELECT pg_catalog.setval('auth_group_permissions_id_seq', 1, false);
+
+
+--
+-- TOC entry 3141 (class 0 OID 0)
+-- Dependencies: 176
+-- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+SELECT pg_catalog.setval('auth_permission_id_seq', 80, true);
+
+
+--
+-- TOC entry 3117 (class 0 OID 935005)
+-- Dependencies: 185
+-- Data for Name: auth_user_groups; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY auth_user_groups (id, user_id, group_id) FROM stdin;
+2	2	1
+3	3	2
+4	4	3
+5	5	4
+6	6	2
+7	7	2
+8	8	2
+9	9	4
+10	10	3
+\.
+
+
+--
+-- TOC entry 3142 (class 0 OID 0)
+-- Dependencies: 184
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+SELECT pg_catalog.setval('auth_user_groups_id_seq', 10, true);
+
+
+--
+-- TOC entry 3143 (class 0 OID 0)
+-- Dependencies: 182
+-- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+SELECT pg_catalog.setval('auth_user_id_seq', 10, true);
+
+
+--
+-- TOC entry 3119 (class 0 OID 935015)
+-- Dependencies: 187
+-- Data for Name: auth_user_user_permissions; Type: TABLE DATA; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+COPY auth_user_user_permissions (id, user_id, permission_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3144 (class 0 OID 0)
+-- Dependencies: 186
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wcmiceorbsxdsu
+--
+
+SELECT pg_catalog.setval('auth_user_user_permissions_id_seq', 1, false);
+
+
+-- Completed on 2016-01-23 13:11:59 COT
+
+--
+-- PostgreSQL database dump complete
+--
+

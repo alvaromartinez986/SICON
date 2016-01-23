@@ -28,12 +28,6 @@ en esta seccion se va a poner el contenido de la pagina
 
                             </ol>
                             <div class="panel-body">
-                                {% if exito %}
-                                    <div class="alert alert-success alert-dismissable">
-                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-                                        <i class="fa fa-check"></i> Se ha registrado un vehículo para reparar con exito.
-                                    </div>
-                                {% endif %}
                                 <form action="" method="post" id="form_vehiculo_usado">
                                     {% csrf_token %}
                                     <!-- placa -->

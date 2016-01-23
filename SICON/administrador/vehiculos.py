@@ -1,10 +1,11 @@
 from django.db import models
 from .sucursal import Sucursal
+from .repuesto import Marca
 
 class Vehiculo(models.Model):
 
     cilindraje = models.IntegerField()
-    marca = models.CharField(max_length=50)
+    marca = models.ForeignKey(Marca,blank=True)
     linea = models.CharField(max_length=50)
     modelo = models.IntegerField()
     #TIPOS DE COMBUSTIBLE
@@ -21,14 +22,15 @@ class Vehiculo(models.Model):
 class VehiculoNuevo(Vehiculo):
 
     valor = models.IntegerField()
-    codigo = models.CharField(max_length=10, default=01)
+    codigo = models.CharField(max_length=10)
     vendido = models.BooleanField(default=False)
     class Meta:
         permissions = (
             # Permission identifier     human-readable permission name
             ("listar_Vehiculo_Nuevo",       "Se permite editar, activar , desactivar" ),
         )
-        #unique_together = (("codigo", "sucursal"),)
+    def __str__(self):
+        return self.codigo
 
 class VehiculoUsado(Vehiculo):
 
@@ -44,3 +46,5 @@ class VehiculoUsado(Vehiculo):
     SERVICIO_CHOICES = ((PUBLICO,'Publico'), (PRIVADO,'Privado'))
     servicio = models.CharField(choices= SERVICIO_CHOICES, max_length=50)
     placa = models.CharField(max_length=6,unique=True)
+    def __str__(self):
+        return self.placa

@@ -25,12 +25,13 @@ en esta seccion se va a poner el contenido de la pagina
                         </ol>
 
                         <div class="col-lg-8">
-                            {% if exito %}
-                                <div class="alert alert-success alert-dismissable">
+                            {% if not exito and post%}
+                                <div class="alert alert-danger alert-dismissable">
                                     <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-                                    <i class="fa fa-check"></i> Se creado un Repuesto con exito!
+                                    <i class="fa fa-close"></i> el repuesto ya existe en la base de datos!
                                 </div>
 					        {% endif %}
+
 					    <form id= "form_repuesto" action="" method="post">
                                 {% csrf_token %}
                                 <!-- codigo -->
@@ -130,11 +131,12 @@ para traer el bloque de codigo que esta en la pagina blank.html
     });
     </script>
     <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
-    <script type="text/javascript" src="{{STATIC_URL}}/static/js/modelos.js"></script>
-    <script >
-        $(document).ready(function () {
-            $('#id_modelo_carro').empty();
-        });
-    </script>
+    <!--<script type="text/javascript" src="{{STATIC_URL}}/static/js/modelos.js"></script>-->
+
+    <script type="text/javascript">
+  $(document).ready(function(){
+    $("#id_marca_carro").select2({width:'100%'});
+  });
+  </script>
 
 {%endblock%}

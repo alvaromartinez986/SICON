@@ -132,7 +132,12 @@
 
                         {% if user.is_authenticated%}
                             <li>
-                                <a href="{% url 'reportes' %}" class="text-danger"><i class="fa fa-bar-chart"></i> Reportes </a>
+                                <a href=# data-toggle="collapse" data-target="#inv_vehiculo" class="text-danger"><i class="fa fa-bar-chart"></i> Reportes </a>
+                                <ul id="inv_vehiculo" class="collapse">
+                                        <li>
+                                        <a href="{% url 'reportes' %}" class="text-danger"> <i class="fa fa-th-list"></i> Inventario Vehiculos </a>
+                                        </li>
+                                    </ul>
                             </li>
                         {% endif %}
 

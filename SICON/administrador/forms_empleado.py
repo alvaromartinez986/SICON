@@ -21,7 +21,7 @@ class EmpleadoForm(ModelForm):
             'apellido',
             'tipo_sangre',
             'experiencia',
-            'jornada',
+            #'jornada',
             'fecha_vinculacion',
             'cargo',
             'telefono',
@@ -36,7 +36,7 @@ class EmpleadoForm(ModelForm):
             'tipo_sangre': forms.Select(attrs={'class': 'form-control required'}),
             'experiencia': forms.NumberInput(
                 attrs={'class': 'form-control ', 'placeholder': 'Experiencia', 'min': '0'}),
-            'jornada': forms.Select(attrs={'class': 'form-control required'}),
+            #'jornada': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_vinculacion': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de vinculacion'}),
             'cargo': forms.Select(attrs={'class':'form-control required','onclick':'myFunction()'}),
@@ -58,7 +58,7 @@ class JefeTallerForm(ModelForm):
             'email',
             'tipo_sangre',
             'experiencia',
-            'jornada',
+            #'jornada',
             'fecha_vinculacion',
             'cargo',
             'telefono',
@@ -74,7 +74,7 @@ class JefeTallerForm(ModelForm):
             'tipo_sangre': forms.Select(attrs={'class': 'form-control required'}),
             'experiencia': forms.NumberInput(
                 attrs={'class': 'form-control ', 'placeholder': 'Experiencia', 'min': '0'}),
-            'jornada': forms.Select(attrs={'class': 'form-control required'}),
+            #'jornada': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_vinculacion': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de vinculacion'}),
             'cargo': forms.Select(attrs={'class':'form-control required','onclick':'myFunction()'}),
@@ -95,7 +95,7 @@ class GerenteForm(ModelForm):
             'email',
             'tipo_sangre',
             'experiencia',
-            'jornada',
+           # 'jornada',
             'fecha_vinculacion',
             'cargo',
             'telefono',
@@ -111,7 +111,7 @@ class GerenteForm(ModelForm):
             'tipo_sangre': forms.Select(attrs={'class': 'form-control required'}),
             'experiencia': forms.NumberInput(
                 attrs={'class': 'form-control ', 'placeholder': 'Experiencia', 'min': '0'}),
-            'jornada': forms.Select(attrs={'class': 'form-control required'}),
+           # 'jornada': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_vinculacion': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de vinculacion'}),
             'cargo': forms.Select(attrs={'class':'form-control required','onclick':'myFunction()'}),
@@ -132,7 +132,7 @@ class VendedorForm(ModelForm):
             'email',
             'tipo_sangre',
             'experiencia',
-            'jornada',
+          #  'jornada',
             'fecha_vinculacion',
             'cargo',
             'telefono',
@@ -148,7 +148,7 @@ class VendedorForm(ModelForm):
             'tipo_sangre': forms.Select(attrs={'class': 'form-control required'}),
             'experiencia': forms.NumberInput(
                 attrs={'class': 'form-control ', 'placeholder': 'Experiencia', 'min': '0'}),
-            'jornada': forms.Select(attrs={'class': 'form-control required'}),
+           # 'jornada': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_vinculacion': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de vinculacion'}),
             'cargo': forms.Select(attrs={'class':'form-control required','onclick':'myFunction()'}),
@@ -169,7 +169,7 @@ class SuperAdminForm(ModelForm):
             'email',
             'tipo_sangre',
             'experiencia',
-            'jornada',
+           # 'jornada',
             'fecha_vinculacion',
             'cargo',
             'telefono',
@@ -185,7 +185,7 @@ class SuperAdminForm(ModelForm):
             'tipo_sangre': forms.Select(attrs={'class': 'form-control required'}),
             'experiencia': forms.NumberInput(
                 attrs={'class': 'form-control ', 'placeholder': 'Experiencia', 'min': '0'}),
-            'jornada': forms.Select(attrs={'class': 'form-control required'}),
+          #  'jornada': forms.Select(attrs={'class': 'form-control required'}),
             'fecha_vinculacion': forms.DateInput(
                 attrs={'class': 'form-control required', 'placeholder': 'Fecha de vinculacion'}),
             'cargo': forms.Select(attrs={'class':'form-control required','onclick':'myFunction()'}),

@@ -38,11 +38,6 @@ def editar_repuesto(request, id):
     empleado = Gerente.objects.filter (user_ptr_id = id_session).first()
     repuestos = Repuesto.objects.filter(sucursal = empleado.sucursal)
     repuesto = Repuesto.objects.get(pk = id)
-    print "marca"
-    print repuesto.marca_carro
-    modelos = Modelo.objects.filter (marca = repuesto.marca_carro)
-    print "Modelos"
-    print modelos
     form_edicion = RepuestoForm(instance=repuesto, initial=repuesto.__dict__)
     if request.method == 'POST':
         form_edicion = RepuestoForm(request.POST, instance=repuesto, initial=repuesto.__dict__)
@@ -52,7 +47,7 @@ def editar_repuesto(request, id):
                 return HttpResponseRedirect("/repuestos")
         else:
             return HttpResponseRedirect("/repuestos")
-    return render(request, 'lista_repuestos.html', {'modelos': modelos,'repuestos': repuestos,'repuesto':repuesto, 'edicion': True, 'form_edicion': form_edicion})
+    return render(request, 'lista_repuestos.html', {'repuestos': repuestos,'repuesto':repuesto, 'edicion': True, 'form_edicion': form_edicion})
 
 def inventario (request,id):
     print ("inventario")

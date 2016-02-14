@@ -17,7 +17,7 @@ class RepuestoForm(ModelForm):
         'marca': forms.TextInput(attrs={'class':'form-control','placeholder':'Marca'}),
         'costo': forms.NumberInput(attrs={'class':'form-control','placeholder':'Costo'}),
         'marca_carro': forms.Select(attrs={'class':'chosen-select required','placeholder':'Marca del carro'}),
-        'modelo_carro': forms.TextInput(attrs={'class':'form-control','placeholder':'Modelo del carro'}),
+        'modelo_carro': forms.TextInput(attrs={'class':'form-control','placeholder':'Linea del carro'}),
         'cantidad': forms.NumberInput(attrs={'class':'form-control','placeholder':'Cantidad inicial'}),
     }
 

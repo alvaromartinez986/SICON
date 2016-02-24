@@ -249,6 +249,8 @@ $(document).ready(function(){
      function actualizar () {
          $(".date").datepicker({
              keyboardNavigation: false,
+             changeMonth: true,
+             changeYear: true,
              forceParse: false,
              autoclose: true,
              dateFormat: "yy-mm-dd",
@@ -259,14 +261,13 @@ $(document).ready(function(){
 
          });
          $(".date_month").datepicker({
-             keyboardNavigation: false,
-             forceParse: false,
-             autoclose: true,
-             dateFormat: "yy-mm",
-             startView: "year",
-             minViewMode: "months",
-             minDate: new Date(2007, 1 - 1, 1),
-             maxDate: "0"
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'yy-mm',
+        onClose: function(dateText, inst) {
+            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+         }
          });
      }
 </script>

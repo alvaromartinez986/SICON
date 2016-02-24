@@ -98,7 +98,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('cilindraje', models.IntegerField()),
-                ('marca', models.CharField(max_length=50)),
                 ('linea', models.CharField(max_length=50)),
                 ('modelo', models.IntegerField()),
                 ('tipo_combustible', models.CharField(max_length=50, choices=[(b'Gasolina', b'Gasolina'), (b'Gas', b'Gas')])),
@@ -150,8 +149,9 @@ class Migration(migrations.Migration):
             fields=[
                 ('vehiculo_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='administrador.Vehiculo')),
                 ('valor', models.IntegerField()),
-                ('codigo', models.CharField(default=1, max_length=10)),
+                ('codigo', models.CharField(max_length=10)),
                 ('vendido', models.BooleanField(default=False)),
+                ('fecha_vendido', models.DateField(null=True)),
             ],
             options={
                 'permissions': (('listar_Vehiculo_Nuevo', 'Se permite editar, activar , desactivar'),),
@@ -183,6 +183,11 @@ class Migration(migrations.Migration):
             managers=[
                 ('objects', django.contrib.auth.models.UserManager()),
             ],
+        ),
+        migrations.AddField(
+            model_name='vehiculo',
+            name='marca',
+            field=models.ForeignKey(to='administrador.Marca', blank=True),
         ),
         migrations.AddField(
             model_name='vehiculo',

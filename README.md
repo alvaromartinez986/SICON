@@ -14,6 +14,9 @@ nombre: sicondb
 usuario: siconuser
 password: hola123
 
+Cargar backup de base de datos 
+psql -h localhost -U siconuser sicondb < SICON/static/backup2
+
 #Url página internet
 http://still-earth-4140.herokuapp.com/
 

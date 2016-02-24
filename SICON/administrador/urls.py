@@ -28,6 +28,9 @@ urlpatterns = patterns('',
     url(r'^empleado/crear_empleado', crear_empleado, name='crear_empleado'),
     url(r'^empleado/listar_empleados', listar_empleado, name='listar_empleados'),
     url(r'^empleado/editar_empleado/(\d+)$', editar_empleado),
-    url(r'^empleado/eliminar_empleado/(\d+)$', eliminar_empleado)
+    url(r'^empleado/eliminar_empleado/(\d+)$', eliminar_empleado),
+
+
+    url(r'^reporte_repuestos', reporte_repuestos, name='reporte_repuestos')
 
 )

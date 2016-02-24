@@ -9,7 +9,7 @@ class Inventario (models.Model):
     cantidad = models.IntegerField()
     cantidad_anterior = models.IntegerField()
     cantidad_actual = models.IntegerField()
-
+    fecha = models.DateTimeField(null=True,blank=True)
 
 
 

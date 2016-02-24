@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f43c95fe-2f1d-45bd-955f-a401324dae7b" name="Default" comment="validacion con bootstrap.&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0002_auto_20160223_2325.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0003_auto_20160224_0408.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/vehiculos.py" afterPath="$PROJECT_DIR$/SICON/administrador/vehiculos.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/static/js/validatorVehiculos.js" afterPath="$PROJECT_DIR$/SICON/static/js/validatorVehiculos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/reparacion/migrations/0002_auto_20160223_1336.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/reparacion/inventario.py" afterPath="$PROJECT_DIR$/SICON/reparacion/inventario.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/reparacion/views_inventario.py" afterPath="$PROJECT_DIR$/SICON/reparacion/views_inventario.py" />
     </list>
     <ignored path="SICON.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -175,6 +167,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -286,7 +279,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">

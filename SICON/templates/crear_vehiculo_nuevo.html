@@ -4,6 +4,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
     <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <link href="{{STATIC_URL}}/static/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 {%endblock%}
 
 <!--
@@ -92,6 +93,17 @@ en esta seccion se va a poner el contenido de la pagina
                                         {{form.color}}
                                     </div>
 
+                                    <!-- fecha_ingreso -->
+                                    {{form.fecha_ingreso.errors}}
+                                    <div class="form-group" id="data_1">
+                                        <label>{{form.fecha_ingreso.label}}</label>
+                                        <p class="help-block">Fecha de ingreso del vehículo</p>
+                                        <div class=" input-group date ">
+                                                <span class="input-group-addon "><i class="fa fa-calendar"></i></span>
+                                                {{form.fecha_ingreso}}
+                                        </div>
+                                    </div>
+
                                     <!-- valor -->
                                     {{form.valor.errors}}
                                     <div class="form-group">
@@ -117,6 +129,25 @@ en esta seccion se va a poner el contenido de la pagina
 {{block.super}}
 <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}/static/js/validatorVehiculos.js"></script>
+
+   <!-- Date picker -->
+   <script src="{{STATIC_URL}}/static/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+   <script type="text/javascript">
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: false,
+                autoclose: true,
+                language: 'es',
+                format: 'yyyy-mm-dd',
+                endDate: '-5h'
+            });
+
+            $('#data_1 .input-group.date').on('changeDate show', function(e) {
+            $('#form_vehiculo_nuevo').bootstrapValidator('revalidateField', 'fecha_ingreso');
+            });
+   </script>
 <script type="text/javascript">
   $(document).ready(function(){
     $("#id_marca").select2({width:'100%'});

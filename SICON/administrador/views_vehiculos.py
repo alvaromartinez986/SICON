@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import VehiculoNuevoForm, VehiculoUsadoForm
 from django.http import HttpResponseRedirect
 from .models import VehiculoNuevo,VehiculoUsado, Empleado, Gerente, JefeTaller
+import datetime
 
 def crear_vehiculo_nuevo(request):
     vehiculo_n = VehiculoNuevoForm()

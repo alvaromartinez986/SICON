@@ -69,12 +69,27 @@ $('#form_vehiculo_nuevo').bootstrapValidator({
                 }
 
             },
+            fecha_ingreso:
+            {
+                validators:
+                {
+                    notEmpty:
+                    {
+                        message: 'Debe ingresar la fecha de ingreso del vehículo'
+                    },
+                    date: {
+                        format: 'YYYY-MM-DD',
+                        message: 'La fecha no es válida'
+                    }
+
+                }
+            },
 
             valor: {
                 validators: {
                     notEmpty: {
                         message: 'El valor del vehículo es requerido'
-                    }
+                    },
                     between: {
                             min: 0.0,
                             max: 2147483647,

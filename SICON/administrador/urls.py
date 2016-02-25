@@ -31,6 +31,7 @@ urlpatterns = patterns('',
     url(r'^empleado/eliminar_empleado/(\d+)$', eliminar_empleado),
 
 
-    url(r'^reporte_repuestos', reporte_repuestos, name='reporte_repuestos')
+    url(r'^reporte_repuestos', reporte_repuestos, name='reporte_repuestos'),
+    url(r'^repuestos_movimientos', data_repuestos, name='data_repuestos')
 
 )

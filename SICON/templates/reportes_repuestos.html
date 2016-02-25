@@ -22,28 +22,28 @@ en esta seccion se va a poner el contenido de la pagina-->
                             <div class="panel-heading">
                                 <i class="fa fa-bar-chart-o fa-fw"></i>Simple Table Example
                                 <div class="pull-right">
-                                    <div class="btn-group-sucur pull-right space">
+                                    <div class="btn-group pull-left ">
+                                        <i> &nbsp;</i>
+                                        <button  id ="btn-sucur" type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">{{sucursal.nombre}} <span class="caret"></span></button>
 
-                                        <button  id ="btn-sucur" type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Diario
-                                            <span class="caret"></span>
-                                        </button>
                                         <ul class="dropdown-menu pull-right" role="menu">
-                                            <li><a id="s1" >Diario</a>
-                                            </li>
-                                            <li><a id = "s2">Semanal</a>
-                                            </li>
-                                            <li><a id="s3">Mensual</a>
-                                            </li>
+                                            {%for sucursal in sucursales %}
+                                                <li><a id="{{sucursal.nombre}}" onclick='$("#btn-sucur").html("{{sucursal.nombre}} <span class=\"caret\"></span>")'>{{sucursal.nombre}}</a>
+                                            {%endfor%}
                                         </ul>
+                                        <i class="fa fa-ellipsis-v"></i>
+                                        <i class="fa fa-ellipsis-v"> &nbsp;</i>
+
                                     </div>
 
                                     <div class="btn-group">
                                         <button  id ="btn" type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Diario2
+                                            Diario
                                             <span class="caret"></span>
                                         </button>
-                                        <ul class="dropdown-menu pull-right" role="menu">
+                                        <i> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </i>
+
+                                        <ul class="dropdown-menu pull-left" role="menu">
                                             <li><a id="diario" >Diario</a>
                                             </li>
                                             <li><a id = "semanal">Semanal</a>
@@ -135,6 +135,8 @@ en esta seccion se va a poner el contenido de la pagina-->
 <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
 <script src="{{STATIC_URL}}/static/js/highcharts.js" type="text/javascript"></script>
 <script src="{{STATIC_URL}}/static/js/jquery.highchartTable.js" type="text/javascript"></script>
+<script src="{{STATIC_URL}}/static/js/reporte_repuestos.js" type="text/javascript"></script>
+<!--texto = $("#btn-sucur").text()-->
 <!--<script src="{{STATIC_URL}}/static/js/bootstrap-datepicker.js" type="text/javascript"></script>-->
 
 
@@ -160,7 +162,8 @@ function weekpicker() {
             startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay());
             endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay() + 6);
             var dateFormat = "yy-mm-dd"
-            $('#fecha').val ($.datepicker.formatDate( dateFormat, startDate, inst.settings ) + " - " + $.datepicker.formatDate( dateFormat, endDate, inst.settings ) )
+            $('#fecha').val ($.datepicker.formatDate( dateFormat, startDate, inst.settings ) + " / " + $.datepicker.formatDate( dateFormat, endDate, inst.settings ) )
+            $('#fecha').change()
 
             selectCurrentWeek();
         },
@@ -185,6 +188,7 @@ function weekpicker() {
 $(document).ready(function() {
   $('table.highchart').highchartTable();
     actualizar()
+    ajax()
 });
 </script>
 
@@ -222,6 +226,7 @@ $(document).ready(function(){
                                                     '<span class="glyphicon glyphicon-th"></span>'+
                                                 '</div>');
         actualizar()
+        ajax()
     });
 });
 </script>
@@ -238,6 +243,7 @@ $(document).ready(function(){
          $("#div_fecha").html( '<div class = "col-lg-10"><input id = "fecha" type="text" class="form-control"> </div>' +
                  ' <div class="week-picker input-group-addon"></div>');
         weekpicker()
+        ajax()
 
     });
 });
@@ -255,6 +261,7 @@ $(document).ready(function(){
                                                     '<span class="glyphicon glyphicon-th"></span>'+
                                                 '</div>');
         actualizar()
+        ajax()
 
     });
 });

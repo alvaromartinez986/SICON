@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^$',index),
 
     url(r'^',include('SICON.reparacion.urls')),
+    url(r'^',include('SICON.reportes.urls')),
 
 
 )

@@ -151,7 +151,7 @@ class Migration(migrations.Migration):
                 ('valor', models.IntegerField()),
                 ('codigo', models.CharField(max_length=10)),
                 ('vendido', models.BooleanField(default=False)),
-                ('fecha_vendido', models.DateField(null=True)),
+                ('fecha_ingreso', models.DateField(null=True)),
             ],
             options={
                 'permissions': (('listar_Vehiculo_Nuevo', 'Se permite editar, activar , desactivar'),),

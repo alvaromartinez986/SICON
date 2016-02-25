@@ -4,8 +4,10 @@ from django.http import HttpResponseRedirect,HttpResponse
 from .models import Repuesto,Marca,Empleado,Gerente
 from django import forms
 from SICON.reparacion.views_inventario import registro_inventario
+from django.contrib.auth.decorators import user_passes_test
 import json
 # Create your views here.
+@user_passes_test(lambda u: u.has_perm('administrador.add_repuesto'),login_url="/indexAdmin")
 def crear_repuesto(request):
     repuesto = RepuestoForm()
     exito = False
@@ -26,6 +28,7 @@ def crear_repuesto(request):
         return HttpResponseRedirect('/repuestos/')
     return render(request, 'crear_repuesto.html', {'form':repuesto,'exito':exito,'post' : post} )
 
+@user_passes_test(lambda u: u.has_perm('administrador.listar_Repuestos'),login_url="/indexAdmin")
 def listar_repuestos(request):
     id = request.session["id"]
     print id

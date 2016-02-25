@@ -24,7 +24,7 @@ class VehiculoNuevo(Vehiculo):
     valor = models.IntegerField()
     codigo = models.CharField(max_length=10)
     vendido = models.BooleanField(default=False)
-    fecha_ingreso = models.DateField(null=True)
+    fecha_ingreso = models.DateField(null=True,blank=True)
     class Meta:
         permissions = (
             # Permission identifier     human-readable permission name

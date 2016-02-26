@@ -20,6 +20,7 @@ en esta seccion se va a poner el contenido de la pagina-->
      <div class="panel panel-primary">
          <!--<button id="button"></button>-->
                             <div class="panel-heading">
+
                                 <i class="fa fa-bar-chart-o fa-fw"></i>Simple Table Example
                                 <div class="pull-right">
                                     <div class="btn-group pull-left ">
@@ -27,6 +28,7 @@ en esta seccion se va a poner el contenido de la pagina-->
                                         <button  id ="btn-sucur" type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">{{sucursal.nombre}} <span class="caret"></span></button>
 
                                         <ul class="dropdown-menu pull-right" role="menu">
+
                                             {%for sucursal in sucursales %}
                                                 <li><a id="{{sucursal.nombre}}" onclick='$("#btn-sucur").html("{{sucursal.nombre}} <span class=\"caret\"></span>")'>{{sucursal.nombre}}</a>
                                             {%endfor%}
@@ -132,6 +134,8 @@ en esta seccion se va a poner el contenido de la pagina-->
 
 {% block js %}
     {{block.super}}
+
+<script src="{{STATIC_URL}}/static/js/ajaxReporteVehiculos.js"></script>
 <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
 <script src="{{STATIC_URL}}/static/js/highcharts.js" type="text/javascript"></script>
 <script src="{{STATIC_URL}}/static/js/jquery.highchartTable.js" type="text/javascript"></script>
@@ -147,13 +151,11 @@ en esta seccion se va a poner el contenido de la pagina-->
 function weekpicker() {
     var startDate;
     var endDate;
-
     var selectCurrentWeek = function() {
         window.setTimeout(function () {
             $('.week-picker').find('.ui-datepicker-current-day a').addClass('ui-state-active')
         }, 1);
     }
-
     $('.week-picker').datepicker( {
         showOtherMonths: true,
         selectOtherMonths: true,
@@ -164,8 +166,8 @@ function weekpicker() {
             var dateFormat = "yy-mm-dd"
             $('#fecha').val ($.datepicker.formatDate( dateFormat, startDate, inst.settings ) + " / " + $.datepicker.formatDate( dateFormat, endDate, inst.settings ) )
             $('#fecha').change()
-
             selectCurrentWeek();
+            console.log("Onselect: date ",startDate,endDate);
         },
         beforeShowDay: function(date) {
             var cssClass = '';
@@ -187,7 +189,7 @@ function weekpicker() {
 <script>
 $(document).ready(function() {
   $('table.highchart').highchartTable();
-    actualizar()
+    actualizar();
     ajax()
 });
 </script>
@@ -198,18 +200,14 @@ $(document).ready(function(){
     $("#button").click(function(){
         var table = $('<table data-graph-container="#grafico"data-graph-type="column"></table>').addClass('table table-bordered table-hover table-striped highchart');
         table.append ('<thead> <tr> <th>#</th> <th>Entradas</th> <th>Salidas</th> </tr> </thead>')
-    for(index in obje_vehiculos){
-        vehiculo = obj_vehiculos[index]
+    for(i=0; i<3; i++){
         var row = $('<tr></tr>')
-        var column = $('<td></td>').text(vehiculo.nombre)
-        var column = $('<td></td>').text(vehiculo.marca)
-        var column = $('<td></td>').text(vehiculo.trincas)
-        var column = $('<td></td>').text(vehiculo.trincas)
-        var column = $('<td></td>').text(vehiculo.trincas)
-
+        for  (j = 0;j<3;j++) {
+            var column = $('<td></td>').text(j)
+            row.append (column)
+        }
         table.append(row);
     }
-
     $('#tabla').addClass('table-responsive');
     $('#tabla').empty();
     $('#tabla').append(table);
@@ -228,7 +226,7 @@ $(document).ready(function(){
                                                 '<div class="input-group-addon">'+
                                                     '<span class="glyphicon glyphicon-th"></span>'+
                                                 '</div>');
-        actualizar()
+        actualizar();
         ajax()
     });
 });
@@ -242,12 +240,10 @@ $(document).ready(function(){
          $("#div_fecha").empty()
          $("#div_fecha").removeClass('col-lg-5')
          $("#div_fecha").addClass('col-lg-8')
-
          $("#div_fecha").html( '<div class = "col-lg-10"><input id = "fecha" type="text" class="form-control"> </div>' +
                  ' <div class="week-picker input-group-addon"></div>');
-        weekpicker()
+        weekpicker();
         ajax()
-
     });
 });
 </script>
@@ -257,15 +253,13 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#mensual").click(function(){
         $("#btn").html('Mensual <span class="caret"></span>')
-
         $("#div_fecha").empty()
         $("#div_fecha").html('<input id = "fecha" type="text" class="form-control date_month" > '+
                                                 '<div class="input-group-addon">'+
                                                     '<span class="glyphicon glyphicon-th"></span>'+
                                                 '</div>');
-        actualizar()
+        actualizar();
         ajax()
-
     });
 });
 </script>
@@ -282,10 +276,14 @@ $(document).ready(function(){
              autoclose: true,
              dateFormat: "yy-mm-dd",
              minDate: new Date(2010, 1 - 1, 1),
-             maxDate: "0"
+             maxDate: "0",
+             onClose: function(dateText, inst){
 
-
-
+                 var diaseleccionado=inst.selectedDay;
+                 var anno=inst.selectedYear;
+                 var messeleccionado=inst.selectedMonth;
+                 console.log("Datos: ano ",anno," Mes ", messeleccionado," dia ",diaseleccionado);
+             }
          });
          $(".date_month").datepicker({
         changeMonth: true,

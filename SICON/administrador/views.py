@@ -6,6 +6,7 @@ from views_sucursales import *
 from .views_repuesto import *
 from views_empleado import *
 from views_reporte_repuestos import *
+from views_reportes import *
 # Create your views here.
 
 

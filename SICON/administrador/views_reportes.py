@@ -1,3 +1,5 @@
+__author__ = 'nelson'
+from operator import is_
 from django.shortcuts import render
 from .forms_empleado import EmpleadoForm, JefeTallerForm, GerenteForm, SuperAdminForm, VendedorForm
 from django.http import HttpResponseRedirect
@@ -7,22 +9,10 @@ from django.contrib.auth.hashers import make_password,is_password_usable
 from django.contrib.auth.decorators import login_required,permission_required
 from .models import Sucursal
 from django.http import JsonResponse
-from django.http import HttpResponse
 from django.contrib.auth.decorators import user_passes_test
 
+__author__ = 'nelson'
 
 @user_passes_test(lambda u: u.has_perm('administrador.ver_reportes'),login_url="/indexAdmin")
-def reporte_repuestos (request):
-    sucursales = Sucursal.objects.all()
-    id = request.session["id"]
-    empleado = Gerente.objects.filter (user_ptr_id = id).first()
-    sucursal = empleado.sucursal
-
-    return render(request, 'reportes_repuestos.html', {'sucursales':sucursales,'sucursal':sucursal})
-
-def data_repuestos (request):
-
-    nombre = str (request.GET['sucursal']).strip()
-    sucursal = Sucursal.objects.filter(nombre=nombre).first()
-    print sucursal
-    return HttpResponse("hola")
+def ver_reportes(request):
+    return render(request, 'reportes.html', [])

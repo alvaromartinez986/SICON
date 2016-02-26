@@ -36,7 +36,7 @@ class Empleado(models.Model):
     TARDE= 'Tarde'
     NOCHE= 'Noche'
     JORNADA_CHOICES = ((MANANA, 'Mañana'), (TARDE, 'Tarde'), (NOCHE, 'Noche'))
-    jornada = models.CharField(choices=JORNADA_CHOICES, max_length=15)
+    jornada = models.CharField(choices=JORNADA_CHOICES, max_length=15, default='Manana')
     
     fecha_vinculacion = models.DateField(blank=True)
     

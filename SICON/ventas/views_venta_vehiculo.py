@@ -10,7 +10,9 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 import json
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import user_passes_test
 
+@user_passes_test(lambda u: u.has_perm('ventas.add_venta'),login_url="/indexAdmin")
 def venta_final (request):
     if request.method=='POST':
         id = request.POST['id_cliente']
@@ -35,17 +37,10 @@ def venta_final (request):
             lista_json.append(veh)
             veh = {}
 
-        lista_vehiculos = []
-        resultado = dict()
-        for result in resultados :
-            resultado ["marca"] = result.marca
-            lista_vehiculos.append(resultado)
-            resultado = {}
-
-
         return render(request,'venta_final.html',{'vehiculos':lista_vehiculos,'vehiculos_json':json.dumps(lista_json),'id_cliente': id, 'total':total})
 
 @transaction.atomic
+@user_passes_test(lambda u: u.has_perm('ventas.add_venta'),login_url="/indexAdmin")
 def registrar_venta (request):
     if request.method=='POST':
         print ("metodo post")
@@ -91,7 +86,7 @@ def registrar_venta (request):
         transaction.savepoint_commit(sid)
         return render(request,'generar_pdf.html',{'vehiculos': json.dumps(lista_json),'cliente': cliente,'venta':True,'vendedor':empleado,'id':venta.id})
 
-
+@user_passes_test(lambda u: u.has_perm('ventas.add_venta'),login_url="/indexAdmin")
 def venta_vehiculos(request, id_cliente):
     id = request.session["id"]
     empleado = Vendedor.objects.filter (user_ptr_id = id).first()
@@ -101,7 +96,7 @@ def venta_vehiculos(request, id_cliente):
 
 
 
-
+@user_passes_test(lambda u: u.has_perm('ventas.add_cliente'),login_url="/indexAdmin")
 def gestionar_cliente_venta (request, identificacion):
     cliente = Cliente.objects.filter(identificacion=identificacion).first()
     print(Cliente)
@@ -124,6 +119,6 @@ def gestionar_cliente_venta (request, identificacion):
     return render(request, 'info_cliente_venta.html', {'sig': True, 'form': form})
 
 
-
+@user_passes_test(lambda u: u.has_perm('ventas.add_cliente'),login_url="/indexAdmin")
 def id_cliente_venta(request):
     return render(request,'info_cliente_venta.html')

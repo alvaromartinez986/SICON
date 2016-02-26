@@ -180,6 +180,7 @@ def editar_detalle_repuesto(request, id_orden):
     sucursal = jefe_sucursal.sucursal
     ordenes = Orden.objects.filter(sucursal = sucursal)
     repuestos = Repuesto.objects.filter(sucursal = sucursal)
+    opcion_repuestos = True
     # form_detalle = DetalleRepuestoForm()
     # form_detalles = []
     # for detalle in detalles:
@@ -203,6 +204,7 @@ def editar_detalle_repuesto(request, id_orden):
             detalle.save();
             detalle.repuesto.add(request.POST['detalle'+str(num)+'repuesto'])
             detalle.save()
+        opcion_repuestos = False
     detalles = DetalleRepuesto.objects.filter(orden = id_orden)
     return render(request, 'lista_ordenes.html',
                   {'repuestos': repuestos, 'opcion_repuestos': True, 'permisos': permisos,

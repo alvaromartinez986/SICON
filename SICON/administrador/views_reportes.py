@@ -24,12 +24,13 @@ from django.db.models import Count
 
 __author__ = 'nelson'
 
-
+@login_required(login_url='/login')
 def ver_reportes(request):
     sucursales = Sucursal.objects.all()
     id = request.session["id"]
     empleado = Gerente.objects.filter (user_ptr_id = id).first()
     sucursal = empleado.sucursal
+
     return render(request, 'reportes.html', {'sucursales':sucursales,'sucursal':sucursal})
 
 def data_vehiculos (request):

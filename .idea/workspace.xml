@@ -2,50 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f43c95fe-2f1d-45bd-955f-a401324dae7b" name="Default" comment="validacion con bootstrap.&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/.idea/SICON.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/backup2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/generar_pdf.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/reparacion/inventario.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/venta_final.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/reparacion/views_inventario.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SICON/static/modelos.sql" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/reparacion/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/SICON/reparacion/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/ventas/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/SICON/ventas/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SICON.iml" afterPath="$PROJECT_DIR$/.idea/SICON.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/admin.py" afterPath="$PROJECT_DIR$/SICON/administrador/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/static/js/ajaxReporteVehiculos.js" afterPath="$PROJECT_DIR$/SICON/static/js/ajaxReporteVehiculos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_repuesto.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_repuesto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" afterPath="$PROJECT_DIR$/SICON/templates/crear_vehiculo_usado.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms_repuesto.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms_repuesto.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py" afterPath="$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/lista_repuestos.html" afterPath="$PROJECT_DIR$/SICON/templates/lista_repuestos.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/models.py" afterPath="$PROJECT_DIR$/SICON/administrador/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/reparacion/models.py" afterPath="$PROJECT_DIR$/SICON/reparacion/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/reportes.html" afterPath="$PROJECT_DIR$/SICON/templates/reportes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/repuesto.py" afterPath="$PROJECT_DIR$/SICON/administrador/repuesto.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/SICON/urls.py" afterPath="$PROJECT_DIR$/SICON/SICON/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/urls.py" afterPath="$PROJECT_DIR$/SICON/administrador/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/ventas/urls.py" afterPath="$PROJECT_DIR$/SICON/ventas/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/static/validator.js" afterPath="$PROJECT_DIR$/SICON/static/validator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/static/js/validatorVehiculos.js" afterPath="$PROJECT_DIR$/SICON/static/js/validatorVehiculos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/vehiculos.py" afterPath="$PROJECT_DIR$/SICON/administrador/vehiculos.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/ventas/venta.py" afterPath="$PROJECT_DIR$/SICON/ventas/venta.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/venta_vehiculos.html" afterPath="$PROJECT_DIR$/SICON/templates/venta_vehiculos.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/reparacion/views.py" afterPath="$PROJECT_DIR$/SICON/reparacion/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_reportes.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_reportes.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_repuesto.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_repuesto.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/ventas/views_venta_vehiculo.py" afterPath="$PROJECT_DIR$/SICON/ventas/views_venta_vehiculo.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SICON.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,7 +27,7 @@
       <file leaf-file-name="reportes.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SICON/templates/reportes.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375">
+            <state vertical-scroll-proportion="-46.875">
               <caret line="75" column="80" selection-start-line="75" selection-start-column="80" selection-end-line="75" selection-end-column="80" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -80,21 +37,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajaxReporteVehiculos.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ajaxReporteVehiculos.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SICON/static/js/ajaxReporteVehiculos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46022728">
+            <state vertical-scroll-proportion="0.0">
               <caret line="108" column="71" selection-start-line="108" selection-start-column="71" selection-end-line="108" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views_reportes.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views_reportes.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SICON/administrador/views_reportes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0555556">
-              <caret line="36" column="9" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.79268295">
+              <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
               <folding>
                 <element signature="e#22#46#0" expanded="true" />
               </folding>
@@ -105,11 +62,21 @@
       <file leaf-file-name="lista_vehiculos_nuevos.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.375">
+            <state vertical-scroll-proportion="-49.125">
               <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views_empleado.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SICON/administrador/views_empleado.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -182,9 +149,9 @@
         <option value="$PROJECT_DIR$/SICON/templates/lista_repuestos.html" />
         <option value="$PROJECT_DIR$/SICON/administrador/forms_repuesto.py" />
         <option value="$PROJECT_DIR$/SICON/administrador/urls.py" />
-        <option value="$PROJECT_DIR$/SICON/administrador/views_reportes.py" />
         <option value="$PROJECT_DIR$/SICON/static/js/ajaxReporteVehiculos.js" />
         <option value="$PROJECT_DIR$/SICON/templates/reportes.html" />
+        <option value="$PROJECT_DIR$/SICON/administrador/views_reportes.py" />
       </list>
     </option>
   </component>
@@ -291,6 +258,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SICON" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SICON" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SICON" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="administrador" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -700,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_empleado.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9017341">
-          <caret line="181" column="20" selection-start-line="181" selection-start-column="20" selection-end-line="181" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SICON/SICON/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="19.285715">
@@ -960,19 +938,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.375">
-          <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SICON/templates/reportes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375">
+        <state vertical-scroll-proportion="-46.875">
           <caret line="75" column="80" selection-start-line="75" selection-start-column="80" selection-end-line="75" selection-end-column="80" />
           <folding>
             <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -981,21 +949,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_reportes.py">
+    <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0555556">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="9" />
+        <state vertical-scroll-proportion="-49.125">
+          <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
           <folding>
-            <element signature="e#22#46#0" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_empleado.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SICON/static/js/ajaxReporteVehiculos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46022728">
+        <state vertical-scroll-proportion="0.0">
           <caret line="108" column="71" selection-start-line="108" selection-start-column="71" selection-end-line="108" selection-end-column="71" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_reportes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.79268295">
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding>
+            <element signature="e#22#46#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

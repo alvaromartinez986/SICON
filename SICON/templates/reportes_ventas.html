@@ -1,0 +1,277 @@
+{%extends "indexAdmin.html"%}
+{% load staticfiles %}
+{% block style %}
+{{block.super}}
+    <link href="{{STATIC_URL}}/static/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css">
+
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina-->
+
+{%block content %}
+ <!-- Page Heading -->
+
+    <br>
+    <br>
+  <div class="row">
+      <div class="col-lg-12">
+     <div class="panel panel-primary">
+         <!--<button id="button"></button>-->
+                            <div class="panel-heading">
+                                <i class="fa fa-bar-chart-o fa-fw"></i>Reporte de Ventas
+                                <div class="pull-right">
+                                    <div id="div_sucur" class="btn-group pull-left ">
+                                        <i> &nbsp;</i>
+                                        <button  id ="btn-sucur" type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">{{sucursal}} <span class="caret"></span></button>
+
+                                        <ul class="dropdown-menu pull-right" role="menu">
+                                            {%for sucursal in sucursales %}
+                                                <li><a id="{{sucursal.nombre}}" onclick='$("#btn-sucur").html("{{sucursal}} <span class=\"caret\"></span>")'>{{sucursal}}</a>
+                                            {%endfor%}
+                                        </ul>
+                                        <i class="fa fa-ellipsis-v"></i>
+                                        <i class="fa fa-ellipsis-v"> &nbsp;</i>
+
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button  id ="btn" type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                            Diario
+                                            <span class="caret"></span>
+                                        </button>
+                                        <i> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </i>
+
+                                        <ul class="dropdown-menu pull-left" role="menu">
+                                            <li><a id="diario" >Diario</a>
+                                            </li>
+                                            <li><a id = "semanal">Semanal</a>
+                                            </li>
+                                            <li><a id="mensual">Mensual</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div id="opciones" class="row">
+                                             <div class="col-lg-1">
+                                                 Fecha
+                                             </div>
+                                            <div id="div_fecha" class="input-group col-lg-5">
+                                                <input id = "fecha" type="text" class="date form-control" >
+                                                <div class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-th"></span>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            <div id="div_combos" class="input-group col-lg-10">
+                                                <div class="col-lg-8">
+                                                <div class = "col-lg-2">
+                                                 Marca
+                                                </div>
+                                                <div class = "col-lg-6">
+                                                <select id = "id_marcas" class="chosen-select">
+                                                    <option >Todas</option>
+                                                    {% for marca in marcas %}
+                                                        <option >{{marca.nombre}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                    </div>
+                                                    </div>
+
+                                                <br>
+                                                <br>
+
+                                                <div class="col-lg-8">
+                                                <div class = "col-lg-3">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;Linea
+                                                </div>
+                                                <div class = "col-lg-6">
+                                                <select id = "id_linea" class="chosen-select">
+                                                    <option >Todas</option>
+                                                </select>
+                                                    </div>
+                                                    </div>
+                                            </div>
+                                             <br>
+                                            <br>
+                                        </div>
+                                        <div id = "tabla" class="table-responsive">
+                                            <table class="table table-bordered table-hover table-striped highchart"
+                                            data-graph-container="#grafico"
+                                                data-graph-type="column">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nombre</th>
+                                                        <th>Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div id="grafico" style="width: 90%"> </div>
+
+                                    </div>
+
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+          </div>
+      </div>
+
+{% endblock %}
+
+{% block js %}
+    {{block.super}}
+<script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="{{STATIC_URL}}/static/js/highcharts.js" type="text/javascript"></script>
+<script src="{{STATIC_URL}}/static/js/jquery.highchartTable.js" type="text/javascript"></script>
+<script src="{{STATIC_URL}}/static/js/reporte_ventas.js" type="text/javascript"></script>
+<!--texto = $("#btn-sucur").text()-->
+<!--<script src="{{STATIC_URL}}/static/js/bootstrap-datepicker.js" type="text/javascript"></script>-->
+
+
+
+
+<!--script para calendario de semanas-->
+<script type="text/javascript">
+function weekpicker() {
+    var startDate;
+    var endDate;
+    var selectCurrentWeek = function() {
+        window.setTimeout(function () {
+            $('.week-picker').find('.ui-datepicker-current-day a').addClass('ui-state-active')
+        }, 1);
+    }
+    $('.week-picker').datepicker( {
+        showOtherMonths: true,
+        selectOtherMonths: true,
+        onSelect: function(dateText, inst) {
+            var date = $(this).datepicker('getDate');
+            startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay());
+            endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay() + 6);
+            var dateFormat = "yy-mm-dd"
+            $('#fecha').val ($.datepicker.formatDate( dateFormat, startDate, inst.settings ) + " / " + $.datepicker.formatDate( dateFormat, endDate, inst.settings ) )
+            $('#fecha').change()
+            selectCurrentWeek();
+        },
+        beforeShowDay: function(date) {
+            var cssClass = '';
+            if(date >= startDate && date <= endDate)
+                cssClass = 'ui-datepicker-current-day';
+            return [true, cssClass];
+        },
+        onChangeMonthYear: function(year, month, inst) {
+            selectCurrentWeek();
+        }
+    });
+    $('.week-picker .ui-datepicker-calendar tr').mousemove(function() { $(this).find('td a').addClass('ui-state-hover'); });
+    $('.week-picker .ui-datepicker-calendar tr').mouseleave(function() { $(this).find('td a').removeClass('ui-state-hover'); });
+};
+</script>
+
+<!--script para crear el grafico de barras dada la tabla-->
+<script>
+$(document).ready(function() {
+  $("#id_linea").val($( "#id_linea option:selected" ).text()).trigger("change");
+    actualizar()
+    ajax()
+});
+</script>
+
+<!--script para cargar los elementos necesario cuando se desea un informe dirario-->
+<script>
+$(document).ready(function(){
+    $("#diario").click(function(){
+        $("#btn").html('Diario <span class="caret"></span>')
+        $("#div_fecha").empty()
+        $("#div_fecha").html('<input id = "fecha" type="text" class="form-control date" > '+
+                                                '<div class="input-group-addon">'+
+                                                    '<span class="glyphicon glyphicon-th"></span>'+
+                                                '</div>');
+        actualizar()
+        ajax()
+    });
+});
+</script>
+
+<!--script para cargar los elementos necesario cuando se desea un informe semanal-->
+<script>
+$(document).ready(function(){
+    $("#semanal").click(function(){
+        $("#btn").html('Semanal <span class="caret"></span>')
+         $("#div_fecha").empty()
+         $("#div_fecha").removeClass('col-lg-5')
+         $("#div_fecha").addClass('col-lg-8')
+         $("#div_fecha").html( '<div class = "col-lg-10"><input id = "fecha" type="text" class="form-control"> </div>' +
+                 ' <div class="week-picker input-group-addon"></div>');
+        weekpicker()
+        ajax()
+    });
+});
+</script>
+
+<!--script para cargar los elementos necesario cuando se desea un informe mensual-->
+<script>
+$(document).ready(function(){
+    $("#mensual").click(function(){
+        $("#btn").html('Mensual <span class="caret"></span>')
+        $("#div_fecha").empty()
+        $("#div_fecha").html('<input id = "fecha" type="text" class="form-control date_month" > '+
+                                                '<div class="input-group-addon">'+
+                                                    '<span class="glyphicon glyphicon-th"></span>'+
+                                                '</div>');
+        actualizar()
+        ajax()
+    });
+});
+</script>
+
+<!--script para actualizar el datepicker -->
+
+ <script>
+     function actualizar () {
+         $(".date").datepicker({
+             keyboardNavigation: false,
+             changeMonth: true,
+             changeYear: true,
+             forceParse: false,
+             autoclose: true,
+             dateFormat: "yy-mm-dd",
+             minDate: new Date(2010, 1 - 1, 1),
+             maxDate: "0"
+         });
+         $(".date_month").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'yy-mm',
+        onClose: function(dateText, inst) {
+            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+         }
+         });
+     }
+</script>
+
+
+<script>
+            $(document).ready(function(){
+            $("#id_marcas").select2({width:'100%'});
+            $("#id_linea").select2({width:'100%'});
+            });
+
+</script>
+
+{% endblock %}

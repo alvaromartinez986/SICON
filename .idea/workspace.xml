@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f43c95fe-2f1d-45bd-955f-a401324dae7b" name="Default" comment="validacion con bootstrap.&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/SICON/administrador/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/urls.py" afterPath="$PROJECT_DIR$/SICON/administrador/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/administrador/views_reportes.py" afterPath="$PROJECT_DIR$/SICON/administrador/views_reportes.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/static/js/ajaxReporteVehiculos.js" afterPath="$PROJECT_DIR$/SICON/static/js/ajaxReporteVehiculos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/reportes.html" afterPath="$PROJECT_DIR$/SICON/templates/reportes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/static/js/reporte_ventas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/templates/reportes_ventas.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SICON/ventas/views_reportes_ventas.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" afterPath="$PROJECT_DIR$/SICON/templates/indexAdmin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/ventas/urls.py" afterPath="$PROJECT_DIR$/SICON/ventas/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SICON/ventas/views.py" afterPath="$PROJECT_DIR$/SICON/ventas/views.py" />
     </list>
     <ignored path="SICON.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,103 +29,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="vehiculos.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/administrador/vehiculos.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SICON/administrador/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.407408">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state vertical-scroll-proportion="-10.703704">
+              <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views_reportes.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SICON/administrador/views_reportes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5047847">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms_repuesto.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_repuesto.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SICON/ventas/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-8.814815">
-              <caret line="19" column="90" selection-start-line="19" selection-start-column="90" selection-end-line="19" selection-end-column="90" />
+              <caret line="16" column="83" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="83" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views_repuesto.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/administrador/views_repuesto.py">
+      <file leaf-file-name="indexAdmin.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SICON/templates/indexAdmin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.296296">
-              <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="crear_repuesto.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/templates/crear_repuesto.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617">
-              <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="80" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views_vehiculos.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/administrador/views_vehiculos.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.0370371">
-              <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/static/data.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="204" column="0" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="validatorVehiculos.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/static/js/validatorVehiculos.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lista_vehiculos_nuevos.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="235" column="13" selection-start-line="235" selection-start-column="13" selection-end-line="235" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="validator.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SICON/static/validator.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.71565115">
+              <caret line="143" column="75" selection-start-line="143" selection-start-column="75" selection-end-line="143" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -168,7 +96,6 @@
         <option value="$PROJECT_DIR$/SICON/ventas/views_venta_vehiculo.py" />
         <option value="$PROJECT_DIR$/SICON/templates/login.html" />
         <option value="$PROJECT_DIR$/SICON/templates/index.html" />
-        <option value="$PROJECT_DIR$/SICON/templates/indexAdmin.html" />
         <option value="$PROJECT_DIR$/SICON/SICON/settings.py" />
         <option value="$PROJECT_DIR$/SICON/administrador/vehiculos.py" />
         <option value="$PROJECT_DIR$/SICON/templates/crear_vehiculo_nuevo.html" />
@@ -190,6 +117,7 @@
         <option value="$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html" />
         <option value="$PROJECT_DIR$/SICON/administrador/views_vehiculos.py" />
         <option value="$PROJECT_DIR$/SICON/static/data.sql" />
+        <option value="$PROJECT_DIR$/SICON/templates/indexAdmin.html" />
       </list>
     </option>
   </component>
@@ -230,7 +158,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -277,12 +204,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="administrador" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -607,24 +535,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SICON/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="254" column="39" selection-start-line="254" selection-start-column="39" selection-end-line="254" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SICON/SICON/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/ventas/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -754,21 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/SICON/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.142857">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_vehiculos.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.642858">
@@ -892,6 +791,63 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="156" column="71" selection-start-line="156" selection-start-column="71" selection-end-line="156" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/vehiculos.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_reportes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.020334927">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_repuesto.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27578217">
+          <caret line="19" column="90" selection-start-line="19" selection-start-column="90" selection-end-line="19" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_repuesto.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.019698726">
+          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/templates/crear_repuesto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.020310633">
+          <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="80" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_vehiculos.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.787949">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SICON/static/data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40903825">
+          <caret line="204" column="0" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -904,76 +860,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/static/validator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SICON/templates/lista_vehiculos_nuevos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.04540024">
           <caret line="235" column="13" selection-start-line="235" selection-start-column="13" selection-end-line="235" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/static/data.sql">
+    <entry file="file://$PROJECT_DIR$/SICON/static/validator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="204" column="0" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6848204">
+          <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_vehiculos.py">
+    <entry file="file://$PROJECT_DIR$/SICON/SICON/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0370371">
-          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.5083732">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/templates/crear_repuesto.html">
+    <entry file="file://$PROJECT_DIR$/SICON/administrador/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
-          <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="80" selection-end-column="38" />
+        <state vertical-scroll-proportion="-10.703704">
+          <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_repuesto.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.296296">
-          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/forms_repuesto.py">
+    <entry file="file://$PROJECT_DIR$/SICON/ventas/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.814815">
-          <caret line="19" column="90" selection-start-line="19" selection-start-column="90" selection-end-line="19" selection-end-column="90" />
+          <caret line="16" column="83" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="83" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/vehiculos.py">
+    <entry file="file://$PROJECT_DIR$/SICON/templates/indexAdmin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.407408">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SICON/administrador/views_reportes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5047847">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.71565115">
+          <caret line="143" column="75" selection-start-line="143" selection-start-column="75" selection-end-line="143" selection-end-column="75" />
           <folding />
         </state>
       </provider>

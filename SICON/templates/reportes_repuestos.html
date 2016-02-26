@@ -78,42 +78,12 @@ en esta seccion se va a poner el contenido de la pagina-->
                                                 data-graph-type="column">
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
+                                                        <th>repuesto</th>
                                                         <th>Entradas</th>
                                                         <th>Salidas</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>3326</td>
-                                                        <td>5</td>
-                                                        <td>10</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3325</td>
-                                                        <td>100</td>
-                                                        <td>200</td>
 
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3324</td>
-                                                        <td>50</td>
-                                                        <td>80</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3323</td>
-                                                        <td>250</td>
-                                                        <td>400</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3322</td>
-                                                        <td>500</td>
-                                                        <td>1000</td>
-                                                    </tr>
-
-
-                                                </tbody>
                                             </table>
                                         </div>
                                         <div id="grafico" style="width: 90%"> </div>
@@ -192,31 +162,7 @@ $(document).ready(function() {
 });
 </script>
 
-<!--script para la creacion la tabla y el grafico de barras de la tabla -->
-<script>
-$(document).ready(function(){
-    $("#button").click(function(){
-        var table = $('<table data-graph-container="#grafico"data-graph-type="column"></table>').addClass('table table-bordered table-hover table-striped highchart');
-        table.append ('<thead> <tr> <th>#</th> <th>Entradas</th> <th>Salidas</th> </tr> </thead>')
-    for(index in obje_vehiculos){
-        vehiculo = obj_vehiculos[index]
-        var row = $('<tr></tr>')
-        var column = $('<td></td>').text(vehiculo.nombre)
-        var column = $('<td></td>').text(vehiculo.marca)
-        var column = $('<td></td>').text(vehiculo.trincas)
-        var column = $('<td></td>').text(vehiculo.trincas)
-        var column = $('<td></td>').text(vehiculo.trincas)
 
-        table.append(row);
-    }
-
-    $('#tabla').addClass('table-responsive');
-    $('#tabla').empty();
-    $('#tabla').append(table);
-    $('table.highchart').highchartTable();
-    });
-});
-</script>
 
 <!--script para cargar los elementos necesario cuando se desea un informe dirario-->
 <script>

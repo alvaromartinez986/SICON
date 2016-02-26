@@ -22,13 +22,13 @@ en esta seccion se va a poner el contenido de la pagina-->
                             <div class="panel-heading">
                                 <i class="fa fa-bar-chart-o fa-fw"></i>Reporte de Ventas
                                 <div class="pull-right">
-                                    <div class="btn-group pull-left ">
+                                    <div id="div_sucur" class="btn-group pull-left ">
                                         <i> &nbsp;</i>
-                                        <button  id ="btn-sucur" type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">{{sucursal.nombre}} <span class="caret"></span></button>
+                                        <button  id ="btn-sucur" type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">{{sucursal}} <span class="caret"></span></button>
 
                                         <ul class="dropdown-menu pull-right" role="menu">
                                             {%for sucursal in sucursales %}
-                                                <li><a id="{{sucursal.nombre}}" onclick='$("#btn-sucur").html("{{sucursal.nombre}} <span class=\"caret\"></span>")'>{{sucursal.nombre}}</a>
+                                                <li><a id="{{sucursal.nombre}}" onclick='$("#btn-sucur").html("{{sucursal}} <span class=\"caret\"></span>")'>{{sucursal}}</a>
                                             {%endfor%}
                                         </ul>
                                         <i class="fa fa-ellipsis-v"></i>
@@ -109,39 +109,11 @@ en esta seccion se va a poner el contenido de la pagina-->
                                                 data-graph-type="column">
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
-                                                        <th>Entradas</th>
-                                                        <th>Salidas</th>
+                                                        <th>Nombre</th>
+                                                        <th>Total</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>3326</td>
-                                                        <td>5</td>
-                                                        <td>10</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3325</td>
-                                                        <td>100</td>
-                                                        <td>200</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3324</td>
-                                                        <td>50</td>
-                                                        <td>80</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3323</td>
-                                                        <td>250</td>
-                                                        <td>400</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3322</td>
-                                                        <td>500</td>
-                                                        <td>1000</td>
-                                                    </tr>
 
 
                                                 </tbody>
@@ -213,31 +185,9 @@ function weekpicker() {
 <!--script para crear el grafico de barras dada la tabla-->
 <script>
 $(document).ready(function() {
-  $('table.highchart').highchartTable();
+  $("#id_linea").val($( "#id_linea option:selected" ).text()).trigger("change");
     actualizar()
     ajax()
-});
-</script>
-
-<!--script para la creacion la tabla y el grafico de barras de la tabla -->
-<script>
-$(document).ready(function(){
-    $("#button").click(function(){
-        var table = $('<table data-graph-container="#grafico"data-graph-type="column"></table>').addClass('table table-bordered table-hover table-striped highchart');
-        table.append ('<thead> <tr> <th>#</th> <th>Entradas</th> <th>Salidas</th> </tr> </thead>')
-    for(i=0; i<3; i++){
-        var row = $('<tr></tr>')
-        for  (j = 0;j<3;j++) {
-            var column = $('<td></td>').text(j)
-            row.append (column)
-        }
-        table.append(row);
-    }
-    $('#tabla').addClass('table-responsive');
-    $('#tabla').empty();
-    $('#tabla').append(table);
-    $('table.highchart').highchartTable();
-    });
 });
 </script>
 

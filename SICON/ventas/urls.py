@@ -16,5 +16,6 @@ urlpatterns = patterns('',
 
                        url(r'^reporte_ventas', reporte_ventas, name='reporte_ventas'),
                        url(r'^devuelve_lineas', devuelve_lineas, name='devuelve_lineas'),
+                       url(r'^modelos_vendidos', modelos_vendidos, name='modelos_vendidos'),
 
                        )

@@ -28,5 +28,5 @@ class DetalleRepuestoForm(ModelForm):
         widgets = {
             'orden': forms.Select(attrs={'class':'form-control required','placeholder':'Numero de la orden...'}),
             'repuesto': forms.Select(attrs={'class':'form-control required','placeholder':'Repuesto...'}),
-            'cantidad': forms.IntegerField(),
+            'cantidad': forms.NumberInput(attrs={'class':'form-control required'}),
         }

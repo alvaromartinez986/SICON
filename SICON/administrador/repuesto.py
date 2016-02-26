@@ -33,3 +33,6 @@ class Repuesto (models.Model):
 	activo = models.BooleanField(default=True)
 	sucursal = models.ForeignKey(Sucursal, null=True)
 
+	def __unicode__(self):
+		return self.nombre
+

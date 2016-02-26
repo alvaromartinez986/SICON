@@ -9,15 +9,19 @@ from SICON.administrador.models import  Empleado, Repuesto, VehiculoUsado, JefeT
 from django.contrib.auth.decorators import login_required,permission_required
 import json
 from django.core import serializers
+from django.utils import timezone
+import datetime
 
 
 @login_required(login_url='/login')
 def listar_ordenes(request):
-    ordenes = Orden.objects.all()
     id_sesion = request.session["id"]
     usuario = JefeTaller.objects.filter(id=id_sesion).first()
+    sucursal = usuario.sucursal
     permisos = list(usuario.get_all_permissions())
-    return render(request, 'lista_ordenes.html', {'ordenes': ordenes, 'permisos': permisos})
+    ordenes = Orden.objects.filter(sucursal = sucursal)
+    print(sucursal)
+    return render(request, 'lista_ordenes.html', {'ordenes': ordenes, 'permisos': permisos, 'edicion': False})
 
 
 @login_required(login_url='/login')
@@ -36,9 +40,11 @@ def crear_orden(request):
     if request.method == 'POST':
         orden = OrdenForm(request.POST)
     if orden.is_valid():
-        orden.save(commit=False)
-        orden.estado = False
+        ordenModelo = orden.save(commit=False)
+        ordenModelo.sucursal = sucursal
+        ordenModelo.finalizado = False
         exito = True
+        ordenModelo.save()
         orden = OrdenForm()
         print exito
     return render(request, 'crear_orden.html', {'form': orden, 'exito': exito, 'mecanicos': mecanicos, 'permisos': permisos, 'vehiculos': vehiculos})
@@ -111,42 +117,136 @@ def obtenerVehiculos(sucursal):
 
 
 @login_required(login_url='/login')
-def editar_orden(request, id_sucursal):
-
+def editar_orden(request, id_orden):
     ordenes = Orden.objects.all()
-    orden = Orden.objects.get(pk=id_sucursal)
+    id_sesion = request.session["id"]
+    orden = Orden.objects.get(pk=id_orden)
+    jefe = JefeTaller.objects.filter(id=id_sesion)
+    jefe_sucursal = jefe[0]
+    permisos = list(jefe_sucursal.get_all_permissions())
+    sucursal = jefe_sucursal.sucursal
+    ordenes = Orden.objects.filter(sucursal = sucursal)
+    vehiculos = obtenerVehiculos(sucursal)
     mecanicos = obtenerMecanicos(sucursal)
     form_edicion = OrdenForm(instance=orden, initial=orden.__dict__)
 
     if request.method == 'POST':
+        print (request.POST)
         form_edicion = OrdenForm(
             request.POST, instance=orden, initial=orden.__dict__)
+
+
         if form_edicion.has_changed():
             if form_edicion.is_valid():
                 form_edicion.save()
-                return HttpResponseRedirect("listar_ordenes")
+                print(form_edicion)
+                return HttpResponseRedirect("/reparacion/listar_ordenes")
         else:
-            return HttpResponseRedirect("listar_ordenes")
+            return HttpResponseRedirect("/reparacion/listar_ordenes")
     return render(request, 'lista_ordenes.html',
-                  {'ordenes': ordenes, 'edicion': True, 'form_edicion': form_edicion, 'mecanicos': mecanicos})
+                  {'ordenes': ordenes, 'edicion': True, 'form_edicion': form_edicion, 'mecanicos': mecanicos, 'vehiculos':vehiculos, 'permisos': permisos})
 
 @login_required(login_url='/login')
 def eliminar_orden(request, id):
     orden = Orden.objects.get(id=id)
     orden.delete()
-    return HttpResponseRedirect("listar_ordenes")
+    return HttpResponseRedirect("/reparacion/listar_ordenes")
+
+@login_required(login_url='/login')
+def finalizar_orden(request, id):
+
+    orden = Orden.objects.get(id=id)
+    print (orden.fecha_fin)
+    if orden.finalizado:
+        orden.finalizado = False
+        orden.fecha_fin = None
+    else:
+        orden.finalizado = True
+        orden.fecha_fin = timezone.now()
+    orden.save()
+    return HttpResponseRedirect("/reparacion/listar_ordenes")
 
 
-# def cargar_ciudades(request):
-#     if request.method == 'POST':
-#         departamento_id = request.POST['departamento']
-#         departamento_obj = Departamento.objects.get(id=departamento_id)
-#         ciudades = Ciudad.objects.filter(departamento=departamento_obj)
-#         lista_ciudades = []
-#     dir_ciudad = dict()
-#     for ciudad in ciudades:
-#         dir_ciudad["id"] = str(ciudad.id)
-#         dir_ciudad["nombre"] = ciudad.nombre
-#         lista_ciudades.append(dir_ciudad)
-#         dir_ciudad = {}
-#     return JsonResponse(lista_ciudades, None, False)
+@login_required(login_url='/login')
+def editar_detalle_repuesto(request, id_orden):
+
+    ordenes = Orden.objects.all()
+    ordenRep = Orden.objects.get(pk=id_orden)
+    detalles = DetalleRepuesto.objects.all()
+    id_sesion = request.session["id"]
+    jefe = JefeTaller.objects.filter(id=id_sesion)
+    jefe_sucursal = jefe[0]
+    permisos = list(jefe_sucursal.get_all_permissions())
+    sucursal = jefe_sucursal.sucursal
+    ordenes = Orden.objects.filter(sucursal = sucursal)
+    repuestos = Repuesto.objects.filter(sucursal = sucursal)
+    # form_detalle = DetalleRepuestoForm()
+    # form_detalles = []
+    # for detalle in detalles:
+    #
+    #     form_detalle = DetalleRepuestoForm(instance=detalle, initial=orden.__dict__)
+    #     form_detalles.append(form_detalle)
+    #
+    #
+    if request.method == 'POST':
+        tamano = (len(request.POST)-1)/2
+        for i in  range(tamano+1):
+            i=+1;
+            num = 200+i
+
+            detalleForm = DetalleRepuestoForm()
+            detalle = detalleForm.save(commit=False)
+            detalle.cantidad = request.POST['detalle'+str(num)+'cantidad']
+            detalle.orden = ordenRep
+
+
+            detalle.save();
+            detalle.repuesto.add(request.POST['detalle'+str(num)+'repuesto'])
+            detalle.save()
+    detalles = DetalleRepuesto.objects.filter(orden = id_orden)
+    return render(request, 'lista_ordenes.html',
+                  {'repuestos': repuestos, 'opcion_repuestos': True, 'permisos': permisos,
+                   'ordenes':ordenes, 'detalles': detalles, 'ordenRep':ordenRep})
+
+# def crear_detalle_repuesto(request, id_orden):
+#
+#
+#
+# #     print(request.POST)
+# #
+# #     ordenes = Orden.objects.all()
+# #     detalles = DetalleRepuesto.objects.all()
+# #     ordenRep = Orden.objects.get(pk=id_orden)
+# #
+# #     id_sesion = request.session["id"]
+# #     detalles = DetalleRepuesto.objects.filter(orden = id_orden)
+# #     jefe = JefeTaller.objects.filter(id=id_sesion)
+# #     jefe_sucursal = jefe[0]
+# #     permisos = list(jefe_sucursal.get_all_permissions())
+# #     sucursal = jefe_sucursal.sucursal
+# #     ordenes = Orden.objects.filter(sucursal = sucursal)
+# #     repuestos = Repuesto.objects.filter(sucursal = sucursal)
+# #     form_detalle = DetalleRepuestoForm()
+# #     form_detalles = []
+# #     for detalle in detalles:
+# #
+# #         form_detalle = DetalleRepuestoForm(instance=detalle, initial=orden.__dict__)
+# #         form_detalles.append(form_detalle)
+# #
+# #     form_detalle = DetalleRepuestoForm()
+# #     form_detalles.append(form_detalle)
+# #
+# #     if request.method == 'POST':
+# #         form_detalle= DetalleRepuestoForm(
+# #             request.POST)
+# #         print(form_detalle.errors)
+# #         if form_detalle.is_valid():
+# #             detalle = form_detalle.
+# #             form_detalle.save()
+# #             print(form_detalle)
+# #             return HttpResponseRedirect("/reparacion/listar_ordenes")
+# #
+# #
+# #     return render(request, 'lista_ordenes.html',
+# #                   {'repuestos': repuestos, 'opcion_repuestos': True, 'permisos': permisos,
+# #                    'ordenes':ordenes, 'form_detalles':form_detalles, 'detalles': detalles, 'ordenRep':ordenRep})

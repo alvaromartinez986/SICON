@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 import datetime
-from SICON.administrador.models import  Empleado, Repuesto, VehiculoUsado
+from SICON.administrador.models import  Empleado, Repuesto, VehiculoUsado, Sucursal
 from django.utils.encoding import smart_unicode
 
 
@@ -19,9 +19,9 @@ class Orden(models.Model):
     placa = models.ForeignKey(VehiculoUsado)
     observaciones = models.TextField(blank=True)
     fecha_inicio = models.DateField(default=timezone.now())
-    finalizado = models.BooleanField(default=False)
-    fecha_fin = models.DateField(blank=True)
-    estado = models.BooleanField(default=True)
+    finalizado = models.BooleanField()
+    fecha_fin = models.DateField(blank=True,null=True)
+    sucursal = models.ForeignKey(Sucursal)
 
 
 class DetalleRepuesto(models.Model):
@@ -37,4 +37,4 @@ class DetalleRepuesto(models.Model):
     orden = models.ForeignKey(Orden)
     repuesto = models.ManyToManyField(Repuesto)
     cantidad = models.IntegerField()
-    Estado = models.BooleanField(default=True)
+

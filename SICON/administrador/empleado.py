@@ -60,6 +60,5 @@ class Empleado(models.Model):
     #models.ForeignKey(Departamento)
     sucursal = models.ForeignKey(Sucursal, null=True, blank=True)
     jefe = models.ForeignKey('self', null=True, blank=True)
-
     def __str__(self):
         return self.nombre+" "+self.apellido

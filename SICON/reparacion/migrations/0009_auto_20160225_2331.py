@@ -9,13 +9,13 @@ from django.utils.timezone import utc
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('reparacion', '0003_auto_20160122_0429'),
+        ('reparacion', '0008_auto_20160225_2319'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='orden',
             name='fecha_inicio',
-            field=models.DateField(default=datetime.datetime(2016, 1, 22, 6, 5, 9, 122768, tzinfo=utc)),
+            field=models.DateField(default=datetime.datetime(2016, 2, 25, 23, 31, 8, 357398, tzinfo=utc)),
         ),
     ]

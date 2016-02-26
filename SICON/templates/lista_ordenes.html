@@ -42,9 +42,9 @@ en esta seccion se va a poner el contenido de la pagina
                                             <th>Fecha de Inicio</th>
                                             <th>Terminado</th>
                                             <th>Fecha de finalización</th>
-                                            <th>Estado</th>
-                                            <th>Activar/Desactivar</th>
+                                            <th>Borrar</th>
                                             <th>Editar</th>
+                                            <th>Repuestos</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -54,10 +54,9 @@ en esta seccion se va a poner el contenido de la pagina
                                         <th>Fecha de Inicio</th>
                                         <th>Terminado</th>
                                         <th>Fecha de finalización</th>
-                                        <th>Estado</th>
+                                        <th>Eliminar</th>
                                         <th></th>
                                         <th></th>
-
                                     </tr>
                                     </tfoot>
                                     <tbody>
@@ -66,16 +65,20 @@ en esta seccion se va a poner el contenido de la pagina
 											<td>{{orden.numero}}</td>
 											<td>{{orden.placa}}</td>
 											<td>{{orden.fecha_inicio}}</td>
-											<td>{{orden.terminado}}</td>
-                                            <td>{{orden.fecha_fin}}</td>
-                                        {%if orden.activo %}
-                                            <td><p><span class="badge badge-primary">Activo</span></p></td>
-                                            <td><a href="{% url 'ordenes_eliminar' orden.id %}"><button class="btn btn-xs btn-danger dim"><i class="fa fa-check-square-o"></i> Desactivar</button></a></td>
-                                        {%else%}
-                                            <td><p><span class="badge badge-danger">Inactivo</span></p></td>
-                                            <td><a href="{% url 'ordenes_eliminar' orden.id %}"><button class="btn btn-xs btn-success dim"><i class="fa fa-check-square"></i> Reactivar</button></a></td>
-                                        {%endif%}
-                                            <td><a href="{% url 'ordenes_editar' orden.id %}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+                                            {% if orden.finalizado%}
+											    <td><a href="{% url 'finalizar_orden' orden.id %}"><p><span class="badge badge-primary"><i class="fa fa-check"></i> Si</span></p></a></td>
+                                            {%else%}
+                                                <td><a href="{% url 'finalizar_orden' orden.id %}"><p><span class="badge badge-danger"><i class="fa fa-times"></i> No</span></p></a></td>
+                                            {%endif%}
+                                            {% ifequal orden.fecha_fin None %}
+											    <td><p><span class="badge badge-danger">No terminado</span></p></td>
+                                            {%else%}
+                                                <td>{{orden.fecha_fin}}</td>
+                                            {%endifequal%}
+                                            <td><button type="button" class="btn btn-danger btn-xs" id="borrar_orden{{orden.id}}" name="borrar_orden{{orden.id}}"><i class="fa fa-times"></i> Eliminar</button></td>
+
+                                            <td><a href="{% url 'editar_orden' orden.id %}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Editar</button></a></td>
+                                            <td><a href="{% url 'editar_detalle_repuesto' orden.id%}"><button class="btn btn-xs btn-info dim"><i class="fa fa-check-square-o"></i> Repuestos asignados</button></a></td>
 
                                         </tr>
                                         {%endfor%}
@@ -95,7 +98,7 @@ en esta seccion se va a poner el contenido de la pagina
 {% if edicion %}
 
 
-    <button type="button" id="botonModalEdicion" data-toggle="modal" data-target="#editarOrden"
+    <button type="button" id="botonModalEdicionOrden" data-toggle="modal" data-target="#editarOrden"
             style="display:none;"></button>
     <div class="modal inmodal" id="editarOrden" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
@@ -114,36 +117,66 @@ en esta seccion se va a poner el contenido de la pagina
                         <form action="" method="post" class="form-horizontal">
 
                         <!-- Numero-->
-                        <div class="form-group">
+                        <div class="form-group" >
                             {{form_edicion.numero.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.numero.label}}</label>
+                            <label class="col-lg-3 control-label">{{form_edicion.numero.label}}</label>
                             <div class="col-lg-6">
                                 {{form_edicion.numero}}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{form_edicion.mecanicos.errors}}
+                            <label class="col-lg-3 control-label">{{form_edicion.mecanicos.label}}</label>
+                            <div class="col-lg-6">
+                                {{form_edicion.mecanicos}}
+                            </div>
+                        </div>
+                            <!-- Observaciones -->
+                        <div class="form-group">
+                            {{form_edicion.finalizado.errors}}
+                            <label class="col-lg-3 control-label">{{form_edicion.finalizado.label}}</label>
+                            <div class="col-lg-6">
+                                    {{form_edicion.finalizado}}
                             </div>
                         </div>
                         <!-- Placa-->
                         <div class="form-group">
                             {{form_edicion.placa.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.placa.label}}</label>
+                            <label class="col-lg-3 control-label">{{form_edicion.placa.label}}</label>
                             <div class="col-lg-6 text-label">{{form_edicion.placa}}</div>
                         </div>
+
                         <!-- Fecha inicio -->
-                        <div class="form-group">
+                        <div class="form-group" id="fecha_inicio">
                             {{form_edicion.fecha_inicio.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.fecha_inicio.label}}</label>
-                            <div class="col-lg-6">{{form_edicion.fecha_inicio}}</div>
-                        </div>
-                        <!--Finalizacion-->
-                        <div class="form-group">
-                            {{form_edicion.finalizacion.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.finalizacion.label}}</label>
-                            <div class="col-lg-6">{{form_edicion.terminado}}</div>
+                            <label class="col-lg-3 control-label">{{form_edicion.fecha_inicio.label}}</label>
+                            <div class="col-lg-6">
+                                <div class=" input-group date ">
+                                            <span class="input-group-addon "><i class="fa fa-calendar"></i></span>
+                                    {{form_edicion.fecha_inicio}}
+                                </div>
+                            </div>
                         </div>
                         <!-- Fecha finalizacion -->
-                        <div class="form-group">
+                        <div class="form-group" id="fecha_fin">
                             {{form_edicion.fecha_fin.errors}}
-                            <label class="col-lg-2 control-label">{{form_edicion.fecha_fin.label}}</label>
-                            <div class="col-lg-6">{{form_edicion.fecha_fin}}</div>
+                            <label class="col-lg-3 control-label">{{form_edicion.fecha_fin.label}}</label>
+                            <div class="col-lg-6">
+                                <div class=" input-group date ">
+                                            <span class="input-group-addon "><i class="fa fa-calendar"></i></span>
+                                    {{form_edicion.fecha_fin}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Observaciones -->
+                        <div class="form-group">
+                            {{form_edicion.observaciones.errors}}
+                            <label class="col-lg-3 control-label">{{form_edicion.observaciones.label}}</label>
+                            <div class="col-lg-6">
+                                    {{form_edicion.observaciones}}
+                            </div>
                         </div>
 
                         <div class="modal-footer">
@@ -162,6 +195,84 @@ en esta seccion se va a poner el contenido de la pagina
 {%endif%}
 <!-- Fin código de edición -->
 
+{% if opcion_repuestos %}
+
+
+    <button type="button" id="botonModalRepuestos" data-toggle="modal" data-target="#editarRepuestos"
+            style="display:none;"></button>
+    <div class="modal inmodal" id="editarRepuestos" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <i class="fa fa-users modal-icon"></i>
+                    <h4 class="modal-title">Repuestos</h4>
+                    <small class="font-bold">Por favor asigne los repuestos requeridos y dé clic en guardar cambios cuando haya terminado, de lo contrario de clic en cancelar.</small>
+                </div>
+                <div class="modal-body">
+
+                    <form action="" method="post" class="form-horizontal"  id="form_repuesto">
+                        {% csrf_token %}
+
+                        <table class="table table-striped table-bordered table-hover" id="repuestos">
+                            <thead>
+                                            <tr>
+                                                <th>Repuesto</th>
+                                                <th>Cantidad</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th>Repuesto</th>
+                                            <th>Cantidad</th>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            {%for detalle in detalles %}
+                                            <tr>
+                                                <td>
+                                                    <select size="1" id="detalle{{detalle.id}}repuesto" name="detalle{{detalle.id}}repuesto">
+                                                        {%for repuesto in repuestos %}
+                                                            {%ifequal repuesto.id  detalle.repuesto%}
+                                                            <option value="{{repuesto.id}}" selected="selected">
+                                                                {{repuesto.nombre}}
+                                                            </option>
+                                                            {%else%}
+                                                            <option value="{{repuesto.id}}">
+                                                                {{repuesto.nombre}}
+                                                            </option>
+                                                            {%endifequal%}
+                                                        {%endfor%}
+                                                        </select>
+                                                </td>
+                                                <td>
+                                                    <input type="number" id="detalle{{detalle.id}}cantidad" name="detalle{{detalle.id}}cantidad" value="{{detalle.cantidad}}" min="1">
+                                                </td>
+                                            </tr>
+                                            {%endfor%}
+                                        </tbody>
+                        </table>
+                    <button type="button" class="btn btn-green" onclick="agregar_fila()">
+                        Agregar otro repuesto
+                    </button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white"
+                            href="/repuestos" data-dismiss="modal">Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary">Guardar cambios
+                    </button>
+                </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endif%}
+<!-- Fin código de edición -->
+
+
 {% endblock %}
 {%block js%}
     {{block.super}}
@@ -170,10 +281,61 @@ en esta seccion se va a poner el contenido de la pagina
  <!-- DataTables JavaScript -->
     <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}/static/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <link href="{{STATIC_URL}}/static/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
     <!-- validacion del formulario editar-->
     <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
+
+    {%if edicion %}
+
+        <script>
+
+        $(document).ready(function(){
+            $("#id_placa").select2({width:'100%'});
+            $("#id_mecanicos").select2({width:'100%'});
+            $('#botonModalEdicionOrden').click();
+            $('#fecha_inicio .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: false,
+                autoclose: true,
+                language: 'es',
+                format: 'yyyy-mm-dd',
+                endDate: '-5h'
+            });
+
+            $("#id_mecanicos").html('');
+        {%for mecanico in mecanicos %}
+            $("#id_mecanicos").append($('<option>', {
+            value: {{mecanico.emp_id}},
+            text: '{{ mecanico}}'}));
+            $("id_mecanicos").select({{mecanico.emp_id}});
+        {% endfor %}
+
+             $('#fecha_fin .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: false,
+                autoclose: true,
+                language: 'es',
+                format: 'yyyy-mm-dd',
+                endDate: '-5h'
+            });
+            $('#fecha_inicio .input-group.date').on('changeDate show', function(e) {
+            $('#form_orden').bootstrapValidator('revalidateField', 'fecha_inicio');
+            });
+        });
+
+
+
+
+        </script>
+    {%endif%}
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 
@@ -183,7 +345,7 @@ en esta seccion se va a poner el contenido de la pagina
           var i=0;
     $('#ordenes tfoot th').each( function () {
         i++;
-        if (i <=6){
+        if (i <=5){
         var title = $(this).text();
         $(this).html( '<input type="text" placeholder="'+title+'" style="width: 100%;" />' );}
     } );
@@ -204,8 +366,47 @@ en esta seccion se va a poner el contenido de la pagina
         } );
     } );
 } );
+      {%for orden in ordenes %}
+
+             $("#borrar_orden{{orden.id}}").click(function(){
+                 confirmacion = confirm("¿Esta seguro de eliminar esta orden?");
+                 if(confirmacion){
+                     window.location = '{% url 'eliminar_orden' orden.id %}';
+                 }
+             });
+      {%endfor%}
     </script>
 
+    {%if opcion_repuestos %}
+            <script>
+                var i = 0;
+
+                $('#botonModalRepuestos').click();
+
+                function agregar_fila(){
+                    i++;
+                    var fila = i+ 200;
+
+                    $('#repuestos').append(
+                            '<tr>'+
+                                               '<td>'+
+                                                    '<select size="1" id="detalle'+fila+'repuesto" name="detalle'+fila+'repuesto">'+
+                                                        {%for repuesto in repuestos %}
+                                                            '<option value="{{repuesto.id}}">'+
+                                                                '{{repuesto.nombre}}'+
+                                                            '</option>'+
+                                                        {%endfor%}
+                                                        '</select>'+
+                                               '</td>'+
+                                                '<td>'+
+                                                    '<input type="number" id="detalle'+fila+'cantidad" name="detalle'+fila+'cantidad" min="1">'+
+                                                '</td>'+
+                                            '</tr>'
+                    )
+                }
+
+            </script>
+    {% endif%}
 
 
 {% endblock %}

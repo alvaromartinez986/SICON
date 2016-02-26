@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models, migrations
+from django.db import migrations, models
 import django.contrib.auth.models
 from django.conf import settings
 
@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
                 ('experiencia', models.IntegerField()),
                 ('jornada', models.CharField(max_length=15, choices=[(b'Manana', b'Ma\xc3\xb1ana'), (b'Tarde', b'Tarde'), (b'Noche', b'Noche')])),
                 ('fecha_vinculacion', models.DateField(blank=True)),
-                ('cargo', models.CharField(max_length=150, choices=[(b'Vendedor', b'Vendedor'), (b'Jefe de taller', b'Jefe de taller'), (b'Gerente', b'Gerente'), (b'Mecanico', b'Mec\xc3\xa1nico')])),
+                ('cargo', models.CharField(blank=True, max_length=150, null=True, choices=[(b'Vendedor', b'Vendedor'), (b'Jefe de taller', b'Jefe de taller'), (b'Gerente', b'Gerente'), (b'Mecanico', b'Mec\xc3\xa1nico')])),
                 ('telefono', models.CharField(max_length=150)),
                 ('genero', models.CharField(max_length=15, choices=[(b'Masculino', b'Masculino'), (b'Femenino', b'Femenino')])),
                 ('fecha_nacimiento', models.DateField()),
@@ -107,7 +107,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('cilindraje', models.IntegerField()),
-                ('marca', models.CharField(max_length=50)),
                 ('linea', models.CharField(max_length=50)),
                 ('modelo', models.IntegerField()),
                 ('tipo_combustible', models.CharField(max_length=50, choices=[(b'Gasolina', b'Gasolina'), (b'Gas', b'Gas')])),
@@ -159,7 +158,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('vehiculo_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='administrador.Vehiculo')),
                 ('valor', models.IntegerField()),
-                ('codigo', models.CharField(default=1, max_length=10)),
+                ('codigo', models.CharField(max_length=10)),
                 ('vendido', models.BooleanField(default=False)),
             ],
             options={
@@ -195,6 +194,11 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='vehiculo',
+            name='marca',
+            field=models.ForeignKey(to='administrador.Marca', blank=True),
+        ),
+        migrations.AddField(
+            model_name='vehiculo',
             name='sucursal',
             field=models.ForeignKey(to='administrador.Sucursal', null=True),
         ),
@@ -211,7 +215,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='empleado',
             name='sucursal',
-            field=models.ForeignKey(to='administrador.Sucursal'),
+            field=models.ForeignKey(blank=True, to='administrador.Sucursal', null=True),
         ),
         migrations.AddField(
             model_name='ciudad',

@@ -92,8 +92,6 @@ def venta_vehiculos(request, id_cliente):
     return render(request,'venta_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente})
 
 
-
-
 def gestionar_cliente_venta (request, identificacion):
     cliente = Cliente.objects.filter(identificacion=identificacion).first()
     print(Cliente)

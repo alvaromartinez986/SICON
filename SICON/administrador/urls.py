@@ -33,6 +33,8 @@ urlpatterns = patterns('',
 
     url(r'^reporte_repuestos', reporte_repuestos, name='reporte_repuestos'),
     url(r'^repuestos_movimientos', mas_movimientos, name='data_repuestos'),
-    url(r'^reportes', ver_reportes, name='reportes')
+    url(r'^reportes', ver_reportes, name='reportes'),
+    url(r'^data_vehiculos', data_vehiculos, name='data_vehiculos')
+
 
 )

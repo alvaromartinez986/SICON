@@ -43,8 +43,7 @@ def editar_vehiculo_nuevo(request, id_v):
         v = VehiculoNuevo.objects.filter (codigo =request.POST['codigo'], sucursal = empleado.sucursal).first()
         post = True
         if form_edicion.has_changed():
-            if v is None or v.id==id_v:
-
+            if v is None or str(v.id)==str(id_v):
                 if form_edicion.is_valid():
                     exito=True
                     form_edicion.save()

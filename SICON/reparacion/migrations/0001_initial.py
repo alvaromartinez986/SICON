@@ -22,12 +22,24 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='Inventario',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('tipo_movimiento', models.CharField(max_length=40)),
+                ('cantidad', models.IntegerField()),
+                ('cantidad_anterior', models.IntegerField()),
+                ('cantidad_actual', models.IntegerField()),
+                ('fecha', models.DateTimeField(null=True, blank=True)),
+                ('repuesto', models.ForeignKey(to='administrador.Repuesto')),
+            ],
+        ),
+        migrations.CreateModel(
             name='Orden',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('numero', models.CharField(unique=True, max_length=100)),
                 ('observaciones', models.TextField(blank=True)),
-                ('fecha_inicio', models.DateField(default=datetime.datetime(2016, 2, 6, 17, 46, 12, 660736, tzinfo=utc))),
+                ('fecha_inicio', models.DateField(default=datetime.datetime(2016, 2, 25, 21, 5, 36, 480923, tzinfo=utc))),
                 ('finalizado', models.BooleanField(default=False)),
                 ('fecha_fin', models.DateField(blank=True)),
                 ('estado', models.BooleanField(default=True)),

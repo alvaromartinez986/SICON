@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('apellido', models.CharField(max_length=100)),
                 ('tipo_sangre', models.CharField(max_length=20, choices=[(b'O+', b'O+'), (b'O-', b'O-'), (b'A+', b'A+'), (b'A-', b'A-'), (b'B+', b'B+'), (b'B-', b'B-'), (b'AB+', b'AB+'), (b'AB-', b'AB-')])),
                 ('experiencia', models.IntegerField()),
-                ('jornada', models.CharField(default=b'Ma\xc3\xb1ana', max_length=15, choices=[(b'Manana', b'Ma\xc3\xb1ana'), (b'Tarde', b'Tarde'), (b'Noche', b'Noche')])),
+                ('jornada', models.CharField(default=b'Manana', max_length=15, choices=[(b'Manana', b'Ma\xc3\xb1ana'), (b'Tarde', b'Tarde'), (b'Noche', b'Noche')])),
                 ('fecha_vinculacion', models.DateField(blank=True)),
                 ('cargo', models.CharField(blank=True, max_length=150, null=True, choices=[(b'Vendedor', b'Vendedor'), (b'Jefe de taller', b'Jefe de taller'), (b'Gerente', b'Gerente'), (b'Mecanico', b'Mec\xc3\xa1nico')])),
                 ('telefono', models.CharField(max_length=150)),
@@ -63,15 +63,6 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Modelo',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('nombre', models.CharField(max_length=100)),
-                ('slug', models.CharField(max_length=100)),
-                ('marca', models.ForeignKey(to='administrador.Marca')),
-            ],
-        ),
-        migrations.CreateModel(
             name='Repuesto',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -79,10 +70,10 @@ class Migration(migrations.Migration):
                 ('nombre', models.CharField(max_length=40)),
                 ('marca', models.CharField(max_length=40)),
                 ('costo', models.IntegerField(null=True, blank=True)),
+                ('modelo_carro', models.CharField(max_length=50)),
                 ('cantidad', models.IntegerField()),
                 ('activo', models.BooleanField(default=True)),
                 ('marca_carro', models.ForeignKey(blank=True, to='administrador.Marca', null=True)),
-                ('modelo_carro', models.ForeignKey(blank=True, to='administrador.Modelo', null=True)),
             ],
             options={
                 'permissions': (('listar_Repuestos', 'Se permite editar, activar , desactivar'),),
@@ -107,7 +98,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('cilindraje', models.IntegerField()),
-                ('marca', models.CharField(max_length=50)),
                 ('linea', models.CharField(max_length=50)),
                 ('modelo', models.IntegerField()),
                 ('tipo_combustible', models.CharField(max_length=50, choices=[(b'Gasolina', b'Gasolina'), (b'Gas', b'Gas')])),
@@ -159,8 +149,9 @@ class Migration(migrations.Migration):
             fields=[
                 ('vehiculo_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='administrador.Vehiculo')),
                 ('valor', models.IntegerField()),
-                ('codigo', models.CharField(default=1, max_length=10)),
+                ('codigo', models.CharField(max_length=10)),
                 ('vendido', models.BooleanField(default=False)),
+                ('fecha_ingreso', models.DateField(null=True, blank=True)),
             ],
             options={
                 'permissions': (('listar_Vehiculo_Nuevo', 'Se permite editar, activar , desactivar'),),
@@ -192,6 +183,11 @@ class Migration(migrations.Migration):
             managers=[
                 ('objects', django.contrib.auth.models.UserManager()),
             ],
+        ),
+        migrations.AddField(
+            model_name='vehiculo',
+            name='marca',
+            field=models.ForeignKey(to='administrador.Marca', blank=True),
         ),
         migrations.AddField(
             model_name='vehiculo',

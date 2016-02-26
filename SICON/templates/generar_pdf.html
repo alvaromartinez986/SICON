@@ -1,0 +1,166 @@
+<!--
+herencia de blank.html que es la plantilla de la pagina
+-->
+{%extends "indexAdmin.html" %}
+{% load staticfiles %}
+{% block css %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> </link>
+<link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"> </link>
+{%endblock%}
+
+<!--
+en esta seccion se va a poner el contenido de la pagina
+-->
+
+{%block content%}
+
+<h1 class="page-header">Venta de vehículos</h1>
+
+
+
+<!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Generando pd ...</h3>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+<!--
+          acontinuacion se pone el codigo para la edicion
+-->
+
+{%endblock%}
+
+<!--
+en esta seccion iran enlaces a libresrias externas en este caso a datatables
+-->
+{%block js%}
+<!--
+para traer el bloque de codigo que esta en la pagina blank.html
+-->
+{{block.super}}
+
+
+    <!-- DataTables JavaScript -->
+    <script src="{{STATIC_URL}}/static/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="{{STATIC_URL}}/static/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <!--pdfmake-->
+    <script src='{{STATIC_URL}}/static/js/pdfmake.min.js'></script>
+ 	<script src='{{STATIC_URL}}/static/js/vfs_fonts.js'></script>
+    <!-- validacion del formulario editar-->
+    <script type="text/javascript" src="{{STATIC_URL}}/static/validator.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}/static/js/cotizacionVehiculos.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}/static/js/tabla_venta.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}/static/js/validar_venta.js"></script>
+
+{% if venta %}
+<script>
+    $(document).ready(function() {
+        var d = new Date();
+        var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+        var fecha = d.getDate() + " de " + meses [(d.getMonth())] + " del " + d.getFullYear();
+        var carros = "{{vehiculos}}"
+        obj_carros = JSON.parse(carros.replace(/&quot;/g,'"'));
+//      datos cliente
+        var identificacion = '{{cliente.identificacion}}';
+        var nombres = '{{cliente.nombres}}';
+        var apellidos = '{{cliente.apellidos}}';
+//      datos vendedor
+        var identificacion_vendedor = '{{vendedor.no_documento}}';
+        var nombres_vendedor = '{{vendedor.nombre}}';
+        var apellidos_vendedor = '{{vendedor.apellido}}';
+        var id = '{{id}}';
+
+        var ruta = "venta"+ identificacion+".pdf";
+        var firstRow = [{ text: 'Codigo', bold: true },{ text: 'Cilindraje', bold: true }, { text: 'Marca', bold: true }, { text: 'Linea', bold: true }, { text: 'Modelo', bold: true }, { text: 'Color', bold: true },{ text: 'Valor (COP)', bold: true }];
+        var tabla= [firstRow];
+        var valorTotal = 0.0;
+        for (carro in obj_carros){
+            vehiculo = obj_carros[carro]
+            var arrayRow = [vehiculo.codigo,vehiculo.cilindraje,vehiculo.marca,vehiculo.linea,vehiculo.modelo,vehiculo.color,vehiculo.valor]
+            tabla.push(arrayRow);
+            valorTotal += parseFloat(vehiculo.valor);
+            console.log(vehiculo.valor);
+        }
+        console.log(tabla);
+
+        var docDefinition = {
+  content: [
+    { text: 'VENTA SICON', style: 'header' },
+      {
+          columns: [
+              {
+                text: 'Id : ' + id,bold:true,fontSize : 18
+              },
+
+              {
+                text: 'Fecha : ' + fecha + '\n \n', bold:true,fontSize : 18
+              }
+          ]
+      },
+
+    {
+      columns: [
+         {
+
+             stack: [
+                 // second column consists of paragraphs
+                 { text: 'VENDEDOR', bold: true },
+                 'Identificacion : ' + identificacion_vendedor,
+                 'Nombres : ' + nombres_vendedor,
+                 'Apellidos : '+ apellidos_vendedor,
+             ],
+          fontSize: 15
+         },
+
+        {
+          stack: [
+            // second column consists of paragraphs
+            { text: 'CLIENTE', bold: true },
+            'Identificacion : ' + identificacion,
+            'Nombres : ' + nombres,
+            'Apellidos : ' + apellidos,
+          ],
+          fontSize: 15
+        }
+      ]
+    },
+
+      { text: '\n \n' },
+
+      {
+          table: {
+                widths: [ '10%', '15%', '15%', '15%', '15%','10%','20%'],
+                body:tabla
+              }
+      },
+
+      { text: '\n \n' },
+      {text:'El valor total de la Venta es: '+valorTotal+' COP', bold:true, fontSize : 15, alignment: 'right' }
+
+  ],
+            styles:
+            {
+                header:
+                {
+                    fontSize: 22,
+                    bold: true
+                }
+            }
+};
+        pdfMake.createPdf(docDefinition).download(ruta);
+        window.location = "{% url 'id_cliente_venta' %}"
+    });
+</script>
+{%endif%}
+
+
+{%endblock%}

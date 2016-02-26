@@ -20,6 +20,7 @@ def reporte_repuestos (request):
     return render(request, 'reportes_repuestos.html', {'sucursales':sucursales,'sucursal':sucursal})
 
 def data_repuestos (request):
+    print s
 
     nombre = str (request.GET['sucursal']).strip()
     sucursal = Sucursal.objects.filter(nombre=nombre).first()

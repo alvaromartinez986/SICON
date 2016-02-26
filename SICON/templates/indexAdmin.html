@@ -144,6 +144,17 @@
                                 <!--a href="{#% url 'listar_ordenes_repuestos' %#}" class="text-danger"><i class="fa fa-cogs fa-fw"></i> Ordenes de Trabajo</a-->
                             </li>
                         {% endif %}
+                        <li >
+                          <a href="#" class = "text-danger"><i class="fa fa-money fa-fw"></i> Ventas <span class="fa arrow text-danger"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a class="active text-danger" href="{% url 'id_cliente' %}">Cotizacion</a>
+                                </li>
+                                <li>
+                                    <a class="text-danger active" href="{% url 'id_cliente_venta' %}">Venta</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

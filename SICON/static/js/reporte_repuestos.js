@@ -30,7 +30,7 @@ function  ajax () {
                 console.log("mensual")
                 inicio = fecha + "-01"
                 split = fecha.split("-");
-                num_days = daysInMonth(fecha[1],fecha[0])
+                num_days = daysInMonth(split[1],split[0])
                 fin = fecha + "-"+ num_days;
             }
         }

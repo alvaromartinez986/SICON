@@ -95,7 +95,7 @@
                             <!-- /input-group -->
                         </li>
                             <!-- /input-group -->
-                        {% if user.is_authenticated%}
+                        {%  if user.is_authenticated%}
                             <li>
                                 <a href="{% url 'listar_sucursales' %}" class="text-danger"> <i class="fa fa-briefcase fa-fw"></i> Sucursales</a>
                             </li>
@@ -130,6 +130,22 @@
                             </li>
                         {% endif %}
 
+                        {% if user.is_authenticated%}
+                            <li>
+                                <a href=# data-toggle="collapse" data-target="#inv_vehiculo" class="text-danger"><i class="fa fa-bar-chart"></i> Reportes </a>
+                                <ul id="inv_vehiculo" class="collapse">
+                                        <li>
+                                        <a href="{% url 'reportes' %}" class="text-danger"> <i class="fa fa-th-list"></i> Inventario Vehiculos </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'reporte_repuestos' %}" class="text-danger"> <i class="fa fa-th-list"></i> Inventario Repuestos </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'reporte_repuestos' %}" class="text-danger"> <i class="fa fa-th-list"></i> Ventas Vehiculos </a>
+                                        </li>
+                                    </ul>
+                            </li>
+                        {% endif %}
 
 
 
@@ -144,6 +160,17 @@
                                 <!--a href="{#% url 'listar_ordenes_repuestos' %#}" class="text-danger"><i class="fa fa-cogs fa-fw"></i> Ordenes de Trabajo</a-->
                             </li>
                         {% endif %}
+                        <li >
+                          <a href="#" class = "text-danger"><i class="fa fa-money fa-fw"></i> Ventas <span class="fa arrow text-danger"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a class="active text-danger" href="{% url 'id_cliente' %}">Cotizacion</a>
+                                </li>
+                                <li>
+                                    <a class="text-danger active" href="{% url 'id_cliente_venta' %}">Venta</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

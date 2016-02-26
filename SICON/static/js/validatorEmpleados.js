@@ -71,17 +71,17 @@ $('#form_empleado').bootstrapValidator({
                 }
 
             },
-            jornada:
-            {
-                validators:
-                {
-                    notEmpty:
-                    {
-                        message: 'Debe seleccionar la jornada de trabajo'
-                    }
-
-                }
-            },
+            //jornada:
+            //{
+            //    validators:
+            //    {
+            //        notEmpty:
+            //        {
+            //            message: 'Debe seleccionar la jornada de trabajo'
+            //        }
+            //
+            //    }
+            //},
             fecha_vinculacion:
             {
                 validators:

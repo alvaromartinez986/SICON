@@ -8,10 +8,12 @@ from django.contrib.auth.hashers import make_password,is_password_usable
 from django.contrib.auth.decorators import login_required,permission_required
 from .models import Sucursal
 from django.http import JsonResponse
+from django.contrib.auth.decorators import user_passes_test
 
 __author__ = 'nelson'
 
-@login_required(login_url='/login')
+
+@user_passes_test(lambda u: u.has_perm('administrador.listar_Empleados'),login_url="/indexAdmin")
 def listar_empleado(request):
     id_sesion = request.session["id"]
     print "ID DEL USUARIO"
@@ -46,7 +48,8 @@ def listar_empleado(request):
         empleados = Empleado.objects.filter(cargo='Gerente')
     return render(request, 'lista_empleados.html', {'empleados': empleados})
 
-@login_required(login_url='/login')
+
+@user_passes_test(lambda u: u.has_perm('administrador.add_empleado'),login_url="/indexAdmin")
 def crear_empleado(request):
 
     id_sesion = request.session["id"]
@@ -162,7 +165,7 @@ def buscar_jefe(objSucursal, tipoCargo):
 
     return jefe
 
-@login_required(login_url='/login')
+@user_passes_test(lambda u: u.has_perm('administrador.change_empleado'),login_url="/indexAdmin")
 def editar_empleado(request, id_empleado):
     id_sesion = request.session["id"]
     print "ID DEL USUARIO"
@@ -266,7 +269,7 @@ def editar_empleado(request, id_empleado):
     return render(request, 'lista_empleados.html', {'empleados': empleados, 'edicion': True,
                                                     'form_edicion': form_edicion, 'nomusuario': nomusuario})
 
-@login_required(login_url='/login')
+@user_passes_test(lambda u: u.has_perm('administrador.delete_empleado'),login_url="/indexAdmin")
 def eliminar_empleado(request, id):
     empleado = Empleado.objects.get(pk=id)
     if empleado.estado_empleado:

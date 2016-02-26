@@ -3,7 +3,8 @@ from .forms import VehiculoNuevoForm, VehiculoUsadoForm
 from django.http import HttpResponseRedirect
 from .models import VehiculoNuevo,VehiculoUsado, Empleado, Gerente, JefeTaller
 import datetime
-
+from django.contrib.auth.decorators import user_passes_test
+@user_passes_test(lambda u: u.has_perm('administrador.add_vehiculonuevo'),login_url="/indexAdmin")
 def crear_vehiculo_nuevo(request):
     vehiculo_n = VehiculoNuevoForm()
     exito = False
@@ -23,12 +24,14 @@ def crear_vehiculo_nuevo(request):
         return HttpResponseRedirect('/vehiculos_nuevos/listarvn')
     return render(request, 'crear_vehiculo_nuevo.html', {'form':vehiculo_n,'exito':exito,'post' : post} )
 
+@user_passes_test(lambda u: u.has_perm('administrador.listar_Vehiculo_Nuevo'),login_url="/indexAdmin")
 def listar_vehiculos_nuevos(request):
     id = request.session["id"]
     empleado = Gerente.objects.filter (user_ptr_id = id).first()
     vehiculos_n = VehiculoNuevo.objects.filter(sucursal=empleado.sucursal)
     return render(request,'lista_vehiculos_nuevos.html',{'vehiculos_nuevos':vehiculos_n })
 
+@user_passes_test(lambda u: u.has_perm('administrador.change_vehiculonuevo'),login_url="/indexAdmin")
 def editar_vehiculo_nuevo(request, id_v):
     id = request.session["id"]
     id_empleado = Gerente.objects.filter (user_ptr_id = id).first().empleado_ptr_id
@@ -52,6 +55,7 @@ def editar_vehiculo_nuevo(request, id_v):
             return HttpResponseRedirect("/vehiculos_nuevos/listarvn")
     return render(request, 'lista_vehiculos_nuevos.html', {'vehiculos_nuevos': vehs_n, 'edicion': True, 'form_edicion': form_edicion, 'exito':exito,'post':post})
 
+@user_passes_test(lambda u: u.has_perm('administrador.delete_vehiculonuevo'),login_url="/indexAdmin")
 def eliminar_vehiculo_nuevo(request, id):
     veh_n = VehiculoNuevo.objects.get(id=id)
     if veh_n.activo:
@@ -61,7 +65,7 @@ def eliminar_vehiculo_nuevo(request, id):
     veh_n.save()
     return HttpResponseRedirect("/vehiculos_nuevos/listarvn")
 
-
+@user_passes_test(lambda u: u.has_perm('administrador.add_vehiculousado'),login_url="/indexAdmin")
 def crear_vehiculo_usado(request):
     vehiculo_u = VehiculoUsadoForm()
     exito = False
@@ -77,12 +81,14 @@ def crear_vehiculo_usado(request):
         return HttpResponseRedirect('/vehiculos_usados/listarvu')
     return render(request, 'crear_vehiculo_usado.html', {'form':vehiculo_u,'exito':exito} )
 
+@user_passes_test(lambda u: u.has_perm('administrador.listar_Vehiculo_Usado'),login_url="/indexAdmin")
 def listar_vehiculos_usados(request):
     id = request.session["id"]
     empleado = JefeTaller.objects.filter (user_ptr_id = id).first()
     vehiculos_u = VehiculoUsado.objects.filter(sucursal=empleado.sucursal)
     return render(request,'lista_vehiculos_usados.html',{'vehiculos_usados':vehiculos_u })
 
+@user_passes_test(lambda u: u.has_perm('administrador.change_vehiculousado'),login_url="/indexAdmin")
 def editar_vehiculo_usado(request, id_v):
     id = request.session["id"]
     empleado = JefeTaller.objects.filter (user_ptr_id = id).first()
@@ -98,6 +104,7 @@ def editar_vehiculo_usado(request, id_v):
         else: return HttpResponseRedirect("/vehiculos_usados/listarvu")
     return render(request, 'lista_vehiculos_usados.html', {'vehiculos_usados': vehs_u, 'edicion': True, 'form_edicion': form_edicion})
 
+@user_passes_test(lambda u: u.has_perm('administrador.delete_vehiculousado'),login_url="/indexAdmin")
 def eliminar_vehiculo_usado(request, id):
     veh_u = VehiculoUsado.objects.get(id=id)
     if veh_u.activo:

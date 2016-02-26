@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from .forms import RepuestoForm
 from django.http import HttpResponseRedirect,HttpResponse
-from .models import Repuesto,Marca,Empleado,Gerente
+from .models import Repuesto,Marca,Empleado,Gerente,JefeTaller
 from django import forms
 from SICON.reparacion.views_inventario import registro_inventario
+from django.contrib.auth.decorators import user_passes_test
 import json
 # Create your views here.
+@user_passes_test(lambda u: u.has_perm('administrador.add_repuesto'),login_url="/indexAdmin")
 def crear_repuesto(request):
     repuesto = RepuestoForm()
     exito = False
@@ -14,6 +16,8 @@ def crear_repuesto(request):
         repuesto = RepuestoForm(request.POST)
         id = request.session["id"]
         empleado = Gerente.objects.filter (user_ptr_id = id).first()
+        if empleado is None :
+            empleado = JefeTaller.objects.filter (user_ptr_id = id).first()
         r = Repuesto.objects.filter (codigo =request.POST['codigo'], sucursal = empleado.sucursal).first()
         if not r is None:
             post = True
@@ -26,16 +30,26 @@ def crear_repuesto(request):
         return HttpResponseRedirect('/repuestos/')
     return render(request, 'crear_repuesto.html', {'form':repuesto,'exito':exito,'post' : post} )
 
+
+
+
+@user_passes_test(lambda u: u.has_perm('administrador.listar_Repuestos'),login_url="/indexAdmin")
 def listar_repuestos(request):
     id = request.session["id"]
     print id
     empleado = Gerente.objects.filter (user_ptr_id = id).first()
+    if empleado is None :
+        empleado = JefeTaller.objects.filter (user_ptr_id = id).first()
     repuestos = Repuesto.objects.filter(sucursal = empleado.sucursal)
     return render(request,'lista_repuestos.html',{'repuestos':repuestos})
 
+
+@user_passes_test(lambda u: u.has_perm('administrador.change_repuesto'),login_url="/indexAdmin")
 def editar_repuesto(request, id):
     id_session = request.session["id"]
     empleado = Gerente.objects.filter (user_ptr_id = id_session).first()
+    if empleado is None :
+        empleado = JefeTaller.objects.filter (user_ptr_id = id_session).first()
     repuestos = Repuesto.objects.filter(sucursal = empleado.sucursal)
     repuesto = Repuesto.objects.get(pk = id)
     form_edicion = RepuestoForm(instance=repuesto, initial=repuesto.__dict__)
@@ -49,6 +63,7 @@ def editar_repuesto(request, id):
             return HttpResponseRedirect("/repuestos")
     return render(request, 'lista_repuestos.html', {'repuestos': repuestos,'repuesto':repuesto, 'edicion': True, 'form_edicion': form_edicion})
 
+@user_passes_test(lambda u: u.has_perm('reparacion.add_inventario'),login_url="/indexAdmin")
 def inventario (request,id):
     print ("inventario")
     repuestos= Repuesto.objects.all()
@@ -70,7 +85,7 @@ def inventario (request,id):
 #
 #         return HttpResponse(string_respuesta)
 
-
+@user_passes_test(lambda u: u.has_perm('administrador.delete_repuesto'),login_url="/indexAdmin")
 def eliminar_repuesto(request, id):
     repuesto= Repuesto.objects.get(id=id)
     if repuesto.activo:

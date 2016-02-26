@@ -3,12 +3,15 @@ from django.http import HttpResponseRedirect
 from SICON.administrador.models import VehiculoNuevo
 from models import Cliente
 from forms_cliente import ClienteForm
+from django.contrib.auth.decorators import user_passes_test
 
+@user_passes_test(lambda u: u.has_perm('ventas.add_venta'),login_url="/indexAdmin")
 def cotizar_vehiculos(request, id_cliente):
     vehiculos_n = VehiculoNuevo.objects.filter(activo = True, vendido = False)
     cliente = Cliente.objects.filter(id=id_cliente).first()
     return render(request,'cotizacion_vehiculos.html',{'vehiculos_nuevos':vehiculos_n , 'cliente': cliente})
 
+@user_passes_test(lambda u: u.has_perm('ventas.add_cliente'),login_url="/indexAdmin")
 def gestionar_cliente(request, identificacion):
     cliente = Cliente.objects.filter(identificacion=identificacion).first()
     print(Cliente)
@@ -31,6 +34,6 @@ def gestionar_cliente(request, identificacion):
     return render(request, 'info_cliente.html', {'sig': True, 'form': form})
 
 
-
+@user_passes_test(lambda u: u.has_perm('ventas.add_cliente'),login_url="/indexAdmin")
 def id_cliente(request):
     return render(request,'info_cliente.html')

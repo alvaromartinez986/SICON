@@ -6,15 +6,16 @@ from django.http import JsonResponse
 from .models import Sucursal, Ciudad, Departamento
 from django.contrib.auth.hashers import make_password,is_password_usable
 from django.contrib.auth.decorators import login_required,permission_required
+from django.contrib.auth.decorators import user_passes_test
 
 
 
-@login_required(login_url='/login')
+@user_passes_test(lambda u: u.has_perm('administrador.listar_Sucursales'),login_url="/indexAdmin")
 def listar_sucursales(request):
     sucursales = Sucursal.objects.all()
     return render(request, 'lista_sucursales.html', {'sucursales': sucursales})
 
-
+@user_passes_test(lambda u: u.has_perm('administrador.add_sucursal'),login_url="/indexAdmin")
 def crear_sucursal(request):
     sucursal = SucursalForm()
     exito = False
@@ -28,7 +29,7 @@ def crear_sucursal(request):
         print exito
     return render(request, 'crear_sucursal.html', {'form': sucursal, 'exito': exito})
 
-
+@user_passes_test(lambda u: u.has_perm('administrador.change_sucursal'),login_url="/indexAdmin")
 def editar_sucursal(request, id_sucursal):
     sucursales = Sucursal.objects.all()
     sucursal = Sucursal.objects.get(pk=id_sucursal)
@@ -47,7 +48,7 @@ def editar_sucursal(request, id_sucursal):
     return render(request, 'lista_sucursales.html',
                   {'sucursales': sucursales, 'edicion': True, 'form_edicion': form_edicion, 'departamento': departamento.id})
 
-
+@user_passes_test(lambda u: u.has_perm('administrador.delete_sucursal'),login_url="/indexAdmin")
 def eliminar_sucursal(request, id):
     sucursal = Sucursal.objects.get(id=id)
     if sucursal.activo:

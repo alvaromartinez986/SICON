@@ -11,7 +11,7 @@ from SICON.SICON import settings
 
 
 urlpatterns = patterns('',
-    url(r'^indexAdmin',index_admin),
+    url(r'^indexAdmin',index_admin,name='index'),
     url(r'^login',iniciar_sesion),
     url(r'^logout',cerrar_sesion),
 

@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('apellido', models.CharField(max_length=100)),
                 ('tipo_sangre', models.CharField(max_length=20, choices=[(b'O+', b'O+'), (b'O-', b'O-'), (b'A+', b'A+'), (b'A-', b'A-'), (b'B+', b'B+'), (b'B-', b'B-'), (b'AB+', b'AB+'), (b'AB-', b'AB-')])),
                 ('experiencia', models.IntegerField()),
-                ('jornada', models.CharField(max_length=15, choices=[(b'Manana', b'Ma\xc3\xb1ana'), (b'Tarde', b'Tarde'), (b'Noche', b'Noche')])),
+                ('jornada', models.CharField(default=b'Manana', max_length=15, choices=[(b'Manana', b'Ma\xc3\xb1ana'), (b'Tarde', b'Tarde'), (b'Noche', b'Noche')])),
                 ('fecha_vinculacion', models.DateField(blank=True)),
                 ('cargo', models.CharField(blank=True, max_length=150, null=True, choices=[(b'Vendedor', b'Vendedor'), (b'Jefe de taller', b'Jefe de taller'), (b'Gerente', b'Gerente'), (b'Mecanico', b'Mec\xc3\xa1nico')])),
                 ('telefono', models.CharField(max_length=150)),
@@ -112,7 +112,7 @@ class Migration(migrations.Migration):
                 ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
             ],
             options={
-                'permissions': (('listar_Gerente', 'Se permite editar, activar , desactivar'),),
+                'permissions': (('listar_Gerente', 'Se permite editar, activar , desactivar'), ('ver_reportes', 'permite ver los distintos reportes de la aplicacion')),
             },
             bases=('auth.user', 'administrador.empleado'),
             managers=[
@@ -151,7 +151,7 @@ class Migration(migrations.Migration):
                 ('valor', models.IntegerField()),
                 ('codigo', models.CharField(max_length=10)),
                 ('vendido', models.BooleanField(default=False)),
-                ('fecha_vendido', models.DateField(null=True)),
+                ('fecha_ingreso', models.DateField(null=True, blank=True)),
             ],
             options={
                 'permissions': (('listar_Vehiculo_Nuevo', 'Se permite editar, activar , desactivar'),),

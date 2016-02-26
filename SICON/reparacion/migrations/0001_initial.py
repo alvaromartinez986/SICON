@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('numero', models.CharField(unique=True, max_length=100)),
                 ('observaciones', models.TextField(blank=True)),
-                ('fecha_inicio', models.DateField(default=datetime.datetime(2016, 2, 25, 18, 12, 16, 445000, tzinfo=utc))),
+                ('fecha_inicio', models.DateField(default=datetime.datetime(2016, 2, 26, 2, 37, 38, 523717, tzinfo=utc))),
                 ('finalizado', models.BooleanField(default=False)),
                 ('fecha_fin', models.DateField(blank=True)),
                 ('estado', models.BooleanField(default=True)),

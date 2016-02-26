@@ -25,6 +25,7 @@ class Ciudad(models.Model):
     def __unicode__(self):
 		return self.nombre
 
+
 class Sucursal(models.Model):
 
     class Meta:

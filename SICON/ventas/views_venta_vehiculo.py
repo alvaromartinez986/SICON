@@ -35,6 +35,14 @@ def venta_final (request):
             lista_json.append(veh)
             veh = {}
 
+        lista_vehiculos = []
+        resultado = dict()
+        for result in resultados :
+            resultado ["marca"] = result.marca
+            lista_vehiculos.append(resultado)
+            resultado = {}
+
+
         return render(request,'venta_final.html',{'vehiculos':lista_vehiculos,'vehiculos_json':json.dumps(lista_json),'id_cliente': id, 'total':total})
 
 @transaction.atomic

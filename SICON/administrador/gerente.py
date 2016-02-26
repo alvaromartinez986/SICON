@@ -10,6 +10,7 @@ class Gerente(User, Empleado):
         permissions = (
             # Permission identifier     human-readable permission name
             ("listar_Gerente",       "Se permite editar, activar , desactivar" ),
+            ("ver_reportes",       "permite ver los distintos reportes de la aplicacion" ),
         )
 
     def __str__(self):

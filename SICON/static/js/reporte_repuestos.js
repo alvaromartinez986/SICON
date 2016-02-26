@@ -36,7 +36,7 @@ function  ajax () {
         }
         sucur = $("#btn-sucur").text().trim()
         $.get("repuestos_movimientos",
-            {sucursal: sucur,inicio: inicio,fin: fin}, //datos enviados
+                {sucursal: sucur,inicio: inicio,fin: fin}, //datos enviados
             function (data) {
                 console.log(data)
             });

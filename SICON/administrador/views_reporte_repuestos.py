@@ -21,7 +21,6 @@ def reporte_repuestos (request):
 
 def data_repuestos (request):
 
-
     nombre = str (request.GET['sucursal']).strip()
     sucursal = Sucursal.objects.filter(nombre=nombre).first()
     print sucursal
